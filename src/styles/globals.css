@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-white;
+    @apply font-semibold;
+  }
+  body {
+    @apply bg-slate-700
+  }
+  section {
+    margin: 4rem 16rem;
+  }
+  p {
+    white-space: pre-wrap;
+  }
+}
+
