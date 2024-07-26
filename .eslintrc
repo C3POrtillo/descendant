@@ -42,7 +42,7 @@
     "mdx/language-mapper": {}
   },
   "rules": {
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "curly": "error",
     "eqeqeq": ["error", "smart"],
     "no-lonely-if": "error",
