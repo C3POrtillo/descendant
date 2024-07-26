@@ -1,3 +1,7 @@
+import type { FilterOptionsData } from '@/components/inputs/types';
+
+import { stringCompare } from '@/utils/utils';
+
 export type BaseStat = {
   stat_id: string;
   stat_value: number;
@@ -70,6 +74,24 @@ export const weaponArray: WeaponType[] = Object.values(weaponRounds).flat();
 export type FilterTypes = RoundsType | TiersType | WeaponType;
 export const weaponFilterKeys = ['weapon_rounds_type', 'weapon_tier', 'weapon_type'] as const;
 export type FilterMap = Record<FilterTypes, boolean>;
+
+export const weaponOptions: FilterOptionsData[] = [
+  {
+    label: 'Tier',
+    name: 'weapon-tier',
+    data: [...tiersArray],
+  },
+  {
+    label: 'Rounds',
+    name: 'rounds-type',
+    data: roundsArray,
+  },
+  {
+    label: 'Type',
+    name: 'weapon-type',
+    data: weaponArray.sort(stringCompare),
+  },
+] as const;
 
 export type WeaponData = {
   base_stat: BaseStat[];

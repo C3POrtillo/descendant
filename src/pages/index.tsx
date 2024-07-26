@@ -7,7 +7,7 @@ import Header from '@/components/header/Header';
 
 const Index: FC = () => (
   <>
-    <Header/>
+    <Header />
     <Container>{':)'}</Container>
   </>
 );

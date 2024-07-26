@@ -8,10 +8,10 @@ import type { FC } from 'react';
 import Footer from '@/components/Footer/Footer';
 import Container from '@/components/container/Container';
 import Header from '@/components/header/Header';
-import MultiCheckbox from '@/components/inputs/MultiCheckbox';
+import FilterOptions from '@/components/inputs/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';
-import { roundsArray, tiersArray, weaponArray, weaponFilterKeys } from '@/components/weapon/types';
-import { defaultWeaponSort, stringCompare } from '@/utils/utils';
+import { roundsArray, tiersArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
+import { defaultWeaponSort } from '@/utils/utils';
 
 interface WeaponDPSProps {
   error: boolean;
@@ -41,16 +41,16 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
 
   useEffect(() => {
     const currentFilter = weapons.reduce((acc, weapon) => {
-      const validWeapon = weaponFilterKeys.every(key => filter[weapon[key]]) 
+      const validWeapon = weaponFilterKeys.every(key => filter[weapon[key]]);
       if (validWeapon) {
-        acc.push(weapon)
+        acc.push(weapon);
       }
 
-      return acc
-    },[] as WeaponData[])
-    
-    setFilteredWeapons(currentFilter)
-  }, [filter])
+      return acc;
+    }, [] as WeaponData[]);
+
+    setFilteredWeapons(currentFilter);
+  }, [filter]);
 
   if (isError) {
     return <Error statusCode={404} />;
@@ -60,36 +60,10 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
     <>
       <Header />
       <Container>
-        {/* eslint-disable-next-line tailwindcss/no-arbitrary-value*/}
-        <div className="flex max-w-[80%] flex-row gap-4">
-          <MultiCheckbox
-            label="Tier"
-            name="weapon-tier"
-            data={[...tiersArray]}
-            defaultChecked="all"
-            filter={filter}
-            setState={setFilter}
-          />
-          <MultiCheckbox
-            label="Rounds"
-            name="rounds-type"
-            data={[...roundsArray]}
-            defaultChecked="all"
-            filter={filter}
-            setState={setFilter}
-          />
-          <MultiCheckbox
-            label="Type"
-            name="weapon-type"
-            data={[...weaponArray.sort(stringCompare)]}
-            filter={filter}
-            defaultChecked="all"
-            setState={setFilter}
-          />
-        </div>
+        <FilterOptions filterOptions={weaponOptions} filter={filter} setState={setFilter} className="weapon-data"/>
       </Container>
       <Container>
-        <WeaponTable weaponData={filteredWeapons} className="flex w-4/5 text-2xl" />
+        <WeaponTable weaponData={filteredWeapons} className="weapon-data flex text-2xl" />
       </Container>
       <Footer />
     </>

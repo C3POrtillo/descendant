@@ -53,7 +53,7 @@ const WeaponRow: FC<RowProps> = ({ data }) => {
       })}
       {[dps, dpsCritical, dpsCriticalWeakpoint].map(value => (
         <td className={tdClasses} key={value}>
-          {Number(value.toFixed(0)).toLocaleString('en', {useGrouping: true})}
+          {Number(value.toFixed(0)).toLocaleString('en', { useGrouping: true })}
         </td>
       ))}
     </tr>

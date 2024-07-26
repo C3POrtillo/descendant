@@ -1,5 +1,4 @@
-
-import type { FilterMap} from '@/components/weapon/types';
+import type { FilterMap } from '@/components/weapon/types';
 import type { FC, InputHTMLAttributes } from 'react';
 
 import Checkbox from '@/components/inputs/Checkbox';
@@ -22,7 +21,14 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
       } place-content-center gap-4 text-lg`}
     >
       {data.map((value, index) => (
-        <Checkbox key={value} name={name} value={value} defaultChecked={setChecked(defaultChecked, value, index)} filter={filter} setState={setState}/> 
+        <Checkbox
+          key={value}
+          name={name}
+          value={value}
+          defaultChecked={setChecked(defaultChecked, value, index)}
+          filter={filter}
+          setState={setState}
+        />
       ))}
     </div>
   </fieldset>

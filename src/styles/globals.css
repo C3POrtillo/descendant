@@ -19,7 +19,7 @@
 }
 
 @layer components {
-  html { 
+  .weapon-data { 
     .bg-standard {
       @apply bg-tier-gradient from-blue-400 via-black to-blue-400;
     }
@@ -44,7 +44,7 @@
     .label-impact-rounds {
       @apply text-green-700;
     }
-    .label-special-rounds{
+    .label-special-rounds {
       @apply text-orange-400;
     }
   }

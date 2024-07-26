@@ -12,7 +12,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   setState?: React.Dispatch<React.SetStateAction<FilterMap>>;
 }
 
-const Checkbox: FC<CheckboxProps> = ({value, name, defaultChecked, filter, setState}) => (
+const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setState }) => (
   <div key={value} className="text-nowrap">
     <label htmlFor={value} className={`flex w-full flex-row gap-4 ${name ? getLabelClass(name, value) : ''}`}>
       <input
@@ -22,14 +22,14 @@ const Checkbox: FC<CheckboxProps> = ({value, name, defaultChecked, filter, setSt
         defaultChecked={defaultChecked}
         onChange={e => {
           if (filter && setState) {
-            filter[value as FilterTypes] = e.target.checked
-            setState({...filter})
+            filter[value as FilterTypes] = e.target.checked;
+            setState({ ...filter });
           }
         }}
       />
       {titleCase(value)}
     </label>
   </div>
-) 
+);
 
-export default Checkbox
+export default Checkbox;
