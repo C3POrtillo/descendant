@@ -4,17 +4,55 @@
 
 @layer base {
   html {
-    @apply text-white;
-    @apply font-semibold;
+    @apply text-white font-semibold;
   }
   body {
-    @apply bg-slate-700
+    @apply bg-slate-900;
   }
   section {
-    margin: 4rem 16rem;
-  }
-  p {
-    white-space: pre-wrap;
+    margin: 4rem 2rem;
   }
 }
 
+@layer components {
+  html { 
+    .bg-standard {
+      @apply bg-tier-gradient from-blue-400 via-black to-blue-400;
+    }
+    .bg-rare {
+      @apply bg-tier-gradient from-purple-500 via-black to-purple-500;
+    }
+    .bg-ultimate {
+      @apply bg-tier-gradient from-yellow-200 via-black to-yellow-200;
+    }
+    .label-rare {
+      @apply text-purple-500;
+    }
+    .label-ultimate {
+      @apply text-yellow-200;
+    }
+    .label-general-rounds {
+      @apply text-neutral-50;
+    }
+    .label-high-power-rounds {
+      @apply text-violet-600;
+    }
+    .label-impact-rounds {
+      @apply text-green-700;
+    }
+    .label-special-rounds{
+      @apply text-orange-400;
+    }
+  }
+  table {
+    @apply rounded-xl overflow-hidden; 
+
+  }
+  th {
+    padding: 1rem .5rem;
+  }
+  .weapon-image {
+    @apply border-b-2 border-b-black;
+    height: 128px;
+  }
+}
