@@ -14,6 +14,7 @@ interface WeaponCardProps {
 }
 
 const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type, weapon_rounds_type, image_url }) => (
+  // eslint-disable-next-line tailwindcss/no-arbitrary-value
   <div className="flex flex-col gap-2 rounded border-2 border-black bg-slate-800 pb-2 text-center text-lg">
     <div className={`weapon-image relative ${tierToBackgroundClass(weapon_tier)}`}>
       <Image
@@ -22,12 +23,10 @@ const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type
         alt="Picture of the author"
         sizes="400px"
         loading="lazy"
-        style={
-          {
-            // eslint-disable-next-line no-inline-styles/no-inline-styles
-            objectFit: 'contain',
-          }
-        }
+        style={{
+          // eslint-disable-next-line no-inline-styles/no-inline-styles
+          objectFit: 'contain',
+        }}
       />
     </div>
     <div>

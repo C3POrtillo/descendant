@@ -54,5 +54,6 @@
   .weapon-image {
     @apply border-b-2 border-b-black;
     height: 128px;
+    min-width: 330px;
   }
 }

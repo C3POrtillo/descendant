@@ -8,25 +8,24 @@ export const defaultChecked = (defaultValue: number | string | 'all', value: str
 
 export const getLabelClass = (name: string, value: string): string => {
   if (name === 'weapon-tier') {
-    return  tierToLabelClass(value as TiersType)
+    return tierToLabelClass(value as TiersType);
   }
   if (name === 'rounds-type') {
-    return roundsTypeToLabelClass(value as RoundsType)
+    return roundsTypeToLabelClass(value as RoundsType);
   }
   if (name === 'weapon-type') {
-    let rounds = undefined
+    let rounds = undefined;
 
-    for (const [key, weapons] of Object.entries(weaponRounds)){
-      const typeSafeArray: string[] = [...weapons]
+    for (const [key, weapons] of Object.entries(weaponRounds)) {
+      const typeSafeArray: string[] = [...weapons];
       if (typeSafeArray.includes(value)) {
-        rounds = key
+        rounds = key;
         break;
       }
     }
-    
-    return roundsTypeToLabelClass(rounds as RoundsType)
+
+    return roundsTypeToLabelClass(rounds as RoundsType);
   }
 
-  return ''
+  return '';
 };
-

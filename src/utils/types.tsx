@@ -53,20 +53,23 @@ export const weaponTableHeaders = [
 
 export const weaponRounds = {
   'General Rounds': ['Assault Rifle', 'Handgun', 'Machine Gun', 'Submachine Gun'],
-  'High-Power Rounds': ['Launcher', 'Shotgun', 'Sniper'],
+  'High-Power Rounds': ['Launcher', 'Shotgun', 'Sniper Rifle'],
   'Impact Rounds': ['Hand Cannon', 'Scout Rifle'],
   'Special Rounds': ['Beam Rifle', 'Tactical Rifle'],
 } as const;
 
 export type RoundsType = keyof typeof weaponRounds;
+export const roundsArray = Object.keys(weaponRounds) as RoundsType[];
 
-export const weaponTiers = ['Standard', 'Rare', 'Ultimate'] as const;
-
-export type TiersType = (typeof weaponTiers)[number];
+export const tiersArray = ['Standard', 'Rare', 'Ultimate'] as const;
+export type TiersType = (typeof tiersArray)[number];
 
 export type WeaponType = (typeof weaponRounds)[keyof typeof weaponRounds][number];
+export const weaponArray: WeaponType[] = Object.values(weaponRounds).flat();
 
-export const weaponList: WeaponType[] = Object.values(weaponRounds).flat();
+export type FilterTypes = RoundsType | TiersType | WeaponType;
+export const weaponFilterKeys = ['weapon_rounds_type', 'weapon_tier', 'weapon_type'] as const;
+export type FilterMap = Record<FilterTypes, boolean>;
 
 export type WeaponData = {
   base_stat: BaseStat[];

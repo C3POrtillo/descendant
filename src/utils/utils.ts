@@ -39,15 +39,26 @@ export const kebabCase = (str: string) =>
     .replace(capitalizedFirstLetter, ($, ofs) => (ofs ? '-' : '') + $.trim().toLowerCase())
     .replace(/--+/g, '-');
 
+export const stringCompare = (a: string, b: string) => {
+  if (a < b) {
+    return -1;
+  }
+
+  if (a > b) {
+    return 1;
+  }
+
+  return 0;
+};
+
 export const defaultWeaponSort = (a: WeaponData, b: WeaponData) => {
   const compare = ['weapon_rounds_type', 'weapon_type', 'weapon_name'] as const;
 
   for (const key of compare) {
-    if (a[key] < b[key]) {
-      return -1;
-    }
-    if (a[key] > b[key]) {
-      return 1;
+    const result = stringCompare(a[key], b[key]);
+
+    if (result !== 0) {
+      return result;
     }
   }
 

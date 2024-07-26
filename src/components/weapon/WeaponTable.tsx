@@ -17,7 +17,7 @@ const WeaponTable: FC<TableProps> = ({ weaponData, className, ...props }) => (
       <thead>
         <tr className="rounded-2xl bg-slate-700">
           {weaponTableHeaders.map(key => (
-            <th key={key} className="min-w-full whitespace-pre-line bg-slate-600 text-xl">
+            <th key={key} className="w-full min-w-32 whitespace-pre-line bg-slate-600 text-xl">
               {key}
             </th>
           ))}
