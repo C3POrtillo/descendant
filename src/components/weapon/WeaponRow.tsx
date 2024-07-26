@@ -37,7 +37,7 @@ const WeaponRow: FC<RowProps> = ({ data }) => {
   const tdClasses = 'text-center text-3xl';
 
   return (
-    <tr key={data.weapon_id} className="rounded-2xl bg-slate-700">
+    <tr>
       <td className="p-2">
         <WeaponCard {...data} />
       </td>

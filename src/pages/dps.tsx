@@ -65,7 +65,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
         </div>
       </Container>
       <Container>
-        <WeaponTable weaponData={filteredWeapons} className="weapon-data flex w-full text-2xl" />
+        <WeaponTable weaponData={filteredWeapons} className="weapon-data" />
       </Container>
       <Footer />
     </>

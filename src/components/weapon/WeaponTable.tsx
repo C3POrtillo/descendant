@@ -16,7 +16,7 @@ const WeaponTable: FC<WeaponTableProps> = ({ weaponData, ...props }) => (
   <Table
     label="Weapon DPS Chart"
     headers={weaponTableHeaders.map(key => (
-      <th key={key} className="min-w-32 whitespace-pre-line bg-slate-600 px-2 py-4 text-xl">
+      <th key={key} className={key === 'Weapon' ? 'text-4xl' : 'text-xl'}>
         {key}
       </th>
     ))}

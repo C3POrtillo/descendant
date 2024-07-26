@@ -19,6 +19,15 @@
 }
 
 @layer components {
+  .table-wrapper {
+    @apply flex flex-col w-full text-2xl;
+  }
+  thead th {
+    @apply min-w-32 whitespace-pre-line px-2 py-4 bg-slate-800;
+  }
+  tbody tr {
+    @apply odd:bg-slate-700 even:bg-slate-600;
+  }
   .fragment-data {
     .label-non-attribute {
       @apply text-gray-400;

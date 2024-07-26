@@ -7,11 +7,11 @@ export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
 }
 
 const Table: FC<TableProps> = ({ label, headers, body, className, ...props }) => (
-  <fieldset className={className}>
+  <fieldset className={`table-wrapper ${className}`}>
     <legend className="p-4 text-center text-5xl">{label}</legend>
-    <table className="w-full overflow-hidden rounded-xl bg-slate-700" {...props}>
+    <table className="w-full overflow-hidden rounded-xl" {...props}>
       <thead>
-        <tr className="rounded-2xl bg-slate-700">{headers}</tr>
+        <tr>{headers}</tr>
       </thead>
       <tbody>{body}</tbody>
     </table>
