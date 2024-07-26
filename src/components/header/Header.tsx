@@ -2,13 +2,9 @@ import React from 'react';
 
 import type { FC } from 'react';
 
-interface HeaderProps {
-  heading: string;
-}
-
-const Header: FC<HeaderProps> = ({ heading }) => (
+const Header: FC = () => (
   <div className="flex h-32 content-center justify-center bg-slate-800 text-center">
-    <h1 className="content-center text-5xl font-semibold text-blue-400">{heading}</h1>
+    <h1 className="content-center text-5xl font-semibold">Site In Progress</h1>
   </div>
 );
 

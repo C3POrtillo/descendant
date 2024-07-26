@@ -57,7 +57,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
 
   return (
     <>
-      <Header heading="" />
+      <Header />
       <Container>
         {/* eslint-disable-next-line tailwindcss/no-arbitrary-value*/}
         <div className="flex max-w-[80%] flex-row gap-4">

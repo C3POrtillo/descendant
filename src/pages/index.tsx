@@ -7,8 +7,8 @@ import Header from '@/components/header/Header';
 
 const Index: FC = () => (
   <>
-    <Header heading="Temp" />
-    <Container>Temp</Container>
+    <Header/>
+    <Container>{':)'}</Container>
   </>
 );
 
