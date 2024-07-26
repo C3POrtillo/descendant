@@ -259,22 +259,37 @@ export const voidFragmentData = {
   },
 } as const;
 
-type VoidFragmentData = typeof voidFragmentData;
+type ZonesTypes = keyof typeof voidFragmentData;
+export const zonesArray = Object.keys(voidFragmentData) as ZonesTypes[];
 
-export type ZoneTypes = keyof VoidFragmentData;
-export const zonesArray = Object.keys(voidFragmentData) as ZoneTypes[];
+type SubregionTypes = (typeof voidFragmentData)[ZonesTypes]['subregions'][number]['subregion'];
 
-export const fragmentsArray = ['Monomer', 'Polymer', 'Organic', 'Inorganic'] as const;
+export const shardsArray = ['Monomer', 'Polymer', 'Organic', 'Inorganic'] as const;
+type ShardsType = (typeof shardsArray)[number];
 
 export const attributesArray = ['Non-attribute', 'Chill', 'Fire', 'Electric', 'Toxic'] as const;
+type AttributesType = (typeof attributesArray)[number];
 
-export const voidFragmentTableHeaders = ['Zone', 'Subregion', 'Attribute', ...fragmentsArray] as const;
+export const subregionsArray = zonesArray.flatMap(key =>
+  voidFragmentData[key].subregions.map(({ subregion }) => subregion),
+);
+
+export const voidFragmentTableHeaders = ['Zone', 'Subregion', 'Attribute', ...shardsArray] as const;
+type FilterTypes = Lowercase<(typeof voidFragmentTableHeaders)[number]>;
+export type VoidFragmentData = Record<FilterTypes, string | number>;
+
+export type VoidFragmentFilterTypes = ShardsType | AttributesType | ZonesTypes | SubregionTypes;
+export const voidFragmentFilterKeys = voidFragmentTableHeaders.map(key =>
+  key.toLowerCase(),
+) as unknown as FilterTypes[];
+export type VoidFragmentFilterMap = Partial<Record<VoidFragmentFilterTypes, boolean | undefined>>;
 
 export const fragmentOptions: FilterOptionsData[] = [
   {
-    label: 'Fragment',
-    name: 'fragment',
-    data: [...fragmentsArray],
+    label: 'Shard',
+    name: 'shard',
+    data: [...shardsArray],
+    defaultChecked: false,
   },
   {
     label: 'Attribute',

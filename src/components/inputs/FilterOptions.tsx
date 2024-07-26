@@ -1,5 +1,4 @@
-import type { FilterOptionsData } from '@/components/inputs/types';
-import type { FilterMap } from '@/components/weapon/types';
+import type { FilterMap, FilterOptionsData } from '@/components/inputs/types';
 import type { FC } from 'react';
 
 import MultiCheckbox from '@/components/inputs/MultiCheckbox';
@@ -12,13 +11,13 @@ interface FilterOptionsProps {
 
 const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setState }) => (
   <>
-    {filterOptions.map(({ label, name, data }) => (
+    {filterOptions.map(({ label, name, data, defaultChecked }) => (
       <MultiCheckbox
         key={label}
         label={label}
         name={name}
         data={[...data]}
-        defaultChecked="all"
+        defaultChecked={defaultChecked || 'all'}
         filter={filter}
         setState={setState}
       />

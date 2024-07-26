@@ -30,7 +30,7 @@
   }
   .fragment-data {
     .label-non-attribute {
-      @apply text-gray-400;
+      @apply text-gray-200;
     }
     .label-chill {
       @apply text-sky-600;
@@ -44,10 +44,13 @@
     .label-toxic {
       @apply text-lime-600;
     }
+    .label-high-value {
+      @apply text-yellow-500;
+    }
   }
   .subregion-data {
     .label-kingston {
-      @apply text-gray-200;
+      @apply text-slate-100;
     }
     .label-sterile-land {
       @apply text-orange-300;

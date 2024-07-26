@@ -2,7 +2,7 @@ import axios from 'axios';
 import Error from 'next/error';
 import React, { useEffect, useState } from 'react';
 
-import type { FilterMap, FilterTypes, WeaponData } from '@/components/weapon/types';
+import type { WeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/weapon/types';
 import type { FC } from 'react';
 
 import Footer from '@/components/Footer/Footer';
@@ -20,7 +20,7 @@ interface WeaponDPSProps {
 
 const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
   const [filteredWeapons, setFilteredWeapons] = useState([] as WeaponData[]);
-  const [filter, setFilter] = useState({} as FilterMap);
+  const [filter, setFilter] = useState({} as WeaponFilterMap);
   const [isError] = useState(error || !weapons);
 
   useEffect(() => {
@@ -29,12 +29,12 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
     }
 
     setFilteredWeapons(weapons);
-    const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as FilterTypes[];
+    const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
     const filterMap = defaultFilter.reduce((acc, key) => {
       acc[key] = true;
 
       return acc;
-    }, {} as FilterMap);
+    }, {} as WeaponFilterMap);
 
     setFilter(filterMap);
   }, []);

@@ -1,4 +1,4 @@
-import type { FilterMap, FilterTypes } from '@/components/weapon/types';
+import type { FilterMap, FilterTypes } from '@/components/inputs/types';
 import type { FC, InputHTMLAttributes } from 'react';
 
 import { getLabelClass } from '@/components/inputs/utils';

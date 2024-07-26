@@ -1,8 +1,18 @@
+import type { DefaultCheckedType } from '@/components/inputs/types';
+
 import { weaponRounds } from '@/components/weapon/types';
 import { kebabCase } from '@/utils/utils';
 
-export const setChecked = (defaultValue: number | string | 'all', value: string, index: number): boolean =>
-  defaultValue === 'all' || defaultValue === index || defaultValue === value;
+export const setChecked = (defaultValue: DefaultCheckedType, value: string, index: number): boolean => {
+  switch (typeof defaultValue) {
+    case 'string':
+      return defaultValue === 'all' || defaultValue === value;
+    case 'number':
+      return defaultValue === index;
+    default:
+      return defaultValue;
+  }
+};
 
 export const createLabelClass = (tier: string): string => `label-${kebabCase(tier)}`;
 

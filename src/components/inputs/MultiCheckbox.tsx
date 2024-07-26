@@ -1,4 +1,4 @@
-import type { FilterMap } from '@/components/weapon/types';
+import type { DefaultCheckedType, FilterMap } from '@/components/inputs/types';
 import type { FC, InputHTMLAttributes } from 'react';
 
 import Checkbox from '@/components/inputs/Checkbox';
@@ -7,12 +7,12 @@ import { setChecked } from '@/components/inputs/utils';
 interface MultiCheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultChecked'> {
   label: string;
   data: string[];
-  defaultChecked?: number | string | 'all';
+  defaultChecked?: DefaultCheckedType;
   filter?: FilterMap;
   setState?: React.Dispatch<React.SetStateAction<FilterMap>>;
 }
 
-const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = 0, filter, setState }) => (
+const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setState }) => (
   <fieldset className="flex w-max grow rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-2xl">
     <legend className="px-4 text-center">{label}</legend>
     <div
