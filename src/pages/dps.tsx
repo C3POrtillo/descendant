@@ -66,7 +66,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
             label="Tier"
             name="weapon-tier"
             data={[...tiersArray]}
-            defaultSelect="all"
+            defaultChecked="all"
             filter={filter}
             setState={setFilter}
           />
@@ -74,7 +74,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
             label="Rounds"
             name="rounds-type"
             data={[...roundsArray]}
-            defaultSelect="all"
+            defaultChecked="all"
             filter={filter}
             setState={setFilter}
           />
@@ -83,7 +83,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
             name="weapon-type"
             data={[...weaponArray.sort(stringCompare)]}
             filter={filter}
-            defaultSelect="all"
+            defaultChecked="all"
             setState={setFilter}
           />
         </div>

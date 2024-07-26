@@ -3,7 +3,7 @@ import type { RoundsType, TiersType } from '@/components/weapon/types';
 import { weaponRounds } from '@/components/weapon/types';
 import { roundsTypeToLabelClass, tierToLabelClass } from '@/components/weapon/utils';
 
-export const defaultChecked = (defaultValue: number | string | 'all', value: string, index: number): boolean =>
+export const setChecked = (defaultValue: number | string | 'all', value: string, index: number): boolean =>
   defaultValue === 'all' || defaultValue === index || defaultValue === value;
 
 export const getLabelClass = (name: string, value: string): string => {
