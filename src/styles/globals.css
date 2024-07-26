@@ -7,7 +7,11 @@
     @apply text-white font-semibold;
   }
   body {
-    @apply bg-slate-900;
+    @apply flex flex-col bg-slate-900;
+    #__next {
+      position: absolute;
+      inset: 0;
+    }
   }
   section {
     margin: 4rem 2rem;

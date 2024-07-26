@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import type { FilterMap, FilterTypes, WeaponData } from '@/utils/types';
 import type { FC } from 'react';
 
+import Footer from '@/components/Footer/Footer';
 import Container from '@/components/container/Container';
 import Header from '@/components/header/Header';
 import MultiCheckbox from '@/components/inputs/MultiCheckbox';
@@ -90,6 +91,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
       <Container>
         <WeaponTable weaponData={filteredWeapons} className="flex w-4/5 text-2xl" />
       </Container>
+      <Footer />
     </>
   );
 };
