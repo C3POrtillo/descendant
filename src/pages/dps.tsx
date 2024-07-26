@@ -2,7 +2,7 @@ import axios from 'axios';
 import Error from 'next/error';
 import React, { useEffect, useState } from 'react';
 
-import type { FilterMap, FilterTypes, WeaponData } from '@/utils/types';
+import type { FilterMap, FilterTypes, WeaponData } from '@/components/weapon/types';
 import type { FC } from 'react';
 
 import Footer from '@/components/Footer/Footer';
@@ -10,7 +10,7 @@ import Container from '@/components/container/Container';
 import Header from '@/components/header/Header';
 import MultiCheckbox from '@/components/inputs/MultiCheckbox';
 import WeaponTable from '@/components/weapon/WeaponTable';
-import { roundsArray, tiersArray, weaponArray, weaponFilterKeys } from '@/utils/types';
+import { roundsArray, tiersArray, weaponArray, weaponFilterKeys } from '@/components/weapon/types';
 import { defaultWeaponSort, stringCompare } from '@/utils/utils';
 
 interface WeaponDPSProps {

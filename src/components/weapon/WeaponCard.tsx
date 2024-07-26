@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import type { RoundsType, TiersType, WeaponType } from '@/utils/types';
+import type { RoundsType, TiersType, WeaponType } from '@/components/weapon/types';
 import type { FC } from 'react';
 
 import { roundsTypeToLabelClass, tierToBackgroundClass, tierToLabelClass } from '@/components/weapon/utils';

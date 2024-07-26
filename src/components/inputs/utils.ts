@@ -1,7 +1,7 @@
-import type { RoundsType, TiersType } from '@/utils/types';
+import type { RoundsType, TiersType } from '@/components/weapon/types';
 
+import { weaponRounds } from '@/components/weapon/types';
 import { roundsTypeToLabelClass, tierToLabelClass } from '@/components/weapon/utils';
-import { weaponRounds } from '@/utils/types';
 
 export const defaultChecked = (defaultValue: number | string | 'all', value: string, index: number): boolean =>
   defaultValue === 'all' || defaultValue === index || defaultValue === value;

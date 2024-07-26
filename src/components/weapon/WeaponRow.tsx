@@ -1,11 +1,11 @@
 import React from 'react';
 
-import type { WeaponData } from '@/utils/types';
+import type { WeaponData } from '@/components/weapon/types';
 import type { FC } from 'react';
 
 import WeaponCard from '@/components/weapon/WeaponCard';
+import { statData } from '@/components/weapon/types';
 import { getDPS, getDPSCritical, getDPSCriticalWeakpoint } from '@/components/weapon/utils';
-import { statData } from '@/utils/types';
 
 interface RowProps {
   data: WeaponData;

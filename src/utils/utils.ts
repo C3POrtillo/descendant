@@ -1,4 +1,4 @@
-import type { WeaponData } from '@/utils/types';
+import type { WeaponData } from '@/components/weapon/types';
 
 const wordSeparators = /[-_\\.+\s]+/g;
 const notAlphaNumericOrSpace = /[^ a-zA-Z0-9]+/g;
