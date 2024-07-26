@@ -10,7 +10,7 @@ import Container from '@/components/container/Container';
 import Header from '@/components/header/Header';
 import FilterOptions from '@/components/inputs/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';
-import { roundsArray, tiersArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
+import { roundsArray, tiers, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
 import { defaultWeaponSort } from '@/utils/utils';
 
 interface WeaponDPSProps {
@@ -29,7 +29,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
     }
 
     setFilteredWeapons(weapons);
-    const defaultFilter = [...tiersArray, ...roundsArray, ...weaponArray] as FilterTypes[];
+    const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as FilterTypes[];
     const filterMap = defaultFilter.reduce((acc, key) => {
       acc[key] = true;
 
@@ -60,10 +60,12 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
     <>
       <Header />
       <Container>
-        <FilterOptions filterOptions={weaponOptions} filter={filter} setState={setFilter} className="weapon-data"/>
+        <div className="weapon-data flex flex-row justify-center gap-4">
+          <FilterOptions filterOptions={weaponOptions} filter={filter} setState={setFilter} />
+        </div>
       </Container>
       <Container>
-        <WeaponTable weaponData={filteredWeapons} className="weapon-data flex text-2xl" />
+        <WeaponTable weaponData={filteredWeapons} className="weapon-data flex w-full text-2xl" />
       </Container>
       <Footer />
     </>

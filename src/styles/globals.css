@@ -14,11 +14,54 @@
     }
   }
   section {
-    margin: 4rem 2rem;
+    margin: 4rem auto;
   }
 }
 
 @layer components {
+  .fragment-data {
+    .label-non-attribute {
+      @apply text-gray-400;
+    }
+    .label-chill {
+      @apply text-sky-600;
+    }
+    .label-fire {
+      @apply text-red-500;
+    }
+    .label-electric {
+      @apply text-cyan-300;
+    }
+    .label-toxic {
+      @apply text-lime-600;
+    }
+  }
+  .subregion-data {
+    .label-kingston {
+      @apply text-gray-200;
+    }
+    .label-sterile-land {
+      @apply text-orange-300;
+    }
+    .label-vespers {
+      @apply text-emerald-600;
+    }
+    .label-echo-swamp {
+      @apply text-lime-500;
+    }
+    .label-agna-desert {
+      @apply text-amber-600;
+    }
+    .label-white-gulch {
+      @apply text-lime-300;
+    }
+    .label-hagios {
+      @apply text-orange-200;
+    }
+    .label-fortress {
+      @apply text-slate-200;
+    }
+  }
   .weapon-data { 
     .bg-standard {
       @apply bg-tier-gradient from-blue-400 via-black to-blue-400;
@@ -48,15 +91,7 @@
       @apply text-orange-400;
     }
   }
-  table {
-    @apply rounded-xl overflow-hidden; 
-
-  }
-  th {
-    padding: 1rem .5rem;
-  }
   .weapon-image {
-    @apply border-b-2 border-b-black;
     height: 128px;
     min-width: 330px;
   }

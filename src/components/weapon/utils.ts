@@ -1,14 +1,10 @@
-import type { RoundsType, TiersType } from '@/components/weapon/types';
+import type { TiersType } from '@/components/weapon/types';
 
 import { kebabCase } from '@/utils/utils';
 
 type DPSProps = Record<string, number>;
 
-export const tierToLabelClass = (tier: TiersType): string => `label-${kebabCase(tier)}`;
-
-export const tierToBackgroundClass = (tier: TiersType): string => `bg-${kebabCase(tier)}`;
-
-export const roundsTypeToLabelClass = (roundsType: RoundsType): string => `label-${kebabCase(roundsType)}`;
+export const getBackgroundClass = (tier: TiersType): string => `bg-${kebabCase(tier)}`;
 
 export const getDPS = ({ firearmAtk, magazineCapacity, fireRate, reloadTime }: DPSProps) =>
   (firearmAtk * magazineCapacity) / (magazineCapacity / (fireRate / 60) + reloadTime);

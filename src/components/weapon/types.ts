@@ -65,8 +65,8 @@ export const weaponRounds = {
 export type RoundsType = keyof typeof weaponRounds;
 export const roundsArray = Object.keys(weaponRounds) as RoundsType[];
 
-export const tiersArray = ['Standard', 'Rare', 'Ultimate'] as const;
-export type TiersType = (typeof tiersArray)[number];
+export const tiers = ['Standard', 'Rare', 'Ultimate'] as const;
+export type TiersType = (typeof tiers)[number];
 
 export type WeaponType = (typeof weaponRounds)[keyof typeof weaponRounds][number];
 export const weaponArray: WeaponType[] = Object.values(weaponRounds).flat();
@@ -79,7 +79,7 @@ export const weaponOptions: FilterOptionsData[] = [
   {
     label: 'Tier',
     name: 'weapon-tier',
-    data: [...tiersArray],
+    data: [...tiers],
   },
   {
     label: 'Rounds',

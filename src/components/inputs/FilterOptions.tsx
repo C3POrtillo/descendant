@@ -1,20 +1,17 @@
-import type { FilterOptionsData } from '@/components/inputs/types'
+import type { FilterOptionsData } from '@/components/inputs/types';
 import type { FilterMap } from '@/components/weapon/types';
-import type { FC } from 'react'
+import type { FC } from 'react';
 
-import MultiCheckbox from '@/components/inputs/MultiCheckbox'
-
-
+import MultiCheckbox from '@/components/inputs/MultiCheckbox';
 
 interface FilterOptionsProps {
   filterOptions: FilterOptionsData[];
   filter?: FilterMap;
   setState?: React.Dispatch<React.SetStateAction<FilterMap>>;
-  className?: string;
 }
 
-const FilterOptions: FC<FilterOptionsProps> = ({filterOptions, filter, setState, className}) => (
-  <div className={`flex flex-row gap-4 ${className}`}>
+const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setState }) => (
+  <>
     {filterOptions.map(({ label, name, data }) => (
       <MultiCheckbox
         key={label}
@@ -26,6 +23,7 @@ const FilterOptions: FC<FilterOptionsProps> = ({filterOptions, filter, setState,
         setState={setState}
       />
     ))}
-  </div>)
+  </>
+);
 
-export default FilterOptions
+export default FilterOptions;
