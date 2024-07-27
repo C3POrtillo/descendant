@@ -11,7 +11,7 @@ import type { FC } from 'react';
 import Footer from '@/components/Footer/Footer';
 import Container from '@/components/container/Container';
 import Header from '@/components/header/TFDHeader';
-import FilterOptions from '@/components/inputs/FilterOptions';
+import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import VoidFragmentTable from '@/components/void-fragments/VoidFragmentTable';
 import {
   attributesArray,

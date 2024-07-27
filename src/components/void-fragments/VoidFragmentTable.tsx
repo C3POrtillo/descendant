@@ -4,6 +4,7 @@ import type { TableProps } from '@/components/table/Table';
 import type { VoidFragmentData } from '@/components/void-fragments/types';
 import type { FC } from 'react';
 
+import Button from '@/components/inputs/Button/TableSortButton';
 import Table from '@/components/table/Table';
 import VoidFragmentRow from '@/components/void-fragments/VoidFragmentRow';
 import { voidFragmentTableHeaders } from '@/components/void-fragments/types';
@@ -16,8 +17,8 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({ fragmentData, ...props 
   <Table
     label="Void Fragment Locations"
     headers={voidFragmentTableHeaders.map(key => (
-      <th key={key} className="text-4xl">
-        {key}
+      <th key={key} className="text-3xl">
+        <Button>{key}</Button>
       </th>
     ))}
     body={fragmentData.map(data => (

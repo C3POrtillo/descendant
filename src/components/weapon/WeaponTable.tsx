@@ -4,6 +4,7 @@ import type { TableProps } from '@/components/table/Table';
 import type { WeaponData } from '@/components/weapon/types';
 import type { FC } from 'react';
 
+import Button from '@/components/inputs/Button/TableSortButton';
 import Table from '@/components/table/Table';
 import WeaponRow from '@/components/weapon/WeaponRow';
 import { weaponTableHeaders } from '@/components/weapon/types';
@@ -15,9 +16,9 @@ interface WeaponTableProps extends TableProps {
 const WeaponTable: FC<WeaponTableProps> = ({ weaponData, ...props }) => (
   <Table
     label="Weapon DPS Chart"
-    headers={weaponTableHeaders.map((key) => (
-      <th key={key} className="text-2xl">
-        {key}
+    headers={weaponTableHeaders.map(key => (
+      <th key={key} className="text-xl">
+        <Button>{key}</Button>
       </th>
     ))}
     body={weaponData.map(row => (

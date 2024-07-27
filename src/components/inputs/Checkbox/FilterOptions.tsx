@@ -1,7 +1,7 @@
 import type { FilterMap, FilterOptionsData } from '@/components/inputs/types';
 import type { FC } from 'react';
 
-import MultiCheckbox from '@/components/inputs/MultiCheckbox';
+import MultiCheckbox from '@/components/inputs/Checkbox/MultiCheckbox';
 
 interface FilterOptionsProps {
   filterOptions: FilterOptionsData[];

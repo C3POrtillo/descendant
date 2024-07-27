@@ -1,7 +1,7 @@
 import type { DefaultCheckedType, FilterMap } from '@/components/inputs/types';
 import type { FC, InputHTMLAttributes } from 'react';
 
-import Checkbox from '@/components/inputs/Checkbox';
+import Checkbox from '@/components/inputs/Checkbox/Checkbox';
 import { setChecked } from '@/components/inputs/utils';
 
 interface MultiCheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultChecked'> {

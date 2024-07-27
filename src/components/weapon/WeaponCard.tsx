@@ -27,9 +27,7 @@ const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type
       />
     </div>
     <div>
-      <div className={createLabelClass(weapon_tier)}>
-        {weapon_name}
-      </div>
+      <div className={createLabelClass(weapon_tier)}>{weapon_name}</div>
       <div className={createLabelClass(weapon_rounds_type)}>{weapon_type}</div>
     </div>
   </div>

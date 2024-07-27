@@ -50,9 +50,9 @@ export const weaponTableHeaders = [
   'Weapon\n(Lvl. 100)',
   'Firearm\nATK',
   ...Object.values(statData).map(stat => stat.label),
-  'DPS\n(Base)',
-  'DPS\n(Crit)',
-  'DPS\n(Crit + Weakpoint)',
+  'Base DPS',
+  'Critical DPS',
+  'Critical DPS w/ Weakpoint',
 ] as const;
 
 export const weaponRounds = {

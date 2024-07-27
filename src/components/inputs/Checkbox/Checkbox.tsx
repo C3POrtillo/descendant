@@ -26,7 +26,6 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setS
             setState({ ...filter });
           }
         }}
-
       />
       {titleCase(value)}
     </label>

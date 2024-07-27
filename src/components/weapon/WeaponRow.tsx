@@ -41,7 +41,7 @@ const WeaponRow: FC<RowProps> = ({ data }) => {
       <td className="p-2">
         <WeaponCard {...data} />
       </td>
-      <td className={tdClasses}>{firearmAtk}</td>
+      <td className={tdClasses}>{Number(firearmAtk.toFixed(0)).toLocaleString('en', { useGrouping: true })}</td>
       {Object.keys(filteredStats).map(key => {
         const value = filteredStats[key];
 
@@ -52,7 +52,7 @@ const WeaponRow: FC<RowProps> = ({ data }) => {
         );
       })}
       {[dps, dpsCritical, dpsCriticalWeakpoint].map(value => (
-        <td className={tdClasses} key={value}>
+        <td className={[tdClasses, 'w-[270px]'].join(' ')} key={value}>
           {Number(value.toFixed(0)).toLocaleString('en', { useGrouping: true })}
         </td>
       ))}
