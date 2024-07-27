@@ -4,23 +4,45 @@
 
 @layer base {
   html {
-    @apply text-white font-semibold;
+    @apply text-white font-extrabold font-sans;
+    text-shadow: 
+    1px 1px 0 black,
+    -1px 1px 0 black,
+    -1px -1px 0 black,
+    1px -1px 0 black; 
   }
   body {
-   @apply bg-slate-900;
+   @apply bg-slate-600;
     #__next {
-      @apply flex flex-col justify-between;
-      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: max-content;
+      width: 100%;
+      min-height: max-content;
+      height: 100%;
+      position: fixed;
+      overflow-y: scroll;
       inset: 0;
     }
   }
   section {
     @apply flex w-4/5 content-center justify-center gap-4 place-self-center;
-    margin: 4rem auto;
   }
 }
 
 @layer components {
+  .sticky-header{
+    position: sticky;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+  }
+  .sticky-table {
+    position: sticky;
+    z-index: 9;
+    top: 150px;
+  }
   video {
     width: 800px;
     min-height: auto;
@@ -47,20 +69,20 @@
       @apply text-green-500 hover:text-green-300 focus:text-green-300 active:text-green-300;
     }
     .steam { 
-      @apply text-slate-700 hover:text-slate-500 focus:text-slate-500 active:text-slate-500;
+      @apply text-slate-600 hover:text-slate-400 focus:text-slate-400 active:text-slate-400;
     }
     .instagram { 
-      @apply text-fuchsia-700 hover:text-fuchsia-500 focus:text-fuchsia-500 active:text-fuchsia-500;
+      @apply text-fuchsia-600 hover:text-fuchsia-400 focus:text-fuchsia-400 active:text-fuchsia-400;
     }
   }
   .table-wrapper {
     @apply flex flex-col w-full text-2xl;
   }
   thead th {
-    @apply min-w-32 whitespace-pre-line px-2 py-4 bg-slate-800;
+    @apply min-w-32 whitespace-pre-line px-6 py-4 bg-slate-900;
   }
   tbody tr {
-    @apply odd:bg-slate-700 even:bg-slate-600;
+    @apply odd:bg-slate-700 even:bg-slate-800;
   }
   .fragment-data {
     .label-non-attribute {
@@ -118,6 +140,9 @@
     .bg-ultimate {
       @apply bg-tier-gradient from-yellow-200 via-black to-yellow-200;
     }
+    .label-standard {
+      @apply text-blue-400;
+    }
     .label-rare {
       @apply text-purple-500;
     }
@@ -128,10 +153,10 @@
       @apply text-neutral-50;
     }
     .label-high-power-rounds {
-      @apply text-violet-600;
+      @apply text-fuchsia-600;
     }
     .label-impact-rounds {
-      @apply text-green-700;
+      @apply text-green-600;
     }
     .label-special-rounds {
       @apply text-orange-400;

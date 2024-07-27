@@ -34,14 +34,14 @@ const WeaponRow: FC<RowProps> = ({ data }) => {
   const dpsCritical = getDPSCritical({ dps, criticalChance, criticalDamage });
   const dpsCriticalWeakpoint = getDPSCriticalWeakpoint({ dpsCritical, weakPointDamage });
 
-  const tdClasses = 'text-center text-3xl';
+  const tdClasses = 'text-center text-4xl';
 
   return (
     <tr>
       <td className="p-2">
         <WeaponCard {...data} />
       </td>
-      <td className="text-center">{firearmAtk}</td>
+      <td className={tdClasses}>{firearmAtk}</td>
       {Object.keys(filteredStats).map(key => {
         const value = filteredStats[key];
 

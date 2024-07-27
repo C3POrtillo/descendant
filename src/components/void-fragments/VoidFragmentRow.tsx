@@ -22,7 +22,7 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
       const numberClass = typeof value === 'number' && isHighValue(value);
 
       return value !== 0 ? (
-        <td key={key} className={['p-4 text-center text-2xl', labelClass, numberClass].join(' ')}>
+        <td key={key} className={['p-4 text-center text-3xl', labelClass, numberClass].join(' ')}>
           {value}
         </td>
       ) : (

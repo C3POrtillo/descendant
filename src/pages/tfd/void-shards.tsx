@@ -71,7 +71,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   return (
     <>
       <Header />
-      <Container className="w-7/12">
+      <Container className="my-8 w-7/12">
         <div className="fragment-data flex flex-row flex-wrap justify-center gap-4">
           <FilterOptions filterOptions={fragmentOptions} filter={filter} setState={setFilter} />
         </div>
@@ -79,7 +79,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
           <FilterOptions filterOptions={zoneOptions} filter={filter} setState={setFilter} />
         </div>
       </Container>
-      <Container>
+      <Container className="my-8">
         <VoidFragmentTable fragmentData={filteredRows} className="fragment-data subregion-data" />
       </Container>
       <Footer />

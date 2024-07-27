@@ -16,7 +16,7 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({ fragmentData, ...props 
   <Table
     label="Void Fragment Locations"
     headers={voidFragmentTableHeaders.map(key => (
-      <th key={key} className="text-3xl">
+      <th key={key} className="text-4xl">
         {key}
       </th>
     ))}

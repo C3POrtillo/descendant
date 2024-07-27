@@ -6,6 +6,10 @@ interface ContainerProps extends PropsWithChildren {
   className?: string;
 }
 
-const Container: FC<ContainerProps> = ({ children, ...props }) => <section {...props}>{children}</section>;
+const Container: FC<ContainerProps> = ({ children, className, ...props }) => (
+  <section className={['px-auto', className].join(' ')} {...props}>
+    {children}
+  </section>
+);
 
 export default Container;

@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}'
@@ -6,6 +7,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         'tier-gradient': 'linear-gradient(to top left, var(--tw-gradient-stops))',
+      },
+      fontFamily: {
+        sans: ['var(--font-inconsolata)'],
       }
     },
   },

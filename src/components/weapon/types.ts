@@ -47,7 +47,7 @@ export const statData = {
 } as const;
 
 export const weaponTableHeaders = [
-  'Weapon',
+  'Weapon\n(Lvl. 100)',
   'Firearm\nATK',
   ...Object.values(statData).map(stat => stat.label),
   'DPS\n(Base)',

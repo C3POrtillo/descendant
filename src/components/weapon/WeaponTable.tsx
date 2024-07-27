@@ -15,8 +15,8 @@ interface WeaponTableProps extends TableProps {
 const WeaponTable: FC<WeaponTableProps> = ({ weaponData, ...props }) => (
   <Table
     label="Weapon DPS Chart"
-    headers={weaponTableHeaders.map(key => (
-      <th key={key} className={key === 'Weapon' ? 'text-4xl' : 'text-xl'}>
+    headers={weaponTableHeaders.map((key) => (
+      <th key={key} className="text-2xl">
         {key}
       </th>
     ))}

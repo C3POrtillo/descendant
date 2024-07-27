@@ -14,7 +14,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setState }) => (
   <div key={value} className="text-nowrap">
-    <label htmlFor={value} className={`flex w-full flex-row gap-4 ${name ? getLabelClass(name, value) : ''}`}>
+    <label htmlFor={value} className={`flex w-full flex-row gap-4 text-2xl ${name ? getLabelClass(name, value) : ''}`}>
       <input
         type="checkbox"
         id={value}
@@ -26,6 +26,7 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setS
             setState({ ...filter });
           }
         }}
+
       />
       {titleCase(value)}
     </label>

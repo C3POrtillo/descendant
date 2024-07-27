@@ -13,7 +13,7 @@ interface MultiCheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 }
 
 const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setState }) => (
-  <fieldset className="flex w-max grow rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-2xl">
+  <fieldset className="flex w-max grow rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black">
     <legend className="px-4 text-center">{label}</legend>
     <div
       className={`grid ${
