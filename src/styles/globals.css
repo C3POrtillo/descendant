@@ -7,8 +7,9 @@
     @apply text-white font-semibold;
   }
   body {
-    @apply flex flex-col bg-slate-900;
+   @apply bg-slate-900;
     #__next {
+      @apply flex flex-col justify-between;
       position: absolute;
       inset: 0;
     }
@@ -20,8 +21,11 @@
 }
 
 @layer components {
+  video {
+    width: 800px;
+    min-height: auto;
+  }
   .header-links {
-    @apply h-8;
     .tfd-link {
       @apply hover:text-blue-400 hover:border-b-2 border-blue-400 border-solid;
     }

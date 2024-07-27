@@ -6,11 +6,15 @@ import type { FC } from 'react';
 
 const paths = [
   {
-    path: 'dps',
+    path: '/tfd',
+    label: 'The First Descendant Data',
+  },
+  {
+    path: '/dps',
     label: 'Weapon DPS Chart',
   },
   {
-    path: 'void-shards',
+    path: '/void-shards',
     label: 'Void Fragment Chart',
   },
 ];
@@ -20,11 +24,15 @@ const Header: FC = () => {
   const currentPath = router.pathname;
 
   return (
-    <header className="flex h-48 flex-col place-items-center justify-center gap-4 bg-slate-800 text-center">
-      <h1 className="content-center text-5xl font-semibold">The First Descendant Data</h1>
-      <div className="header-links flex flex-row gap-4 text-2xl">
-        {paths.map(({ path, label }) => {
-          const target = `/tfd/${path}`;
+    <header className="header-links flex flex-col place-items-center justify-center gap-4 bg-slate-800 p-16 text-center">
+      <div className="h-14">
+        <Link href={paths[0].path} className={`tfd-link ${currentPath === paths[0].path ? 'disabled-link' : ''}`}>
+          <h1 className="content-center text-5xl font-semibold">{paths[0].label}</h1>
+        </Link>
+      </div>
+      <div className="flex h-8 flex-row gap-4 text-2xl">
+        {paths.slice(1).map(({ path, label }) => {
+          const target = `/tfd${path}`;
 
           return (
             <Link key={path} href={target} className={`tfd-link ${currentPath === target ? 'disabled-link' : ''}`}>
