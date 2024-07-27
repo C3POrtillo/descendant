@@ -2,7 +2,6 @@ import type { FilterMap, FilterTypes } from '@/components/inputs/types';
 import type { FC, InputHTMLAttributes } from 'react';
 
 import { getLabelClass } from '@/components/inputs/utils';
-import { titleCase } from '@/utils/utils';
 
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
@@ -27,7 +26,7 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setS
           }
         }}
       />
-      {titleCase(value)}
+      {value}
     </label>
   </div>
 );

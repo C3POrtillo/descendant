@@ -25,13 +25,15 @@
       overflow-y: scroll;
       inset: 0;
     }
+    section {
+      @apply flex w-full max-w-[90%] content-center justify-center gap-4 place-self-center mx-auto my-8;
+    }  
   }
-  section {
-    @apply flex w-11/12 content-center justify-center gap-4 place-self-center;
-  }
+
 }
 
 @layer components {
+
   .sticky-header{
     position: sticky;
     width: 100%;
