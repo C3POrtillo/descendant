@@ -259,6 +259,8 @@ export const voidFragmentData = {
   },
 } as const;
 
+export const optimal = ['Vermillion Waste', 'The Mining SIte', 'The Mountaintops', 'Frozen Valley', 'Fallen Ark'];
+
 type ZonesTypes = keyof typeof voidFragmentData;
 export const zonesArray = Object.keys(voidFragmentData) as ZonesTypes[];
 
@@ -275,7 +277,7 @@ export const subregionsArray = zonesArray.flatMap(key =>
 );
 
 export const voidFragmentTableHeaders = ['Zone', 'Subregion', 'Attribute', ...shardsArray] as const;
-type FilterTypes = Lowercase<(typeof voidFragmentTableHeaders)[number]>;
+export type FilterTypes = Lowercase<(typeof voidFragmentTableHeaders)[number]>;
 export type VoidFragmentData = Record<FilterTypes, string | number>;
 
 export type VoidFragmentFilterTypes = ShardsType | AttributesType | ZonesTypes | SubregionTypes;
