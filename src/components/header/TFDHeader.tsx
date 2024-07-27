@@ -20,7 +20,7 @@ const Header: FC = () => {
   const currentPath = router.pathname;
 
   return (
-    <div className="flex h-48 flex-col place-items-center justify-center gap-4 bg-slate-800 text-center">
+    <header className="flex h-48 flex-col place-items-center justify-center gap-4 bg-slate-800 text-center">
       <h1 className="content-center text-5xl font-semibold">The First Descendant Data</h1>
       <div className="header-links flex flex-row gap-4 text-2xl">
         {paths.map(({ path, label }) => {
@@ -33,7 +33,7 @@ const Header: FC = () => {
           );
         })}
       </div>
-    </div>
+    </header>
   );
 };
 
