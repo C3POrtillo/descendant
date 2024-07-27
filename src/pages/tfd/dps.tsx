@@ -59,12 +59,12 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
   return (
     <>
       <Header />
-      <Container className="my-8">
+      <Container>
         <div className="weapon-data flex flex-row justify-center gap-4">
           <FilterOptions filterOptions={weaponOptions} filter={filter} setState={setFilter} />
         </div>
       </Container>
-      <Container className="my-8">
+      <Container>
         <WeaponTable weaponData={filteredWeapons} className="weapon-data" />
       </Container>
       <Footer />
@@ -82,6 +82,7 @@ export const getStaticProps = async () => {
   }
 
   const weapons = (await axios.get(process.env.WEAPON_JSON)).data;
+  console.log(weapons[0]);
 
   return {
     props: {

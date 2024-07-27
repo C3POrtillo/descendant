@@ -71,7 +71,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   return (
     <>
       <Header />
-      <Container className="my-8 w-7/12">
+      <Container className="w-7/12">
         <div className="fragment-data flex flex-row flex-wrap justify-center gap-4">
           <FilterOptions filterOptions={fragmentOptions} filter={filter} setState={setFilter} />
         </div>
@@ -79,7 +79,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
           <FilterOptions filterOptions={zoneOptions} filter={filter} setState={setFilter} />
         </div>
       </Container>
-      <Container className="my-8">
+      <Container>
         <VoidFragmentTable fragmentData={filteredRows} className="fragment-data subregion-data" />
       </Container>
       <Footer />
@@ -87,10 +87,15 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   );
 };
 
-export const getStaticProps = async () => ({
-  props: {
-    voidFragments: deserializeZoneData(),
-  },
-});
+export const getStaticProps = async () => {
+  const voidFragments = deserializeZoneData();
+  console.log(voidFragmentFilterKeys[0]);
+
+  return {
+    props: {
+      voidFragments,
+    },
+  };
+};
 
 export default VoidShards;
