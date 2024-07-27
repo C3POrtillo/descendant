@@ -14,7 +14,6 @@ import Header from '@/components/header/TFDHeader';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import VoidFragmentTable from '@/components/void-fragments/VoidFragmentTable';
 import {
-  attributesArray,
   fragmentOptions,
   subregionsArray,
   voidFragmentFilterKeys,
@@ -22,6 +21,7 @@ import {
   zonesArray,
 } from '@/components/void-fragments/types';
 import { deserializeZoneData } from '@/components/void-fragments/utils';
+import { attributesArray } from '@/utils/attributes/types';
 import { titleCase } from '@/utils/utils';
 
 interface VoidShardProps {

@@ -1,4 +1,7 @@
 import type { FilterOptionsData } from '@/components/inputs/types';
+import type { AttributesType } from '@/utils/attributes/types';
+
+import { attributesArray } from '@/utils/attributes/types';
 
 export const voidFragmentData = {
   Kingston: {
@@ -269,9 +272,6 @@ type SubregionTypes = (typeof voidFragmentData)[ZonesTypes]['subregions'][number
 export const shardsArray = ['Monomer', 'Polymer', 'Organic', 'Inorganic'] as const;
 type ShardsType = (typeof shardsArray)[number];
 
-export const attributesArray = ['Non-attribute', 'Chill', 'Fire', 'Electric', 'Toxic'] as const;
-type AttributesType = (typeof attributesArray)[number];
-
 export const subregionsArray = zonesArray.flatMap(key =>
   voidFragmentData[key].subregions.map(({ subregion }) => subregion),
 );
@@ -285,6 +285,12 @@ export const voidFragmentFilterKeys = voidFragmentTableHeaders.map(key =>
   key.toLowerCase(),
 ) as unknown as FilterTypes[];
 export type VoidFragmentFilterMap = Partial<Record<VoidFragmentFilterTypes, boolean | undefined>>;
+
+export const shardsImages = shardsArray.reduce((acc, shard ) => {
+  acc[shard] = `/assets/images/shard/${shard.toLowerCase()}.png`
+
+  return acc
+}, {} as Record<ShardsType, string>)
 
 export const fragmentOptions: FilterOptionsData[] = [
   {
