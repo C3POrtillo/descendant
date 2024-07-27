@@ -10,7 +10,7 @@ import type { FC } from 'react';
 
 import Footer from '@/components/Footer/Footer';
 import Container from '@/components/container/Container';
-import Header from '@/components/header/Header';
+import Header from '@/components/header/TFDHeader';
 import FilterOptions from '@/components/inputs/FilterOptions';
 import VoidFragmentTable from '@/components/void-fragments/VoidFragmentTable';
 import {
@@ -71,7 +71,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   return (
     <>
       <Header />
-      <Container>
+      <Container className="w-7/12">
         <div className="fragment-data flex flex-row flex-wrap justify-center gap-4">
           <FilterOptions filterOptions={fragmentOptions} filter={filter} setState={setFilter} />
         </div>

@@ -4,6 +4,7 @@ import type { FC } from 'react';
 
 import { getLabelClass } from '@/components/inputs/utils';
 import { voidFragmentTableHeaders } from '@/components/void-fragments/types';
+import { isHighValue } from '@/components/void-fragments/utils';
 
 interface RowProps {
   data: Record<string, string | number>;
@@ -18,7 +19,7 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
         lowerCaseKey === 'subregion' ? (data['zone'] as string) : lowerCaseKey,
         value.toString(),
       );
-      const numberClass = typeof value === 'number' && (value === 20 || value >= 6) && 'label-high-value';
+      const numberClass = typeof value === 'number' && isHighValue(value);
 
       return value !== 0 ? (
         <td key={key} className={['p-4 text-center text-2xl', labelClass, numberClass].join(' ')}>

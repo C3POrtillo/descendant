@@ -14,11 +14,41 @@
     }
   }
   section {
+    @apply flex w-4/5 content-center justify-center gap-4 place-self-center;
     margin: 4rem auto;
   }
 }
 
 @layer components {
+  .header-links {
+    @apply h-8;
+    .tfd-link {
+      @apply hover:text-blue-400 hover:border-b-2 border-blue-400 border-solid;
+    }
+    .disabled-link {
+      @apply pointer-events-none text-yellow-200 border-b-2 border-yellow-200 border-solid
+    }
+  }
+  .social {
+    i::before {
+      @apply text-5xl;
+    }
+    .twitter { 
+      @apply text-sky-500 hover:text-sky-300 focus:text-sky-300 active:text-sky-300;
+    }
+    .twitch { 
+      @apply text-violet-600 hover:text-violet-400 focus:text-violet-400  active:text-violet-400 ;
+    }
+    .spotify { 
+      @apply text-green-500 hover:text-green-300 focus:text-green-300 active:text-green-300;
+    }
+    .steam { 
+      @apply text-slate-700 hover:text-slate-500 focus:text-slate-500 active:text-slate-500;
+    }
+    .instagram { 
+      @apply text-fuchsia-700 hover:text-fuchsia-500 focus:text-fuchsia-500 active:text-fuchsia-500;
+    }
+  }
   .table-wrapper {
     @apply flex flex-col w-full text-2xl;
   }

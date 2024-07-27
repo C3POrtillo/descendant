@@ -7,7 +7,7 @@ import type { FC } from 'react';
 
 import Footer from '@/components/Footer/Footer';
 import Container from '@/components/container/Container';
-import Header from '@/components/header/Header';
+import Header from '@/components/header/TFDHeader';
 import FilterOptions from '@/components/inputs/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';
 import { roundsArray, tiers, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';

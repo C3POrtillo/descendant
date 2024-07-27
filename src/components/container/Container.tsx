@@ -2,8 +2,10 @@ import React from 'react';
 
 import type { FC, PropsWithChildren } from 'react';
 
-const Container: FC<PropsWithChildren> = ({ children }) => (
-  <section className="flex w-4/5 content-center justify-center gap-4 place-self-center">{children}</section>
-);
+interface ContainerProps extends PropsWithChildren {
+  className?: string;
+}
+
+const Container: FC<ContainerProps> = ({ children, ...props }) => <section {...props}>{children}</section>;
 
 export default Container;
