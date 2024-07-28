@@ -16,40 +16,19 @@ type FirearmAtk = {
 };
 
 export const statData = {
-  '105000023': {
-    label: 'Fire Rate',
-    format: (value: number) => value,
-  },
-  '105000021': {
-    label: 'Magazine\nSize',
-    format: (value: number) => value,
-  },
-  '105000095': {
-    label: 'Reload\nTime',
-    format: (value: number) => `${value.toFixed(2)}s`,
-  },
-  '105000030': {
-    label: 'Critical\nChance',
-    format: (value: number) => `${value}%`,
-  },
-  '105000031': {
-    label: 'Critical\nDamage',
-    format: (value: number) => `${value.toFixed(2)}x`,
-  },
-  '105000170': {
-    label: 'Status\nChance',
-    format: (value: number) => `${value.toFixed(2)}%`,
-  },
-  '105000035': {
-    label: 'Weak Point\nDmg',
-    format: (value: number) => `${value.toFixed(2)}x`,
-  },
+  '105000023': 'Fire Rate',
+  '105000021': 'Magazine\nSize',
+  '105000095': 'Reload\nTime',
+  '105000030': 'Critical\nChance',
+  '105000031': 'Critical\nDamage',
+  '105000170': 'Status\nChance',
+  '105000035': 'Weak Point\nDamage',
 } as const;
 
 export const weaponTableHeaders = [
   'Weapon\n(Lvl. 100)',
   'Firearm\nATK',
-  ...Object.values(statData).map(stat => stat.label),
+  ...Object.values(statData),
   'Base DPS',
   'Critical DPS',
   'Critical w/\nWeak Point DPS',
@@ -133,4 +112,24 @@ export type WeaponData = {
   weapon_rounds_type: RoundsType;
   weapon_tier: TiersType;
   weapon_type: WeaponType;
+};
+
+export type FormattedWeaponData = {
+  image_url: string;
+  weapon_id: string;
+  weapon_name: string;
+  weapon_rounds_type: RoundsType;
+  weapon_tier: TiersType;
+  weapon_type: WeaponType;
+  firearmAtk: number;
+  magazineSize: number;
+  fireRate: number;
+  criticalChance: number;
+  criticalDamage: number;
+  weakPointDamage: number;
+  reloadTime: number;
+  statusChance: number;
+  baseDps: number;
+  criticalDps: number;
+  criticalWWeakPointDps: number;
 };

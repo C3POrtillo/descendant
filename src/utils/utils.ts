@@ -1,14 +1,13 @@
 import type { DirectionValues } from '@/components/inputs/types';
 import type { WeaponData } from '@/components/weapon/types';
 
-
 const wordSeparators = /[-_\\.+\s]+/g;
 const notAlphaNumericOrSpace = /[^ a-zA-Z0-9]+/g;
 const notAlphaNumericSpaceOrDash = /[^ a-zA-Z0-9-]/g;
 const capitalizedFirstLetter = /[A-Z]+(?![a-z])|[A-Z]/g;
 
-const cleanStringArray = (str: string): string[] => {
-  const cleanedString = str
+const cleanStringArray = (string: string): string[] => {
+  const cleanedString = string
     .replace(wordSeparators, ' ')
     .replace(notAlphaNumericOrSpace, '')
     .replace(capitalizedFirstLetter, ($, ofs) => (ofs ? ' ' : '') + $.trim().toLowerCase())
@@ -17,24 +16,25 @@ const cleanStringArray = (str: string): string[] => {
   return cleanedString.split(' ');
 };
 
-const capitalizeFirstLetter = (str: string): string => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+const capitalizeFirstLetter = (string: string): string =>
+  string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 
-export const titleCase = (str: string): string => {
-  const capitalizedWords = cleanStringArray(str).map(word => capitalizeFirstLetter(word));
+export const titleCase = (string: string): string => {
+  const capitalizedWords = cleanStringArray(string).map(word => capitalizeFirstLetter(word));
 
   return capitalizedWords.join(' ');
 };
 
-export const camelCase = (str: string): string => {
-  const camelCasedWords = cleanStringArray(str).map((word, index) =>
+export const camelCase = (string: string): string => {
+  const camelCasedWords = cleanStringArray(string).map((word, index) =>
     index === 0 ? word.toLowerCase() : capitalizeFirstLetter(word),
   );
 
   return camelCasedWords.join('');
 };
 
-export const kebabCase = (str: string) =>
-  str
+export const kebabCase = (string: string) =>
+  string
     .trim()
     .replace(wordSeparators, '-')
     .replace(notAlphaNumericSpaceOrDash, '')
@@ -67,7 +67,7 @@ export const defaultWeaponSort = (a: WeaponData, b: WeaponData) => {
   return 0;
 };
 
-export const sortData = (a: string | number, b: string| number, sortDirection: DirectionValues) => {
+export const sortData = (a: string | number, b: string | number, sortDirection: DirectionValues) => {
   const isReversed = sortDirection === 2;
 
   if (typeof a === 'number' && typeof b === 'number') {
@@ -81,9 +81,14 @@ export const sortData = (a: string | number, b: string| number, sortDirection: D
     return isReversed ? b - a : a - b;
   }
   if (typeof a === 'string' && typeof b === 'string') {
-    return isReversed ? stringCompare(b, a) : stringCompare(a, b)
+    return isReversed ? stringCompare(b, a) : stringCompare(a, b);
   }
 
   return 0;
 };
 
+export const delimitNumber = (number: number) => Number(number.toFixed(0)).toLocaleString('en', { useGrouping: true });
+
+export const roundToHundreth = (number: number) => number.toFixed(2);
+
+export const addSuffixToValue = (value: string | number, string: string) => `${value}${string}`;

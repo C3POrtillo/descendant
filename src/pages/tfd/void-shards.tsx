@@ -22,7 +22,7 @@ import {
   zoneOptions,
   zonesArray,
 } from '@/components/void-fragments/types';
-import { deserializeZoneData } from '@/components/void-fragments/utils';
+import { reformatZoneData } from '@/components/void-fragments/utils';
 import { attributesArray } from '@/utils/attributes/types';
 import { sortData, titleCase } from '@/utils/utils';
 
@@ -52,9 +52,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
     const sortKey = sortColumn.toLowerCase() as FilterTypes;
     const sortedFragments =
       sortDirection !== 0
-        ? [...voidFragments].sort((a, b) => (
-          sortData(a[sortKey], b[sortKey], sortDirection)
-        ))
+        ? [...voidFragments].sort((a, b) => sortData(a[sortKey], b[sortKey], sortDirection))
         : voidFragments;
 
     const currentFilter = sortedFragments.reduce((acc, fragment) => {
@@ -107,7 +105,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
 };
 
 export const getStaticProps = async () => {
-  const voidFragments = deserializeZoneData();
+  const voidFragments = reformatZoneData();
 
   return {
     props: {

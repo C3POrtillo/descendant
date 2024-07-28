@@ -47,7 +47,7 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
           </div>
         </td>
       ) : (
-        <td key={key}/>
+        <td key={key} />
       );
     })}
   </tr>
