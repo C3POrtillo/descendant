@@ -43,8 +43,8 @@ const WeaponRow: FC<RowProps> = ({
       <td className="p-2">
         <WeaponCard {...data} />
       </td>
-      {formattedStats.map(value => (
-        <td className={tdClasses} key={value}>
+      {formattedStats.map((value, index) => (
+        <td className={tdClasses} key={[data.weapon_id, index].join()}>
           {value}
         </td>
       ))}

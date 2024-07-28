@@ -2,7 +2,8 @@ import axios from 'axios';
 import Error from 'next/error';
 import React, { useEffect, useState } from 'react';
 
-import type { WeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/weapon/types';
+import type { DirectionValues } from '@/components/inputs/types';
+import type { FormattedWeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/weapon/types';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
@@ -11,16 +12,19 @@ import Header from '@/components/header/TFDHeader';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';
 import { roundsArray, tiers, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
-import { defaultWeaponSort } from '@/utils/utils';
+import { reformatWeaponData } from '@/components/weapon/utils';
+import { camelCase, defaultWeaponSort, sortData } from '@/utils/utils';
 
 interface WeaponDPSProps {
   error: boolean;
-  weapons: WeaponData[];
+  weapons: FormattedWeaponData[];
 }
 
 const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
-  const [filteredWeapons, setFilteredWeapons] = useState([] as WeaponData[]);
+  const [filteredWeapons, setFilteredWeapons] = useState([] as FormattedWeaponData[]);
   const [filter, setFilter] = useState({} as WeaponFilterMap);
+  const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
+  const [sortColumn, setSortColumn] = useState('');
   const [isError] = useState(error || !weapons);
 
   useEffect(() => {
@@ -40,17 +44,33 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
   }, []);
 
   useEffect(() => {
-    const currentFilter = weapons.reduce((acc, weapon) => {
+    const sortKey = camelCase(sortColumn) as unknown as keyof FormattedWeaponData;
+
+    const statSort = () => {
+      if (sortKey as string === 'weaponLvl100' && sortDirection === 2)
+      {
+        return [...weapons].reverse()
+      }
+      
+      return [...weapons].sort((a, b) => sortData(a[sortKey], b[sortKey], sortDirection))
+    }
+
+    const sortedWeapons =
+      sortDirection !== 0
+        ? statSort()
+        : weapons;
+
+    const currentFilter = sortedWeapons.reduce((acc, weapon) => {
       const validWeapon = weaponFilterKeys.every(key => filter[weapon[key]]);
       if (validWeapon) {
         acc.push(weapon);
       }
 
       return acc;
-    }, [] as WeaponData[]);
+    }, [] as FormattedWeaponData[]);
 
     setFilteredWeapons(currentFilter);
-  }, [filter]);
+  }, [filter, sortDirection, sortColumn]);
 
   if (isError) {
     return <Error statusCode={404} />;
@@ -61,11 +81,18 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
       <Header />
       <Container>
         <div className="weapon-data flex flex-row justify-center gap-4">
-          <FilterOptions filterOptions={weaponOptions} filter={filter} setState={setFilter} />
+          <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
         </div>
       </Container>
       <Container>
-        <WeaponTable weaponData={filteredWeapons} className="weapon-data" />
+        <WeaponTable
+          weaponData={filteredWeapons}
+          className="weapon-data"
+          sortDirection={sortDirection}
+          sortColumn={sortColumn}
+          setSortDirection={setSortDirection}
+          setSortColumn={setSortColumn}
+        />
       </Container>
       <Footer />
     </>
@@ -85,7 +112,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      weapons: weapons.sort(defaultWeaponSort),
+      weapons: reformatWeaponData(weapons.sort(defaultWeaponSort)),
     },
   };
 };
