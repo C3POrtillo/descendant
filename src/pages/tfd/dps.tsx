@@ -47,18 +47,14 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
     const sortKey = camelCase(sortColumn) as unknown as keyof FormattedWeaponData;
 
     const statSort = () => {
-      if (sortKey as string === 'weaponLvl100' && sortDirection === 2)
-      {
-        return [...weapons].reverse()
+      if ((sortKey as string) === 'weaponLvl100' && sortDirection === 2) {
+        return [...weapons].reverse();
       }
-      
-      return [...weapons].sort((a, b) => sortData(a[sortKey], b[sortKey], sortDirection))
-    }
 
-    const sortedWeapons =
-      sortDirection !== 0
-        ? statSort()
-        : weapons;
+      return [...weapons].sort((a, b) => sortData(a[sortKey], b[sortKey], sortDirection));
+    };
+
+    const sortedWeapons = sortDirection !== 0 ? statSort() : weapons;
 
     const currentFilter = sortedWeapons.reduce((acc, weapon) => {
       const validWeapon = weaponFilterKeys.every(key => filter[weapon[key]]);

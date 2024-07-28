@@ -5,6 +5,13 @@ module.exports = {
     STAT_JSON: process.env.STAT_JSON
   },
   images: {
-    domains: ['open.api.nexon.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'open.api.nexon.com',
+        port: '',
+        pathname: '/static/tfd/**',
+      },
+    ]
   }
 }

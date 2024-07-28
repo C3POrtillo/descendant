@@ -22,6 +22,7 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setF
     >
       <input
         type="checkbox"
+        className="size-4 self-center rounded border-gray-600 bg-gray-700 ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
         id={value}
         name={value}
         defaultChecked={defaultChecked}
