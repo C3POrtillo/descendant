@@ -3,6 +3,7 @@ import type { FilterMap, FilterTypes } from '@/components/inputs/types';
 import type { FC, InputHTMLAttributes } from 'react';
 
 import Icon from '@/components/icon/Icon';
+import { createWeaponLabel } from '@/components/weapon/utils';
 import { createLabelClass } from '@/utils/utils';
 
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -18,7 +19,7 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setF
   <div key={value} className="text-nowrap">
     <label
       htmlFor={value}
-      className={['flex w-full flex-row gap-4 text-2xl', name ? createLabelClass(name, value) : ''].join(' ')}
+      className={['flex w-full flex-row gap-4 text-2xl', name ? createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value) : ''].join(' ')}
     >
       <input
         type="checkbox"

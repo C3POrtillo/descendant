@@ -1,8 +1,5 @@
 import type { DirectionValues } from '@/components/inputs/types';
-import type { WeaponData } from '@/components/weapon/types';
 import type { TiersType } from '@/utils/types';
-
-import { weaponRounds } from '@/components/weapon/types';
 
 const wordSeparators = /[-_\\.+\s]+/g;
 const notAlphaNumericOrSpace = /[^ a-zA-Z0-9]+/g;
@@ -56,20 +53,6 @@ export const stringCompare = (a: string, b: string) => {
   return 0;
 };
 
-export const defaultWeaponSort = (a: WeaponData, b: WeaponData) => {
-  const compare = ['weapon_rounds_type', 'weapon_type', 'weapon_name'] as const;
-
-  for (const key of compare) {
-    const result = stringCompare(a[key], b[key]);
-
-    if (result !== 0) {
-      return result;
-    }
-  }
-
-  return 0;
-};
-
 export const sortData = (a: string | number, b: string | number, sortDirection: DirectionValues) => {
   const isReversed = sortDirection === 2;
 
@@ -100,20 +83,6 @@ export const getBackgroundClass = (tier: TiersType): string => `bg-${kebabCase(t
 
 export const getLabelClass = (tier: string): string => `label-${kebabCase(tier)}`;
 
-const createWeaponLabel = (value: string) => {
-  let rounds = '';
-
-  for (const [key, weapons] of Object.entries(weaponRounds)) {
-    const typeSafeArray: string[] = [...weapons];
-    if (typeSafeArray.includes(value)) {
-      rounds = key;
-      break;
-    }
-  }
-
-  return getLabelClass(rounds);
-};
-
 export const createLabelClass = (name: string, value: string): string => {
   switch (name) {
     case 'weapon-tier':
@@ -122,7 +91,7 @@ export const createLabelClass = (name: string, value: string): string => {
     case 'zone':
       return getLabelClass(value);
     case 'weapon-type':
-      return createWeaponLabel(value);
+      return getLabelClass(value);
     default:
       return getLabelClass(name);
   }

@@ -1,6 +1,7 @@
 import type { FormattedWeaponData, WeaponData } from '@/components/weapon/types';
 
-import { statData } from '@/components/weapon/types';
+import { statData, weaponRounds } from '@/components/weapon/types';
+import { stringCompare } from '@/utils/utils';
 
 type DPSProps = Record<string, number>;
 
@@ -11,6 +12,20 @@ const getDPSCritical = ({ dps, criticalChance, criticalDamage }: DPSProps) =>
   dps * (1 + (criticalChance / 100) * (criticalDamage - 1));
 
 const getDPSCriticalWeakpoint = ({ dpsCritical, weakPointDamage }: DPSProps) => dpsCritical * (weakPointDamage + 0.5);
+
+export const createWeaponLabel = (value: string) => {
+  let rounds = '';
+
+  for (const [key, weapons] of Object.entries(weaponRounds)) {
+    const typeSafeArray: string[] = [...weapons];
+    if (typeSafeArray.includes(value)) {
+      rounds = key;
+      break;
+    }
+  }
+
+  return rounds;
+};
 
 export const reformatWeaponData = (weaponData: WeaponData[]): FormattedWeaponData[] =>
   weaponData.map(
@@ -56,3 +71,17 @@ export const reformatWeaponData = (weaponData: WeaponData[]): FormattedWeaponDat
       };
     },
   );
+
+export const defaultWeaponSort = (a: WeaponData, b: WeaponData) => {
+  const compare = ['weapon_rounds_type', 'weapon_type', 'weapon_name'] as const;
+
+  for (const key of compare) {
+    const result = stringCompare(a[key], b[key]);
+
+    if (result !== 0) {
+      return result;
+    }
+  }
+
+  return 0;
+};
