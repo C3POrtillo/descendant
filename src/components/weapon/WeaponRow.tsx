@@ -34,7 +34,7 @@ const WeaponRow: FC<RowProps> = ({ data }) => {
   const dpsCritical = getDPSCritical({ dps, criticalChance, criticalDamage });
   const dpsCriticalWeakpoint = getDPSCriticalWeakpoint({ dpsCritical, weakPointDamage });
 
-  const tdClasses = 'text-center text-4xl';
+  const tdClasses = 'text-center text-4xl pr-6';
 
   return (
     <tr>
@@ -52,7 +52,7 @@ const WeaponRow: FC<RowProps> = ({ data }) => {
         );
       })}
       {[dps, dpsCritical, dpsCriticalWeakpoint].map(value => (
-        <td className={[tdClasses, 'w-[270px]'].join(' ')} key={value}>
+        <td className={[tdClasses, 'w-[210px]'].join(' ')} key={value}>
           {Number(value.toFixed(0)).toLocaleString('en', { useGrouping: true })}
         </td>
       ))}

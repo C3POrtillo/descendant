@@ -44,7 +44,7 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
 
       return value !== 0 ? (
         <td key={key} className={['p-4 text-center text-3xl', labelClass, numberClass].join(' ')}>
-          <div className="flex flex-row items-center justify-center gap-2">
+          <div className="flex flex-row items-center justify-center gap-2 pr-2">
             {icon.src && <Icon {...icon}/>}
             {value}
           </div>

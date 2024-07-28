@@ -17,11 +17,11 @@ type FirearmAtk = {
 
 export const statData = {
   '105000023': {
-    label: 'Fire Rate\n(RPM)',
+    label: 'Fire Rate',
     format: (value: number) => value,
   },
   '105000021': {
-    label: 'Rounds Per\nMagazine',
+    label: 'Magazine\nSize',
     format: (value: number) => value,
   },
   '105000095': {
@@ -41,7 +41,7 @@ export const statData = {
     format: (value: number) => `${value.toFixed(2)}%`,
   },
   '105000035': {
-    label: 'Weak Point\nDamage',
+    label: 'Weak Point\nDmg',
     format: (value: number) => `${value.toFixed(2)}x`,
   },
 } as const;
@@ -52,7 +52,7 @@ export const weaponTableHeaders = [
   ...Object.values(statData).map(stat => stat.label),
   'Base DPS',
   'Critical DPS',
-  'Critical DPS w/ Weakpoint',
+  'Critical w/\nWeak Point DPS',
 ] as const;
 
 export const weaponRounds = {
