@@ -53,7 +53,7 @@ export const stringCompare = (a: string, b: string) => {
   return 0;
 };
 
-export const sortData = (a: string | number, b: string | number, sortDirection: DirectionValues) => {
+export const sortData = (a: string | number, b: string | number, sortDirection?: DirectionValues) => {
   const isReversed = sortDirection === 2;
 
   if (typeof a === 'number' && typeof b === 'number') {
