@@ -2,13 +2,14 @@ import React from 'react';
 
 import type { FC } from 'react';
 
+import Container from '@/components/container/Container';
 import Footer from '@/components/footer/Footer';
 import Header from '@/components/header/TFDHeader';
 
 const Index: FC = () => (
   <>
     <Header />
-    Work in Progress
+    <Container>Work in Progress</Container>
     <Footer />
   </>
 );

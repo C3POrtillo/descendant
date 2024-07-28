@@ -5,11 +5,6 @@
 @layer base {
   html {
     @apply text-white font-extrabold font-sans;
-    text-shadow: 
-    1px 1px 0 black,
-    -1px 1px 0 black,
-    -1px -1px 0 black,
-    1px -1px 0 black; 
   }
   body {
    @apply bg-slate-600;
@@ -29,12 +24,10 @@
       @apply flex w-full max-w-[90%] content-center justify-center gap-4 place-self-center mx-auto my-8;
     }  
   }
-
 }
 
 @layer components {
-
-  .sticky-header{
+  .sticky-header {
     position: sticky;
     width: 100%;
     z-index: 10;
@@ -44,10 +37,6 @@
     position: sticky;
     z-index: 9;
     top: 150px;
-  }
-  video {
-    width: 800px;
-    min-height: auto;
   }
   .header-links {
     .tfd-link {
@@ -80,6 +69,9 @@
   .table-wrapper {
     @apply flex flex-col w-full text-2xl;
   }
+  legend {
+    @apply text-outline;
+  }
   thead th {
     @apply min-w-32 whitespace-pre-line bg-slate-900;
     button {
@@ -99,16 +91,16 @@
       @apply text-gray-200;
     }
     .label-chill {
-      @apply text-blue-200;
+      @apply text-blue-300;
     }
     .label-fire {
       @apply text-red-500;
     }
     .label-electric {
-      @apply text-cyan-500;
+      @apply text-electric;
     }
     .label-toxic {
-      @apply text-lime-600;
+      @apply text-toxic;
     }
     .label-high-value {
       @apply text-yellow-500;
@@ -160,62 +152,58 @@
       @apply text-yellow-200;
     }
     .label-general-rounds {
-      @apply text-neutral-50;
+      @apply text-neutral-100;
     }
     .label-high-power-rounds {
-      @apply text-fuchsia-600;
+      @apply text-high-power-rounds;
     }
     .label-impact-rounds {
-      @apply text-green-600;
+      @apply text-impact-rounds;
     }
     .label-special-rounds {
-      @apply text-orange-400;
+      @apply text-special-rounds;
     }
   }
   .weapon-image {
     height: 128px;
     min-width: 330px;
   }
-  .diamond:before, .diamond:after  {
+
+}
+
+@layer utilities {
+  .diamond:before, .diamond:after {
+    @apply bg-slate-900 absolute size-8 rotate-45 origin-center rounded-md; 
     content: '';
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: black;
-    transform: rotate(45deg);
-    transform-origin: center;
-    inset: 1px;
-    border-radius: 6px;
   }
   
   .hexagon {
-    position: absolute;
-    width: 30px;
-    height: 17.32px; /* height of the middle part of the hexagon */
-    background-color: black;
-    margin: 8.66px 0; /* to vertically center the hexagon */
-    top: -1.5px;
-    left: 1.05px;
+    @apply bg-slate-900 absolute w-[32px] h-[17.32px] my-[9.66px] top-[-2.5px];
   }
   
   .hexagon:before,
   .hexagon:after {
+    @apply absolute border-solid border-transparent border-x-[16px] w-0 left-0;
     content: '';
-    position: absolute;
-    width: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    left: 0;
   }
   
   .hexagon:before {
-    bottom: 100%;
-    border-bottom: 8.66px solid black; /* height of the top part of the hexagon */
+    @apply border-b-slate-900 border-b-[9.66px] bottom-full;
   }
   
   .hexagon:after {
-    top: 100%;
-    width: 0;
-    border-top: 8.66px solid black; /* height of the bottom part of the hexagon */
+    @apply border-t-slate-900 border-t-[9.66px] w-0 top-full;
+  }
+
+  .rounded-square:before {
+    @apply bg-slate-900 absolute size-9 rounded-md top-[-2px] left-[-2px];
+    content: '';
+  }
+  .text-outline {
+    text-shadow: 
+      1px 1px 0 black,
+      -1px 1px 0 black,
+      -1px -1px 0 black,
+      1px -1px 0 black; 
   }
 }

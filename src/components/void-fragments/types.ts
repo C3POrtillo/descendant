@@ -270,7 +270,7 @@ export const zonesArray = Object.keys(voidFragmentData) as ZonesTypes[];
 type SubregionTypes = (typeof voidFragmentData)[ZonesTypes]['subregions'][number]['subregion'];
 
 export const shardsArray = ['Monomer', 'Polymer', 'Organic', 'Inorganic'] as const;
-type ShardsType = (typeof shardsArray)[number];
+export type ShardsType = (typeof shardsArray)[number];
 
 export const subregionsArray = zonesArray.flatMap(key =>
   voidFragmentData[key].subregions.map(({ subregion }) => subregion),
@@ -300,7 +300,6 @@ export const fragmentOptions: FilterOptionsData[] = [
       value: shard,
       icon: {
         src: shardsImages[shard],
-        backgroundClass: 'rounded-square'
       }
     })),
     defaultChecked: false,
