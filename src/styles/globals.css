@@ -19,10 +19,13 @@
       position: fixed;
       overflow-y: scroll;
       inset: 0;
+      input {
+        @apply border-gray-600 bg-gray-700 text-2xl ring-offset-gray-800 focus:ring-2 focus:ring-blue-600;
+      }
     }
     section {
       @apply flex w-full max-w-[90%] content-center justify-center gap-4 place-self-center mx-auto my-8;
-    }  
+    }
   }
 }
 
@@ -168,7 +171,6 @@
     height: 128px;
     min-width: 330px;
   }
-
 }
 
 @layer utilities {
