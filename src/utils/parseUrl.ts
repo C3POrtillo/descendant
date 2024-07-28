@@ -3,7 +3,7 @@ import Link from 'next/link';
 const parseUrl = (href: string) => {
   if (!href) {
     return {
-      Component: 'button',
+      component: 'button',
       href: '',
     } as const;
   }
@@ -19,7 +19,7 @@ const parseUrl = (href: string) => {
   const isInternal = url.hostname === `www.${domain}` || url.hostname === domain;
 
   return {
-    Component: isInternal ? Link : 'a',
+    component: isInternal ? Link : 'a',
     rel: isInternal ? '' : 'noreferrer noopener',
     target: isInternal ? '' : '_blank',
     href: isInternal ? url.href.split(url.host)[1] : href,

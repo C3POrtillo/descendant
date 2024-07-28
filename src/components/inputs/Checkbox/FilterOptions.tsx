@@ -17,7 +17,7 @@ const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setFilte
         label={label}
         name={name}
         data={data}
-        defaultChecked={defaultChecked || 'all'}
+        defaultChecked={defaultChecked ?? 'all'}
         filter={filter}
         setFilter={setFilter}
       />
