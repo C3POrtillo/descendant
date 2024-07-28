@@ -286,11 +286,11 @@ export const voidFragmentFilterKeys = voidFragmentTableHeaders.map(key =>
 ) as unknown as FilterTypes[];
 export type VoidFragmentFilterMap = Partial<Record<VoidFragmentFilterTypes, boolean | undefined>>;
 
-export const shardsImages = shardsArray.reduce((acc, shard ) => {
-  acc[shard] = `/assets/images/shard/${shard.toLowerCase()}.png`
+export const shardsImages = shardsArray.reduce((acc, shard) => {
+  acc[shard] = `/assets/images/shard/${shard.toLowerCase()}.png`;
 
-  return acc
-}, {} as Record<ShardsType, string>)
+  return acc;
+}, {} as Record<ShardsType, string>);
 
 export const fragmentOptions: FilterOptionsData[] = [
   {
@@ -300,7 +300,7 @@ export const fragmentOptions: FilterOptionsData[] = [
       value: shard,
       icon: {
         src: shardsImages[shard],
-      }
+      },
     })),
     defaultChecked: false,
   },
@@ -308,11 +308,11 @@ export const fragmentOptions: FilterOptionsData[] = [
     label: 'Attribute',
     name: 'attribute',
     data: attributesArray.map(attribute => ({
-      value: attribute, 
-      icon: { 
+      value: attribute,
+      icon: {
         src: attributesImages[attribute].attribute,
-        backgroundClass: 'hexagon'
-      }
+        backgroundClass: 'hexagon',
+      },
     })),
   },
 ] as const;
@@ -321,7 +321,7 @@ export const zoneOptions: FilterOptionsData[] = [
   {
     label: 'Zone',
     name: 'zone',
-    data: zonesArray.map(zone => ({value: zone})),
+    data: zonesArray.map(zone => ({ value: zone })),
   },
   ...zonesArray.map(key => ({
     label: key,
@@ -330,8 +330,8 @@ export const zoneOptions: FilterOptionsData[] = [
       value: subregion,
       icon: {
         src: attributesImages[attribute].fragment,
-        backgroundClass: 'diamond'
-      }
+        backgroundClass: 'diamond',
+      },
     })) as LabelData[],
   })),
 ];

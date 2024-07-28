@@ -17,14 +17,19 @@ interface VoidFragmentTableProps extends TableProps {
 const VoidFragmentTable: FC<VoidFragmentTableProps> = ({ fragmentData, ...props }) => (
   <Table
     label="Void Fragment Locations"
+    sublabel={<p className="mx-auto text-xl text-yellow-200">Fast locations marked in gold</p>}
     headers={voidFragmentTableHeaders.map(key => (
       <th key={key} className="text-3xl">
-        <Button>{shardsArray.includes(key as ShardsType)? 
-          <div className="flex flex-row items-center justify-center gap-2">
-            {<Icon src={shardsImages[key as ShardsType]}/>}
-            {key}
-          </div>
-          : key}</Button>
+        <Button>
+          {shardsArray.includes(key as ShardsType) ? (
+            <div className="flex flex-row items-center justify-center gap-2">
+              {<Icon src={shardsImages[key as ShardsType]} size="size-10" />}
+              {key}
+            </div>
+          ) : (
+            key
+          )}
+        </Button>
       </th>
     ))}
     body={fragmentData.map(data => (

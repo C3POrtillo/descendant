@@ -7,7 +7,6 @@ import { createLabelClass } from '@/components/inputs/utils';
 import { type RoundsType, type TiersType, type WeaponType, roundsImages } from '@/components/weapon/types';
 import { getBackgroundClass } from '@/components/weapon/utils';
 
-
 interface WeaponCardProps {
   weapon_name: string;
   weapon_tier: TiersType;
@@ -32,7 +31,7 @@ const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type
       <div className={createLabelClass(weapon_tier)}>{weapon_name}</div>
       <div className={createLabelClass(weapon_rounds_type)}>
         <div className="flex flex-row items-center justify-center gap-2">
-          {<Icon src={roundsImages[weapon_rounds_type]}/>}
+          {<Icon src={roundsImages[weapon_rounds_type]} />}
           {weapon_type}
         </div>
       </div>

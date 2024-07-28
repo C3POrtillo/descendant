@@ -1,4 +1,3 @@
-
 import type { IconProps } from '@/components/icon/Icon';
 import type { VoidFragmentFilterTypes } from '@/components/void-fragments/types';
 import type { WeaponFilterTypes } from '@/components/weapon/types';
@@ -19,4 +18,3 @@ export type FilterOptionsData = {
 
 export type FilterTypes = WeaponFilterTypes | VoidFragmentFilterTypes;
 export type FilterMap = Partial<Record<FilterTypes, boolean>>;
-

@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import Link from 'next/link';
 import React from 'react';
 
@@ -13,11 +12,11 @@ const Socials: FC = () => (
       <Link
         key={site}
         {...parseUrl(href)}
-        className={['social size-12 px-1 no-underline', site].join(' ')}
+        className="social size-12 px-1 no-underline"
         rel="noreferrer"
         target="_blank"
       >
-        <i className={['fab fa-', site].join('')} />
+        <i className={['before:text-5xl fab', `fa-${site}`].join(' ')} />
       </Link>
     ))}
   </div>

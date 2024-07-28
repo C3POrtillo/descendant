@@ -47,22 +47,22 @@
     }
   }
   .social {
-    i::before {
-      @apply text-5xl;
+    .discord {
+      color: #7289da;
     }
-    .twitter { 
+    .fa-twitter { 
       @apply text-sky-500 hover:text-sky-300 focus:text-sky-300 active:text-sky-300;
     }
-    .twitch { 
+    .fa-twitch { 
       @apply text-violet-600 hover:text-violet-400 focus:text-violet-400  active:text-violet-400 ;
     }
-    .spotify { 
+    .fa-spotify { 
       @apply text-green-500 hover:text-green-300 focus:text-green-300 active:text-green-300;
     }
-    .steam { 
+    .fa-steam { 
       @apply text-slate-600 hover:text-slate-400 focus:text-slate-400 active:text-slate-400;
     }
-    .instagram { 
+    .fa-instagram { 
       @apply text-fuchsia-600 hover:text-fuchsia-400 focus:text-fuchsia-400 active:text-fuchsia-400;
     }
   }
@@ -77,7 +77,7 @@
     button {
       @apply w-full;
       .button-arrows {
-        i::before {
+        i:before {
           @apply text-lg;
         }
       }
@@ -103,7 +103,7 @@
       @apply text-toxic;
     }
     .label-high-value {
-      @apply text-yellow-500;
+      @apply text-yellow-200;
     }
   }
   .subregion-data {

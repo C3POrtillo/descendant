@@ -75,21 +75,21 @@ export type WeaponFilterTypes = RoundsType | TiersType | WeaponType;
 export const weaponFilterKeys = ['weapon_rounds_type', 'weapon_tier', 'weapon_type'] as const;
 export type WeaponFilterMap = Partial<Record<WeaponFilterTypes, boolean | undefined>>;
 
-export const roundsImages = roundsArray.reduce( (acc, rounds) => {
-  acc[rounds] = `/assets/images/rounds/${kebabCase(rounds)}.png`
+export const roundsImages = roundsArray.reduce((acc, rounds) => {
+  acc[rounds] = `/assets/images/rounds/${kebabCase(rounds)}.png`;
 
-  return acc
-}, {} as Record<RoundsType, string>)
+  return acc;
+}, {} as Record<RoundsType, string>);
 
 const weaponToRounds = (weapon: WeaponType): RoundsType => {
   for (const [rounds, weapons] of Object.entries(weaponRounds)) {
     if ((weapons as unknown as WeaponType[]).includes(weapon)) {
-      return rounds as RoundsType
+      return rounds as RoundsType;
     }
   }
 
-  return 'General Rounds'
-}
+  return 'General Rounds';
+};
 
 export const weaponOptions: FilterOptionsData[] = [
   {
@@ -106,7 +106,7 @@ export const weaponOptions: FilterOptionsData[] = [
       value: rounds,
       icon: {
         src: roundsImages[rounds],
-      }
+      },
     })),
   },
   {
@@ -116,7 +116,7 @@ export const weaponOptions: FilterOptionsData[] = [
       value: weapon,
       icon: {
         src: roundsImages[weaponToRounds(weapon)],
-      }
+      },
     })),
   },
 ] as const;

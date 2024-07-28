@@ -12,9 +12,12 @@ const Button: FC<SortButtonProps> = ({ setState, children }) => {
   const [sortDirection, setSortDirection] = useState('');
 
   return (
-    <button className="sort-button flex flex-row justify-between gap-4 p-2" onClick={() => {
-      setState && setSortDirection(sortDirection)
-    }}>
+    <button
+      className="sort-button flex flex-row justify-between gap-4 p-2"
+      onClick={() => {
+        setState && setSortDirection(sortDirection);
+      }}
+    >
       <div className="p-auto my-auto flex grow items-center justify-center align-middle ">{children}</div>
       <div className="button-arrows my-auto flex flex-col">
         <i className="fa fa-chevron-up" />
