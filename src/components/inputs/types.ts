@@ -18,3 +18,5 @@ export type FilterOptionsData = {
 
 export type FilterTypes = WeaponFilterTypes | VoidFragmentFilterTypes;
 export type FilterMap = Partial<Record<FilterTypes, boolean>>;
+
+export type DirectionValues = 0 | 1 | 2;
