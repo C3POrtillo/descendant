@@ -2,13 +2,13 @@ import type { FC, ReactNode, TableHTMLAttributes } from 'react';
 
 export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   label?: string;
+  labelSize?: string;
   sublabel?: ReactNode;
   headers?: ReactNode;
   body?: ReactNode;
 }
 
-const Table: FC<TableProps> = ({ label, sublabel, headers, body, className, ...props }) =>
-  headers &&
+const Table: FC<TableProps> = ({ label, labelSize = 'text-6xl', sublabel, headers, body, className, ...props }) =>
   body && (
     <fieldset
       className={[
@@ -18,15 +18,19 @@ const Table: FC<TableProps> = ({ label, sublabel, headers, body, className, ...p
     >
       {label && (
         <>
-          <legend className="mx-auto p-4 text-center text-6xl">{label}</legend>
+          <legend className={['mx-auto p-4 text-center', labelSize].join(' ')}>
+            <h2>{label}</h2>
+          </legend>
           {sublabel && sublabel}
         </>
       )}
       {/* eslint-disable-next-line tailwindcss/migration-from-tailwind-2 */}
       <table className="w-full overflow-clip rounded-xl" {...props}>
-        <thead>
-          <tr className="sticky-table">{headers}</tr>
-        </thead>
+        {headers && (
+          <thead>
+            <tr className="sticky-table">{headers}</tr>
+          </thead>
+        )}
         <tbody>{body}</tbody>
       </table>
     </fieldset>

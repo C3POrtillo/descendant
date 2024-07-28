@@ -14,8 +14,8 @@ const Calculator: FC = () => {
   const [effectiveHealth, setEffectiveHealth] = useState(0);
 
   useEffect(() => {
-    const newDamageReduction = getDamageReduction(Number(defense))
-    const totalHealthShields = Number(health) + Number(shield)
+    const newDamageReduction = getDamageReduction(Number(defense));
+    const totalHealthShields = Number(health) + Number(shield);
 
     setDamageReduction(newDamageReduction);
     setEffectiveHealth(getEffectiveHealth(totalHealthShields, newDamageReduction));

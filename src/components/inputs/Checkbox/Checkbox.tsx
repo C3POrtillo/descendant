@@ -19,7 +19,10 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setF
   <div key={value} className="text-nowrap">
     <label
       htmlFor={value}
-      className={['flex w-full flex-row gap-4 text-2xl', name ? createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value) : ''].join(' ')}
+      className={[
+        'flex w-full flex-row gap-4 text-2xl',
+        name ? createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value) : '',
+      ].join(' ')}
     >
       <input
         type="checkbox"
