@@ -17,7 +17,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-width: max-content;
+      min-width: min-content;
       width: 100%;
       min-height: max-content;
       height: 100%;
@@ -99,13 +99,13 @@
       @apply text-gray-200;
     }
     .label-chill {
-      @apply text-sky-600;
+      @apply text-blue-200;
     }
     .label-fire {
       @apply text-red-500;
     }
     .label-electric {
-      @apply text-cyan-300;
+      @apply text-cyan-500;
     }
     .label-toxic {
       @apply text-lime-600;
@@ -175,5 +175,47 @@
   .weapon-image {
     height: 128px;
     min-width: 330px;
+  }
+  .diamond:before, .diamond:after  {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    transform: rotate(45deg);
+    transform-origin: center;
+    inset: 1px;
+    border-radius: 6px;
+  }
+  
+  .hexagon {
+    position: absolute;
+    width: 30px;
+    height: 17.32px; /* height of the middle part of the hexagon */
+    background-color: black;
+    margin: 8.66px 0; /* to vertically center the hexagon */
+    top: -1.5px;
+    left: 1.05px;
+  }
+  
+  .hexagon:before,
+  .hexagon:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    left: 0;
+  }
+  
+  .hexagon:before {
+    bottom: 100%;
+    border-bottom: 8.66px solid black; /* height of the top part of the hexagon */
+  }
+  
+  .hexagon:after {
+    top: 100%;
+    width: 0;
+    border-top: 8.66px solid black; /* height of the bottom part of the hexagon */
   }
 }
