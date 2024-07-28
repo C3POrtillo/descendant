@@ -9,7 +9,7 @@ import type {
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
-import Footer from '@/components/footer/Footer';
+import Footer from '@/components/footer/TFDFooter';
 import Header from '@/components/header/TFDHeader';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import VoidFragmentTable from '@/components/void-fragments/VoidFragmentTable';
