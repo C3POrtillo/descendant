@@ -9,10 +9,10 @@ interface MultiCheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
   data: LabelData[];
   defaultChecked?: DefaultCheckedType;
   filter?: FilterMap;
-  setState?: React.Dispatch<React.SetStateAction<FilterMap>>;
+  setFilter?: React.Dispatch<React.SetStateAction<FilterMap>>;
 }
 
-const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setState }) => (
+const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setFilter }) => (
   <fieldset className="flex w-max grow rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black">
     <legend className="px-4 text-center">{label}</legend>
     <div
@@ -28,7 +28,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
           value={value}
           defaultChecked={setChecked(defaultChecked, value, index)}
           filter={filter}
-          setState={setState}
+          setFilter={setFilter}
           icon={icon}
         />
       ))}

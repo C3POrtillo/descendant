@@ -10,11 +10,11 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   defaultChecked?: boolean;
   filter?: FilterMap;
-  setState?: React.Dispatch<React.SetStateAction<FilterMap>>;
+  setFilter?: React.Dispatch<React.SetStateAction<FilterMap>>;
   icon?: IconProps;
 }
 
-const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setState, icon }) => (
+const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setFilter, icon }) => (
   <div key={value} className="text-nowrap">
     <label
       htmlFor={value}
@@ -26,9 +26,9 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setS
         name={value}
         defaultChecked={defaultChecked}
         onChange={e => {
-          if (filter && setState) {
+          if (filter && setFilter) {
             filter[value as FilterTypes] = e.target.checked;
-            setState({ ...filter });
+            setFilter({ ...filter });
           }
         }}
       />

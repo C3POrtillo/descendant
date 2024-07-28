@@ -6,10 +6,10 @@ import MultiCheckbox from '@/components/inputs/Checkbox/MultiCheckbox';
 interface FilterOptionsProps {
   filterOptions: FilterOptionsData[];
   filter?: FilterMap;
-  setState?: React.Dispatch<React.SetStateAction<FilterMap>>;
+  setFilter?: React.Dispatch<React.SetStateAction<FilterMap>>;
 }
 
-const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setState }) => (
+const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setFilter }) => (
   <>
     {filterOptions.map(({ label, name, data, defaultChecked }) => (
       <MultiCheckbox
@@ -19,7 +19,7 @@ const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setState
         data={data}
         defaultChecked={defaultChecked || 'all'}
         filter={filter}
-        setState={setState}
+        setFilter={setFilter}
       />
     ))}
   </>
