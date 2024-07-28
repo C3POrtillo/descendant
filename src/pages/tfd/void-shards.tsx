@@ -89,7 +89,6 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
 
 export const getStaticProps = async () => {
   const voidFragments = deserializeZoneData();
-  console.log(voidFragmentFilterKeys[0]);
 
   return {
     props: {

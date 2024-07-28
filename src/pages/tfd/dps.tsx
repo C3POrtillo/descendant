@@ -82,7 +82,6 @@ export const getStaticProps = async () => {
   }
 
   const weapons = (await axios.get(process.env.WEAPON_JSON)).data;
-  console.log(weapons[0]);
 
   return {
     props: {
