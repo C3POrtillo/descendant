@@ -1,5 +1,6 @@
 import React from 'react';
 
+import type { DirectionValues } from '@/components/inputs/types';
 import type { TableProps } from '@/components/table/Table';
 import type { WeaponData } from '@/components/weapon/types';
 import type { FC } from 'react';
@@ -11,14 +12,32 @@ import { weaponTableHeaders } from '@/components/weapon/types';
 
 interface WeaponTableProps extends TableProps {
   weaponData: WeaponData[];
+  sortDirection: DirectionValues;
+  sortColumn: string;
+  setSortDirection: React.Dispatch<React.SetStateAction<DirectionValues>>;
+  setSortColumn: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const WeaponTable: FC<WeaponTableProps> = ({ weaponData, ...props }) => (
+const WeaponTable: FC<WeaponTableProps> = ({
+  weaponData,
+  sortDirection,
+  sortColumn,
+  setSortDirection,
+  setSortColumn,
+  ...props
+}) => (
   <Table
     label="Weapon DPS Chart"
     headers={weaponTableHeaders.map(key => (
       <th key={key} className="text-xl">
-        <Button>{key}</Button>
+        <Button
+          id={key}
+          sortDirection={sortColumn === key ? sortDirection : 0}
+          setSortDirection={setSortDirection}
+          setSortColumn={setSortColumn}
+        >
+          {key}
+        </Button>
       </th>
     ))}
     body={weaponData.map(row => (
