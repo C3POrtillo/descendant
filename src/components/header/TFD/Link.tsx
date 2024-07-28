@@ -4,15 +4,18 @@ import { useRouter } from 'next/router';
 import type { PathType } from '@/components/header/TFD/types';
 import type { FC, PropsWithChildren } from 'react';
 
-type TFDLinkProps = PathType & PropsWithChildren;
+interface TFDLinkProps extends PathType, PropsWithChildren {
+  className: string;
+}
 
-const TFDLink: FC<TFDLinkProps> = ({ path, label, children }) => {
+const TFDLink: FC<TFDLinkProps> = ({ path, label, isExternal, className, children }) => {
   const router = useRouter();
   const currentPath = router.pathname;
-  const target = `/tfd${path}`;
+  const target = isExternal && path ? path : `/tfd${path}`;
+  const disabledClass = currentPath === target ? 'disabled-link' : '';
 
   return (
-    <Link key={path} href={target} className={`tfd-link ${currentPath === target ? 'disabled-link' : ''}`}>
+    <Link key={path} href={target} className={[className, disabledClass].join(' ')}>
       {label}
       {children}
     </Link>

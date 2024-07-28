@@ -1,11 +1,12 @@
 import Image from 'next/image';
 
+import type { RoundsType, WeaponType } from '@/components/weapon/types';
+import type { TiersType } from '@/utils/types';
 import type { FC } from 'react';
 
 import Icon from '@/components/icon/Icon';
-import { createLabelClass } from '@/components/inputs/utils';
-import { type RoundsType, type TiersType, type WeaponType, roundsImages } from '@/components/weapon/types';
-import { getBackgroundClass } from '@/components/weapon/utils';
+import { roundsImages } from '@/components/weapon/types';
+import { getBackgroundClass, getLabelClass } from '@/utils/utils';
 
 interface WeaponCardProps {
   weapon_name: string;
@@ -28,8 +29,8 @@ const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type
       />
     </div>
     <div>
-      <div className={createLabelClass(weapon_tier)}>{weapon_name}</div>
-      <div className={createLabelClass(weapon_rounds_type)}>
+      <div className={getLabelClass(weapon_tier)}>{weapon_name}</div>
+      <div className={getLabelClass(weapon_rounds_type)}>
         <div className="flex flex-row items-center justify-center gap-2">
           {<Icon src={roundsImages[weapon_rounds_type]} />}
           {weapon_type}

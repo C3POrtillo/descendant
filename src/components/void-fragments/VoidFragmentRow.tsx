@@ -4,10 +4,10 @@ import type { AttributesType } from '@/utils/attributes/types';
 import type { FC } from 'react';
 
 import Icon from '@/components/icon/Icon';
-import { getLabelClass } from '@/components/inputs/utils';
 import { shardsArray, voidFragmentTableHeaders } from '@/components/void-fragments/types';
 import { isOptimal } from '@/components/void-fragments/utils';
 import { attributesImages } from '@/utils/attributes/types';
+import { createLabelClass } from '@/utils/utils';
 
 interface RowProps {
   data: Record<FilterTypes, string | number>;
@@ -20,7 +20,7 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
       const value = data[lowerCaseKey];
       const isSubregion = lowerCaseKey === 'subregion';
 
-      const labelClass = getLabelClass(isSubregion ? (data['zone'] as string) : lowerCaseKey, value.toString());
+      const labelClass = createLabelClass(isSubregion ? (data['zone'] as string) : lowerCaseKey, value.toString());
       const numberClass = typeof value === 'number' && isOptimal(data['subregion'] as string);
       const textClass = shardsArray.includes(key as ShardsType) && 'items-center justify-center';
 

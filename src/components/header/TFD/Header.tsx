@@ -7,7 +7,7 @@ import { paths } from '@/components/header/TFD/types';
 const Header: FC = () => (
   <header className="sticky-header header-links flex flex-col place-items-center justify-center gap-4 bg-slate-800 py-6 text-center shadow-md shadow-black">
     <div className="h-14">
-      <TFDLink path={paths[0].path}>
+      <TFDLink className="home-link" path={paths[0].path}>
         <h1 className="content-center text-6xl font-semibold">{paths[0].label}</h1>
       </TFDLink>
     </div>
@@ -16,12 +16,14 @@ const Header: FC = () => (
         if (data.options && data.label?.length) {
           const { label, options } = data;
 
-          const links = options.map(nestedData => <TFDLink key={nestedData.path} {...nestedData} />);
+          const links = options.map(nestedData => (
+            <TFDLink className="tfd-link" key={nestedData.path} {...nestedData} />
+          ));
 
           return <Accordion key={label} label={label} options={links} />;
         }
 
-        return <TFDLink key={data.path} {...data} />;
+        return <TFDLink className="tfd-link" key={data.path} {...data} />;
       })}
     </div>
   </header>

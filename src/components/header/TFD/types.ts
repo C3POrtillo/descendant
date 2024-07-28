@@ -2,6 +2,7 @@ export type PathType = {
   path?: string;
   label?: string;
   options?: PathType[];
+  isExternal?: boolean;
 };
 
 export const paths: PathType[] = [
@@ -25,5 +26,9 @@ export const paths: PathType[] = [
   {
     path: '/ehp-calc',
     label: 'Effective HP Calculator',
+  },
+  {
+    path: '/external-components',
+    label: 'External Components',
   },
 ] as const;

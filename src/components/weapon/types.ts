@@ -1,11 +1,8 @@
 import type { FilterOptionsData } from '@/components/inputs/types';
+import type { BaseStat, TiersType } from '@/utils/types';
 
+import { tiers } from '@/utils/types';
 import { kebabCase, stringCompare } from '@/utils/utils';
-
-type BaseStat = {
-  stat_id: string;
-  stat_value: number;
-};
 
 type FirearmAtk = {
   level: number;
@@ -43,9 +40,6 @@ export const weaponRounds = {
 
 export type RoundsType = keyof typeof weaponRounds;
 export const roundsArray = Object.keys(weaponRounds) as RoundsType[];
-
-export const tiers = ['Standard', 'Rare', 'Ultimate'] as const;
-export type TiersType = (typeof tiers)[number];
 
 export type WeaponType = (typeof weaponRounds)[keyof typeof weaponRounds][number];
 export const weaponArray: WeaponType[] = Object.values(weaponRounds).flat();

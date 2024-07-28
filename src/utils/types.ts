@@ -20,3 +20,11 @@ export const socials = [
     href: 'https://steamcommunity.com/id/ishtaba/',
   },
 ] as const;
+
+export type BaseStat = {
+  stat_id: string;
+  stat_value: number;
+};
+
+export const tiers = ['Standard', 'Rare', 'Ultimate'] as const;
+export type TiersType = (typeof tiers)[number];

@@ -1,5 +1,8 @@
 import type { DirectionValues } from '@/components/inputs/types';
 import type { WeaponData } from '@/components/weapon/types';
+import type { TiersType } from '@/utils/types';
+
+import { weaponRounds } from '@/components/weapon/types';
 
 const wordSeparators = /[-_\\.+\s]+/g;
 const notAlphaNumericOrSpace = /[^ a-zA-Z0-9]+/g;
@@ -92,3 +95,35 @@ export const delimitNumber = (number: number) => Number(number.toFixed(0)).toLoc
 export const roundToHundreth = (number: number) => number.toFixed(2);
 
 export const addSuffixToValue = (value: string | number, string: string) => `${value}${string}`;
+
+export const getBackgroundClass = (tier: TiersType): string => `bg-${kebabCase(tier)}`;
+
+export const getLabelClass = (tier: string): string => `label-${kebabCase(tier)}`;
+
+const createWeaponLabel = (value: string) => {
+  let rounds = '';
+
+  for (const [key, weapons] of Object.entries(weaponRounds)) {
+    const typeSafeArray: string[] = [...weapons];
+    if (typeSafeArray.includes(value)) {
+      rounds = key;
+      break;
+    }
+  }
+
+  return getLabelClass(rounds);
+};
+
+export const createLabelClass = (name: string, value: string): string => {
+  switch (name) {
+    case 'weapon-tier':
+    case 'rounds-type':
+    case 'attribute':
+    case 'zone':
+      return getLabelClass(value);
+    case 'weapon-type':
+      return createWeaponLabel(value);
+    default:
+      return getLabelClass(name);
+  }
+};

@@ -11,8 +11,9 @@ import Footer from '@/components/footer/TFD/Footer';
 import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';
-import { roundsArray, tiers, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
+import { roundsArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
 import { reformatWeaponData } from '@/components/weapon/utils';
+import { tiers } from '@/utils/types';
 import { camelCase, defaultWeaponSort, sortData } from '@/utils/utils';
 
 interface WeaponDPSProps {
@@ -96,7 +97,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
 };
 
 export const getStaticProps = async () => {
-  if (!process.env.WEAPON_JSON || !process.env.STAT_JSON) {
+  if (!process.env.WEAPON_JSON) {
     return {
       props: {
         error: true,
