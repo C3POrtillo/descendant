@@ -111,22 +111,22 @@
       @apply text-slate-100;
     }
     .label-sterile-land {
-      @apply text-orange-300;
+      @apply text-orange-400;
     }
     .label-vespers {
       @apply text-emerald-600;
     }
     .label-echo-swamp {
-      @apply text-lime-500;
+      @apply text-lime-400;
     }
     .label-agna-desert {
-      @apply text-amber-600;
+      @apply text-amber-500;
     }
     .label-white-gulch {
       @apply text-lime-300;
     }
     .label-hagios {
-      @apply text-orange-200;
+      @apply text-orange-300;
     }
     .label-fortress {
       @apply text-slate-200;
