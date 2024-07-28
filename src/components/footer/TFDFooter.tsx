@@ -17,7 +17,10 @@ const Footer: FC = () => (
       </div>
       <Socials />
     </div>
-    <p>ortillo.cam is not endorsed or affiliated with NEXON GamesCo., Ltd., NEXON Korea Corp, or any of its subsidaries/affiliates</p>
+    <p>
+      ortillo.cam is not endorsed or affiliated with NEXON GamesCo., Ltd., NEXON Korea Corp, or any of its
+      subsidaries/affiliates
+    </p>
   </footer>
 );
 
