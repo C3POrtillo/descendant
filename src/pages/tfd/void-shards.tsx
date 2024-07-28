@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import type { DirectionValues } from '@/components/inputs/types';
 import type {
+  FilterTypes,
   VoidFragmentData,
   VoidFragmentFilterMap,
   VoidFragmentFilterTypes,
@@ -22,7 +24,7 @@ import {
 } from '@/components/void-fragments/types';
 import { deserializeZoneData } from '@/components/void-fragments/utils';
 import { attributesArray } from '@/utils/attributes/types';
-import { titleCase } from '@/utils/utils';
+import { sortData, titleCase } from '@/utils/utils';
 
 interface VoidShardProps {
   voidFragments: VoidFragmentData[];
@@ -31,6 +33,8 @@ interface VoidShardProps {
 const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   const [filteredRows, setFilteredRows] = useState([] as VoidFragmentData[]);
   const [filter, setFilter] = useState({} as VoidFragmentFilterMap);
+  const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
+  const [sortColumn, setSortColumn] = useState('');
 
   useEffect(() => {
     setFilteredRows(voidFragments);
@@ -45,7 +49,15 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   }, []);
 
   useEffect(() => {
-    const currentFilter = voidFragments.reduce((acc, fragment) => {
+    const sortKey = sortColumn.toLowerCase() as FilterTypes;
+    const sortedFragments =
+      sortDirection !== 0
+        ? [...voidFragments].sort((a, b) => (
+          sortData(a[sortKey], b[sortKey], sortDirection)
+        ))
+        : voidFragments;
+
+    const currentFilter = sortedFragments.reduce((acc, fragment) => {
       const validFragment = voidFragmentFilterKeys.every(key => {
         switch (key) {
           case 'monomer':
@@ -66,21 +78,28 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
     }, [] as VoidFragmentData[]);
 
     setFilteredRows(currentFilter);
-  }, [filter]);
+  }, [filter, sortDirection, sortColumn]);
 
   return (
     <>
       <Header />
       <Container className="w-3/4">
         <div className="fragment-data flex flex-row flex-wrap justify-center gap-4">
-          <FilterOptions filterOptions={fragmentOptions} filter={filter} setState={setFilter} />
+          <FilterOptions filterOptions={fragmentOptions} filter={filter} setFilter={setFilter} />
         </div>
         <div className="subregion-data flex flex-row flex-wrap justify-center gap-4">
-          <FilterOptions filterOptions={zoneOptions} filter={filter} setState={setFilter} />
+          <FilterOptions filterOptions={zoneOptions} filter={filter} setFilter={setFilter} />
         </div>
       </Container>
       <Container>
-        <VoidFragmentTable fragmentData={filteredRows} className="fragment-data subregion-data" />
+        <VoidFragmentTable
+          fragmentData={filteredRows}
+          className="fragment-data subregion-data"
+          sortDirection={sortDirection}
+          sortColumn={sortColumn}
+          setSortDirection={setSortDirection}
+          setSortColumn={setSortColumn}
+        />
       </Container>
       <Footer />
     </>

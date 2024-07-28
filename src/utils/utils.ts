@@ -1,4 +1,6 @@
+import type { DirectionValues } from '@/components/inputs/types';
 import type { WeaponData } from '@/components/weapon/types';
+
 
 const wordSeparators = /[-_\\.+\s]+/g;
 const notAlphaNumericOrSpace = /[^ a-zA-Z0-9]+/g;
@@ -64,3 +66,24 @@ export const defaultWeaponSort = (a: WeaponData, b: WeaponData) => {
 
   return 0;
 };
+
+export const sortData = (a: string | number, b: string| number, sortDirection: DirectionValues) => {
+  const isReversed = sortDirection === 2;
+
+  if (typeof a === 'number' && typeof b === 'number') {
+    if (a === 0 && b !== 0) {
+      return 1;
+    }
+    if (b === 0 && a !== 0) {
+      return -1;
+    }
+
+    return isReversed ? b - a : a - b;
+  }
+  if (typeof a === 'string' && typeof b === 'string') {
+    return isReversed ? stringCompare(b, a) : stringCompare(a, b)
+  }
+
+  return 0;
+};
+

@@ -17,7 +17,8 @@ const Button: FC<SortButtonProps> = ({ id, sortDirection, setSortDirection, setS
   const isAscending = sortDirection === 1;
   const isDescending = sortDirection === 2;
 
-  const arrowClasses = (isNeutral && 'justify-between') || (isAscending && 'justify-start') || (isDescending && 'justify-end')
+  const arrowClasses =
+    (isNeutral && 'justify-between') || (isAscending && 'justify-start') || (isDescending && 'justify-end');
 
   return (
     <div className="p-2">
@@ -26,7 +27,7 @@ const Button: FC<SortButtonProps> = ({ id, sortDirection, setSortDirection, setS
         onClick={() => {
           if (sortDirection === 2) {
             setSortDirection(0);
-            setSortColumn('')
+            setSortColumn('');
           } else {
             setSortDirection((sortDirection + 1) as DirectionValues);
             setSortColumn(id || '');

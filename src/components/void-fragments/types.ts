@@ -278,7 +278,7 @@ export const subregionsArray = zonesArray.flatMap(key =>
 
 export const voidFragmentTableHeaders = ['Zone', 'Subregion', 'Attribute', ...shardsArray] as const;
 export type FilterTypes = Lowercase<(typeof voidFragmentTableHeaders)[number]>;
-export type VoidFragmentData = Record<FilterTypes, ZonesTypes | SubregionTypes | AttributesType | number>;
+export type VoidFragmentData = Record<FilterTypes | 'id', ZonesTypes | SubregionTypes | AttributesType | number>;
 
 export type VoidFragmentFilterTypes = ShardsType | AttributesType | ZonesTypes | SubregionTypes;
 export const voidFragmentFilterKeys = voidFragmentTableHeaders.map(key =>
