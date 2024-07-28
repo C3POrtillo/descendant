@@ -6,25 +6,19 @@ import type { FC } from 'react';
 import WeaponCard from '@/components/weapon/WeaponCard';
 import { addSuffixToValue, delimitNumber, roundToHundreth } from '@/utils/utils';
 
-interface RowProps {
-  data: FormattedWeaponData;
-}
-
-const WeaponRow: FC<RowProps> = ({
-  data: {
-    firearmAtk,
-    magazineSize,
-    fireRate,
-    criticalChance,
-    criticalDamage,
-    weakPointDamage,
-    reloadTime,
-    statusChance,
-    baseDps,
-    criticalDps,
-    criticalWWeakPointDps,
-    ...data
-  },
+const WeaponRow: FC<FormattedWeaponData> = ({
+  firearmAtk,
+  magazineSize,
+  fireRate,
+  criticalChance,
+  criticalDamage,
+  weakPointDamage,
+  reloadTime,
+  statusChance,
+  baseDps,
+  criticalDps,
+  criticalWWeakPointDps,
+  ...data
 }) => {
   const tdClasses = 'text-center text-4xl pr-6';
   const formattedStats = [

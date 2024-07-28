@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type { TableProps } from '@/components/table/Table';
-import type { WeaponData } from '@/components/weapon/types';
+import type { FormattedWeaponData } from '@/components/weapon/types';
 import type { FC } from 'react';
 
 import Button from '@/components/inputs/Button/TableSortButton';
@@ -11,7 +11,7 @@ import WeaponRow from '@/components/weapon/WeaponRow';
 import { weaponTableHeaders } from '@/components/weapon/types';
 
 interface WeaponTableProps extends TableProps {
-  weaponData: WeaponData[];
+  weaponData: FormattedWeaponData[];
   sortDirection: DirectionValues;
   sortColumn: string;
   setSortDirection: React.Dispatch<React.SetStateAction<DirectionValues>>;
@@ -41,7 +41,7 @@ const WeaponTable: FC<WeaponTableProps> = ({
       </th>
     ))}
     body={weaponData.map(row => (
-      <WeaponRow key={row.weapon_id} data={row} />
+      <WeaponRow key={row.weapon_id} {...row} />
     ))}
     {...props}
   />
