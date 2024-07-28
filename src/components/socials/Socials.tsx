@@ -13,11 +13,11 @@ const Socials: FC = () => (
       <Link
         key={site}
         {...parseUrl(href)}
-        className={`social size-12 px-1 no-underline ${site}`}
+        className={['social size-12 px-1 no-underline', site].join(' ')}
         rel="noreferrer"
         target="_blank"
       >
-        <i className={`fab fa-${site}`} />
+        <i className={['fab fa-', site].join('')} />
       </Link>
     ))}
   </div>

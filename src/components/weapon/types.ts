@@ -1,6 +1,6 @@
 import type { FilterOptionsData } from '@/components/inputs/types';
 
-import { stringCompare } from '@/utils/utils';
+import { kebabCase, stringCompare } from '@/utils/utils';
 
 type BaseStat = {
   stat_id: string;
@@ -75,21 +75,49 @@ export type WeaponFilterTypes = RoundsType | TiersType | WeaponType;
 export const weaponFilterKeys = ['weapon_rounds_type', 'weapon_tier', 'weapon_type'] as const;
 export type WeaponFilterMap = Partial<Record<WeaponFilterTypes, boolean | undefined>>;
 
+export const roundsImages = roundsArray.reduce( (acc, rounds) => {
+  acc[rounds] = `/assets/images/rounds/${kebabCase(rounds)}.png`
+
+  return acc
+}, {} as Record<RoundsType, string>)
+
+const weaponToRounds = (weapon: WeaponType): RoundsType => {
+  for (const [rounds, weapons] of Object.entries(weaponRounds)) {
+    if ((weapons as unknown as WeaponType[]).includes(weapon)) {
+      return rounds as RoundsType
+    }
+  }
+
+  return 'General Rounds'
+}
+
 export const weaponOptions: FilterOptionsData[] = [
   {
     label: 'Tier',
     name: 'weapon-tier',
-    data: [...tiers],
+    data: tiers.map(tier => ({
+      value: tier,
+    })),
   },
   {
     label: 'Rounds',
     name: 'rounds-type',
-    data: roundsArray,
+    data: roundsArray.map(rounds => ({
+      value: rounds,
+      icon: {
+        src: roundsImages[rounds],
+      }
+    })),
   },
   {
     label: 'Type',
     name: 'weapon-type',
-    data: weaponArray.sort(stringCompare),
+    data: weaponArray.sort(stringCompare).map(weapon => ({
+      value: weapon,
+      icon: {
+        src: roundsImages[weaponToRounds(weapon)],
+      }
+    })),
   },
 ] as const;
 

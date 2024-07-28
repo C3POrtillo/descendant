@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react';
 import type { WeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/weapon/types';
 import type { FC } from 'react';
 
-import Footer from '@/components/Footer/Footer';
 import Container from '@/components/container/Container';
+import Footer from '@/components/footer/Footer';
 import Header from '@/components/header/TFDHeader';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';

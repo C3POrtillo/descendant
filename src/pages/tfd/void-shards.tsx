@@ -8,8 +8,8 @@ import type {
 } from '@/components/void-fragments/types';
 import type { FC } from 'react';
 
-import Footer from '@/components/Footer/Footer';
 import Container from '@/components/container/Container';
+import Footer from '@/components/footer/Footer';
 import Header from '@/components/header/TFDHeader';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import VoidFragmentTable from '@/components/void-fragments/VoidFragmentTable';
@@ -71,7 +71,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   return (
     <>
       <Header />
-      <Container className="w-2/3">
+      <Container className="w-3/4">
         <div className="fragment-data flex flex-row flex-wrap justify-center gap-4">
           <FilterOptions filterOptions={fragmentOptions} filter={filter} setState={setFilter} />
         </div>
