@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';

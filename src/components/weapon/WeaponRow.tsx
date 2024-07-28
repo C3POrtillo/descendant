@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { FormattedWeaponData } from '@/components/weapon/types';
 import type { FC } from 'react';
 

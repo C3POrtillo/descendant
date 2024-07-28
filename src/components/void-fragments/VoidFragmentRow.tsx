@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { IconProps } from '@/components/icon/Icon';
 import type { FilterTypes, ShardsType } from '@/components/void-fragments/types';
 import type { AttributesType } from '@/utils/attributes/types';

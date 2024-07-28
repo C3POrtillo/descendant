@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { DirectionValues } from '@/components/inputs/types';
 import type { TableProps } from '@/components/table/Table';
 import type { ShardsType, VoidFragmentData } from '@/components/void-fragments/types';

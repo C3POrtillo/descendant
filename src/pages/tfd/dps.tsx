@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Error from 'next/error';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type { FormattedWeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/weapon/types';

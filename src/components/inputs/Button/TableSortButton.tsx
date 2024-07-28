@@ -1,6 +1,4 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import React from 'react';
-
 import type { ButtonProps } from '@/components/inputs/Button/Button';
 import type { DirectionValues } from '@/components/inputs/types';
 import type { FC } from 'react';

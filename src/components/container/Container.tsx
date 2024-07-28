@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { FC, PropsWithChildren } from 'react';
 
 interface ContainerProps extends PropsWithChildren {
