@@ -19,7 +19,7 @@
       position: fixed;
       overflow-y: scroll;
       inset: 0;
-      input {
+      input, select {
         @apply border-gray-600 bg-gray-700 text-2xl ring-offset-gray-800 focus:ring-2 focus:ring-blue-600;
       }
     }
@@ -43,10 +43,10 @@
   }
   .header-links {
     .tfd-link {
-      @apply hover:text-blue-400 hover:border-b-2 border-blue-400 border-solid;
+      @apply hover:text-yellow-200 whitespace-nowrap min-w-max self-center w-full;
     }
     .disabled-link {
-      @apply pointer-events-none text-yellow-200 border-b-2 border-yellow-200 border-solid
+      @apply pointer-events-none text-yellow-200;
     }
   }
   .social {

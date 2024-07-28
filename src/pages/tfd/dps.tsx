@@ -7,8 +7,8 @@ import type { FormattedWeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
-import Footer from '@/components/footer/TFDFooter';
-import Header from '@/components/header/TFDHeader';
+import Footer from '@/components/footer/TFD/Footer';
+import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';
 import { roundsArray, tiers, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
