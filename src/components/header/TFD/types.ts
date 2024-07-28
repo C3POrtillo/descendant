@@ -18,7 +18,7 @@ export const paths: PathType[] = [
       },
       {
         path: '/void-shards',
-        label: 'Void Fragment',
+        label: 'Void Fragments',
       },
     ],
   },
