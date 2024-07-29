@@ -1,23 +1,28 @@
 import axios from 'axios';
 import Error from 'next/error';
-import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import type {
   ExternalComponentTypes,
+  ExternalComponentsFilterMap,
   FormattedBasicData,
   FormattedExternalComponentData,
 } from '@/components/externalComponents/types';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
+import ExternalComponentBasicHeader from '@/components/externalComponents/ExternalComponentBasicHeader';
 import ExternalComponentCard from '@/components/externalComponents/ExternalComponentCard';
-import { externalComponentStats } from '@/components/externalComponents/types';
+import {
+  externalComponentStats,
+  externalComponentsFilterKeys,
+  filterOptions,
+} from '@/components/externalComponents/types';
 import { formatBasicComponentData, getSortedExternalComponentData } from '@/components/externalComponents/utils';
 import Footer from '@/components/footer/TFD/Footer';
 import Header from '@/components/header/TFD/Header';
+import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
-import ExternalComponentBasicHeader from '@/components/externalComponents/ExternalComponentBasicHeader';
 
 interface ExternalComponentProps {
   error: boolean;
@@ -28,8 +33,37 @@ interface ExternalComponentProps {
 const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicComponents, setComponents }) => {
   const [filteredSet, setFilteredSet] = useState(setComponents);
 
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState({} as ExternalComponentsFilterMap);
   const [isError] = useState(error || !setComponents || !formatBasicComponentData);
+
+  useEffect(() => {
+    if (isError) {
+      return;
+    }
+
+    const filterMap = externalComponentsFilterKeys.reduce((acc, key) => {
+      acc[key] = true;
+
+      return acc;
+    }, {} as ExternalComponentsFilterMap);
+
+    setFilter(filterMap);
+  }, []);
+
+  useEffect(() => {
+    const currentFilter = setComponents.reduce((acc, component) => {
+      const validComponent =
+        filter[component['external_component_equipment_type']] && filter[component['external_component_tier']];
+
+      if (validComponent) {
+        acc.push(component);
+      }
+
+      return acc;
+    }, [] as FormattedExternalComponentData[]);
+
+    setFilteredSet(currentFilter);
+  }, [filter]);
 
   if (isError) {
     return <Error statusCode={404} />;
@@ -62,7 +96,12 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
         </div>
       </Container>
       <Container>
-        <div className="flex  w-5/6 flex-col gap-4">
+        <div className="sticky-below-header flex h-min w-1/6 flex-col gap-4 pt-5">
+          <div className="external-component-data flex flex-row flex-wrap justify-center gap-4">
+            <FilterOptions filterOptions={filterOptions} filter={filter} setFilter={setFilter} />
+          </div>
+        </div>
+        <div className="flex w-5/6 flex-col gap-4">
           <h2>Set Components</h2>
           <div className="grid grid-cols-4 gap-4">
             {filteredSet.map(({ external_component_id: id, ...props }) => (

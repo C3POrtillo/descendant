@@ -1,4 +1,7 @@
+import type { FilterOptionsData } from '@/components/inputs/types';
 import type { BaseStat, TiersType } from '@/utils/types';
+
+import { tiers } from '@/utils/types';
 
 export const externalComponentStats = {
   stat: ['HP', 'DEF', 'Shield'],
@@ -88,3 +91,26 @@ export type BasicDataType = {
 };
 
 export type FormattedBasicData = Record<ExternalComponentTypes, BasicDataType>;
+
+export const externalComponentsArray = Object.keys(externalComponentStats.substats) as ExternalComponentTypes[];
+
+export const filterOptions: FilterOptionsData[] = [
+  {
+    label: 'Tier',
+    name: 'external_component_tier',
+    data: tiers.slice(1).map(tier => ({
+      value: tier,
+    })),
+  },
+  {
+    label: 'Component',
+    name: 'external_component_equipment_type',
+    data: externalComponentsArray.map(component => ({
+      value: component,
+    })),
+  },
+];
+
+export const externalComponentsFilterKeys = [...tiers, ...externalComponentsArray] as ExternalComponentsFilterTypes[];
+export type ExternalComponentsFilterTypes = ExternalComponentTypes | TiersType;
+export type ExternalComponentsFilterMap = Partial<Record<ExternalComponentsFilterTypes, boolean | undefined>>;

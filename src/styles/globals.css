@@ -36,7 +36,7 @@
     z-index: 10;
     top: 0;
   }
-  .sticky-table {
+  .sticky-below-header {
     position: sticky;
     z-index: 9;
     top: 150px;

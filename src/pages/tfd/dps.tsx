@@ -22,7 +22,7 @@ interface WeaponDPSProps {
 }
 
 const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
-  const [filteredWeapons, setFilteredWeapons] = useState([] as FormattedWeaponData[]);
+  const [filteredWeapons, setFilteredWeapons] = useState(weapons);
   const [filter, setFilter] = useState({} as WeaponFilterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
   const [sortColumn, setSortColumn] = useState('');
@@ -33,7 +33,6 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
       return;
     }
 
-    setFilteredWeapons(weapons);
     const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
     const filterMap = defaultFilter.reduce((acc, key) => {
       acc[key] = true;

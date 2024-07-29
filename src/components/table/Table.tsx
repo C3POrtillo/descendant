@@ -38,7 +38,7 @@ const Table: FC<TableProps> = ({
       <table className="w-full overflow-clip rounded-xl" {...props}>
         {headers && (
           <thead>
-            <tr className={isSticky ? 'sticky-table' : ''}>{headers}</tr>
+            <tr className={isSticky ? 'sticky-below-header' : ''}>{headers}</tr>
           </thead>
         )}
         <tbody>{body}</tbody>

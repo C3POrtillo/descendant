@@ -31,13 +31,12 @@ interface VoidShardProps {
 }
 
 const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
-  const [filteredRows, setFilteredRows] = useState([] as VoidFragmentData[]);
+  const [filteredRows, setFilteredRows] = useState(voidFragments);
   const [filter, setFilter] = useState({} as VoidFragmentFilterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
   const [sortColumn, setSortColumn] = useState('');
 
   useEffect(() => {
-    setFilteredRows(voidFragments);
     const defaultFilter = [...attributesArray, ...zonesArray, ...subregionsArray] as VoidFragmentFilterTypes[];
     const filterMap = defaultFilter.reduce((acc, key) => {
       acc[key] = true;

@@ -89,7 +89,7 @@ export const createLabelClass = (name: string, value: string): string => {
     case 'rounds-type':
     case 'attribute':
     case 'zone':
-      return getLabelClass(value);
+    case 'external_component_tier':
     case 'weapon-type':
       return getLabelClass(value);
     default:
