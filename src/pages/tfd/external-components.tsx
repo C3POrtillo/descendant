@@ -15,7 +15,7 @@ import ExternalComponentBasicHeader from '@/components/externalComponents/Extern
 import ExternalComponentCard from '@/components/externalComponents/ExternalComponentCard';
 import {
   externalComponentStats,
-  externalComponentsFilterKeys,
+  externalComponentsArray,
   filterOptions,
 } from '@/components/externalComponents/types';
 import { formatBasicComponentData, getSortedExternalComponentData } from '@/components/externalComponents/utils';
@@ -23,6 +23,7 @@ import Footer from '@/components/footer/TFD/Footer';
 import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
+import { tiers } from '@/utils/types';
 
 interface ExternalComponentProps {
   error: boolean;
@@ -34,14 +35,14 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
   const [filteredSet, setFilteredSet] = useState(setComponents);
 
   const [filter, setFilter] = useState({} as ExternalComponentsFilterMap);
-  const [isError] = useState(error || !setComponents || !formatBasicComponentData);
+  const [isError] = useState(error || !setComponents || !formattedBasicComponents);
 
   useEffect(() => {
     if (isError) {
       return;
     }
 
-    const filterMap = externalComponentsFilterKeys.reduce((acc, key) => {
+    const filterMap = [...tiers, ...externalComponentsArray].reduce((acc, key) => {
       acc[key] = true;
 
       return acc;
@@ -101,8 +102,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
             <FilterOptions filterOptions={filterOptions} filter={filter} setFilter={setFilter} />
           </div>
         </div>
-        <div className="flex w-5/6 flex-col gap-4">
-          <h2>Set Components</h2>
+        <div className="flex w-5/6 flex-col gap-4 pt-9">
           <div className="grid grid-cols-4 gap-4">
             {filteredSet.map(({ external_component_id: id, ...props }) => (
               <ExternalComponentCard key={id} {...props} />

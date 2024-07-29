@@ -7,7 +7,7 @@ import {
 } from '@/components/externalComponents/types';
 import { tiers } from '@/utils/types';
 
-export const formatExternalComponentData = (data: ExternalComponentData[]): FormattedExternalComponentData[] =>
+const formatExternalComponentData = (data: ExternalComponentData[]): FormattedExternalComponentData[] =>
   data.map(externalComponent => {
     const statAt100 = externalComponent.base_stat[99];
 

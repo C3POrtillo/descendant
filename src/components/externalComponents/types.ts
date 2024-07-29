@@ -111,6 +111,5 @@ export const filterOptions: FilterOptionsData[] = [
   },
 ];
 
-export const externalComponentsFilterKeys = [...tiers, ...externalComponentsArray] as ExternalComponentsFilterTypes[];
-export type ExternalComponentsFilterTypes = ExternalComponentTypes | TiersType;
+type ExternalComponentsFilterTypes = ExternalComponentTypes | TiersType;
 export type ExternalComponentsFilterMap = Partial<Record<ExternalComponentsFilterTypes, boolean | undefined>>;
