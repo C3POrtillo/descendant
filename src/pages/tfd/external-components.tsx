@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import type {
   ExternalComponentTypes,
   ExternalComponentsFilterMap,
-  FormattedBasicData,
   FormattedExternalComponentData,
 } from '@/components/externalComponents/types';
 import type { FC } from 'react';
@@ -27,15 +26,15 @@ import { tiers } from '@/utils/types';
 
 interface ExternalComponentProps {
   error: boolean;
-  formattedBasicComponents: FormattedBasicData;
+  basicComponents: FormattedExternalComponentData[];
   setComponents: FormattedExternalComponentData[];
 }
 
-const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicComponents, setComponents }) => {
+const ExternalComponents: FC<ExternalComponentProps> = ({ error, basicComponents, setComponents }) => {
   const [filteredSet, setFilteredSet] = useState(setComponents);
-
+  const [formattedBasicComponents, _] = useState(formatBasicComponentData(basicComponents));
   const [filter, setFilter] = useState({} as ExternalComponentsFilterMap);
-  const [isError] = useState(error || !setComponents || !formattedBasicComponents);
+  const [isError] = useState(error || !setComponents || !basicComponents);
 
   useEffect(() => {
     if (isError) {
@@ -138,12 +137,10 @@ export const getServerSideProps = async () => {
     }
   });
 
-  const formattedBasicComponents = formatBasicComponentData(basicComponents);
-
   return {
     props: {
       setComponents,
-      formattedBasicComponents,
+      basicComponents,
     },
   };
 };
