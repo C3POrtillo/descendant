@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import type {
   ExternalComponentTypes,
   ExternalComponentsFilterMap,
+  FormattedBasicData,
   FormattedExternalComponentData,
 } from '@/components/externalComponents/types';
 import type { FC } from 'react';
@@ -26,15 +27,15 @@ import { tiers } from '@/utils/types';
 
 interface ExternalComponentProps {
   error: boolean;
-  basicComponents: FormattedExternalComponentData[];
+  formattedBasicComponents: FormattedBasicData;
   setComponents: FormattedExternalComponentData[];
 }
 
-const ExternalComponents: FC<ExternalComponentProps> = ({ error, basicComponents, setComponents }) => {
+const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicComponents, setComponents }) => {
   const [filteredSet, setFilteredSet] = useState(setComponents);
-  const [formattedBasicComponents, _] = useState(formatBasicComponentData(basicComponents));
+
   const [filter, setFilter] = useState({} as ExternalComponentsFilterMap);
-  const [isError] = useState(error || !setComponents || !basicComponents);
+  const [isError] = useState(error || !setComponents || !formattedBasicComponents);
 
   useEffect(() => {
     if (isError) {
@@ -114,7 +115,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, basicComponents
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   if (!process.env.EXTERNAL_COMPONENT_JSON) {
     return {
       props: {
@@ -137,11 +138,14 @@ export const getServerSideProps = async () => {
     }
   });
 
+  const formattedBasicComponents = basicComponents.length && formatBasicComponentData(basicComponents);
+
   return {
     props: {
       setComponents,
-      basicComponents,
+      formattedBasicComponents,
     },
+    revalidate: 86400,
   };
 };
 
