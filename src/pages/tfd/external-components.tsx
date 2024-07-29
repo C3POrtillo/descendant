@@ -49,7 +49,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
   }, []);
 
   useEffect(() => {
-    const currentFilter = setComponents?.reduce((acc, component) => {
+    const currentFilter = setComponents.reduce((acc, component) => {
       const componentType = component['external_component_equipment_type'] as ExternalComponentTypes
       const componentTier = component['external_component_tier'] as TiersType
       const validComponent = filter[componentType] && filter[componentTier];
@@ -102,7 +102,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
         </div>
         <div className="flex w-5/6 flex-col gap-4 pt-9">
           <div className="grid grid-cols-4 gap-4">
-            {filteredSet?.map(({ external_component_id: id, ...props }) => (
+            {filteredSet.map(({ external_component_id: id, ...props }) => (
               <ExternalComponentCard key={id} {...props} />
             ))}
           </div>
