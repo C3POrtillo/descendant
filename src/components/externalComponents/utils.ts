@@ -1,4 +1,4 @@
-import type { BasicDataType, FormattedBasicData, MainStatMapKeys } from '@/components/externalComponents/types';
+import type { MainStatMapKeys } from '@/components/externalComponents/types';
 
 import {
   type ExternalComponentData,
@@ -33,24 +33,3 @@ export const getSortedExternalComponentData = (components: ExternalComponentData
 
     return bTier - aTier;
   });
-
-export const formatBasicComponentData = (data: FormattedExternalComponentData[]): FormattedBasicData =>
-  data.reduce((acc, { external_component_equipment_type, external_component_tier, stat, image_url }) => {
-    if (!acc[external_component_equipment_type]) {
-      acc[external_component_equipment_type] = {} as BasicDataType;
-    }
-
-    const basicData = acc[external_component_equipment_type];
-
-    if (!basicData.image_url) {
-      acc[external_component_equipment_type]['image_url'] = image_url;
-    }
-
-    if (!basicData[external_component_tier]?.length) {
-      basicData[external_component_tier] = [stat];
-    } else {
-      basicData[external_component_tier].push(stat);
-    }
-
-    return acc;
-  }, {} as FormattedBasicData);

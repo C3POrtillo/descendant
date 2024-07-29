@@ -3,6 +3,7 @@ import Error from 'next/error';
 import { useEffect, useState } from 'react';
 
 import type {
+  BasicDataType,
   ExternalComponentTypes,
   ExternalComponentsFilterMap,
   FormattedBasicData,
@@ -13,12 +14,8 @@ import type { FC } from 'react';
 import Container from '@/components/container/Container';
 import ExternalComponentBasicHeader from '@/components/externalComponents/ExternalComponentBasicHeader';
 import ExternalComponentCard from '@/components/externalComponents/ExternalComponentCard';
-import {
-  externalComponentStats,
-  externalComponentsArray,
-  filterOptions,
-} from '@/components/externalComponents/types';
-import { formatBasicComponentData, getSortedExternalComponentData } from '@/components/externalComponents/utils';
+import { externalComponentStats, externalComponentsArray, filterOptions } from '@/components/externalComponents/types';
+import { getSortedExternalComponentData } from '@/components/externalComponents/utils';
 import Footer from '@/components/footer/TFD/Footer';
 import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
@@ -127,23 +124,34 @@ export const getStaticProps = async () => {
   const components = (await axios.get(process.env.EXTERNAL_COMPONENT_JSON)).data;
   const sortedData = getSortedExternalComponentData(components);
 
-  const basicComponents: FormattedExternalComponentData[] = [];
+  const basicComponents = {} as FormattedBasicData;
   const setComponents: FormattedExternalComponentData[] = [];
 
   sortedData.forEach(component => {
     if (component.set_option_detail?.length) {
       setComponents.push(component);
     } else {
-      basicComponents.push(component);
+      const { external_component_equipment_type, external_component_tier, stat, image_url } = component;
+      if (!basicComponents[external_component_equipment_type]) {
+        basicComponents[external_component_equipment_type] = {} as BasicDataType;
+      }
+
+      if (!basicComponents[external_component_equipment_type].image_url) {
+        basicComponents[external_component_equipment_type]['image_url'] = image_url;
+      }
+
+      if (!basicComponents[external_component_equipment_type][external_component_tier]?.length) {
+        basicComponents[external_component_equipment_type][external_component_tier] = [stat];
+      } else {
+        basicComponents[external_component_equipment_type][external_component_tier].push(stat);
+      }
     }
   });
-
-  const formattedBasicComponents = basicComponents.length && formatBasicComponentData(basicComponents);
 
   return {
     props: {
       setComponents,
-      formattedBasicComponents,
+      formattedBasicComponents: basicComponents,
     },
     revalidate: 86400,
   };
