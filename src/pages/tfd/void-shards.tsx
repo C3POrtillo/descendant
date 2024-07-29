@@ -97,6 +97,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
           sortColumn={sortColumn}
           setSortDirection={setSortDirection}
           setSortColumn={setSortColumn}
+          isSticky={true}
         />
       </Container>
       <Footer />

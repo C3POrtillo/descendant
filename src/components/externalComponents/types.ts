@@ -34,21 +34,8 @@ export const externalComponentStats = {
 } as const;
 
 type T = typeof externalComponentStats;
-type ExternalComponentTypes = keyof T['substats'];
+export type ExternalComponentTypes = keyof T['substats'];
 type MainStatTypes = T['stat'][number];
-
-type BaseData = {
-  external_component_id: string;
-  external_component_name: string;
-  image_url: string;
-  external_component_equipment_type: ExternalComponentTypes;
-  external_component_tier: TiersType;
-};
-
-type ExternalComponentBaseStat = BaseStat &
-  {
-    level: number;
-  }[];
 
 type SetOptionData = {
   set_option: string;
@@ -56,17 +43,32 @@ type SetOptionData = {
   set_option_effect: string;
 };
 
+type BaseData = {
+  external_component_id: string;
+  external_component_name: string;
+  image_url: string;
+  external_component_equipment_type: ExternalComponentTypes;
+  external_component_tier: TiersType;
+  set_option_detail?: SetOptionData[];
+};
+
+type ExternalComponentBaseStat = BaseStat &
+  {
+    level: number;
+  }[];
+
 export const mainStatMap = {
   '105000001': 'HP',
   '105000029': 'DEF',
   '105000025': 'Shield',
 } as const;
 
+export const mainStats = Object.values(mainStatMap) as MainStatTypes[];
+
 export type MainStatMapKeys = keyof typeof mainStatMap;
 
 export type ExternalComponentData = BaseData & {
   base_stat: ExternalComponentBaseStat[];
-  set_option_detail?: SetOptionData[];
 };
 
 export type ExternalComponentStatType = {
@@ -77,3 +79,12 @@ export type ExternalComponentStatType = {
 export type FormattedExternalComponentData = BaseData & {
   stat: ExternalComponentStatType;
 };
+
+export type BasicDataType = {
+  image_url: string;
+  Standard?: ExternalComponentStatType[];
+  Rare?: ExternalComponentStatType[];
+  Ultimate?: ExternalComponentStatType[];
+};
+
+export type FormattedBasicData = Record<ExternalComponentTypes, BasicDataType>;

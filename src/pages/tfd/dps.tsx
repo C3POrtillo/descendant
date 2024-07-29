@@ -12,9 +12,9 @@ import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import WeaponTable from '@/components/weapon/WeaponTable';
 import { roundsArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
-import { reformatWeaponData } from '@/components/weapon/utils';
+import { defaultWeaponSort, reformatWeaponData } from '@/components/weapon/utils';
 import { tiers } from '@/utils/types';
-import { camelCase, defaultWeaponSort, sortData } from '@/utils/utils';
+import { camelCase, sortData } from '@/utils/utils';
 
 interface WeaponDPSProps {
   error: boolean;
@@ -89,6 +89,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
           sortColumn={sortColumn}
           setSortDirection={setSortDirection}
           setSortColumn={setSortColumn}
+          isSticky={true}
         />
       </Container>
       <Footer />
