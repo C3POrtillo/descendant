@@ -96,7 +96,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
   );
 };
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   if (!process.env.WEAPON_JSON) {
     return {
       props: {
@@ -111,6 +111,7 @@ export const getServerSideProps = async () => {
     props: {
       weapons: reformatWeaponData(weapons.sort(defaultWeaponSort)),
     },
+    revalidate: 86400,
   };
 };
 
