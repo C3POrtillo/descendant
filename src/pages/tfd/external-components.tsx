@@ -149,8 +149,6 @@ export const getStaticProps = async () => {
     }
   });
 
-  console.log("ERROR", setComponents)
-
   return {
     props: {
       setComponents,
