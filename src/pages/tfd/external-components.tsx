@@ -9,6 +9,7 @@ import type {
   FormattedBasicData,
   FormattedExternalComponentData,
 } from '@/components/externalComponents/types';
+import type { TiersType } from '@/utils/types';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
@@ -30,7 +31,6 @@ interface ExternalComponentProps {
 
 const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicComponents, setComponents }) => {
   const [filteredSet, setFilteredSet] = useState(setComponents);
-
   const [filter, setFilter] = useState({} as ExternalComponentsFilterMap);
   const [isError] = useState(error || !setComponents || !formattedBasicComponents);
 
@@ -50,8 +50,9 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
 
   useEffect(() => {
     const currentFilter = setComponents.reduce((acc, component) => {
-      const validComponent =
-        filter[component['external_component_equipment_type']] && filter[component['external_component_tier']];
+      const componentType = component['external_component_equipment_type'] as ExternalComponentTypes
+      const componentTier = component['external_component_tier'] as TiersType
+      const validComponent = filter[componentType] && filter[componentTier];
 
       if (validComponent) {
         acc.push(component);
