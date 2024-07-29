@@ -102,7 +102,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
         </div>
         <div className="flex w-5/6 flex-col gap-4 pt-9">
           <div className="grid grid-cols-4 gap-4">
-            {filteredSet.map(({ external_component_id: id, ...props }) => (
+            {filteredSet?.map(({ external_component_id: id, ...props }) => (
               <ExternalComponentCard key={id} {...props} />
             ))}
           </div>
@@ -129,7 +129,7 @@ export const getStaticProps = async () => {
   const setComponents: FormattedExternalComponentData[] = [];
 
   sortedData.forEach(component => {
-    if (component.set_option_detail?.length) {
+    if (component.set_option_detail?.[0]) {
       setComponents.push(component);
     } else {
       const { external_component_equipment_type, external_component_tier, stat, image_url } = component;
@@ -148,14 +148,6 @@ export const getStaticProps = async () => {
       }
     }
   });
-
-  if (!setComponents.length) {
-    return {
-      props: {
-        error: true,
-      },
-    };
-  }
 
   return {
     props: {
