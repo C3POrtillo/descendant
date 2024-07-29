@@ -9,7 +9,16 @@ export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   isSticky?: boolean;
 }
 
-const Table: FC<TableProps> = ({ label, labelSize = 'text-6xl', sublabel, headers, body, className, isSticky, ...props }) =>
+const Table: FC<TableProps> = ({
+  label,
+  labelSize = 'text-6xl',
+  sublabel,
+  headers,
+  body,
+  className,
+  isSticky,
+  ...props
+}) =>
   body && (
     <fieldset
       className={[
@@ -29,7 +38,7 @@ const Table: FC<TableProps> = ({ label, labelSize = 'text-6xl', sublabel, header
       <table className="w-full overflow-clip rounded-xl" {...props}>
         {headers && (
           <thead>
-            <tr className={isSticky ? 'sticky-table': ''}>{headers}</tr>
+            <tr className={isSticky ? 'sticky-table' : ''}>{headers}</tr>
           </thead>
         )}
         <tbody>{body}</tbody>

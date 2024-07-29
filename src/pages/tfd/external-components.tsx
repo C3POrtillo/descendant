@@ -35,25 +35,14 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
     return <Error statusCode={404} />;
   }
 
-  console.log(formattedBasicComponents);
-
   return (
     <>
       <Header />
-      <Container></Container>
       <Container>
-        <div className="flex  w-5/6 flex-col gap-4">
-          <h2>Set Components</h2>
-          <div className="grid grid-cols-4 gap-4">
-            {filteredSet.map(({ external_component_id: id, ...props }) => (
-              <ExternalComponentCard key={id} {...props} />
-            ))}
-          </div>
-        </div>
-        <div className="flex w-1/6 flex-col">
-          <h2>Basic Data</h2>
+        <div className="flex flex-row gap-4">
           {Object.entries(externalComponentStats.substats).map(([component, substats]) => (
             <Table
+              className="h-min"
               key={component}
               label={component}
               labelSize="text-2xl"
@@ -70,6 +59,16 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
               ))}
             />
           ))}
+        </div>
+      </Container>
+      <Container>
+        <div className="flex  w-5/6 flex-col gap-4">
+          <h2>Set Components</h2>
+          <div className="grid grid-cols-4 gap-4">
+            {filteredSet.map(({ external_component_id: id, ...props }) => (
+              <ExternalComponentCard key={id} {...props} />
+            ))}
+          </div>
         </div>
       </Container>
       <Footer />
