@@ -115,7 +115,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   if (!process.env.EXTERNAL_COMPONENT_JSON) {
     return {
       props: {
@@ -142,7 +142,6 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      basicComponents,
       setComponents,
       formattedBasicComponents,
     },

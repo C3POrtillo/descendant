@@ -96,7 +96,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   if (!process.env.WEAPON_JSON) {
     return {
       props: {
