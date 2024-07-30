@@ -22,6 +22,7 @@ import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
 import { tiers } from '@/utils/types';
+import { sortData } from '@/utils/utils';
 
 interface ExternalComponentProps {
   error: boolean;
@@ -72,7 +73,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
     <>
       <Header />
       <Container>
-        <div className="flex flex-row gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:flex lg:flex-row">
           {Object.entries(externalComponentStats.substats).map(([component, substats]) => (
             <Table
               className="h-min"
@@ -95,16 +96,18 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
         </div>
       </Container>
       <Container>
-        <div className="sticky-below-header flex h-min w-1/6 flex-col gap-4 pt-5">
-          <div className="external-component-data flex flex-row flex-wrap justify-center gap-4">
-            <FilterOptions filterOptions={filterOptions} filter={filter} setFilter={setFilter} />
+        <div className="flex flex-col gap-1 lg:flex-row lg:gap-4">
+          <div className="lg:sticky-below-header flex h-min flex-row justify-center gap-4 pt-5 lg:w-1/6 lg:flex-col">
+            <div className="external-component-data flex flex-row flex-wrap justify-center gap-4">
+              <FilterOptions filterOptions={filterOptions} filter={filter} setFilter={setFilter} />
+            </div>
           </div>
-        </div>
-        <div className="flex w-5/6 flex-col gap-4 pt-9">
-          <div className="grid grid-cols-4 gap-4">
-            {filteredSet.map(({ external_component_id: id, ...props }) => (
-              <ExternalComponentCard key={id} {...props} />
-            ))}
+          <div className="flex flex-col gap-4 pt-9 lg:w-5/6">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {filteredSet.map(({ external_component_id: id, ...props }) => (
+                <ExternalComponentCard key={id} {...props} />
+              ))}
+            </div>
           </div>
         </div>
       </Container>
@@ -151,7 +154,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      setComponents,
+      setComponents: setComponents.sort((a, b) => sortData(a.set_option_detail?.[0].set_option as string, b.set_option_detail?.[0].set_option as string)),
       formattedBasicComponents: basicComponents,
     },
     revalidate: 86400,

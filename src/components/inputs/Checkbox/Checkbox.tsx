@@ -16,7 +16,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setFilter, icon }) => (
-  <div key={value} className="text-nowrap">
+  <div key={value}>
     <label
       htmlFor={value}
       className={[
