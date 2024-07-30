@@ -31,8 +31,13 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
         className="overflow-hidden rounded-t-lg border-4 border-black object-contain"
       />
     </div>
-    <div className={['mx-2 flex flex-col border-white', getLabelClass(external_component_tier)].join(' ')}>
-      <div className="flex w-full flex-row justify-center gap-1 text-left text-xl">
+    <div
+      className={[
+        'mx-2 flex flex-col border-white text-sm md:text-base lg:text-xl',
+        getLabelClass(external_component_tier),
+      ].join(' ')}
+    >
+      <div className="flex w-full flex-row justify-center gap-1 text-left">
         <p className="flex h-full w-3/4 flex-col justify-center self-center border-r-2 border-solid border-white pl-2 pr-3">
           {external_component_name}
         </p>
@@ -43,7 +48,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
         </p>
       </div>
       {!!set_option_detail?.length && (
-        <div className="mt-2 border-t-2 border-white pt-2 text-left text-lg text-white">
+        <div className="mt-2 border-t-2 border-white pt-2 text-left text-white">
           {set_option_detail.map(({ set_count, set_option_effect }) => (
             <div key={set_count}>
               <div className="pl-2">Set Count: {set_count}</div>

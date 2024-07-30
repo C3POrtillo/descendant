@@ -1,3 +1,5 @@
+import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
+
 import type { FC, ReactNode, TableHTMLAttributes } from 'react';
 
 export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
@@ -34,17 +36,24 @@ const Table: FC<TableProps> = ({
           {sublabel && sublabel}
         </>
       )}
-      <div className="max-w-sm rotate-180 overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
-        {/* eslint-disable-next-line tailwindcss/migration-from-tailwind-2 */}
-        <table className="w-full rotate-180" {...props}>
-          {headers && (
-            <thead className={isSticky ? 'sticky-below-header' : ''}>
-              <tr>{headers}</tr>
-            </thead>
-          )}
-          <tbody>{body}</tbody>
-        </table>
-      </div>
+      <ScrollSync>
+        <>
+          <div className={isSticky ? 'sticky-below-header bg-slate-900 shadow-md shadow-black' : ''}>
+            <ScrollSyncPane>
+              <div className="overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
+                <div className="min-w-full">{headers}</div>
+              </div>
+            </ScrollSyncPane>
+          </div>
+          <ScrollSyncPane>
+            <div className="flex max-w-sm flex-col overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
+              <table className="min-w-full" {...props}>
+                <tbody>{body}</tbody>
+              </table>
+            </div>
+          </ScrollSyncPane>
+        </>
+      </ScrollSync>
     </fieldset>
   );
 

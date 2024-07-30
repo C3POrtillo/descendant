@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply text-white font-extrabold font-sans;
+    @apply text-white font-semibold font-sans;
   }
   body {
    @apply bg-slate-600;
@@ -61,7 +61,7 @@
     transition: max-height 0.1s ease-in-out, padding 0.1s ease-in-out;
   }
   .sticky-header {
-    /* position: sticky; */
+    position: sticky;
     width: 100%;
     z-index: 10;
     top: 0;
@@ -69,15 +69,16 @@
   .sticky-below-header {
     position: sticky;
     z-index: 9;
-    top:0;
+    top: 80px;
     @media (min-width: 1024px) {
+      top: 164px;
     }
   }
   .tfd-link, .home-link {
     @apply hover:text-yellow-200  min-w-max self-center w-full text-2xl lg:text-3xl py-1;
   }
   .text-link {
-    @apply text-2xl lg:text-3xl;
+    @apply text-2xl lg:text-3xl font-semibold;
   }
   .tfd-link {
     @apply rounded-xl px-4 hover:bg-slate-400;
