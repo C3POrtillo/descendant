@@ -18,13 +18,13 @@ const ExternalComponentBasicHeader: FC<ExternalComponentBasicHeaderProps> = ({
   Rare,
   Ultimate,
 }) => (
-  <th className="external-component-data flex flex-col border-b-2 border-white">
+  <div className="external-component-data flex w-full flex-col border-b-2 border-white text-center">
     <div className="external-component-image relative">
       <Image src={image_url} fill={true} alt={component} sizes="128px" loading="lazy" className="object-contain" />
     </div>
     <div className="mt-2 flex flex-row gap-0.5 border-y-2 border-solid border-white bg-white">
       {mainStats.map(stat => (
-        <div key={stat} className="w-1/3 bg-slate-800 py-2 text-xl">
+        <div key={stat} className="w-1/3 bg-slate-800 p-2 text-xl">
           {stat}
         </div>
       ))}
@@ -34,14 +34,14 @@ const ExternalComponentBasicHeader: FC<ExternalComponentBasicHeaderProps> = ({
         array && (
           <div className={['flex flex-row gap-0.5 bg-white', labels[index]].join(' ')} key={labels[index]}>
             {array.map(({ stat_value }) => (
-              <div key={stat_value} className="w-1/3 bg-slate-800 py-0.5 text-xl">
+              <div key={stat_value} className="w-1/3 bg-slate-800 px-2  py-0.5  text-xl">
                 {stat_value}
               </div>
             ))}
           </div>
         ),
     )}
-  </th>
+  </div>
 );
 
 export default ExternalComponentBasicHeader;

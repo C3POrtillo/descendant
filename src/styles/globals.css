@@ -39,7 +39,7 @@
       @apply w-full;
       .button-arrows {
         i:before {
-          @apply text-lg;
+          @apply text-base xl:text-lg;
         }
       }
     }

@@ -1,14 +1,22 @@
+import { type FC, type ReactNode, type TableHTMLAttributes, isValidElement } from 'react';
 import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 
-import type { FC, ReactNode, TableHTMLAttributes } from 'react';
+import type { DirectionValues } from '@/components/inputs/types';
+import type { HeadersType } from '@/components/table/types';
+
+import Button from '@/components/inputs/Button/TableSortButton';
 
 export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   label?: string;
   labelSize?: string;
   sublabel?: ReactNode;
-  headers?: ReactNode;
+  headers?: HeadersType[] | ReactNode;
   body?: ReactNode;
   isSticky?: boolean;
+  sortDirection?: DirectionValues;
+  sortColumn?: string;
+  setSortDirection?: React.Dispatch<React.SetStateAction<DirectionValues>>;
+  setSortColumn?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Table: FC<TableProps> = ({
@@ -19,9 +27,38 @@ const Table: FC<TableProps> = ({
   body,
   className,
   isSticky,
+  sortDirection,
+  sortColumn,
+  setSortDirection,
+  setSortColumn,
   ...props
-}) =>
-  body && (
+}) => {
+  const isSortHeader = setSortDirection && setSortColumn;
+  const headersArray =
+    headers &&
+    !isValidElement(headers) &&
+    (headers as unknown[] as HeadersType[]).map(el => {
+      const { key, header } = typeof el === 'string' ? { key: el, header: el } : el;
+
+      return (
+        <div key={key} className="text-base lg:text-xl">
+          {isSortHeader ? (
+            <Button
+              id={key}
+              sortDirection={sortColumn === key ? sortDirection : 0}
+              setSortDirection={setSortDirection}
+              setSortColumn={setSortColumn}
+            >
+              {header}
+            </Button>
+          ) : (
+            header
+          )}
+        </div>
+      );
+    });
+
+  return (
     <fieldset
       className={[
         'overflow-clip rounded-xl border-2 border-solid border-white bg-slate-900 text-3xl shadow-xl shadow-black',
@@ -41,20 +78,25 @@ const Table: FC<TableProps> = ({
           <div className={isSticky ? 'sticky-below-header bg-slate-900 shadow-md shadow-black' : ''}>
             <ScrollSyncPane>
               <div className="overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
-                <div className="flex min-w-full flex-row">{headers}</div>
+                {headers && (
+                  <div className="flex w-full min-w-full flex-row justify-between">{headersArray || (isValidElement(headers) && headers)}</div>
+                )}
               </div>
             </ScrollSyncPane>
           </div>
-          <ScrollSyncPane>
-            <div className="flex max-w-sm flex-col overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
-              <table className="min-w-full" {...props}>
-                <tbody>{body}</tbody>
-              </table>
-            </div>
-          </ScrollSyncPane>
+          {body && (
+            <ScrollSyncPane>
+              <div className="flex max-w-sm flex-col overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
+                <table className="min-w-full" {...props}>
+                  <tbody>{body}</tbody>
+                </table>
+              </div>
+            </ScrollSyncPane>
+          )}
         </>
       </ScrollSync>
     </fieldset>
   );
+};
 
 export default Table;

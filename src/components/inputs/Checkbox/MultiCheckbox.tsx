@@ -1,11 +1,10 @@
-import { useMediaQuery } from 'react-responsive';
-
 import type { DefaultCheckedType, FilterMap, LabelData } from '@/components/inputs/types';
-import type { FC, FieldsetHTMLAttributes } from 'react';
+import type { FC,FieldsetHTMLAttributes} from 'react';
 
 import Accordion from '@/components/accordion/Accordion';
 import Checkbox from '@/components/inputs/Checkbox/Checkbox';
 import { setChecked } from '@/components/inputs/utils';
+import useLargeScreen from '@/utils/useLargeScreen';
 
 interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'defaultChecked'> {
   label: string;
@@ -16,7 +15,8 @@ interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
 }
 
 const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setFilter }) => {
-  const isLargeScreen = useMediaQuery({ query: '(min-width: 1536px)' });
+  const isLargeScreen = useLargeScreen()
+
   const threshold = data.length > 6;
   const gridSize = threshold ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0' : 'grid-cols-1';
   const accordionSize = 'lg:flex-auto lg:basis-[calc(33.333%-1rem)]';

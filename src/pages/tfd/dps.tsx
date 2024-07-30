@@ -10,8 +10,15 @@ import Container from '@/components/container/Container';
 import Footer from '@/components/footer/TFD/Footer';
 import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
-import WeaponTable from '@/components/weapon/WeaponTable';
-import { roundsArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
+import Table from '@/components/table/Table';
+import WeaponRow from '@/components/weapon/WeaponRow';
+import {
+  roundsArray,
+  weaponArray,
+  weaponFilterKeys,
+  weaponOptions,
+  weaponTableHeaders,
+} from '@/components/weapon/types';
 import { defaultWeaponSort, reformatWeaponData } from '@/components/weapon/utils';
 import { tiers } from '@/utils/types';
 import { camelCase, sortData } from '@/utils/utils';
@@ -81,8 +88,12 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
         </div>
       </Container>
       <Container>
-        <WeaponTable
-          weaponData={filteredWeapons}
+        <Table
+          label="Weapon DPS Chart"
+          headers={weaponTableHeaders as unknown as string[]}
+          body={filteredWeapons.map(row => (
+            <WeaponRow key={row.weapon_id} {...row} />
+          ))}
           className="weapon-data"
           sortDirection={sortDirection}
           sortColumn={sortColumn}
