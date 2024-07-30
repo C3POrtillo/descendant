@@ -37,18 +37,19 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
       axis: 'x',
     },
   );
-  
+
   return (
     // eslint-disable-next-line tailwindcss/no-arbitrary-value
     <div className="relative mx-auto max-w-[92vw]">
-      <div className="flex overflow-hidden py-3" 
-        {...bind()}
-      >
+      <div className="flex overflow-hidden py-3" {...bind()}>
         {slides.map((slide, index) => (
           <div
             // eslint-disable-next-line react/no-array-index-key
             key={index}
-            className={['carousel-slide inline-flex w-full shrink-0 px-3', index === currentIndex ? 'translate-x-0' : 'translate-x-full'].join(' ')}
+            className={[
+              'carousel-slide inline-flex w-full shrink-0 px-3',
+              index === currentIndex ? 'translate-x-0' : 'translate-x-full',
+            ].join(' ')}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {slide}

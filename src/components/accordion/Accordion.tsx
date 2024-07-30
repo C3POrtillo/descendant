@@ -5,10 +5,9 @@ import type { FC, PropsWithChildren, ReactNode } from 'react';
 interface AccordionProps extends PropsWithChildren {
   label: string | ReactNode;
   icon?: string;
-  keepOpen?: boolean;
 }
 
-const Accordion: FC<AccordionProps> = ({ label, icon, keepOpen, children }) => {
+const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [labelIsClickable, _] = useState(typeof label !== 'string');
   const panelRef = useRef<HTMLDivElement>(null);
@@ -19,33 +18,18 @@ const Accordion: FC<AccordionProps> = ({ label, icon, keepOpen, children }) => {
     setIsOpen(!isOpen);
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (accordionRef.current && !accordionRef.current.contains(event.target as Node)) {
-      !keepOpen && setIsOpen(false);
-    }
-  };
-
   useEffect(() => {
     if (isOpen) {
       if (panelRef.current && accordionRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight + 32}px`;
         panelRef.current.style.overflow = 'visible';
-        panelRef.current.style.opacity = '1';
         panelRef.current.className = [panelClasses, 'py-3'].join(' ');
       }
-      document.addEventListener('click', handleClickOutside);
-    } else {
-      document.removeEventListener('click', handleClickOutside);
-      if (panelRef.current && accordionRef.current) {
-        panelRef.current.style.maxHeight = '0px';
-        panelRef.current.style.overflow = 'hidden';
-        panelRef.current.className = panelClasses;
-      }
+    } else if (panelRef.current && accordionRef.current) {
+      panelRef.current.style.maxHeight = '0px';
+      panelRef.current.style.overflow = 'hidden';
+      panelRef.current.className = panelClasses;
     }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
   }, [isOpen]);
 
   const faIcon = icon || (isOpen ? 'fa-chevron-up' : 'fa-chevron-down');

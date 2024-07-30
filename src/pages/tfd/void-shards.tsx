@@ -90,8 +90,13 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
       </Container>
 
       <Container className="fragment-data subregion-data flex flex-row flex-wrap 2xl:hidden">
-        <FilterOptions filterOptions={[...fragmentOptions, zoneOptions[0]]} filter={filter} setFilter={setFilter}/>
-        <FilterOptions filterOptions={[...zoneOptions.slice(1)]} filter={filter} setFilter={setFilter} type="carousel"/>
+        <FilterOptions filterOptions={[...fragmentOptions, zoneOptions[0]]} filter={filter} setFilter={setFilter} />
+        <FilterOptions
+          filterOptions={[...zoneOptions.slice(1)]}
+          filter={filter}
+          setFilter={setFilter}
+          type="carousel"
+        />
       </Container>
       <Container>
         <VoidFragmentTable

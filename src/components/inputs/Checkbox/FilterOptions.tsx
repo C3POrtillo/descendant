@@ -25,17 +25,13 @@ const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setFilte
       setFilter={setFilter}
       {...props}
     />
-  ))
+  ));
 
   switch (type) {
     case 'carousel':
-      return <Carousel slides={filtersArray} />
-    default: 
-      return (
-        <>
-          {filtersArray}
-        </>
-      )
+      return <Carousel slides={filtersArray} />;
+    default:
+      return <>{filtersArray}</>;
   }
 };
 

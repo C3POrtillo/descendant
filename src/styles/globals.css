@@ -57,8 +57,8 @@
     @apply absolute top-1/2 -translate-y-1/2 bg-gray-800 p-2 text-white rounded-xl border-2 border-white border-solid px-3
   }
   .accordion-panel {
-    @apply max-h-0 opacity-0 flex w-full flex-col gap-4 bg-slate-900;
-    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out, padding 0.1s ease-in-out;
+    @apply max-h-0 flex w-full flex-col gap-4 bg-slate-900;
+    transition: max-height 0.1s ease-in-out, padding 0.1s ease-in-out;
   }
   .sticky-header {
     position: sticky;
@@ -202,25 +202,20 @@
     @apply bg-slate-900 absolute size-8 rotate-45 origin-center rounded-md; 
     content: '';
   }
-  
   .hexagon {
     @apply bg-slate-900 absolute w-[32px] h-[17.32px] my-[9.66px] top-[-2.5px];
   }
-  
   .hexagon:before,
   .hexagon:after {
     @apply absolute border-solid border-transparent border-x-[16px] w-0 left-0;
     content: '';
   }
-  
   .hexagon:before {
     @apply border-b-slate-900 border-b-[9.66px] bottom-full;
   }
-  
   .hexagon:after {
     @apply border-t-slate-900 border-t-[9.66px] w-0 top-full;
   }
-
   .rounded-square:before {
     @apply bg-slate-900 absolute size-9 rounded-md top-[-2px] left-[-2px];
     content: '';

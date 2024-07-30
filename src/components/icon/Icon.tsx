@@ -10,13 +10,16 @@ export interface IconProps {
 }
 
 const Icon: FC<IconProps> = ({ src, alt, backgroundClass, size = '8' }) => {
-  const getSize = () => `size-${size} `
-    
-  return src && (
-    <div className={['relative flex flex-wrap min-w-8 min-h-8', getSize()].join(' ')}>
-      {backgroundClass && <div className={backgroundClass} />}
-      <Image fill={true} sizes="100%" src={src} alt={alt || ''} quality={100} loading="lazy" />
-    </div>
-  )};
+  const getSize = () => `size-${size} `;
+
+  return (
+    src && (
+      <div className={['relative flex min-h-8 min-w-8 flex-wrap', getSize()].join(' ')}>
+        {backgroundClass && <div className={backgroundClass} />}
+        <Image fill={true} sizes="100%" src={src} alt={alt || ''} quality={100} loading="lazy" />
+      </div>
+    )
+  );
+};
 
 export default Icon;

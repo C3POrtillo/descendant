@@ -15,7 +15,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: IconProps;
 }
 
-const Checkbox: FC<CheckboxProps> = ({ value, name, filter, setFilter, icon }) => (
+const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setFilter, icon }) => (
   <label
     htmlFor={value}
     className={[
@@ -28,7 +28,7 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, filter, setFilter, icon }) =
       className="size-5 self-center rounded"
       id={value}
       name={value}
-      defaultChecked={filter?.[value as FilterTypes]}
+      defaultChecked={defaultChecked}
       onChange={e => {
         if (filter && setFilter) {
           filter[value as FilterTypes] = e.target.checked;

@@ -39,9 +39,7 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({
           {shardsArray.includes(key as ShardsType) ? (
             <div className="flex flex-row items-center justify-center gap-2">
               {<Icon alt={key} src={shardsImages[key as ShardsType]} size="10" />}
-              <div className={shardsImages[key as ShardsType] ? 'hidden lg:flex': ''}>
-                {key}
-              </div>
+              <div className={shardsImages[key as ShardsType] ? 'hidden lg:flex' : ''}>{key}</div>
             </div>
           ) : (
             key
