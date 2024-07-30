@@ -31,7 +31,7 @@
 
 @layer components {
   .accordion-panel {
-    transition: max-height 0.2s ease-out;
+    transition: max-height 0.1s ease-in-out;
   }
   legend {
     @apply text-outline;
@@ -65,13 +65,13 @@
     top: 164px;
   }
   .tfd-link, .home-link {
-    @apply hover:text-yellow-200 hover:bg-slate-400 min-w-max self-center w-full text-2xl lg:text-3xl;
+    @apply hover:text-yellow-200  min-w-max self-center w-full text-2xl lg:text-3xl py-1;
   }
   .text-link {
     @apply text-2xl lg:text-3xl;
   }
   .tfd-link {
-    @apply rounded-xl px-4 py-1;
+    @apply rounded-xl px-4 hover:bg-slate-400;
   }
   .disabled-link {
     @apply pointer-events-none text-yellow-200;

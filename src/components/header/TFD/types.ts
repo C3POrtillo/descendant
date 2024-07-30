@@ -5,9 +5,9 @@ export type PathType = {
   isExternal?: boolean;
 };
 
-export const paths: PathType[] = [
+export const paths = [
   {
-    path: '/',
+    path: '',
     label: 'The First Descendant Data',
   },
   {
@@ -31,4 +31,4 @@ export const paths: PathType[] = [
     path: '/external-components',
     label: 'External Components',
   },
-] as const;
+] as PathType[];

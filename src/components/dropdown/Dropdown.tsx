@@ -36,7 +36,7 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
   return (
     <div
       ref={dropdownRef}
-      className="relative inline-block w-full items-center justify-center rounded-xl px-4 py-1 text-left align-middle hover:bg-slate-400"
+      className="relative inline-flex w-full items-center justify-center rounded-xl px-4 text-left align-middle hover:bg-slate-400"
     >
       <button onClick={toggleDropdown} className="text-link inline-flex w-full justify-center gap-4 rounded-md">
         {label}
