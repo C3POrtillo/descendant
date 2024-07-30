@@ -45,10 +45,10 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
       {!!set_option_detail?.length && (
         <div className="mt-2 border-t-2 border-white pt-2 text-left text-lg text-white">
           {set_option_detail.map(({ set_count, set_option_effect }) => (
-            <>
+            <div key={set_count}>
               <div className="pl-2">Set Count: {set_count}</div>
               <div className="pl-4 font-semibold">{set_option_effect}</div>
-            </>
+            </div>
           ))}
         </div>
       )}

@@ -17,7 +17,7 @@
       min-height: max-content;
       height: 100%;
       position: fixed;
-      overflow-y: scroll;
+      overflow: scroll;
       inset: 0;
       input, select {
         @apply border-gray-600 bg-gray-700 text-2xl ring-offset-gray-800 focus:ring-2 focus:ring-blue-600;
@@ -31,7 +31,8 @@
 
 @layer components {
   .accordion-panel {
-    transition: max-height 0.1s ease-in-out;
+    @apply max-h-0 opacity-0 flex w-full flex-col gap-4 bg-slate-900;
+    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out, padding 0.1s ease-in-out;
   }
   legend {
     @apply text-outline;

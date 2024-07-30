@@ -76,11 +76,11 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
     <>
       <Header />
       <Container>
-        <div className="weapon-data flex flex-row justify-center gap-4">
+        <div className="weapon-data flex flex-col justify-center gap-4 lg:flex-row">
           <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
         </div>
       </Container>
-      <Container>
+      <Container className="hidden lg:flex">
         <WeaponTable
           weaponData={filteredWeapons}
           className="weapon-data"

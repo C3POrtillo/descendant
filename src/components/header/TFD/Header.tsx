@@ -23,7 +23,7 @@ const Header: FC = () => {
   });
 
   const homeLink = (
-    <TFDLink className="home-link lg:p-0" path={paths[0].path}>
+    <TFDLink className="home-link text-nowrap lg:p-0" path={paths[0].path}>
       <h1 className="text-2xl font-semibold lg:text-6xl">{paths[0].label}</h1>
     </TFDLink>
   );
@@ -33,7 +33,7 @@ const Header: FC = () => {
       <div className="hidden h-14 content-center lg:flex">{homeLink}</div>
       <div className="hidden min-h-8 flex-row gap-4 lg:flex">{navLinks}</div>
       <div className="flex min-h-8 w-full flex-row lg:hidden">
-        <Accordion label={<div className="py-6 md:w-full">{homeLink}</div>} icon="fa-bars">
+        <Accordion label={<div className="flex py-6">{homeLink}</div>} icon="fa-bars">
           {navLinks}
         </Accordion>
       </div>

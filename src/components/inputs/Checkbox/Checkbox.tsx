@@ -15,34 +15,32 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: IconProps;
 }
 
-const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setFilter, icon }) => (
-  <div key={value}>
-    <label
-      htmlFor={value}
-      className={[
-        'flex w-full flex-row gap-4 text-2xl',
-        name ? createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value) : '',
-      ].join(' ')}
-    >
-      <input
-        type="checkbox"
-        className="size-5 self-center rounded"
-        id={value}
-        name={value}
-        defaultChecked={defaultChecked}
-        onChange={e => {
-          if (filter && setFilter) {
-            filter[value as FilterTypes] = e.target.checked;
-            setFilter({ ...filter });
-          }
-        }}
-      />
-      <div className="flex flex-row items-center justify-center gap-2">
-        {icon?.src && <Icon {...icon} />}
-        {value}
-      </div>
-    </label>
-  </div>
+const Checkbox: FC<CheckboxProps> = ({ value, name, filter, setFilter, icon }) => (
+  <label
+    htmlFor={value}
+    className={[
+      'flex w-full flex-row gap-4 text-2xl',
+      name ? createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value) : '',
+    ].join(' ')}
+  >
+    <input
+      type="checkbox"
+      className="size-5 self-center rounded"
+      id={value}
+      name={value}
+      defaultChecked={filter?.[value as FilterTypes]}
+      onChange={e => {
+        if (filter && setFilter) {
+          filter[value as FilterTypes] = e.target.checked;
+          setFilter({ ...filter });
+        }
+      }}
+    />
+    <div className="flex flex-row items-center justify-center gap-2">
+      {icon?.src && <Icon {...icon} />}
+      {value}
+    </div>
+  </label>
 );
 
 export default Checkbox;

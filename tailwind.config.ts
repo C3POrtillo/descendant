@@ -17,8 +17,7 @@ module.exports = {
         'special-rounds': '#e47121',
         electric: '#36c6f2',
         toxic: '#40c41d',
-      }
-
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

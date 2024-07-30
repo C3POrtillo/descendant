@@ -154,7 +154,9 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      setComponents: setComponents.sort((a, b) => sortData(a.set_option_detail?.[0].set_option as string, b.set_option_detail?.[0].set_option as string)),
+      setComponents: setComponents.sort((a, b) =>
+        sortData(a.set_option_detail?.[0].set_option as string, b.set_option_detail?.[0].set_option as string),
+      ),
       formattedBasicComponents: basicComponents,
     },
     revalidate: 86400,

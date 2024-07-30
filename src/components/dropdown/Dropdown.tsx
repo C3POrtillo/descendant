@@ -21,6 +21,10 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
     }
   };
 
+  const handleChildClick = () => {
+    setIsOpen(false);
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.addEventListener('click', handleClickOutside);
@@ -43,7 +47,11 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
         <i className={['fa link-icon self-center', isOpen ? 'fa-chevron-up' : 'fa-chevron-down'].join(' ')} />
       </button>
       {isOpen && children && (
-        <div className="absolute left-0 top-0 mt-9 w-full gap-4 rounded-xl border-2 border-solid border-white bg-slate-900 p-4 lg:mt-12 lg:w-auto">
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+        <div
+          className="absolute left-0 top-0 mt-9 w-full gap-4 rounded-xl border-2 border-solid border-white bg-slate-900 p-4 lg:mt-12 lg:w-auto"
+          onClick={handleChildClick}
+        >
           <div className="flex min-h-max w-full min-w-full flex-col ">{children}</div>
         </div>
       )}
