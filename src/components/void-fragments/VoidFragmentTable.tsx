@@ -27,7 +27,7 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({
 }) => (
   <Table
     label="Void Fragment Locations"
-    sublabel={<p className="text-center text-xl text-yellow-200">Fast locations marked in gold</p>}
+    sublabel={<p className="pb-2 text-center text-xl text-yellow-200">Fast locations marked in gold</p>}
     headers={voidFragmentTableHeaders.map(key => (
       <th key={key} className="text-lg 2xl:text-3xl">
         <Button

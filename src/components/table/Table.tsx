@@ -11,7 +11,7 @@ export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
 
 const Table: FC<TableProps> = ({
   label,
-  labelSize = 'text-6xl',
+  labelSize = 'text-3xl md:text-4xl lg:text-6xl',
   sublabel,
   headers,
   body,
@@ -34,12 +34,12 @@ const Table: FC<TableProps> = ({
           {sublabel && sublabel}
         </>
       )}
-      <div className="overflow-x-auto">
+      <div className="max-w-sm rotate-180 overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
         {/* eslint-disable-next-line tailwindcss/migration-from-tailwind-2 */}
-        <table className="w-full rounded-xl" {...props}>
+        <table className="w-full rotate-180" {...props}>
           {headers && (
-            <thead>
-              <tr className={isSticky ? '' : ''}>{headers}</tr>
+            <thead className={isSticky ? 'sticky-below-header' : ''}>
+              <tr>{headers}</tr>
             </thead>
           )}
           <tbody>{body}</tbody>

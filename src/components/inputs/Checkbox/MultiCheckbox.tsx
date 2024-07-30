@@ -1,3 +1,5 @@
+import { useMediaQuery } from 'react-responsive';
+
 import type { DefaultCheckedType, FilterMap, LabelData } from '@/components/inputs/types';
 import type { FC, FieldsetHTMLAttributes } from 'react';
 
@@ -14,6 +16,7 @@ interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
 }
 
 const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setFilter }) => {
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 1536px)' });
   const threshold = data.length > 6;
   const gridSize = threshold ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0' : 'grid-cols-1';
   const accordionSize = 'lg:flex-auto lg:basis-[calc(33.333%-1rem)]';
@@ -35,18 +38,17 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
   const wrapperClasses =
     'rounded-lg border-2 border-solid border-white bg-slate-900 p-4 text-3xl shadow-md shadow-black';
 
-  return (
-    <>
-      <fieldset className={['hidden w-max grow 2xl:flex', wrapperClasses].join(' ')}>
-        <legend className="px-4 text-center">
-          <h2>{label}</h2>
-        </legend>
-        {checkboxContainer}
-      </fieldset>
-      <div className={['h-min w-full 2xl:hidden', wrapperClasses, accordionSize].join(' ')}>
-        <Accordion label={label}>{checkboxContainer}</Accordion>
-      </div>
-    </>
+  return isLargeScreen ? (
+    <fieldset className={['w-max grow', wrapperClasses].join(' ')}>
+      <legend className="px-4 text-center">
+        <h2>{label}</h2>
+      </legend>
+      {checkboxContainer}
+    </fieldset>
+  ) : (
+    <div className={['h-min w-full', wrapperClasses, accordionSize].join(' ')}>
+      <Accordion label={label}>{checkboxContainer}</Accordion>
+    </div>
   );
 };
 

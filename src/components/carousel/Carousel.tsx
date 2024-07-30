@@ -1,5 +1,4 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { useDrag } from '@use-gesture/react';
 import React, { useState } from 'react';
 
 import type { FC, ReactNode } from 'react';
@@ -23,25 +22,10 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
     setCurrentIndex(newIndex);
   };
 
-  const bind = useDrag(
-    state => {
-      if (state.last) {
-        if (state.direction[0] > 0) {
-          prevSlide();
-        } else if (state.direction[0] < 0) {
-          nextSlide();
-        }
-      }
-    },
-    {
-      axis: 'x',
-    },
-  );
-
   return (
     // eslint-disable-next-line tailwindcss/no-arbitrary-value
-    <div className="relative mx-auto max-w-[92vw]">
-      <div className="flex overflow-hidden py-3" {...bind()}>
+    <div className="mx-auto flex max-w-[90vw] flex-col gap-2 rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black">
+      <div className="flex overflow-x-hidden pb-2">
         {slides.map((slide, index) => (
           <div
             // eslint-disable-next-line react/no-array-index-key
@@ -56,11 +40,11 @@ const Carousel: FC<CarouselProps> = ({ slides }) => {
           </div>
         ))}
       </div>
-      <div>
-        <button onClick={prevSlide} className="carousel-button -left-10">
+      <div className="flex flex-row justify-center gap-4">
+        <button onClick={prevSlide} className="carousel-button">
           <i className="fa fa-chevron-left self-center" />
         </button>
-        <button onClick={nextSlide} className="carousel-button -right-10">
+        <button onClick={nextSlide} className="carousel-button">
           <i className="fa fa-chevron-right self-center" />
         </button>
       </div>

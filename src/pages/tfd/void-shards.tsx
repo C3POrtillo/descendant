@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type {
@@ -31,6 +32,7 @@ interface VoidShardProps {
 }
 
 const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 1536px)' });
   const [filteredRows, setFilteredRows] = useState(voidFragments);
   const [filter, setFilter] = useState({} as VoidFragmentFilterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
@@ -80,24 +82,26 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
   return (
     <>
       <Header />
-      <Container className="fragment-data subregion-data hidden w-full flex-col 2xl:flex 2xl:w-3/4 2xl:flex-row">
-        <div className="flex h-min flex-row flex-wrap justify-center gap-4">
-          <FilterOptions filterOptions={fragmentOptions} filter={filter} setFilter={setFilter} />
-        </div>
-        <div className="flex flex-row flex-wrap justify-center gap-4">
-          <FilterOptions filterOptions={zoneOptions} filter={filter} setFilter={setFilter} />
-        </div>
-      </Container>
-
-      <Container className="fragment-data subregion-data flex flex-row flex-wrap 2xl:hidden">
-        <FilterOptions filterOptions={[...fragmentOptions, zoneOptions[0]]} filter={filter} setFilter={setFilter} />
-        <FilterOptions
-          filterOptions={[...zoneOptions.slice(1)]}
-          filter={filter}
-          setFilter={setFilter}
-          type="carousel"
-        />
-      </Container>
+      {isLargeScreen ? (
+        <Container className="fragment-data subregion-data flex w-3/4 flex-row">
+          <div className="flex h-min flex-row flex-wrap justify-center gap-4">
+            <FilterOptions filterOptions={fragmentOptions} filter={filter} setFilter={setFilter} />
+          </div>
+          <div className="flex flex-row flex-wrap justify-center gap-4">
+            <FilterOptions filterOptions={zoneOptions} filter={filter} setFilter={setFilter} />
+          </div>
+        </Container>
+      ) : (
+        <Container className="fragment-data subregion-data flex flex-row flex-wrap">
+          <FilterOptions filterOptions={[...fragmentOptions, zoneOptions[0]]} filter={filter} setFilter={setFilter} />
+          <FilterOptions
+            filterOptions={[...zoneOptions.slice(1)]}
+            filter={filter}
+            setFilter={setFilter}
+            type="carousel"
+          />
+        </Container>
+      )}
       <Container>
         <VoidFragmentTable
           fragmentData={filteredRows}
