@@ -29,7 +29,7 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({
     label="Void Fragment Locations"
     sublabel={<p className="pb-2 text-center text-xl text-yellow-200">Fast locations marked in gold</p>}
     headers={voidFragmentTableHeaders.map(key => (
-      <th key={key} className="text-lg 2xl:text-3xl">
+      <div key={key} className="text-lg 2xl:text-3xl">
         <Button
           id={key}
           sortDirection={sortColumn === key ? sortDirection : 0}
@@ -45,7 +45,7 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({
             key
           )}
         </Button>
-      </th>
+      </div>
     ))}
     body={fragmentData.map(data => (
       <VoidFragmentRow key={data.subregion} data={data} />

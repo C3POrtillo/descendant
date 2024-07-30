@@ -41,7 +41,7 @@ const Table: FC<TableProps> = ({
           <div className={isSticky ? 'sticky-below-header bg-slate-900 shadow-md shadow-black' : ''}>
             <ScrollSyncPane>
               <div className="overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
-                <div className="min-w-full">{headers}</div>
+                <div className="flex min-w-full flex-row">{headers}</div>
               </div>
             </ScrollSyncPane>
           </div>

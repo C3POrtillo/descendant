@@ -27,7 +27,7 @@ const WeaponTable: FC<WeaponTableProps> = ({
   <Table
     label="Weapon DPS Chart"
     headers={weaponTableHeaders.map(key => (
-      <th key={key} className="text-xl">
+      <div key={key} className="text-base lg:text-xl">
         <Button
           id={key}
           sortDirection={sortColumn === key ? sortDirection : 0}
@@ -36,7 +36,7 @@ const WeaponTable: FC<WeaponTableProps> = ({
         >
           {key}
         </Button>
-      </th>
+      </div>
     ))}
     body={weaponData.map(row => (
       <WeaponRow key={row.weapon_id} {...row} />
