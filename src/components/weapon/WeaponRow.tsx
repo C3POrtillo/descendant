@@ -18,7 +18,7 @@ const WeaponRow: FC<FormattedWeaponData> = ({
   criticalWWeakPointDps,
   ...data
 }) => {
-  const tdClasses = 'text-center text-4xl pr-6';
+  const tdClasses = 'text-center text-base pr-7 md:text-lg lg:text-2xl 2xl:text-4xl';
   const formattedStats = [
     delimitNumber(firearmAtk),
     magazineSize,
@@ -41,7 +41,7 @@ const WeaponRow: FC<FormattedWeaponData> = ({
         </td>
       ))}
       {[baseDps, criticalDps, criticalWWeakPointDps].map(value => (
-        <td className={[tdClasses, 'w-[210px]'].join(' ')} key={value}>
+        <td className={[tdClasses].join(' ')} key={value}>
           {delimitNumber(value)}
         </td>
       ))}

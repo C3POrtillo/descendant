@@ -27,9 +27,9 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({
 }) => (
   <Table
     label="Void Fragment Locations"
-    sublabel={<p className="mx-auto text-xl text-yellow-200">Fast locations marked in gold</p>}
+    sublabel={<p className="text-center text-xl text-yellow-200">Fast locations marked in gold</p>}
     headers={voidFragmentTableHeaders.map(key => (
-      <th key={key} className="text-3xl">
+      <th key={key} className="text-lg 2xl:text-3xl">
         <Button
           id={key}
           sortDirection={sortColumn === key ? sortDirection : 0}
@@ -38,8 +38,10 @@ const VoidFragmentTable: FC<VoidFragmentTableProps> = ({
         >
           {shardsArray.includes(key as ShardsType) ? (
             <div className="flex flex-row items-center justify-center gap-2">
-              {<Icon src={shardsImages[key as ShardsType]} size="size-10" />}
-              {key}
+              {<Icon alt={key} src={shardsImages[key as ShardsType]} size="10" />}
+              <div className={shardsImages[key as ShardsType] ? 'hidden lg:flex': ''}>
+                {key}
+              </div>
             </div>
           ) : (
             key

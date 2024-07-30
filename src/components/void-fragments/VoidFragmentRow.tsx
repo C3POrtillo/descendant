@@ -21,8 +21,9 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
       const isSubregion = lowerCaseKey === 'subregion';
 
       const labelClass = createLabelClass(isSubregion ? (data['zone'] as string) : lowerCaseKey, value.toString());
-      const numberClass = typeof value === 'number' && isOptimal(data['subregion'] as string);
-      const textClass = shardsArray.includes(key as ShardsType) && 'items-center justify-center';
+      const numberClass = typeof value === 'number' ? isOptimal(data['subregion'] as string) : '';
+      const centerNumber = typeof value === 'number' ? 'pr-7' : ''
+      const textClass = shardsArray.includes(key as ShardsType) && 'justify-center';
 
       const icon: IconProps = {};
       const attributeIconData = attributesImages[data['attribute'] as AttributesType];
@@ -36,10 +37,10 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
           icon['backgroundClass'] = 'hexagon';
           break;
       }
-
+      
       return value !== 0 ? (
-        <td key={key} className={['p-4 text-center text-3xl', labelClass, numberClass].join(' ')}>
-          <div className={['flex flex-row gap-2 pr-2', textClass].join(' ')}>
+        <td key={key} className={['p-4 text-lg 2xl:text-3xl', labelClass, numberClass].join(' ')}>
+          <div className={['flex flex-row gap-2 items-center', textClass, centerNumber].join(' ')}>
             {icon.src && <Icon {...icon} />}
             {value}
           </div>

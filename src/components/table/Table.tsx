@@ -22,7 +22,7 @@ const Table: FC<TableProps> = ({
   body && (
     <fieldset
       className={[
-        'table-wrapper rounded-xl border-2 border-solid border-white bg-slate-900 text-3xl shadow-xl shadow-black',
+        'rounded-xl border-2 border-solid border-white bg-slate-900 text-3xl shadow-xl shadow-black',
         className,
       ].join(' ')}
     >

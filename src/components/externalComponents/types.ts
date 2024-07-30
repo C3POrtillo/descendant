@@ -6,7 +6,14 @@ import { tiers } from '@/utils/types';
 export const externalComponentStats = {
   stat: ['HP', 'DEF', 'Shield'],
   substats: {
-    'Auxiliary Power': ['Max HP', 'Fire Resistance', 'Module Drop Rate', 'Kuiper Drop Rate', 'DBNO Duration'],
+    'Auxiliary Power': [
+      'Max HP',
+      'Fire Resistance',
+      'Module Drop Rate',
+      'Kuiper Drop Rate',
+      'MP Recovery out of Combat',
+      'DBNO Duration',
+    ],
     Sensor: [
       'Max MP',
       'Chill Resistance',

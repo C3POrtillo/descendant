@@ -23,16 +23,12 @@
         @apply border-gray-600 bg-gray-700 text-2xl ring-offset-gray-800 focus:ring-2 focus:ring-blue-600;
       }
     }
-    section {
-      @apply flex w-full max-w-[90%] content-center justify-center gap-4 place-self-center mx-auto my-8;
-    }
   }
 }
 
 @layer components {
-  .accordion-panel {
-    @apply max-h-0 opacity-0 flex w-full flex-col gap-4 bg-slate-900;
-    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out, padding 0.1s ease-in-out;
+  section {
+    @apply flex w-full max-w-[90%] content-center justify-center gap-4 place-self-center mx-auto my-8;
   }
   legend {
     @apply text-outline;
@@ -54,6 +50,16 @@
 }
 
 @layer utilities {
+  .carousel-slide {
+    @apply transition-transform duration-200 ease-in-out;
+  }
+  .carousel-button {
+    @apply absolute top-1/2 -translate-y-1/2 bg-gray-800 p-2 text-white rounded-xl border-2 border-white border-solid px-3
+  }
+  .accordion-panel {
+    @apply max-h-0 opacity-0 flex w-full flex-col gap-4 bg-slate-900;
+    transition: max-height 0.1s ease-in-out, opacity 0.1s ease-in-out, padding 0.1s ease-in-out;
+  }
   .sticky-header {
     position: sticky;
     width: 100%;
@@ -186,7 +192,7 @@
   }
   .weapon-image {
     height: 128px;
-    min-width: 330px;
+    min-width: auto;
   }
   .external-component-image {
     height: 128px;

@@ -16,7 +16,7 @@ interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
 const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setFilter }) => {
   const threshold = data.length > 6;
   const gridSize = threshold ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0' : 'grid-cols-1';
-  const accordionSize = threshold ? '' : 'md:flex-auto md:basis-[calc(50%-1rem)]';
+  const accordionSize = 'lg:flex-auto lg:basis-[calc(33.333%-1rem)]';
   const checkboxContainer = (
     <div className={['grid w-full place-content-center gap-4 text-lg', gridSize].join(' ')}>
       {data.map(({ value, icon }, index) => (
@@ -37,16 +37,14 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
 
   return (
     <>
-      <fieldset className={['hidden w-max grow lg:flex', wrapperClasses].join(' ')}>
+      <fieldset className={['hidden w-max grow 2xl:flex', wrapperClasses].join(' ')}>
         <legend className="px-4 text-center">
           <h2>{label}</h2>
         </legend>
         {checkboxContainer}
       </fieldset>
-      <div className={['h-min w-full lg:hidden', wrapperClasses, accordionSize].join(' ')}>
-        <Accordion label={label} keepOpen>
-          {checkboxContainer}
-        </Accordion>
+      <div className={['h-min w-full 2xl:hidden', wrapperClasses, accordionSize].join(' ')}>
+        <Accordion label={label}>{checkboxContainer}</Accordion>
       </div>
     </>
   );

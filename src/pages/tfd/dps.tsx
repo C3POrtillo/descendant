@@ -80,7 +80,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
           <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
         </div>
       </Container>
-      <Container className="hidden lg:flex">
+      <Container>
         <WeaponTable
           weaponData={filteredWeapons}
           className="weapon-data"

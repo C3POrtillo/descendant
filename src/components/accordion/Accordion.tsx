@@ -13,7 +13,7 @@ const Accordion: FC<AccordionProps> = ({ label, icon, keepOpen, children }) => {
   const [labelIsClickable, _] = useState(typeof label !== 'string');
   const panelRef = useRef<HTMLDivElement>(null);
   const accordionRef = useRef<HTMLDivElement>(null);
-  const panelClasses = 'accordion-panel';
+  const panelClasses = 'accordion-panel px-6';
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
