@@ -30,6 +30,29 @@
 }
 
 @layer components {
+  .accordion-panel {
+    transition: max-height 0.2s ease-out;
+  }
+  legend {
+    @apply text-outline;
+  }
+  thead th {
+    @apply min-w-32 whitespace-pre-line bg-slate-900;
+    button {
+      @apply w-full;
+      .button-arrows {
+        i:before {
+          @apply text-lg;
+        }
+      }
+    }
+  }
+  tbody tr {
+    @apply odd:bg-slate-700 even:bg-slate-800;
+  }
+}
+
+@layer utilities {
   .sticky-header {
     position: sticky;
     width: 100%;
@@ -41,19 +64,23 @@
     z-index: 9;
     top: 164px;
   }
-  .header-links {
-    .tfd-link, .home-link {
-      @apply hover:text-yellow-200 hover:bg-slate-400 whitespace-nowrap min-w-max self-center w-full;
-    }
-    .tfd-link {
-      @apply rounded-xl px-4 py-1;
-    }
-    .disabled-link {
-      @apply pointer-events-none text-yellow-200;
-    }
+  .tfd-link, .home-link {
+    @apply hover:text-yellow-200 hover:bg-slate-400 min-w-max self-center w-full text-2xl lg:text-3xl;
+  }
+  .text-link {
+    @apply text-2xl lg:text-3xl;
+  }
+  .tfd-link {
+    @apply rounded-xl px-4 py-1;
+  }
+  .disabled-link {
+    @apply pointer-events-none text-yellow-200;
+  }
+  .tfd-link-icon {
+    @apply before:text-2xl md:before:text-3xl;
   }
   .social {
-    .discord {
+    .fa-discord {
       color: #7289da;
     }
     .fa-twitter { 
@@ -74,23 +101,6 @@
   }
   .table-wrapper {
     @apply flex flex-col w-full text-2xl;
-  }
-  legend {
-    @apply text-outline;
-  }
-  thead th {
-    @apply min-w-32 whitespace-pre-line bg-slate-900;
-    button {
-      @apply w-full;
-      .button-arrows {
-        i:before {
-          @apply text-lg;
-        }
-      }
-    }
-  }
-  tbody tr {
-    @apply odd:bg-slate-700 even:bg-slate-800;
   }
   .fragment-data {
     .label-non-attribute {
@@ -178,9 +188,6 @@
     height: 128px;
     min-width: 128px;
   }
-}
-
-@layer utilities {
   .diamond:before, .diamond:after {
     @apply bg-slate-900 absolute size-8 rotate-45 origin-center rounded-md; 
     content: '';

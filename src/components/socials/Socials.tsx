@@ -6,16 +6,16 @@ import parseUrl from '@/utils/parseUrl';
 import { socials } from '@/utils/types';
 
 const Socials: FC = () => (
-  <div className="social flex flex-row items-center gap-4">
+  <div className="social flex flex-row items-center gap-1 md:gap-4">
     {socials.map(({ site, href }) => (
       <Link
         key={site}
         {...parseUrl(href)}
-        className="social size-12 px-1 no-underline"
+        className="size-8 px-1 no-underline md:size-12"
         rel="noreferrer"
         target="_blank"
       >
-        <i className={['fab before:text-5xl', `fa-${site}`].join(' ')} />
+        <i className={['fab text-3xl md:before:text-5xl', `fa-${site}`].join(' ')} />
       </Link>
     ))}
   </div>
