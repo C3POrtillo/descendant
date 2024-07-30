@@ -50,8 +50,8 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
 
   useEffect(() => {
     const currentFilter = setComponents.reduce((acc, component) => {
-      const componentType = component['external_component_equipment_type'] as ExternalComponentTypes
-      const componentTier = component['external_component_tier'] as TiersType
+      const componentType = component['external_component_equipment_type'] as ExternalComponentTypes;
+      const componentTier = component['external_component_tier'] as TiersType;
       const validComponent = filter[componentType] && filter[componentTier];
 
       if (validComponent) {

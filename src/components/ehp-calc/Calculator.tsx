@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import type { FC } from 'react';
 
-import { getDamageReduction, getEffectiveHealth, handleKeyDown, handlePaste } from '@/components/ehp-calc/utils';
+import { getDamageReduction, getEffectiveHealth } from '@/components/ehp-calc/utils';
 import Text from '@/components/inputs/Text/Text';
 import { addSuffixToValue, delimitNumber, roundToHundreth } from '@/utils/utils';
 
@@ -51,18 +51,9 @@ const Calculator: FC = () => {
   ] as const;
 
   return (
-    <fieldset className="rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black">
+    <fieldset className="flex flex-col gap-1 rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black md:gap-2">
       {inputMap.map(({ label, value, setState }) => (
-        <Text
-          key={label}
-          label={label}
-          value={value}
-          setState={setState}
-          type="number"
-          min={0}
-          onKeyDown={handleKeyDown}
-          onPaste={e => handlePaste(e, setState)}
-        />
+        <Text key={label} label={label} value={value} setState={setState} type="number" min={0} />
       ))}
       {displayMap.map(({ label, value }) => (
         <Text key={label} label={label} value={value} disabled />

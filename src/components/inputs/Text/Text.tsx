@@ -7,12 +7,12 @@ interface TextProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Text: FC<TextProps> = ({ type, label, id, name, value, setState, ...props }) => (
   <div className="flex flex-col gap-1">
-    <label className="text-lg" htmlFor={id}>
+    <label className="flex text-lg" htmlFor={id}>
       {label}
       {props.required && '*'}
     </label>
     <input
-      className="rounded-lg"
+      className="flex w-full rounded-lg"
       type={type || 'text'}
       id={id}
       name={name}

@@ -6,7 +6,7 @@ import TFDLink from '@/components/header/TFD/Link';
 import { paths } from '@/components/header/TFD/types';
 
 const Header: FC = () => {
-  const navLinks = paths.slice(1).map((data) => {
+  const navLinks = paths.slice(1).map(data => {
     if (data.options && data.label?.length) {
       const { label, options } = data;
 
@@ -33,9 +33,7 @@ const Header: FC = () => {
       <div className="hidden h-14 content-center lg:flex">{homeLink}</div>
       <div className="hidden min-h-8 flex-row gap-4 lg:flex">{navLinks}</div>
       <div className="flex min-h-8 w-full flex-row lg:hidden">
-        <Accordion label={<div className="py-6 md:w-full">
-          {homeLink}
-        </div>} icon="fa-bars">
+        <Accordion label={<div className="py-6 md:w-full">{homeLink}</div>} icon="fa-bars">
           {navLinks}
         </Accordion>
       </div>
