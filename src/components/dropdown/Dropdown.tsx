@@ -36,15 +36,15 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
   return (
     <div
       ref={dropdownRef}
-      className="relative inline-flex w-full items-center justify-center rounded-xl px-4 text-left align-middle hover:bg-slate-400"
+      className="relative flex w-full items-center justify-center rounded-xl px-4 text-left align-middle hover:bg-slate-400"
     >
-      <button onClick={toggleDropdown} className="text-link inline-flex w-full justify-center gap-4 rounded-md">
+      <button onClick={toggleDropdown} className="text-link flex w-full justify-center gap-4 rounded-md">
         {label}
         <i className={['fa link-icon self-center', isOpen ? 'fa-chevron-up' : 'fa-chevron-down'].join(' ')} />
       </button>
       {isOpen && children && (
-        <div className="absolute left-0 mt-3 flex min-h-max flex-col gap-4 rounded-xl border-2 border-solid border-white bg-slate-900 p-4">
-          {children}
+        <div className="absolute left-0 top-0 mt-9 w-full gap-4 rounded-xl border-2 border-solid border-white bg-slate-900 p-4 lg:mt-12 lg:w-auto">
+          <div className="flex min-h-max w-full min-w-full flex-col ">{children}</div>
         </div>
       )}
     </div>
