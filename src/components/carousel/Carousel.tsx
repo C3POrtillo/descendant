@@ -41,23 +41,22 @@ const Carousel: FC<CarouselProps> = ({ width = 'max-w-[90vw]', slides }) => {
 
   const controls = (
     <div className="flex flex-row justify-center gap-4">
-      <button
-        onClick={prevSlide}
-        className="carousel-button left-2 shadow-md shadow-black"
-      >
+      <button onClick={prevSlide} className="carousel-button left-2 shadow-md shadow-black">
         <i className="fa fa-chevron-left" />
       </button>
-      <button
-        onClick={nextSlide}
-        className="carousel-button right-2 shadow-md shadow-black"
-      >
+      <button onClick={nextSlide} className="carousel-button right-2 shadow-md shadow-black">
         <i className="fa fa-chevron-right" />
       </button>
     </div>
   );
 
   return (
-    <div className={['relative mx-auto flex  flex-col gap-2 rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black', width].join(' ')}>
+    <div
+      className={[
+        'relative mx-auto flex  flex-col gap-2 rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black',
+        width,
+      ].join(' ')}
+    >
       {controls}
       <div className="flex overflow-x-hidden pb-2" {...bind()}>
         {slides.map((slide, index) => (

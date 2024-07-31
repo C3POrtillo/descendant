@@ -68,7 +68,7 @@ const Table: FC<TableProps> = ({
     >
       {label && (
         <>
-          <legend className={['mx-auto py-4 px-2 text-center sm:px-4', labelSize].join(' ')}>
+          <legend className={['mx-auto px-2 py-4 text-center sm:px-4', labelSize].join(' ')}>
             <h2>{label}</h2>
           </legend>
           {sublabel && sublabel}
@@ -77,7 +77,7 @@ const Table: FC<TableProps> = ({
       <>
         {body && (
           // eslint-disable-next-line tailwindcss/no-arbitrary-value
-          <div className="max-h-[50lvh] max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full">
+          <div className="table-wrapper max-h-[50lvh] max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full">
             <table className="w-full" {...props}>
               <thead className={isSticky ? 'sticky-table-header' : ''}>
                 <tr>{headersArray || (isValidElement(headers) && headers)}</tr>
