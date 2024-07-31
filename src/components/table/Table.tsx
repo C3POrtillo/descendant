@@ -1,5 +1,4 @@
 import { isValidElement } from 'react';
-import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type { HeadersType } from '@/components/table/types';
@@ -7,7 +6,7 @@ import type { FC, ReactNode, TableHTMLAttributes } from 'react';
 
 import Button from '@/components/inputs/Button/TableSortButton';
 
-export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
+interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   label?: string;
   labelSize?: string;
   sublabel?: ReactNode;
@@ -35,8 +34,6 @@ const Table: FC<TableProps> = ({
   ...props
 }) => {
   const isSortHeader = setSortDirection && setSortColumn;
-  const tableSize =
-    'max-w-sm overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-full';
 
   const headersArray =
     headers &&
@@ -45,7 +42,7 @@ const Table: FC<TableProps> = ({
       const { key, header } = typeof el === 'string' ? { key: el, header: el } : el;
 
       return (
-        <div key={key} className="text-base lg:text-xl">
+        <th key={key} className="text-base lg:text-xl">
           {isSortHeader ? (
             <Button
               id={key}
@@ -58,7 +55,7 @@ const Table: FC<TableProps> = ({
           ) : (
             header
           )}
-        </div>
+        </th>
       );
     });
 
@@ -71,36 +68,25 @@ const Table: FC<TableProps> = ({
     >
       {label && (
         <>
-          <legend className={['mx-auto p-4 text-center', labelSize].join(' ')}>
+          <legend className={['mx-auto py-4 px-2 text-center sm:px-4', labelSize].join(' ')}>
             <h2>{label}</h2>
           </legend>
           {sublabel && sublabel}
         </>
       )}
-      <ScrollSync>
-        <>
-          <div className={isSticky ? 'sticky-below-header bg-slate-900 shadow-md shadow-black' : ''}>
-            <ScrollSyncPane>
-              <div className={tableSize}>
-                {headers && (
-                  <div className="flex flex-row justify-between">
-                    {headersArray || (isValidElement(headers) && headers)}
-                  </div>
-                )}
-              </div>
-            </ScrollSyncPane>
+      <>
+        {body && (
+          // eslint-disable-next-line tailwindcss/no-arbitrary-value
+          <div className="max-h-[50lvh] max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full">
+            <table className="w-full" {...props}>
+              <thead className={isSticky ? 'sticky-table-header' : ''}>
+                <tr>{headersArray || (isValidElement(headers) && headers)}</tr>
+              </thead>
+              <tbody>{body}</tbody>
+            </table>
           </div>
-          {body && (
-            <ScrollSyncPane>
-              <div className={tableSize}>
-                <table className="min-w-full" {...props}>
-                  <tbody>{body}</tbody>
-                </table>
-              </div>
-            </ScrollSyncPane>
-          )}
-        </>
-      </ScrollSync>
+        )}
+      </>
     </fieldset>
   );
 };

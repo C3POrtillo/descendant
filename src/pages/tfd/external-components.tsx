@@ -103,7 +103,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
             </div>
           </div>
           <div className="flex flex-col gap-4 pt-9 xl:w-5/6">
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 px-2 md:grid-cols-2 md:px-0 xl:grid-cols-4">
               {filteredSet.map(({ external_component_id: id, ...props }) => (
                 <ExternalComponentCard key={id} {...props} />
               ))}

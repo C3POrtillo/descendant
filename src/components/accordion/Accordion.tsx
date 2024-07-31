@@ -28,9 +28,9 @@ const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
     if (isOpen) {
       document.addEventListener('click', handleClickOutside);
       if (panelRef.current && accordionRef.current) {
-        panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight + 32}px`;
+        panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight + 64}px`;
         panelRef.current.style.overflow = 'visible';
-        panelRef.current.className = [panelClasses, 'py-3'].join(' ');
+        panelRef.current.className = [panelClasses, 'py-3 sm:py-6'].join(' ');
       }
     } else {
       document.removeEventListener('click', handleClickOutside);
@@ -49,7 +49,7 @@ const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
   const faIcon = icon || (isOpen ? 'fa-chevron-up' : 'fa-chevron-down');
 
   return (
-    <div ref={accordionRef} className="flex w-full flex-col">
+    <div ref={accordionRef} className="flex w-full flex-col overflow-hidden">
       <div className="flex w-full flex-row items-center justify-between p-4 md:px-6">
         {labelIsClickable && label}
         <button

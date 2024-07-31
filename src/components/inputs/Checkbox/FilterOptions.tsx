@@ -29,7 +29,7 @@ const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setFilte
 
   switch (type) {
     case 'carousel':
-      return <Carousel slides={filtersArray} controlsPosition="top" />;
+      return <Carousel slides={filtersArray} width="max-w-[90vw] lg:max-w-[39vw]"/>;
     default:
       return <>{filtersArray}</>;
   }
