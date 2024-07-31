@@ -1,0 +1,22 @@
+import type { HeadersType } from '@/components/table/types';
+import type { ShardsType } from '@/components/void-fragments/types';
+
+import Icon from '@/components/icon/Icon';
+import { shardsArray, shardsImages, voidFragmentTableHeaders } from '@/components/void-fragments/types';
+
+const VoidFragmentHeaders = (): HeadersType[] =>
+  voidFragmentTableHeaders.map(key => {
+    const hasIcon = shardsArray.includes(key as ShardsType) && {
+      key,
+      header: (
+        <div key={key} className="flex flex-row items-center justify-center gap-2">
+          {<Icon alt={key} src={shardsImages[key as ShardsType]} size="10" />}
+          <div className={shardsImages[key as ShardsType] ? 'hidden 2xl:flex' : ''}>{key}</div>
+        </div>
+      ),
+    };
+
+    return hasIcon || key;
+  });
+
+export default VoidFragmentHeaders;

@@ -1,35 +1,32 @@
 import { useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type {
   FilterTypes,
-  ShardsType,
   VoidFragmentData,
   VoidFragmentFilterMap,
   VoidFragmentFilterTypes,
+  shardsArray,
 } from '@/components/void-fragments/types';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
 import Footer from '@/components/footer/TFD/Footer';
 import Header from '@/components/header/TFD/Header';
-import Icon from '@/components/icon/Icon';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
+import VoidFragmentHeaders from '@/components/void-fragments/VoidFragmentHeaders';
 import VoidFragmentRow from '@/components/void-fragments/VoidFragmentRow';
 import {
   fragmentOptions,
-  shardsArray,
-  shardsImages,
   subregionsArray,
   voidFragmentFilterKeys,
-  voidFragmentTableHeaders,
   zoneOptions,
   zonesArray,
 } from '@/components/void-fragments/types';
 import { reformatZoneData } from '@/components/void-fragments/utils';
 import { attributesArray } from '@/utils/attributes/types';
+import useLargeScreen from '@/utils/useLargeScreen';
 import { sortData, titleCase } from '@/utils/utils';
 
 interface VoidShardProps {
@@ -37,7 +34,7 @@ interface VoidShardProps {
 }
 
 const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
-  const isLargeScreen = useMediaQuery({ query: '(min-width: 1536px)' });
+  const isLargeScreen = useLargeScreen();
   const [filteredRows, setFilteredRows] = useState(voidFragments);
   const [filter, setFilter] = useState({} as VoidFragmentFilterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
@@ -84,20 +81,6 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
     setFilteredRows(currentFilter);
   }, [filter, sortDirection, sortColumn]);
 
-  const tableHeaders = voidFragmentTableHeaders.map(key =>
-    shardsArray.includes(key as ShardsType)
-      ? {
-          key,
-          header: (
-            <div key={key} className="flex flex-row items-center justify-center gap-2">
-              {<Icon alt={key} src={shardsImages[key as ShardsType]} size="10" />}
-              <div className={shardsImages[key as ShardsType] ? 'hidden 2xl:flex' : ''}>{key}</div>
-            </div>
-          ),
-        }
-      : key,
-  );
-
   return (
     <>
       <Header />
@@ -125,7 +108,7 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
         <Table
           label="Void Fragment Locations"
           sublabel={<p className="pb-2 text-center text-xl text-yellow-200">Fast locations marked in gold</p>}
-          headers={tableHeaders}
+          headers={VoidFragmentHeaders()}
           body={filteredRows.map(data => (
             <VoidFragmentRow key={data.subregion} data={data} />
           ))}

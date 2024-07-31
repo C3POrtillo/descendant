@@ -1,8 +1,9 @@
-import { type FC, type ReactNode, type TableHTMLAttributes, isValidElement } from 'react';
+import { isValidElement } from 'react';
 import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type { HeadersType } from '@/components/table/types';
+import type { FC, ReactNode, TableHTMLAttributes } from 'react';
 
 import Button from '@/components/inputs/Button/TableSortButton';
 
@@ -34,6 +35,9 @@ const Table: FC<TableProps> = ({
   ...props
 }) => {
   const isSortHeader = setSortDirection && setSortColumn;
+  const tableSize =
+    'max-w-sm overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-full';
+
   const headersArray =
     headers &&
     !isValidElement(headers) &&
@@ -77,7 +81,7 @@ const Table: FC<TableProps> = ({
         <>
           <div className={isSticky ? 'sticky-below-header bg-slate-900 shadow-md shadow-black' : ''}>
             <ScrollSyncPane>
-              <div className="max-w-sm overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
+              <div className={tableSize}>
                 {headers && (
                   <div className="flex flex-row justify-between">
                     {headersArray || (isValidElement(headers) && headers)}
@@ -88,7 +92,7 @@ const Table: FC<TableProps> = ({
           </div>
           {body && (
             <ScrollSyncPane>
-              <div className="flex max-w-sm flex-col overflow-x-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md 2xl:max-w-full">
+              <div className={tableSize}>
                 <table className="min-w-full" {...props}>
                   <tbody>{body}</tbody>
                 </table>

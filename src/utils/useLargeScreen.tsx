@@ -9,6 +9,10 @@ const useLargeScreen = () => {
     setlargeScreen(isLargeScreen);
   }, []);
 
+  useEffect(() => {
+    setlargeScreen(isLargeScreen);
+  }, [isLargeScreen]);
+
   return largeScreen;
 };
 

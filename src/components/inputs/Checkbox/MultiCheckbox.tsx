@@ -22,8 +22,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
     ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0'
     : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-1';
   const accordionSize = 'lg:flex-auto lg:basis-[calc(33.333%-1rem)]';
-  const wrapperClasses =
-  'rounded-lg border-2 border-solid border-white bg-slate-900 text-3xl shadow-md shadow-black';
+  const wrapperClasses = 'rounded-lg border-2 border-solid border-white bg-slate-900 text-3xl shadow-md shadow-black';
 
   const checkboxContainer = (
     <div className={['grid w-full place-content-center gap-4 text-lg', gridSize].join(' ')}>
