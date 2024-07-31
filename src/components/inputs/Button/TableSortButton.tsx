@@ -20,7 +20,7 @@ const Button: FC<SortButtonProps> = ({ id, sortDirection = 0, setSortDirection, 
 
   return (
     <button
-      className="sort-button flex flex-row justify-between gap-1 p-2"
+      className="flex h-full items-center justify-between gap-1 p-2 hover:bg-slate-400"
       onClick={() => {
         if (sortDirection === 2) {
           setSortDirection(0);
@@ -33,7 +33,7 @@ const Button: FC<SortButtonProps> = ({ id, sortDirection = 0, setSortDirection, 
     >
       <div className="p-auto flex grow justify-center self-center">{children}</div>
       {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
-      <div className={['button-arrows flex h-[66px] max-h-[66px] flex-col justify-center', arrowClasses].join(' ')}>
+      <div className={['button-arrows flex h-[48px] max-h[48px] xl:h-[56px] xl:max-h-[56px] flex-col self-center', arrowClasses].join(' ')}>
         {(isNeutral || isAscending) && <i className="fa fa-chevron-up" />}
         {(isNeutral || isDescending) && <i className="fa fa-chevron-down" />}
       </div>

@@ -41,6 +41,9 @@
 }
 
 @layer utilities {
+  .input-hover {
+    @apply hover:shadow-outline hover:shadow-yellow-200;
+  }
   .carousel-slide {
     @apply transition-transform duration-200 ease-in-out;
   }

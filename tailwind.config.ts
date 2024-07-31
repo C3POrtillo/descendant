@@ -18,6 +18,12 @@ module.exports = {
         electric: '#36c6f2',
         toxic: '#40c41d',
       },
+      boxShadow: {
+        outline: '0 0 12px',
+      },
+      height: {
+        inherit: 'inherit',
+      }
     },
   },
   plugins: [require('@tailwindcss/forms')],

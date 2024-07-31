@@ -42,7 +42,7 @@ const Table: FC<TableProps> = ({
       const { key, header } = typeof el === 'string' ? { key: el, header: el } : el;
 
       return (
-        <th key={key} className="text-base lg:text-xl">
+        <th key={key} className="h-inherit text-base lg:text-xl">
           {isSortHeader ? (
             <Button
               id={key}
@@ -80,7 +80,7 @@ const Table: FC<TableProps> = ({
           <div className="table-wrapper max-h-[50lvh] max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full">
             <table className="w-full" {...props}>
               <thead className={isSticky ? 'sticky-table-header' : ''}>
-                <tr>{headersArray || (isValidElement(headers) && headers)}</tr>
+                <tr className="h-1">{headersArray || (isValidElement(headers) && headers)}</tr>
               </thead>
               <tbody>{body}</tbody>
             </table>

@@ -25,7 +25,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
   const wrapperClasses = 'rounded-lg border-2 border-solid border-white bg-slate-900 text-3xl shadow-md shadow-black';
 
   const checkboxContainer = (
-    <div className={['grid w-full place-content-center gap-4 text-lg', gridSize].join(' ')}>
+    <div className={['grid w-full place-content-center text-lg', gridSize].join(' ')}>
       {data.map(({ value, icon }, index) => (
         <Checkbox
           key={value}
@@ -41,7 +41,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
   );
 
   return isLargeScreen ? (
-    <fieldset className={['w-max grow p-4', wrapperClasses].join(' ')}>
+    <fieldset className={['input-hover w-max grow px-2 py-4', wrapperClasses].join(' ')}>
       <legend className="px-4 text-center">
         <h2>{label}</h2>
       </legend>
