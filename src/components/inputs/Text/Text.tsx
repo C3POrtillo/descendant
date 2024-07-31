@@ -12,7 +12,7 @@ const Text: FC<TextProps> = ({ type, label, id, name, value, setState, ...props 
       {props.required && '*'}
     </label>
     <input
-      className="flex w-full rounded-lg"
+      className="flex w-full rounded-lg border-gray-600 bg-gray-700 text-2xl ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
       type={type || 'text'}
       id={id}
       name={name}
