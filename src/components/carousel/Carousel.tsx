@@ -24,7 +24,7 @@ const Carousel: FC<CarouselProps> = ({ slides, controlsPosition = 'bottom' }) =>
   };
 
   const controls = (
-    <div className="z-10 flex flex-row justify-center gap-4">
+    <div className="flex flex-row justify-center gap-4">
       <button onClick={prevSlide} className="carousel-button absolute left-2 top-1/2 -translate-y-1/2 shadow-md shadow-black">
         <i className="fa fa-chevron-left self-center" />
       </button>

@@ -54,7 +54,7 @@
     @apply transition-transform duration-200 ease-in-out;
   }
   .carousel-button {
-    @apply flex bg-gray-800 p-2 text-white rounded-xl border-2 border-white border-solid px-3;
+    @apply flex bg-gray-800 p-2 text-white rounded-xl border-2 border-white border-solid px-3 z-10;
     i:before {
       @apply text-lg lg:text-xl;
     }
@@ -64,18 +64,10 @@
     transition: max-height 0.1s ease-in-out, padding 0.1s ease-in-out;
   }
   .sticky-header {
-    position: sticky;
-    width: 100%;
-    z-index: 10;
-    top: 0;
+    @apply sticky w-full top-0 z-50;
   }
   .sticky-below-header {
-    position: sticky;
-    z-index: 9;
-    top: 80px;
-    @media (min-width: 1024px) {
-      top: 164px;
-    }
+    @apply sticky top-20 lg:top-[164px] z-10;
   }
   .tfd-link, .home-link {
     @apply hover:text-yellow-200  min-w-max self-center w-full text-2xl lg:text-3xl py-1;
@@ -94,7 +86,7 @@
   }
   .social {
     .fa-discord {
-      color: #7289da;
+      @apply text-[#7289da];
     }
     .fa-twitter { 
       @apply text-sky-500 hover:text-sky-300 focus:text-sky-300 active:text-sky-300;
