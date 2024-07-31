@@ -1,5 +1,5 @@
 import type { DefaultCheckedType, FilterMap, LabelData } from '@/components/inputs/types';
-import type { FC,FieldsetHTMLAttributes} from 'react';
+import type { FC, FieldsetHTMLAttributes } from 'react';
 
 import Accordion from '@/components/accordion/Accordion';
 import Checkbox from '@/components/inputs/Checkbox/Checkbox';
@@ -15,11 +15,16 @@ interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
 }
 
 const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setFilter }) => {
-  const isLargeScreen = useLargeScreen()
+  const isLargeScreen = useLargeScreen();
 
   const threshold = data.length > 6;
-  const gridSize = threshold ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0' : 'grid-cols-1';
+  const gridSize = threshold
+    ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0'
+    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-1';
   const accordionSize = 'lg:flex-auto lg:basis-[calc(33.333%-1rem)]';
+  const wrapperClasses =
+  'rounded-lg border-2 border-solid border-white bg-slate-900 text-3xl shadow-md shadow-black';
+
   const checkboxContainer = (
     <div className={['grid w-full place-content-center gap-4 text-lg', gridSize].join(' ')}>
       {data.map(({ value, icon }, index) => (
@@ -35,11 +40,9 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
       ))}
     </div>
   );
-  const wrapperClasses =
-    'rounded-lg border-2 border-solid border-white bg-slate-900 p-4 text-3xl shadow-md shadow-black';
 
   return isLargeScreen ? (
-    <fieldset className={['w-max grow', wrapperClasses].join(' ')}>
+    <fieldset className={['w-max grow p-4', wrapperClasses].join(' ')}>
       <legend className="px-4 text-center">
         <h2>{label}</h2>
       </legend>

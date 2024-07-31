@@ -19,7 +19,7 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setF
   <label
     htmlFor={value}
     className={[
-      'flex w-full flex-row gap-4 text-base md:text-xl 2xl:text-base',
+      'flex w-full flex-row gap-2 text-base md:text-xl 2xl:text-base',
       name ? createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value) : '',
     ].join(' ')}
   >
@@ -36,7 +36,7 @@ const Checkbox: FC<CheckboxProps> = ({ value, name, defaultChecked, filter, setF
         }
       }}
     />
-    <div className="flex flex-row items-center justify-center gap-2">
+    <div className="flex flex-row items-center justify-center gap-1 xl:gap-2">
       {icon?.src && <Icon {...icon} />}
       {value}
     </div>

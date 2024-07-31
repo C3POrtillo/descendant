@@ -18,25 +18,39 @@ const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
     setIsOpen(!isOpen);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (accordionRef.current && !accordionRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
+      document.addEventListener('click', handleClickOutside);
       if (panelRef.current && accordionRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight + 32}px`;
         panelRef.current.style.overflow = 'visible';
         panelRef.current.className = [panelClasses, 'py-3'].join(' ');
       }
-    } else if (panelRef.current && accordionRef.current) {
-      panelRef.current.style.maxHeight = '0px';
-      panelRef.current.style.overflow = 'hidden';
-      panelRef.current.className = panelClasses;
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+      if (panelRef.current && accordionRef.current) {
+        panelRef.current.style.maxHeight = '0px';
+        panelRef.current.style.overflow = 'hidden';
+        panelRef.current.className = panelClasses;
+      }
     }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
   }, [isOpen]);
 
   const faIcon = icon || (isOpen ? 'fa-chevron-up' : 'fa-chevron-down');
 
   return (
     <div ref={accordionRef} className="flex w-full flex-col">
-      <div className="flex w-full flex-row items-center justify-between px-6">
+      <div className="flex w-full flex-row items-center justify-between p-4 md:px-6">
         {labelIsClickable && label}
         <button
           onClick={toggleDropdown}

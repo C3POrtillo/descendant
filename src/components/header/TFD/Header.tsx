@@ -34,7 +34,7 @@ const Header: FC = () => {
       <div className="hidden min-h-8 flex-row gap-4 lg:flex">{navLinks}</div>
 
       <div className="flex min-h-8 w-full flex-row lg:hidden">
-        <Accordion label={<div className="flex py-6">{homeLink}</div>} icon="fa-bars">
+        <Accordion label={<div className="flex">{homeLink}</div>} icon="fa-bars">
           {navLinks}
         </Accordion>
       </div>

@@ -55,6 +55,9 @@
   }
   .carousel-button {
     @apply flex bg-gray-800 p-2 text-white rounded-xl border-2 border-white border-solid px-3;
+    i:before {
+      @apply text-lg lg:text-xl;
+    }
   }
   .accordion-panel {
     @apply max-h-0 flex w-full flex-col gap-4 bg-slate-900;
