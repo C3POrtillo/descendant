@@ -18,7 +18,7 @@ const ExternalComponentBasicHeader: FC<ExternalComponentBasicHeaderProps> = ({
   Rare,
   Ultimate,
 }) => (
-  <div className="external-component-data flex w-full flex-col border-b-2 border-white text-center">
+  <th className="external-component-data flex w-full flex-col border-b-2 border-white text-center">
     <div className="external-component-image relative">
       <Image src={image_url} fill={true} alt={component} sizes="128px" loading="lazy" className="object-contain" />
     </div>
@@ -41,7 +41,7 @@ const ExternalComponentBasicHeader: FC<ExternalComponentBasicHeaderProps> = ({
           </div>
         ),
     )}
-  </div>
+  </th>
 );
 
 export default ExternalComponentBasicHeader;
