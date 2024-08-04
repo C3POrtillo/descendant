@@ -22,6 +22,7 @@ const PatternRow: FC<RowProps> = ({ data }) => {
   return (
     <tr>
       {dataArray.map((value, index) => {
+        const widthClass = index === 6 && 'w-[200%]';
         const patternClass = index === 0 && label;
         const regionClass = 0 < index && index < 3 && region;
         const blueprintClass =
@@ -45,7 +46,7 @@ const PatternRow: FC<RowProps> = ({ data }) => {
         return (
           <td
             key={[pattern, index].join('-')}
-            className={['p-4 text-lg 2xl:text-xl', patternClass, regionClass, blueprintClass]
+            className={['p-4 text-lg 2xl:text-xl', patternClass, regionClass, blueprintClass, widthClass]
               .filter(string => string)
               .join(' ')}
           >
