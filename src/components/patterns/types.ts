@@ -1452,5 +1452,5 @@ export const enhanceFilters: FilterOptionsData[] = [
       value: item,
     })),
     defaultChecked: false,
-  }
+  },
 ];

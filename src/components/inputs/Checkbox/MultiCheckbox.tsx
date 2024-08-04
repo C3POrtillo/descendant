@@ -29,6 +29,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
       {data.map(({ value, icon }, index) => (
         <Checkbox
           key={value}
+          label={label}
           name={name}
           value={value}
           defaultChecked={setChecked(defaultChecked, value, index)}

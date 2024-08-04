@@ -10,9 +10,17 @@ import Button from '@/components/inputs/Button/Button';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import PatternHeaders from '@/components/patterns/PatternHeaders';
 import PatternRow from '@/components/patterns/PatternRow';
-import { descendantParts, enhance, enhanceFilters, hardPatterns, normalPatterns, weaponParts } from '@/components/patterns/types';
+import {
+  descendantParts,
+  enhance,
+  enhanceFilters,
+  hardPatterns,
+  normalPatterns,
+  weaponParts,
+} from '@/components/patterns/types';
+import { getAttribute, getRounds } from '@/components/patterns/utils';
 import Table from '@/components/table/Table';
-import { kebabCase, sortData } from '@/utils/utils';
+import { sortData } from '@/utils/utils';
 
 interface WishlistProps {
   descendantOptions: FilterOptionsData[];
@@ -22,8 +30,15 @@ interface WishlistProps {
   hardPatternData: HardPattern[];
 }
 
-const Wishlist: FC<WishlistProps> = ({ descendantOptions, weaponOptions, enhanceOptions, normalPatternData, hardPatternData }) => {
+const Wishlist: FC<WishlistProps> = ({
+  descendantOptions,
+  weaponOptions,
+  enhanceOptions,
+  normalPatternData,
+  hardPatternData,
+}) => {
   const [isWishlist, setIsWishlist] = useState(true);
+  const [filter, setFilter] = useState({});
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
 
@@ -36,41 +51,34 @@ const Wishlist: FC<WishlistProps> = ({ descendantOptions, weaponOptions, enhance
           <Button onClick={() => setIsWishlist(false)}>Patterns</Button>
         </div>
       </Container>
-      {isWishlist && (
-        <>
-          <Container className="flex flex-row flex-wrap">
-            <FilterOptions filterOptions={descendantOptions}/>
-            <FilterOptions filterOptions={weaponOptions}/>
-            <FilterOptions filterOptions={enhanceOptions}/>
-          </Container>
-        </>
-      )}
-      {!isWishlist && (
-        <>
-          <Container>
-            <Table
-              label="Normal"
-              headers={PatternHeaders('normal')}
-              body={filteredNormals.map(data => (
-                <PatternRow key={data.pattern + data.variant} data={data} />
-              ))}
-              className="pattern-data subregion-data"
-              isSticky={true}
-            />
-          </Container>
-          <Container>
-            <Table
-              label="Hard"
-              headers={PatternHeaders('hard')}
-              body={filteredHards.map(data => (
-                <PatternRow key={data.pattern + data.variant} data={data} />
-              ))}
-              className="pattern-data subregion-data"
-              isSticky={true}
-            />
-          </Container>
-        </>
-      )}
+      <Container className={['pattern-data flex flex-row flex-wrap', isWishlist ? '' : 'hidden'].join(' ')}>
+        <FilterOptions filterOptions={descendantOptions} filter={filter} setFilter={setFilter} />
+        <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
+        <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
+      </Container>
+      <Container
+        className={['pattern-data subregion-data flex flex-col justify-center gap-4', isWishlist ? 'hidden' : ''].join(
+          ' ',
+        )}
+      >
+        <Table
+          label="Normal"
+          headers={PatternHeaders('normal')}
+          body={filteredNormals.map(data => (
+            <PatternRow key={data.pattern + data.variant} data={data} />
+          ))}
+          isSticky={true}
+        />
+        <Table
+          label="Hard"
+          headers={PatternHeaders('hard')}
+          body={filteredHards.map(data => (
+            <PatternRow key={data.pattern + data.variant} data={data} />
+          ))}
+          isSticky={true}
+        />
+      </Container>
+
       <Footer />
     </>
   );
@@ -119,7 +127,7 @@ export const getStaticProps = async () => {
 
   const descendantFilters = Array.from(descendants).map((descendant: string) => ({
     label: descendant,
-    name: kebabCase(descendant),
+    name: getAttribute(descendant),
     data: descendantParts.map(part => ({
       value: part,
     })),
@@ -128,13 +136,12 @@ export const getStaticProps = async () => {
 
   const weaponFilters = Array.from(weapons).map((weapon: string) => ({
     label: weapon,
-    name: kebabCase(weapon),
+    name: getRounds(weapon),
     data: weaponParts.map(part => ({
       value: part,
     })),
     defaultChecked: false,
   })) as FilterOptionsData[];
-
 
   return {
     props: {
