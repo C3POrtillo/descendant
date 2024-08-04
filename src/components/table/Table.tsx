@@ -87,7 +87,7 @@ const Table: FC<TableProps> = ({
             .join(' ')}
         >
           <table className="w-full" {...props}>
-            <thead className={isSticky ? 'sticky-table-header' : ''}>
+            <thead className={isSticky ? 'sticky-table-header' : undefined}>
               <tr className="h-1">{headersArray || (isValidElement(headers) && headers)}</tr>
             </thead>
             <tbody>{body}</tbody>

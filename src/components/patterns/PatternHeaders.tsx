@@ -7,7 +7,9 @@ const formatData = (array: readonly (string | number)[]): HeadersType[] =>
   array.map(key => {
     const isNumber = typeof key === 'number';
     const data = isNumber ? `${key}%` : key;
-    const { expectedAttempts, nearlyGuaranteed, nearlyGuaranteedRange } = isNumber ? calculateAttempts(key) : {};
+    const { expectedAttempts, nearlyGuaranteed, nearlyGuaranteedRange } = isNumber
+      ? calculateAttempts(key)
+      : { expectedAttempts: '', nearlyGuaranteed: '', nearlyGuaranteedRange: '' };
 
     return {
       key: data,

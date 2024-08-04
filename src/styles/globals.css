@@ -125,7 +125,7 @@
       @apply text-yellow-200;
     }
   }
-  .subregion-data {
+  .subregion-data, .pattern-data {
     .label-kingston {
       @apply text-slate-100;
     }

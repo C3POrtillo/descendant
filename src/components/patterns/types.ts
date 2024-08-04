@@ -241,7 +241,7 @@ export const normalPatterns = [
     '3%': 'Energy Activator Blueprint',
     '6%': 'Esiemo Enhanced Cells',
     '15%': 'Divine Punishment Nano Tube',
-    '38%': ["Nazeistra's Tube", 'Smithereens Nano Tube'],
+    '38%': ["Nazeistra's Devotion Nano Tube", 'Smithereens Nano Tube'],
     open: 'Interception\nDead Bride',
     from: 'Echo Swamp\nInfiltration\nSeed Vault',
   },
@@ -1415,6 +1415,14 @@ export const hardPatterns = [
   },
 ] as const;
 
+const blueprintArray = [
+  ...normalPatterns.flatMap(pattern => [...pattern['38%'], pattern['15%'], pattern['6%'], pattern['3%']]),
+  ...hardPatterns.flatMap(pattern => [...pattern['32%'], pattern['20%'], pattern['10%'], pattern['6%']]),
+] as const;
+export const blueprintSet = new Set([...blueprintArray].sort(sortData));
+export type BlueprintTypes = (typeof blueprintArray)[number];
+export type BlueprintFilterMap = Partial<Record<BlueprintTypes, boolean | undefined>>;
+
 type Pattern = {
   pattern: string;
   open: string;
@@ -1424,17 +1432,17 @@ type Pattern = {
 };
 
 export type NormalPattern = Pattern & {
-  '3%': string;
-  '6%': string;
-  '15%': string;
-  '38%': string[];
+  '3%': BlueprintTypes;
+  '6%': BlueprintTypes;
+  '15%': BlueprintTypes;
+  '38%': [BlueprintTypes, BlueprintTypes];
 };
 export type NormalRates = keyof NormalPattern;
 export type HardPattern = Pattern & {
-  '6%': string;
-  '10%': string;
-  '20%': string;
-  '32%': string[];
+  '6%': BlueprintTypes;
+  '10%': BlueprintTypes;
+  '20%': BlueprintTypes;
+  '32%': [BlueprintTypes, BlueprintTypes];
 };
 export type HardRates = keyof NormalPattern;
 
@@ -1451,16 +1459,9 @@ export const enhanceFilters: FilterOptionsData[] = [
     label: 'Enhance',
     name: 'enhance',
     data: enhance.map(item => ({
-      value: item,
+      label: item,
+      value: `${item} Blueprint`,
     })),
     defaultChecked: false,
   },
 ];
-
-const blueprintArray = [
-  ...normalPatterns.flatMap(pattern => [...pattern['38%'], pattern['15%'], pattern['6%'], pattern['3%']]),
-  ...hardPatterns.flatMap(pattern => [...pattern['32%'], pattern['20%'], pattern['10%'], pattern['6%']]),
-] as const;
-export const blueprintSet = new Set([...blueprintArray].sort(sortData));
-export type BlueprintFilterTypes = (typeof blueprintArray)[number];
-export type BlueprintFilterMap = Partial<Record<BlueprintFilterTypes, boolean | undefined>>;

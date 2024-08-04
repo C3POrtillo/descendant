@@ -24,7 +24,8 @@ const PatternRow: FC<RowProps> = ({ data }) => {
       {dataArray.map((value, index) => {
         const patternClass = index === 0 && label;
         const regionClass = 0 < index && index < 3 && region;
-        const blueprintClass = 3 <= index && index < 6 && typeof value === 'string' && getBlueprintClass(value);
+        const blueprintClass =
+          3 <= index && index < 6 && typeof value === 'string' && getLabelClass(getBlueprintClass(value));
         const centerClass = index === 0 && 'justify-center text-center';
         const formattedValue =
           index === 0 && [value, variant, vaulted ? '(Vaulted)' : undefined].filter(text => text).join('\n');
@@ -33,7 +34,9 @@ const PatternRow: FC<RowProps> = ({ data }) => {
           value.map(commonDrop => (
             <div
               key={commonDrop}
-              className={['flex w-1/2 items-center', getBlueprintClass(commonDrop)].filter(string => string).join(' ')}
+              className={['flex w-1/2 items-center', getLabelClass(getBlueprintClass(commonDrop))]
+                .filter(string => string)
+                .join(' ')}
             >
               {commonDrop}
             </div>

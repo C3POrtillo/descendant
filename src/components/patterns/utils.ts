@@ -1,7 +1,6 @@
 import type { HardPattern, NormalPattern } from '@/components/patterns/types';
 
 import { descendantParts, enhance, weaponParts } from '@/components/patterns/types';
-import { getLabelClass } from '@/utils/utils';
 
 export const isNormalPattern = (variable: NormalPattern | HardPattern): variable is NormalPattern =>
   typeof variable === 'object' && variable !== null && '38%' in variable;
@@ -44,22 +43,38 @@ export const getRounds = (weapon: string) => {
   }
 };
 
-export const getBlueprintClass = (blueprint: string) => {
-  if (enhance.some(item => blueprint.includes(item))) {
-    return '';
+export const getRarity = (item: string) => {
+  switch (item) {
+    case item.match(/Crystallization Catalyst/)?.input:
+      return 'Rare';
+    default:
+      return 'Ultimate';
   }
+};
 
+export const getBlueprintClass = (blueprint: string) => {
   let string = '';
-
-  const isNotDescendant = descendantParts.every(part => {
-    if (blueprint.includes(part)) {
-      string = getAttribute(blueprint.split(part)[0].trim());
+  const isNotItem = enhance.every(item => {
+    if (blueprint.includes(item)) {
+      string = getRarity(item);
 
       return false;
     }
 
     return true;
   });
+
+  const isNotDescendant =
+    isNotItem &&
+    descendantParts.every(part => {
+      if (blueprint.includes(part)) {
+        string = getAttribute(blueprint.split(part)[0].trim());
+
+        return false;
+      }
+
+      return true;
+    });
 
   isNotDescendant &&
     weaponParts.every(part => {
@@ -72,5 +87,5 @@ export const getBlueprintClass = (blueprint: string) => {
       return true;
     });
 
-  return getLabelClass(string);
+  return string;
 };

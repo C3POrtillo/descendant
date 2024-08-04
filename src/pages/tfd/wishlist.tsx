@@ -44,47 +44,76 @@ const Wishlist: FC<WishlistProps> = ({
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
 
-  useEffect(() => {}, [filter]);
+  useEffect(() => {
+    const normalFilter = normalPatternData.reduce((acc, pattern) => {
+      const [common1, common2] = pattern['38%'];
+      const uncommon = pattern['15%'];
+      const rare = pattern['6%'];
+      const rarest = pattern['3%'];
+      const validPattern = filter[common1] || filter[common2] || filter[uncommon] || filter[rare] || filter[rarest];
+
+      if (validPattern) {
+        acc.push(pattern);
+      }
+
+      return acc;
+    }, [] as NormalPattern[]);
+    setfilteredNormals(normalFilter);
+
+    const hardFilter = hardPatternData.reduce((acc, pattern) => {
+      const [common1, common2] = pattern['32%'];
+      const uncommon = pattern['20%'];
+      const rare = pattern['10%'];
+      const rarest = pattern['6%'];
+      const validPattern = filter[common1] || filter[common2] || filter[uncommon] || filter[rare] || filter[rarest];
+
+      if (validPattern) {
+        acc.push(pattern);
+      }
+
+      return acc;
+    }, [] as HardPattern[]);
+    setfilteredHards(hardFilter);
+  }, [filter]);
 
   return (
     <>
       <Header />
-      <Container>
-        <div className="flex flex-row gap-2">
+      <Container className="mb-0">
+        <div className="flex w-min flex-row gap-2 self-center">
           <Button onClick={() => setIsWishlist(true)}>Wishlist</Button>
           <Button onClick={() => setIsWishlist(false)}>Patterns</Button>
         </div>
       </Container>
-      <Container
-        className={['pattern-data flex flex-row flex-wrap', !isWishlist && 'hidden'].filter(string => string).join(' ')}
-      >
-        <FilterOptions filterOptions={descendantOptions} filter={filter} setFilter={setFilter} />
-        <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
-        <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
+      <Container className="flex grow flex-col justify-start gap-2">
+        <div
+          className={['pattern-data flex flex-row flex-wrap gap-2 md:gap-3 xl:gap-5', !isWishlist && 'hidden']
+            .filter(string => string)
+            .join(' ')}
+        >
+          <FilterOptions filterOptions={descendantOptions} filter={filter} setFilter={setFilter} />
+          <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
+          <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
+        </div>
+        <div className={['pattern-data flex-col gap-4', isWishlist && 'hidden'].filter(string => string).join(' ')}>
+          <Table
+            label="Normal"
+            headers={PatternHeaders('normal')}
+            body={filteredNormals.map(data => (
+              <PatternRow key={data.pattern + data.variant} data={data} />
+            ))}
+            isSticky={true}
+          />
+          <Table
+            label="Hard"
+            headers={PatternHeaders('hard')}
+            body={filteredHards.map(data => (
+              <PatternRow key={data.pattern + data.variant} data={data} />
+            ))}
+            isSticky={true}
+          />
+        </div>
       </Container>
-      <Container
-        className={['pattern-data subregion-data flex flex-col justify-center gap-4', isWishlist && 'hidden']
-          .filter(string => string)
-          .join(' ')}
-      >
-        <Table
-          label="Normal"
-          headers={PatternHeaders('normal')}
-          body={filteredNormals.map(data => (
-            <PatternRow key={data.pattern + data.variant} data={data} />
-          ))}
-          isSticky={true}
-        />
-        <Table
-          label="Hard"
-          headers={PatternHeaders('hard')}
-          body={filteredHards.map(data => (
-            <PatternRow key={data.pattern + data.variant} data={data} />
-          ))}
-          isSticky={true}
-        />
-      </Container>
-
       <Footer />
     </>
   );

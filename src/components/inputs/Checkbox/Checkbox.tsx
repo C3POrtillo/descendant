@@ -3,7 +3,7 @@ import type { FilterMap, FilterTypes } from '@/components/inputs/types';
 import type { FC, InputHTMLAttributes } from 'react';
 
 import Icon from '@/components/icon/Icon';
-import { createWeaponLabel } from '@/components/weapon/utils';
+import { getLabelValue } from '@/components/inputs/utils';
 import { createLabelClass, kebabCase } from '@/utils/utils';
 
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -18,13 +18,15 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filter, setFilter, icon }) => {
   const id = kebabCase(value);
+  const labelValue = getLabelValue(name || '', value);
+  const labelClass = name && createLabelClass(name, labelValue);
 
   return (
     <label
       htmlFor={id}
       className={[
         'flex flex-row gap-2 rounded-md p-2 text-base hover:bg-slate-400 md:text-xl lg:text-3xl 2xl:text-2xl',
-        name && createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value),
+        labelClass,
       ]
         .filter(string => string)
         .join(' ')}

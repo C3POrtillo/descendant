@@ -11,7 +11,7 @@ const VoidFragmentHeaders = (): HeadersType[] =>
       header: (
         <div key={key} className="flex flex-row items-center justify-center gap-2">
           {<Icon alt={key} src={shardsImages[key as ShardsType]} size="10" />}
-          <div className={shardsImages[key as ShardsType] ? 'hidden 2xl:flex' : ''}>{key}</div>
+          <div className={shardsImages[key as ShardsType] ? 'hidden 2xl:flex' : undefined}>{key}</div>
         </div>
       ),
     };
