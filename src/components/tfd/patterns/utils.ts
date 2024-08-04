@@ -1,9 +1,6 @@
-import type { HardPattern, NormalPattern } from '@/components/tfd/patterns/types';
+import type { BlueprintFilterMap, Pattern } from '@/components/tfd/patterns/types';
 
-import { descendantParts, enhance, weaponParts } from '@/components/tfd/patterns/types';
-
-export const isNormalPattern = (variable: NormalPattern | HardPattern): variable is NormalPattern =>
-  typeof variable === 'object' && variable !== null && '38%' in variable;
+import { descendantParts, enhance, hardRates, normalRates, weaponParts } from '@/components/tfd/patterns/types';
 
 export const getAttribute = (descendant: string) => {
   switch (descendant) {
@@ -97,3 +94,35 @@ export const extractAndAddToSet = (blueprint: string, parts: readonly string[], 
 
     return true;
   });
+
+type FilterCount = {
+  pattern: Pattern;
+  trueCount: number;
+};
+
+const getRates = (pattern: Pattern) => (pattern['38%'] ? normalRates : hardRates);
+export const getBluerints = (pattern: Pattern) => {
+  const keys = getRates(pattern);
+
+  return keys.map(key => pattern[key]);
+};
+
+export const filterAndSortPatterns = (patternData: Pattern[], filter: BlueprintFilterMap) => {
+  const filteredPatterns = patternData.reduce((acc, pattern) => {
+    const trueCount = getBluerints(pattern)
+      .flatMap(blueprint => blueprint)
+      .filter(blueprint => filter[blueprint]).length;
+
+    if (trueCount > 0) {
+      acc.push({ pattern, trueCount });
+    }
+
+    return acc;
+  }, [] as FilterCount[]);
+
+  // Sort by trueCount in descending order
+  filteredPatterns.sort((a, b) => b.trueCount - a.trueCount);
+
+  // Extract sorted patterns
+  return filteredPatterns.map(item => item.pattern);
+};

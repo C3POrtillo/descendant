@@ -39,10 +39,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
       />
     </div>
     <div
-      className={[
-        'mx-2 flex flex-col border-white text-lg lg:text-xl',
-        getLabelClass(external_component_tier),
-      ]
+      className={['mx-2 flex flex-col border-white text-lg lg:text-xl', getLabelClass(external_component_tier)]
         .filter(string => string)
         .join(' ')}
     >

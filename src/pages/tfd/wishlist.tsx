@@ -1,7 +1,7 @@
 import { type FC, useEffect, useState } from 'react';
 
 import type { FilterOptionsData } from '@/components/inputs/types';
-import type { BlueprintFilterMap, HardPattern, NormalPattern } from '@/components/tfd/patterns/types';
+import type { BlueprintFilterMap, Pattern } from '@/components/tfd/patterns/types';
 
 import Container from '@/components/container/Container';
 import Button from '@/components/inputs/Button/Button';
@@ -19,15 +19,21 @@ import {
   normalPatterns,
   weaponParts,
 } from '@/components/tfd/patterns/types';
-import { extractAndAddToSet, getAttribute, getRounds, isEnhance } from '@/components/tfd/patterns/utils';
+import {
+  extractAndAddToSet,
+  filterAndSortPatterns,
+  getAttribute,
+  getRounds,
+  isEnhance,
+} from '@/components/tfd/patterns/utils';
 
 interface WishlistProps {
   filterMap: BlueprintFilterMap;
   descendantOptions: FilterOptionsData[];
   weaponOptions: FilterOptionsData[];
   enhanceOptions: FilterOptionsData[];
-  normalPatternData: NormalPattern[];
-  hardPatternData: HardPattern[];
+  normalPatternData: Pattern[];
+  hardPatternData: Pattern[];
 }
 
 const Wishlist: FC<WishlistProps> = ({
@@ -48,34 +54,9 @@ const Wishlist: FC<WishlistProps> = ({
   const isPattern = isComponent === 'patterns';
 
   useEffect(() => {
-    const normalFilter = normalPatternData.reduce((acc, pattern) => {
-      const [common1, common2] = pattern['38%'];
-      const uncommon = pattern['15%'];
-      const rare = pattern['6%'];
-      const rarest = pattern['3%'];
-      const validPattern = filter[common1] || filter[common2] || filter[uncommon] || filter[rare] || filter[rarest];
-
-      if (validPattern) {
-        acc.push(pattern);
-      }
-
-      return acc;
-    }, [] as NormalPattern[]);
+    const normalFilter = filterAndSortPatterns(normalPatternData, filter);
+    const hardFilter = filterAndSortPatterns(hardPatternData, filter);
     setfilteredNormals(normalFilter);
-
-    const hardFilter = hardPatternData.reduce((acc, pattern) => {
-      const [common1, common2] = pattern['32%'];
-      const uncommon = pattern['20%'];
-      const rare = pattern['10%'];
-      const rarest = pattern['6%'];
-      const validPattern = filter[common1] || filter[common2] || filter[uncommon] || filter[rare] || filter[rarest];
-
-      if (validPattern) {
-        acc.push(pattern);
-      }
-
-      return acc;
-    }, [] as HardPattern[]);
     setfilteredHards(hardFilter);
   }, [filter]);
 

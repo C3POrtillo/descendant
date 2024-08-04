@@ -3,7 +3,10 @@ import type { ButtonHTMLAttributes, FC } from 'react';
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<ButtonProps> = ({ className, children, ...props }) => (
-  <button className={['tfd-link text-link input-hover button', className].filter(string => string).join(' ')} {...props}>
+  <button
+    className={['tfd-link text-link input-hover button', className].filter(string => string).join(' ')}
+    {...props}
+  >
     {children}
   </button>
 );

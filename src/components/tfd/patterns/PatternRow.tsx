@@ -1,23 +1,19 @@
-import type { HardPattern, NormalPattern } from '@/components/tfd/patterns/types';
+import type { Pattern } from '@/components/tfd/patterns/types';
 import type { FC } from 'react';
 
-import { getBlueprintClass, isNormalPattern } from '@/components/tfd/patterns/utils';
+import { getBlueprintClass, getBluerints } from '@/components/tfd/patterns/utils';
 import { getLabelClass } from '@/utils/utils';
 
 interface RowProps {
-  data: NormalPattern | HardPattern;
+  data: Pattern;
 }
 
 const PatternRow: FC<RowProps> = ({ data }) => {
   const { pattern, open, from, variant, vaulted } = data;
-  const isNormal = isNormalPattern(data);
-  const common = isNormal ? data['38%'] : data['32%'];
-  const uncommon = isNormal ? data['15%'] : data['20%'];
-  const rare = isNormal ? data['6%'] : data['10%'];
-  const rarest = isNormal ? data['3%'] : data['6%'];
-  const label = isNormal ? 'label-rare' : 'label-ultimate';
+  const blueprints = getBluerints(data);
+  const label = data['38%'] ? 'label-rare' : 'label-ultimate';
   const region = getLabelClass(from.split('\n')[0]);
-  const dataArray = [pattern, from, open, rarest, rare, uncommon, common];
+  const dataArray = [pattern, from, open, ...blueprints];
 
   return (
     <tr>
@@ -32,7 +28,7 @@ const PatternRow: FC<RowProps> = ({ data }) => {
           index === 0 && [value, variant, vaulted ? '(Vaulted)' : undefined].filter(text => text).join('\n');
         const commonDivs =
           typeof value !== 'string' &&
-          value.map(commonDrop => (
+          value?.map(commonDrop => (
             <div
               key={commonDrop}
               className={['flex w-1/2 items-center', getLabelClass(getBlueprintClass(commonDrop))]

@@ -1415,6 +1415,12 @@ export const hardPatterns = [
   },
 ] as const;
 
+export const normalRates = ['3%', '6%', '15%', '38%'] as const;
+export const hardRates = ['6%', '10%', '20%', '32%'] as const;
+
+type NormalRates = typeof normalRates[number]
+type HardRates = typeof hardRates[number]
+
 const blueprintArray = [
   ...normalPatterns.flatMap(pattern => [...pattern['38%'], pattern['15%'], pattern['6%'], pattern['3%']]),
   ...hardPatterns.flatMap(pattern => [...pattern['32%'], pattern['20%'], pattern['10%'], pattern['6%']]),
@@ -1423,7 +1429,7 @@ export const blueprintSet = new Set([...blueprintArray].sort(sortData));
 export type BlueprintTypes = (typeof blueprintArray)[number];
 export type BlueprintFilterMap = Partial<Record<BlueprintTypes, boolean | undefined>>;
 
-type Pattern = {
+type BasePattern = {
   pattern: string;
   open: string;
   from: string;
@@ -1431,17 +1437,8 @@ type Pattern = {
   variant?: string;
 };
 
-export type NormalPattern = Pattern & {
-  '3%': BlueprintTypes;
-  '6%': BlueprintTypes;
-  '15%': BlueprintTypes;
-  '38%': [BlueprintTypes, BlueprintTypes];
-};
-export type HardPattern = Pattern & {
-  '6%': BlueprintTypes;
-  '10%': BlueprintTypes;
-  '20%': BlueprintTypes;
-  '32%': [BlueprintTypes, BlueprintTypes];
+export type Pattern = BasePattern & {
+  [key in NormalRates | HardRates]: BlueprintTypes | [BlueprintTypes, BlueprintTypes];
 };
 
 const commonHeaders = ['Amorphous Material', 'Dropped From', 'Opened At'] as const;
@@ -1449,7 +1446,7 @@ export const normalHeaders = [...commonHeaders, 3, 6, 15, 38] as const;
 export const hardHeaders = [...commonHeaders, 6, 10, 20, 32] as const;
 
 export const descendantParts = ['Enhanced Cells', 'Stabilizer', 'Spiral Catalyst', 'Code'] as const;
-export const weaponParts = ['Polymer Syncytium', 'Synthetic Synthetic Fiber', 'Nano Nano Tube', 'Blueprint'] as const;
+export const weaponParts = ['Polymer Syncytium', 'Synthetic Fiber', 'Nano Tube', 'Blueprint'] as const;
 export const enhance = ['Energy Activator', 'Crystallization Catalyst'] as const;
 
 export const enhanceFilters: FilterOptionsData[] = [

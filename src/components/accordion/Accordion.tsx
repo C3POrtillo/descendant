@@ -52,7 +52,10 @@ const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon,
   const faIcon = icon || (isOpen ? 'fa-chevron-up' : 'fa-chevron-down');
 
   return (
-    <div ref={accordionRef} className={['flex w-full flex-col overflow-hidden', className].filter(string => string).join(' ')} >
+    <div
+      ref={accordionRef}
+      className={['flex w-full flex-col overflow-hidden', className].filter(string => string).join(' ')}
+    >
       <div className="flex w-full flex-row items-center justify-between p-4 md:px-6">
         {!isClickable && label}
         <button

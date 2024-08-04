@@ -10,7 +10,9 @@ const Header: FC = () => {
     if (data.options && data.label?.length) {
       const { label, options } = data;
 
-      const links = options.map(nestedData => <TFDLink className="tfd-link text-link" key={nestedData.path} {...nestedData} />);
+      const links = options.map(nestedData => (
+        <TFDLink className="tfd-link text-link" key={nestedData.path} {...nestedData} />
+      ));
 
       return (
         <Dropdown key={label} label={label}>
