@@ -84,35 +84,36 @@ const Wishlist: FC<WishlistProps> = ({
           <Button onClick={() => setIsWishlist(false)}>Patterns</Button>
         </div>
       </Container>
-      <Container className="flex grow flex-col justify-start gap-2">
-        <div
-          className={['pattern-data flex flex-row flex-wrap gap-2 md:gap-3 xl:gap-5', !isWishlist && 'hidden']
-            .filter(string => string)
-            .join(' ')}
-        >
+      <Container className={!isWishlist ? 'hidden' : undefined}>
+        <div className="pattern-data flex flex-row flex-wrap gap-2 md:gap-3 xl:gap-5">
           <FilterOptions filterOptions={descendantOptions} filter={filter} setFilter={setFilter} />
           <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
           <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
         </div>
-        <div className={['pattern-data flex-col gap-4', isWishlist && 'hidden'].filter(string => string).join(' ')}>
-          <Table
-            label="Normal"
-            headers={PatternHeaders('normal')}
-            body={filteredNormals.map(data => (
-              <PatternRow key={data.pattern + data.variant} data={data} />
-            ))}
-            isSticky={true}
-          />
-          <Table
-            label="Hard"
-            headers={PatternHeaders('hard')}
-            body={filteredHards.map(data => (
-              <PatternRow key={data.pattern + data.variant} data={data} />
-            ))}
-            isSticky={true}
-          />
-        </div>
       </Container>
+      <Container className={isWishlist ? 'hidden' : undefined}>
+        <Table
+          label="Normal"
+          headers={PatternHeaders('normal')}
+          body={filteredNormals.map(data => (
+            <PatternRow key={data.pattern + data.variant} data={data} />
+          ))}
+          className="pattern-data"
+          isSticky={true}
+        />
+      </Container>
+      <Container className={isWishlist ? 'hidden' : undefined}>
+        <Table
+          label="Hard"
+          headers={PatternHeaders('hard')}
+          body={filteredHards.map(data => (
+            <PatternRow key={data.pattern + data.variant} data={data} />
+          ))}
+          className="pattern-data"
+          isSticky={true}
+        />
+      </Container>
+      <Container className="m-0 flex grow flex-col" />
       <Footer />
     </>
   );
