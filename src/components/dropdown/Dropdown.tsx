@@ -44,7 +44,11 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
     >
       <button onClick={toggleDropdown} className="text-link flex w-full justify-center gap-4 rounded-md">
         {label}
-        <i className={['fa link-icon self-center', isOpen ? 'fa-chevron-up' : 'fa-chevron-down'].join(' ')} />
+        <i
+          className={['fa link-icon self-center', isOpen ? 'fa-chevron-up' : 'fa-chevron-down']
+            .filter(string => string)
+            .join(' ')}
+        />
       </button>
       {isOpen && children && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions

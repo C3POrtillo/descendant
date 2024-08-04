@@ -24,8 +24,10 @@ const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filte
       htmlFor={id}
       className={[
         'flex flex-row gap-2 rounded-md p-2 text-base hover:bg-slate-400 md:text-xl lg:text-3xl 2xl:text-2xl',
-        name ? createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value) : '',
-      ].join(' ')}
+        name && createLabelClass(name, name === 'weapon-type' ? createWeaponLabel(value) : value),
+      ]
+        .filter(string => string)
+        .join(' ')}
     >
       <input
         type="checkbox"

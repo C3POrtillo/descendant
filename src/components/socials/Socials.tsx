@@ -15,7 +15,7 @@ const Socials: FC = () => (
         rel="noreferrer"
         target="_blank"
       >
-        <i className={['fab text-3xl md:before:text-5xl', `fa-${site}`].join(' ')} />
+        <i className={['fab text-3xl md:before:text-5xl', `fa-${site}`].filter(string => string).join(' ')} />
       </Link>
     ))}
   </div>

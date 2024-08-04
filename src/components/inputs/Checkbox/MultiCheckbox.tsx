@@ -26,7 +26,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
   const wrapperClasses = 'rounded-lg border-2 border-solid border-white bg-slate-900 text-3xl shadow-md shadow-black';
 
   const checkboxContainer = (
-    <div className={['grid w-full place-content-center text-lg', gridSize].join(' ')}>
+    <div className={['grid w-full place-content-center text-lg', gridSize].filter(string => string).join(' ')}>
       {data.map(({ label: checkboxLabel, value, icon }, index) => (
         <Checkbox
           key={value}
@@ -42,18 +42,26 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
     </div>
   );
 
-  const labelClass = name ? createLabelClass(name, name) : ''
-  
+  const labelClass = name && createLabelClass(name, name);
+
   return isLargeScreen ? (
-    <fieldset className={['input-hover w-max grow px-2 py-4', wrapperClasses].join(' ')}>
+    <fieldset className={['input-hover w-max grow px-2 py-4', wrapperClasses].filter(string => string).join(' ')}>
       <legend className="px-4 text-center">
         <h2>{label}</h2>
       </legend>
       {checkboxContainer}
     </fieldset>
   ) : (
-    <div className={['h-min w-full', wrapperClasses, accordionSize].join(' ')}>
-      <Accordion label={<div className={['text-base lg:text-xl xl:text-2xl', labelClass].join(' ')}>{label}</div>}>{checkboxContainer}</Accordion>
+    <div className={['h-min w-full', wrapperClasses, accordionSize].filter(string => string).join(' ')}>
+      <Accordion
+        label={
+          <div className={['text-base lg:text-xl xl:text-2xl', labelClass].filter(string => string).join(' ')}>
+            {label}
+          </div>
+        }
+      >
+        {checkboxContainer}
+      </Accordion>
     </div>
   );
 };

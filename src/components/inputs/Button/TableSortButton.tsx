@@ -37,7 +37,9 @@ const Button: FC<SortButtonProps> = ({ id, sortDirection = 0, setSortDirection, 
         className={[
           'button-arrows max-h[48px] flex h-[48px] flex-col self-center xl:h-[56px] xl:max-h-[56px]',
           arrowClasses,
-        ].join(' ')}
+        ]
+          .filter(string => string)
+          .join(' ')}
       >
         {(isNeutral || isAscending) && <i className="fa fa-chevron-up" />}
         {(isNeutral || isDescending) && <i className="fa fa-chevron-down" />}

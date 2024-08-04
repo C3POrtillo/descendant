@@ -30,7 +30,7 @@ const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
       if (panelRef.current && accordionRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight + 64}px`;
         panelRef.current.style.overflow = 'visible';
-        panelRef.current.className = [panelClasses, 'py-3 sm:py-6'].join(' ');
+        panelRef.current.className = [panelClasses, 'py-3 sm:py-6'].filter(string => string).join(' ');
       }
     } else {
       document.removeEventListener('click', handleClickOutside);
@@ -56,11 +56,13 @@ const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
           onClick={toggleDropdown}
           className={[
             'text-link inline-flex flex-row items-center justify-between gap-4 rounded-md',
-            !labelIsClickable ? 'w-full' : '',
-          ].join(' ')}
+            !labelIsClickable && 'w-full',
+          ]
+            .filter(string => string)
+            .join(' ')}
         >
           {!labelIsClickable && label}
-          <i className={['fa tfd-link-icon self-center', faIcon].join(' ')} />
+          <i className={['fa tfd-link-icon self-center', faIcon].filter(string => string).join(' ')} />
         </button>
       </div>
       <div ref={panelRef} className={panelClasses}>

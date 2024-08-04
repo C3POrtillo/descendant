@@ -12,10 +12,10 @@ const TFDLink: FC<TFDLinkProps> = ({ path, label, isExternal, className, childre
   const router = useRouter();
   const currentPath = router.pathname;
   const target = isExternal && path ? path : `/tfd${path}`;
-  const disabledClass = currentPath === target ? 'disabled-link' : '';
+  const disabledClass = currentPath === target && 'disabled-link';
 
   return (
-    <Link key={path} href={target} className={[className, disabledClass].join(' ')}>
+    <Link key={path} href={target} className={[className, disabledClass].filter(string => string).join(' ')}>
       {label}
       {children}
     </Link>

@@ -44,10 +44,7 @@ const Wishlist: FC<WishlistProps> = ({
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
 
-  useEffect(() => {
-    
-
-  }, [filter]);
+  useEffect(() => {}, [filter]);
 
   return (
     <>
@@ -58,15 +55,17 @@ const Wishlist: FC<WishlistProps> = ({
           <Button onClick={() => setIsWishlist(false)}>Patterns</Button>
         </div>
       </Container>
-      <Container className={['pattern-data flex flex-row flex-wrap', isWishlist ? '' : 'hidden'].join(' ')}>
+      <Container
+        className={['pattern-data flex flex-row flex-wrap', !isWishlist && 'hidden'].filter(string => string).join(' ')}
+      >
         <FilterOptions filterOptions={descendantOptions} filter={filter} setFilter={setFilter} />
         <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
         <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
       </Container>
       <Container
-        className={['pattern-data subregion-data flex flex-col justify-center gap-4', isWishlist ? 'hidden' : ''].join(
-          ' ',
-        )}
+        className={['pattern-data subregion-data flex flex-col justify-center gap-4', isWishlist && 'hidden']
+          .filter(string => string)
+          .join(' ')}
       >
         <Table
           label="Normal"
@@ -102,7 +101,7 @@ export const getStaticProps = async () => {
       return;
     }
 
-    const isDescendant = !descendantParts.every(part => {
+    const isNotDescendant = descendantParts.every(part => {
       if (blueprint.includes(part)) {
         descendants.add(blueprint.split(part)[0].trim());
 
@@ -112,19 +111,16 @@ export const getStaticProps = async () => {
       return true;
     });
 
-    if (isDescendant) {
-      return;
-    }
+    isNotDescendant &&
+      weaponParts.every(part => {
+        if (blueprint.includes(part)) {
+          weapons.add(blueprint.split(part)[0].trim());
 
-    weaponParts.every(part => {
-      if (blueprint.includes(part)) {
-        weapons.add(blueprint.split(part)[0].trim());
+          return false;
+        }
 
-        return false;
-      }
-
-      return true;
-    });
+        return true;
+      });
   });
 
   const descendantFilters = Array.from(descendants).map((descendant: string) => ({

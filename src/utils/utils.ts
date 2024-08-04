@@ -22,7 +22,7 @@ const capitalizeFirstLetter = (string: string): string =>
 export const titleCase = (string: string): string => {
   const capitalizedWords = cleanStringArray(string).map(word => capitalizeFirstLetter(word));
 
-  return capitalizedWords.join(' ');
+  return capitalizedWords.filter(str => str).join(' ');
 };
 
 export const camelCase = (string: string): string => {

@@ -64,11 +64,13 @@ const Table: FC<TableProps> = ({
       className={[
         'self-center overflow-clip rounded-xl border-2 border-solid border-white bg-slate-900 text-3xl shadow-xl shadow-black',
         className,
-      ].join(' ')}
+      ]
+        .filter(string => string)
+        .join(' ')}
     >
       {label && (
         <>
-          <legend className={['mx-auto px-2 py-4 text-center sm:px-4', labelSize].join(' ')}>
+          <legend className={['mx-auto px-2 py-4 text-center sm:px-4', labelSize].filter(string => string).join(' ')}>
             <h2>{label}</h2>
           </legend>
           {sublabel && sublabel}
@@ -79,8 +81,10 @@ const Table: FC<TableProps> = ({
         <div
           className={[
             'table-wrapper max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full',
-            isSticky ? 'max-h-[75lvh] md:max-h-[85lvh] xl:max-h-[95lvh]' : '',
-          ].join(' ')}
+            isSticky && 'max-h-[75lvh] md:max-h-[85lvh] xl:max-h-[95lvh]',
+          ]
+            .filter(string => string)
+            .join(' ')}
         >
           <table className="w-full" {...props}>
             <thead className={isSticky ? 'sticky-table-header' : ''}>

@@ -55,7 +55,9 @@ const Carousel: FC<CarouselProps> = ({ width = 'max-w-[90vw]', slides }) => {
       className={[
         'relative mx-auto flex  flex-col gap-2 rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black',
         width,
-      ].join(' ')}
+      ]
+        .filter(string => string)
+        .join(' ')}
     >
       {controls}
       <div className="flex overflow-x-hidden pb-2" {...bind()}>
@@ -66,7 +68,9 @@ const Carousel: FC<CarouselProps> = ({ width = 'max-w-[90vw]', slides }) => {
             className={[
               'carousel-slide inline-flex w-full shrink-0 px-12',
               index === currentIndex ? 'translate-x-0' : 'translate-x-full',
-            ].join(' ')}
+            ]
+              .filter(string => string)
+              .join(' ')}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {slide}

@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, FC } from 'react';
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: FC<ButtonProps> = ({ className, children, ...props }) => (
-  <button className={['tfd-link button', className].join(' ')} {...props}>
+  <button className={['tfd-link button', className].filter(string => string).join(' ')} {...props}>
     {children}
   </button>
 );

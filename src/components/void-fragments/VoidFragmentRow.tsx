@@ -21,9 +21,9 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
       const isSubregion = lowerCaseKey === 'subregion';
 
       const labelClass = createLabelClass(isSubregion ? (data['zone'] as string) : lowerCaseKey, value.toString());
-      const numberClass = typeof value === 'number' ? isOptimal(data['subregion'] as string) : '';
-      const centerNumber = typeof value === 'number' ? 'pr-7' : '';
-      const textClass = shardsArray.includes(key as ShardsType) ? 'justify-center' : '';
+      const numberClass = typeof value === 'number' && isOptimal(data['subregion'] as string);
+      const centerNumber = typeof value === 'number' && 'pr-7';
+      const textClass = shardsArray.includes(key as ShardsType) && 'justify-center';
 
       const icon: IconProps = {};
       const attributeIconData = attributesImages[data['attribute'] as AttributesType];
@@ -39,8 +39,13 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
       }
 
       return value !== 0 ? (
-        <td key={key} className={['p-4 text-lg 2xl:text-xl', labelClass, numberClass].join(' ')}>
-          <div className={['flex flex-row items-center gap-2', textClass, centerNumber].join(' ')}>
+        <td
+          key={key}
+          className={['p-4 text-lg 2xl:text-xl', labelClass, numberClass].filter(string => string).join(' ')}
+        >
+          <div
+            className={['flex flex-row items-center gap-2', textClass, centerNumber].filter(string => string).join(' ')}
+          >
             {icon.src && <Icon {...icon} />}
             {value}
           </div>

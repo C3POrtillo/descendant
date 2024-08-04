@@ -21,7 +21,11 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
   set_option_detail,
 }) => (
   <div className="external-component-data flex max-h-min w-full flex-col gap-2 overflow-hidden rounded-lg  border-2 border-white bg-slate-900 pb-2 text-center shadow-md shadow-black">
-    <div className={['external-component-image relative ', getBackgroundClass(external_component_tier)].join(' ')}>
+    <div
+      className={['external-component-image relative ', getBackgroundClass(external_component_tier)]
+        .filter(string => string)
+        .join(' ')}
+    >
       <Image
         src={image_url}
         fill={true}
@@ -35,7 +39,9 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
       className={[
         'mx-2 flex flex-col border-white text-sm md:text-base lg:text-xl',
         getLabelClass(external_component_tier),
-      ].join(' ')}
+      ]
+        .filter(string => string)
+        .join(' ')}
     >
       <div className="flex w-full flex-row justify-center gap-1 text-left">
         <p className="flex h-full w-3/4 flex-col justify-center self-center border-r-2 border-solid border-white pl-2 pr-3">
