@@ -38,7 +38,7 @@ const Wishlist: FC<WishlistProps> = ({
   normalPatternData,
   hardPatternData,
 }) => {
-  const [isComponent, setIsComponent] = useState('set wishlist');
+  const [isComponent, setIsComponent] = useState('set-wishlist');
   const [filter, setFilter] = useState(filterMap);
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
