@@ -30,26 +30,16 @@ import useLargeScreen from '@/utils/useLargeScreen';
 import { sortData, titleCase } from '@/utils/utils';
 
 interface VoidShardProps {
+  filterMap: VoidFragmentFilterMap;
   voidFragments: VoidFragmentData[];
 }
 
-const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
+const VoidShards: FC<VoidShardProps> = ({ filterMap, voidFragments }) => {
   const isLargeScreen = useLargeScreen();
   const [filteredRows, setFilteredRows] = useState(voidFragments);
-  const [filter, setFilter] = useState({} as VoidFragmentFilterMap);
+  const [filter, setFilter] = useState(filterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
   const [sortColumn, setSortColumn] = useState('');
-
-  useEffect(() => {
-    const defaultFilter = [...attributesArray, ...zonesArray, ...subregionsArray] as VoidFragmentFilterTypes[];
-    const filterMap = defaultFilter.reduce((acc, key) => {
-      acc[key] = true;
-
-      return acc;
-    }, {} as VoidFragmentFilterMap);
-
-    setFilter(filterMap);
-  }, []);
 
   useEffect(() => {
     const sortKey = sortColumn.toLowerCase() as FilterTypes;
@@ -128,8 +118,16 @@ const VoidShards: FC<VoidShardProps> = ({ voidFragments }) => {
 export const getStaticProps = async () => {
   const voidFragments = reformatZoneData();
 
+  const defaultFilter = [...attributesArray, ...zonesArray, ...subregionsArray] as VoidFragmentFilterTypes[];
+  const filterMap = defaultFilter.reduce((acc, key) => {
+    acc[key] = true;
+
+    return acc;
+  }, {} as VoidFragmentFilterMap);
+
   return {
     props: {
+      filterMap,
       voidFragments,
     },
   };

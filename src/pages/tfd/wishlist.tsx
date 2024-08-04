@@ -1,7 +1,7 @@
 import { type FC, useEffect, useState } from 'react';
 
 import type { FilterOptionsData } from '@/components/inputs/types';
-import type { HardPattern, NormalPattern } from '@/components/patterns/types';
+import type { BlueprintFilterMap, HardPattern, NormalPattern } from '@/components/patterns/types';
 
 import Container from '@/components/container/Container';
 import Footer from '@/components/footer/TFD/Footer';
@@ -11,6 +11,7 @@ import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import PatternHeaders from '@/components/patterns/PatternHeaders';
 import PatternRow from '@/components/patterns/PatternRow';
 import {
+  blueprintSet,
   descendantParts,
   enhance,
   enhanceFilters,
@@ -20,9 +21,9 @@ import {
 } from '@/components/patterns/types';
 import { getAttribute, getRounds } from '@/components/patterns/utils';
 import Table from '@/components/table/Table';
-import { sortData } from '@/utils/utils';
 
 interface WishlistProps {
+  filterMap: BlueprintFilterMap;
   descendantOptions: FilterOptionsData[];
   weaponOptions: FilterOptionsData[];
   enhanceOptions: FilterOptionsData[];
@@ -31,6 +32,7 @@ interface WishlistProps {
 }
 
 const Wishlist: FC<WishlistProps> = ({
+  filterMap,
   descendantOptions,
   weaponOptions,
   enhanceOptions,
@@ -38,7 +40,7 @@ const Wishlist: FC<WishlistProps> = ({
   hardPatternData,
 }) => {
   const [isWishlist, setIsWishlist] = useState(true);
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState(filterMap);
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
 
@@ -87,15 +89,10 @@ const Wishlist: FC<WishlistProps> = ({
 export const getStaticProps = async () => {
   const descendants = new Set<string>();
   const weapons = new Set<string>();
+  const filterMap = {} as BlueprintFilterMap;
 
-  const blueprints = new Set(
-    [
-      ...normalPatterns.flatMap(pattern => [...pattern['38%'], pattern['15%'], pattern['6%'], pattern['3%']]),
-      ...hardPatterns.flatMap(pattern => [...pattern['32%'], pattern['20%'], pattern['10%'], pattern['6%']]),
-    ].sort(sortData),
-  );
-
-  blueprints.forEach(blueprint => {
+  blueprintSet.forEach(blueprint => {
+    filterMap[blueprint] = true;
     if (enhance.some(item => blueprint.includes(item))) {
       return;
     }
@@ -129,7 +126,8 @@ export const getStaticProps = async () => {
     label: descendant,
     name: getAttribute(descendant),
     data: descendantParts.map(part => ({
-      value: part,
+      value: `${descendant} ${part}`,
+      label: part,
     })),
     defaultChecked: false,
   })) as FilterOptionsData[];
@@ -138,13 +136,15 @@ export const getStaticProps = async () => {
     label: weapon,
     name: getRounds(weapon),
     data: weaponParts.map(part => ({
-      value: part,
+      value: `${weapon} ${part}`,
+      label: part,
     })),
     defaultChecked: false,
   })) as FilterOptionsData[];
 
   return {
     props: {
+      filterMap,
       descendantOptions: descendantFilters,
       weaponOptions: weaponFilters,
       enhanceOptions: enhanceFilters,

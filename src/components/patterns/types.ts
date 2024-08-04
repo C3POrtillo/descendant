@@ -1,5 +1,7 @@
 import type { FilterOptionsData } from '@/components/inputs/types';
 
+import { sortData } from '@/utils/utils';
+
 export const normalPatterns = [
   {
     pattern: '001',
@@ -1454,3 +1456,11 @@ export const enhanceFilters: FilterOptionsData[] = [
     defaultChecked: false,
   },
 ];
+
+const blueprintArray = [
+  ...normalPatterns.flatMap(pattern => [...pattern['38%'], pattern['15%'], pattern['6%'], pattern['3%']]),
+  ...hardPatterns.flatMap(pattern => [...pattern['32%'], pattern['20%'], pattern['10%'], pattern['6%']]),
+] as const;
+export const blueprintSet = new Set([...blueprintArray].sort(sortData));
+export type BlueprintFilterTypes = (typeof blueprintArray)[number];
+export type BlueprintFilterMap = Partial<Record<BlueprintFilterTypes, boolean | undefined>>;

@@ -26,10 +26,10 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
 
   const checkboxContainer = (
     <div className={['grid w-full place-content-center text-lg', gridSize].join(' ')}>
-      {data.map(({ value, icon }, index) => (
+      {data.map(({ label: checkboxLabel, value, icon }, index) => (
         <Checkbox
           key={value}
-          label={label}
+          label={checkboxLabel}
           name={name}
           value={value}
           defaultChecked={setChecked(defaultChecked, value, index)}

@@ -7,7 +7,7 @@ import { createWeaponLabel } from '@/components/weapon/utils';
 import { createLabelClass, kebabCase } from '@/utils/utils';
 
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   value: string;
   name?: string;
   defaultChecked?: boolean;
@@ -17,7 +17,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filter, setFilter, icon }) => {
-  const id = `${label.toLowerCase()}-${kebabCase(value)}`;
+  const id = kebabCase(value);
 
   return (
     <label
@@ -42,7 +42,7 @@ const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filte
       />
       <div className="flex flex-row items-center justify-center gap-1 xl:gap-2">
         {icon?.src && <Icon {...icon} />}
-        {value}
+        {label || value}
       </div>
     </label>
   );

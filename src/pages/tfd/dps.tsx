@@ -20,12 +20,13 @@ import { camelCase, sortData } from '@/utils/utils';
 
 interface WeaponDPSProps {
   error: boolean;
+  filterMap: WeaponFilterMap;
   weapons: FormattedWeaponData[];
 }
 
-const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
+const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons }) => {
   const [filteredWeapons, setFilteredWeapons] = useState(weapons);
-  const [filter, setFilter] = useState({} as WeaponFilterMap);
+  const [filter, setFilter] = useState(filterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
   const [sortColumn, setSortColumn] = useState('');
   const [isError] = useState(error || !weapons);
@@ -34,18 +35,6 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, weapons }) => {
     if (isError) {
       return;
     }
-
-    const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
-    const filterMap = defaultFilter.reduce((acc, key) => {
-      acc[key] = true;
-
-      return acc;
-    }, {} as WeaponFilterMap);
-
-    setFilter(filterMap);
-  }, []);
-
-  useEffect(() => {
     const sortKey = camelCase(sortColumn) as unknown as keyof FormattedWeaponData;
 
     const statSort = () => {
@@ -111,8 +100,16 @@ export const getStaticProps = async () => {
 
   const weapons = (await axios.get(process.env.WEAPON_JSON)).data;
 
+  const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
+  const filterMap = defaultFilter.reduce((acc, key) => {
+    acc[key] = true;
+
+    return acc;
+  }, {} as WeaponFilterMap);
+
   return {
     props: {
+      filterMap,
       weapons: reformatWeaponData(weapons.sort(defaultWeaponSort)),
     },
     revalidate: 86400,
