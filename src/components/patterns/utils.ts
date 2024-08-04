@@ -52,40 +52,48 @@ export const getRarity = (item: string) => {
   }
 };
 
-export const getBlueprintClass = (blueprint: string) => {
-  let string = '';
-  const isNotItem = enhance.every(item => {
-    if (blueprint.includes(item)) {
-      string = getRarity(item);
+const processParts = (
+  blueprint: string,
+  parts: readonly string[],
+  transform: (part: string) => string,
+): string | null => {
+  for (const part of parts) {
+    if (blueprint.includes(part)) {
+      return transform(blueprint.split(part)[0].trim());
+    }
+  }
+
+  return null;
+};
+
+export const getBlueprintClass = (blueprint: string): string => {
+  const itemClass = processParts(blueprint, enhance, getRarity);
+  if (itemClass) {
+    return itemClass;
+  }
+
+  const descendantClass = processParts(blueprint, descendantParts, getAttribute);
+  if (descendantClass) {
+    return descendantClass;
+  }
+
+  const weaponClass = processParts(blueprint, weaponParts, getRounds);
+  if (weaponClass) {
+    return weaponClass;
+  }
+
+  return '';
+};
+
+export const isEnhance = (blueprint: string) => enhance.some(item => blueprint.includes(item));
+
+export const extractAndAddToSet = (blueprint: string, parts: readonly string[], set: Set<string>) =>
+  parts.every(part => {
+    if (blueprint.includes(part)) {
+      set.add(blueprint.split(part)[0].trim());
 
       return false;
     }
 
     return true;
   });
-
-  const isNotDescendant =
-    isNotItem &&
-    descendantParts.every(part => {
-      if (blueprint.includes(part)) {
-        string = getAttribute(blueprint.split(part)[0].trim());
-
-        return false;
-      }
-
-      return true;
-    });
-
-  isNotDescendant &&
-    weaponParts.every(part => {
-      if (blueprint.includes(part)) {
-        string = getRounds(blueprint.split(part)[0].trim());
-
-        return false;
-      }
-
-      return true;
-    });
-
-  return string;
-};

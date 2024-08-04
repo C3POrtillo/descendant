@@ -13,13 +13,12 @@ import PatternRow from '@/components/patterns/PatternRow';
 import {
   blueprintSet,
   descendantParts,
-  enhance,
   enhanceFilters,
   hardPatterns,
   normalPatterns,
   weaponParts,
 } from '@/components/patterns/types';
-import { getAttribute, getRounds } from '@/components/patterns/utils';
+import { extractAndAddToSet, getAttribute, getRounds, isEnhance } from '@/components/patterns/utils';
 import Table from '@/components/table/Table';
 
 interface WishlistProps {
@@ -126,30 +125,14 @@ export const getStaticProps = async () => {
 
   blueprintSet.forEach(blueprint => {
     filterMap[blueprint] = false;
-    if (enhance.some(item => blueprint.includes(item))) {
+
+    if (isEnhance(blueprint)) {
       return;
     }
 
-    const isNotDescendant = descendantParts.every(part => {
-      if (blueprint.includes(part)) {
-        descendants.add(blueprint.split(part)[0].trim());
-
-        return false;
-      }
-
-      return true;
-    });
-
-    isNotDescendant &&
-      weaponParts.every(part => {
-        if (blueprint.includes(part)) {
-          weapons.add(blueprint.split(part)[0].trim());
-
-          return false;
-        }
-
-        return true;
-      });
+    if (extractAndAddToSet(blueprint, descendantParts, descendants)) {
+      extractAndAddToSet(blueprint, weaponParts, weapons);
+    }
   });
 
   const descendantFilters = Array.from(descendants).map((descendant: string) => ({
