@@ -157,7 +157,7 @@ export const voidFragmentData = {
       },
     ],
   },
-  'White Gulch': {
+  'White-Night Gulch': {
     id: 5,
     subregions: [
       {

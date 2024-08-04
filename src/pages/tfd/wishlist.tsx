@@ -1,16 +1,15 @@
-import { type FC, useState } from 'react';
+import { type FC, useEffect, useState } from 'react';
 
-import type { DirectionValues } from '@/components/inputs/types';
 import type { HardPattern, NormalPattern } from '@/components/patterns/types';
 
 import Container from '@/components/container/Container';
 import Footer from '@/components/footer/TFD/Footer';
 import Header from '@/components/header/TFD/Header';
+import Button from '@/components/inputs/Button/Button';
 import PatternHeaders from '@/components/patterns/PatternHeaders';
 import PatternRow from '@/components/patterns/PatternRow';
 import { hardPatterns, normalPatterns } from '@/components/patterns/types';
 import Table from '@/components/table/Table';
-import Button from '@/components/inputs/Button/Button';
 
 interface WishlistProps {
   normalPatternData: NormalPattern[];
@@ -20,23 +19,15 @@ interface WishlistProps {
 const Wishlist: FC<WishlistProps> = ({ normalPatternData, hardPatternData }) => {
   const [isWishlist, setIsWishlist] = useState(false);
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
-  const [sortNormalDirection, setSortNormalDirection] = useState(0 as DirectionValues);
-  const [sortNormalColumn, setSortNormalColumn] = useState('');
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
-  const [sortHardDirection, setSortHardDirection] = useState(0 as DirectionValues);
-  const [sortHardColumn, setSortHardColumn] = useState('');
 
   return (
     <>
       <Header />
       <Container>
         <div className="flex flex-row gap-2">
-          <Button className="tfd-link button" onClick={() => setIsWishlist(true)}>
-            Wishlist
-          </Button>
-          <Button className="tfd-link button" onClick={() => setIsWishlist(false)}>
-            Patterns
-          </Button>
+          <Button onClick={() => setIsWishlist(true)}>Wishlist</Button>
+          <Button onClick={() => setIsWishlist(false)}>Patterns</Button>
         </div>
       </Container>
       {isWishlist && (
@@ -54,10 +45,6 @@ const Wishlist: FC<WishlistProps> = ({ normalPatternData, hardPatternData }) => 
                 <PatternRow key={data.pattern + data.variant} data={data} />
               ))}
               className="pattern-data subregion-data"
-              sortDirection={sortNormalDirection}
-              sortColumn={sortNormalColumn}
-              setSortDirection={setSortNormalDirection}
-              setSortColumn={setSortNormalColumn}
               isSticky={true}
             />
           </Container>
@@ -69,10 +56,6 @@ const Wishlist: FC<WishlistProps> = ({ normalPatternData, hardPatternData }) => 
                 <PatternRow key={data.pattern + data.variant} data={data} />
               ))}
               className="pattern-data subregion-data"
-              sortDirection={sortHardDirection}
-              sortColumn={sortHardColumn}
-              setSortDirection={setSortHardDirection}
-              setSortColumn={setSortHardColumn}
               isSticky={true}
             />
           </Container>
