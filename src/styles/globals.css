@@ -79,7 +79,7 @@
     @apply before:text-2xl md:before:text-3xl;
   }
   .button {
-    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white border-solid py-3 px-5;
+    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white border-solid py-3 px-5 disabled:bg-gray-900 disabled:text-yellow-200;
   }
   .social {
     .fa-discord {

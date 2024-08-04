@@ -84,9 +84,15 @@ const Wishlist: FC<WishlistProps> = ({
       <Header />
       <Container className="mb-0">
         <div className="flex w-min flex-row gap-2 self-center">
-          <Button onClick={() => setIsComponent('set-wishlist')}>Set Wishlist</Button>
-          <Button onClick={() => setIsComponent('view-wishlist')}>View Wishlist</Button>
-          <Button onClick={() => setIsComponent('patterns')}>All Patterns</Button>
+          <Button onClick={() => setIsComponent('set-wishlist')} disabled={isWishlist}>
+            Set Wishlist
+          </Button>
+          <Button onClick={() => setIsComponent('view-wishlist')} disabled={isFilter}>
+            View Wishlist
+          </Button>
+          <Button onClick={() => setIsComponent('patterns')} disabled={isPattern}>
+            All Patterns
+          </Button>
         </div>
       </Container>
       <Container className={!isWishlist ? 'hidden' : undefined}>
