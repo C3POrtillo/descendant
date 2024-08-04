@@ -22,7 +22,7 @@ const PatternRow: FC<RowProps> = ({ data }) => {
   return (
     <tr>
       {dataArray.map((value, index) => {
-        const widthClass = index === 6 && 'w-[200%]';
+        const widthClass = (3 <= index && index < 6 && 'w-1/6') || (index === 6 && 'w-1/4') || 'w-1/12';
         const patternClass = index === 0 && label;
         const regionClass = 0 < index && index < 3 && region;
         const blueprintClass =

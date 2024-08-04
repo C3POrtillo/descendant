@@ -38,10 +38,14 @@ const Wishlist: FC<WishlistProps> = ({
   normalPatternData,
   hardPatternData,
 }) => {
-  const [isWishlist, setIsWishlist] = useState(true);
+  const [isComponent, setIsComponent] = useState('set wishlist');
   const [filter, setFilter] = useState(filterMap);
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
+
+  const isWishlist = isComponent === 'set-wishlist';
+  const isFilter = isComponent === 'view-wishlist';
+  const isPattern = isComponent === 'patterns';
 
   useEffect(() => {
     const normalFilter = normalPatternData.reduce((acc, pattern) => {
@@ -80,8 +84,9 @@ const Wishlist: FC<WishlistProps> = ({
       <Header />
       <Container className="mb-0">
         <div className="flex w-min flex-row gap-2 self-center">
-          <Button onClick={() => setIsWishlist(true)}>Wishlist</Button>
-          <Button onClick={() => setIsWishlist(false)}>Patterns</Button>
+          <Button onClick={() => setIsComponent('set-wishlist')}>Set Wishlist</Button>
+          <Button onClick={() => setIsComponent('view-wishlist')}>View Wishlist</Button>
+          <Button onClick={() => setIsComponent('patterns')}>All Patterns</Button>
         </div>
       </Container>
       <Container className={!isWishlist ? 'hidden' : undefined}>
@@ -91,28 +96,58 @@ const Wishlist: FC<WishlistProps> = ({
           <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
         </div>
       </Container>
-      <Container className={isWishlist ? 'hidden' : undefined}>
-        <Table
-          label="Normal"
-          headers={PatternHeaders('normal')}
-          body={filteredNormals.map(data => (
-            <PatternRow key={data.pattern + data.variant} data={data} />
-          ))}
-          className="pattern-data"
-          isSticky={true}
-        />
-      </Container>
-      <Container className={isWishlist ? 'hidden' : undefined}>
-        <Table
-          label="Hard"
-          headers={PatternHeaders('hard')}
-          body={filteredHards.map(data => (
-            <PatternRow key={data.pattern + data.variant} data={data} />
-          ))}
-          className="pattern-data"
-          isSticky={true}
-        />
-      </Container>
+      {isFilter && (
+        <>
+          <Container>
+            <Table
+              label="Normal"
+              headers={PatternHeaders('normal')}
+              body={filteredNormals.map(data => (
+                <PatternRow key={data.pattern + data.variant} data={data} />
+              ))}
+              className="pattern-data"
+              isSticky={true}
+            />
+          </Container>
+          <Container>
+            <Table
+              label="Hard"
+              headers={PatternHeaders('hard')}
+              body={filteredHards.map(data => (
+                <PatternRow key={data.pattern + data.variant} data={data} />
+              ))}
+              className="pattern-data"
+              isSticky={true}
+            />
+          </Container>
+        </>
+      )}
+      {isPattern && (
+        <>
+          <Container>
+            <Table
+              label="Normal"
+              headers={PatternHeaders('normal')}
+              body={normalPatternData.map(data => (
+                <PatternRow key={data.pattern + data.variant} data={data} />
+              ))}
+              className="pattern-data"
+              isSticky={true}
+            />
+          </Container>
+          <Container>
+            <Table
+              label="Hard"
+              headers={PatternHeaders('hard')}
+              body={hardPatternData.map(data => (
+                <PatternRow key={data.pattern + data.variant} data={data} />
+              ))}
+              className="pattern-data"
+              isSticky={true}
+            />
+          </Container>
+        </>
+      )}
       <Container className="m-0 flex grow flex-col" />
       <Footer />
     </>
