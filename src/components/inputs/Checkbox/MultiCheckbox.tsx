@@ -54,11 +54,14 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
   ) : (
     <div className={['h-min w-full', wrapperClasses, accordionSize].filter(string => string).join(' ')}>
       <Accordion
+        className="input-hover"
+        panelClassName="pb-4"
         label={
-          <div className={['text-base lg:text-xl xl:text-2xl', labelClass].filter(string => string).join(' ')}>
+          <div className={['text-lg md:text-xl xl:text-2xl', labelClass].filter(string => string).join(' ')}>
             {label}
           </div>
         }
+        labelIsClickable
       >
         {checkboxContainer}
       </Accordion>

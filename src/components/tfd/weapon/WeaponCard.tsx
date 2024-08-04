@@ -17,7 +17,7 @@ interface WeaponCardProps {
 }
 
 const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type, weapon_rounds_type, image_url }) => (
-  <div className="flex flex-col gap-2 overflow-hidden rounded-lg border-2 border-black bg-slate-800 pb-2 text-center text-base shadow-md shadow-black 2xl:text-2xl">
+  <div className="flex flex-col gap-2 overflow-hidden rounded-lg border-2 border-black bg-slate-800 pb-2 text-center text-lg shadow-md shadow-black 2xl:text-2xl">
     <div className={['weapon-image relative', getBackgroundClass(weapon_tier)].filter(string => string).join(' ')}>
       <Image
         src={image_url}

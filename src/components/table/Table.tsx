@@ -21,7 +21,7 @@ interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
 
 const Table: FC<TableProps> = ({
   label,
-  labelSize = 'text-3xl md:text-4xl lg:text-6xl',
+  labelSize = 'text-2xl md:text-3xl xl:text-4xl 2x:text-5xl',
   sublabel,
   headers,
   body,
@@ -42,7 +42,7 @@ const Table: FC<TableProps> = ({
       const { key, header } = typeof el === 'string' ? { key: el, header: el } : el;
 
       return (
-        <th key={key} className="h-inherit text-base lg:text-xl">
+        <th key={key} className="h-inherit text-lg lg:text-xl">
           {isSortHeader ? (
             <Button
               id={key}

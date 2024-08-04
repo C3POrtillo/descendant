@@ -10,7 +10,7 @@ const Header: FC = () => {
     if (data.options && data.label?.length) {
       const { label, options } = data;
 
-      const links = options.map(nestedData => <TFDLink className="tfd-link" key={nestedData.path} {...nestedData} />);
+      const links = options.map(nestedData => <TFDLink className="tfd-link text-link" key={nestedData.path} {...nestedData} />);
 
       return (
         <Dropdown key={label} label={label}>
@@ -19,7 +19,7 @@ const Header: FC = () => {
       );
     }
 
-    return <TFDLink className="tfd-link" key={data.path} {...data} />;
+    return <TFDLink className="tfd-link text-link" key={data.path} {...data} />;
   });
 
   const homeLink = (
@@ -29,7 +29,7 @@ const Header: FC = () => {
   );
 
   return (
-    <header className="sticky-header flex flex-col place-items-center justify-center gap-4 bg-slate-800 text-center shadow-md shadow-black lg:py-6">
+    <header className="sticky-header flex flex-col place-items-center justify-center bg-slate-800 text-center shadow-md shadow-black lg:py-3">
       <div className="hidden h-14 content-center lg:flex">{homeLink}</div>
       <div className="hidden min-h-8 flex-row gap-4 lg:flex">{navLinks}</div>
 

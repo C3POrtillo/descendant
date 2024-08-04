@@ -77,7 +77,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
     <>
       <Header />
       <Container>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:flex xl:flex-row">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
           {Object.entries(externalComponentStats.substats).map(([component, substats]) => (
             <Table
               className="h-min"
@@ -100,13 +100,13 @@ const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicC
         </div>
       </Container>
       <Container>
-        <div className="flex flex-col gap-1 xl:flex-row xl:gap-4">
-          <div className="xl:sticky-below-header flex h-min flex-row justify-center gap-4 pt-5 xl:w-1/6 xl:flex-col">
+        <div className="flex flex-col gap-1 2xl:flex-row 2xl:gap-4">
+          <div className="2xl:sticky-below-header flex h-min flex-row justify-center gap-4 pt-5 2xl:w-1/6 2xl:flex-col">
             <div className="external-component-data flex flex-row flex-wrap justify-center gap-4">
               <FilterOptions filterOptions={filterOptions} filter={filter} setFilter={setFilter} />
             </div>
           </div>
-          <div className="flex flex-col gap-4 pt-9 xl:w-5/6">
+          <div className="flex flex-col gap-4 pt-9 2xl:w-5/6">
             <div className="grid grid-cols-1 gap-4 px-2 md:grid-cols-2 md:px-0 xl:grid-cols-4">
               {filteredSet.map(({ external_component_id: id, ...props }) => (
                 <ExternalComponentCard key={id} {...props} />

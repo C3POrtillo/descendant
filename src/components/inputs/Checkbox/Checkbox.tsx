@@ -25,7 +25,7 @@ const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filte
     <label
       htmlFor={id}
       className={[
-        'flex flex-row gap-2 rounded-md p-2 text-base hover:bg-slate-400 md:text-xl lg:text-3xl 2xl:text-2xl',
+        'flex flex-row gap-2 rounded-md p-2 text-lg hover:bg-slate-400 lg:text-xl 2xl:text-2xl',
         labelClass,
       ]
         .filter(string => string)
@@ -33,7 +33,7 @@ const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filte
     >
       <input
         type="checkbox"
-        className="size-5 self-center rounded border-gray-600 bg-gray-700 text-2xl ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
+        className="text-link size-5 self-center rounded border-gray-600 bg-gray-700 ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
         id={id}
         name={value}
         defaultChecked={defaultChecked}

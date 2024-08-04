@@ -3,16 +3,19 @@ import { useEffect, useRef, useState } from 'react';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 
 interface AccordionProps extends PropsWithChildren {
+  className: string;
+  panelClassName?: string;
   label: string | ReactNode;
   icon?: string;
+  labelIsClickable?: boolean;
 }
 
-const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
+const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon, children, labelIsClickable }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [labelIsClickable, _] = useState(typeof label !== 'string');
+  const [isClickable, _] = useState(labelIsClickable || typeof label === 'string');
   const panelRef = useRef<HTMLDivElement>(null);
   const accordionRef = useRef<HTMLDivElement>(null);
-  const panelClasses = 'accordion-panel px-6';
+  const panelClasses = 'accordion-panel';
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -30,7 +33,7 @@ const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
       if (panelRef.current && accordionRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight + 64}px`;
         panelRef.current.style.overflow = 'visible';
-        panelRef.current.className = [panelClasses, 'py-3 sm:py-6'].filter(string => string).join(' ');
+        panelRef.current.className = [panelClasses, panelClassName || 'py-4'].filter(string => string).join(' ');
       }
     } else {
       document.removeEventListener('click', handleClickOutside);
@@ -49,19 +52,19 @@ const Accordion: FC<AccordionProps> = ({ label, icon, children }) => {
   const faIcon = icon || (isOpen ? 'fa-chevron-up' : 'fa-chevron-down');
 
   return (
-    <div ref={accordionRef} className="flex w-full flex-col overflow-hidden">
+    <div ref={accordionRef} className={['flex w-full flex-col overflow-hidden', className].filter(string => string).join(' ')} >
       <div className="flex w-full flex-row items-center justify-between p-4 md:px-6">
-        {labelIsClickable && label}
+        {!isClickable && label}
         <button
           onClick={toggleDropdown}
           className={[
             'text-link inline-flex flex-row items-center justify-between gap-4 rounded-md',
-            !labelIsClickable && 'w-full',
+            isClickable && 'w-full',
           ]
             .filter(string => string)
             .join(' ')}
         >
-          {!labelIsClickable && label}
+          {isClickable && label}
           <i className={['fa tfd-link-icon self-center', faIcon].filter(string => string).join(' ')} />
         </button>
       </div>

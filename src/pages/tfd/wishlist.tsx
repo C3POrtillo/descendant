@@ -83,7 +83,7 @@ const Wishlist: FC<WishlistProps> = ({
     <>
       <Header />
       <Container className="mb-0">
-        <div className="flex w-min flex-row gap-2 self-center">
+        <div className="flex w-min flex-row flex-wrap gap-2 self-center md:flex-nowrap">
           <Button onClick={() => setIsComponent('set-wishlist')} disabled={isWishlist}>
             Set Wishlist
           </Button>
