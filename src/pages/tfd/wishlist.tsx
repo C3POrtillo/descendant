@@ -44,6 +44,11 @@ const Wishlist: FC<WishlistProps> = ({
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
 
+  useEffect(() => {
+    
+
+  }, [filter]);
+
   return (
     <>
       <Header />
@@ -92,7 +97,7 @@ export const getStaticProps = async () => {
   const filterMap = {} as BlueprintFilterMap;
 
   blueprintSet.forEach(blueprint => {
-    filterMap[blueprint] = true;
+    filterMap[blueprint] = false;
     if (enhance.some(item => blueprint.includes(item))) {
       return;
     }

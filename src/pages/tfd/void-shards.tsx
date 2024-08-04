@@ -26,7 +26,7 @@ import {
 } from '@/components/void-fragments/types';
 import { reformatZoneData } from '@/components/void-fragments/utils';
 import { attributesArray } from '@/utils/attributes/types';
-import useLargeScreen from '@/utils/useLargeScreen';
+import use2xlScreen from '@/utils/useLargeScreen';
 import { sortData, titleCase } from '@/utils/utils';
 
 interface VoidShardProps {
@@ -35,7 +35,7 @@ interface VoidShardProps {
 }
 
 const VoidShards: FC<VoidShardProps> = ({ filterMap, voidFragments }) => {
-  const isLargeScreen = useLargeScreen();
+  const isLargeScreen = use2xlScreen();
   const [filteredRows, setFilteredRows] = useState(voidFragments);
   const [filter, setFilter] = useState(filterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);

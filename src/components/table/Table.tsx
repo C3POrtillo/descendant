@@ -62,7 +62,7 @@ const Table: FC<TableProps> = ({
   return (
     <fieldset
       className={[
-        'overflow-clip rounded-xl border-2 border-solid border-white bg-slate-900 text-3xl shadow-xl shadow-black',
+        'self-center overflow-clip rounded-xl border-2 border-solid border-white bg-slate-900 text-3xl shadow-xl shadow-black',
         className,
       ].join(' ')}
     >
@@ -74,24 +74,22 @@ const Table: FC<TableProps> = ({
           {sublabel && sublabel}
         </>
       )}
-      <>
-        {body && (
-          // eslint-disable-next-line tailwindcss/no-arbitrary-value
-          <div
-            className={[
-              'table-wrapper max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full',
-              isSticky ? 'max-h-[75lvh] md:max-h-[85lvh] xl:max-h-[95lvh]' : '',
-            ].join(' ')}
-          >
-            <table className="w-full" {...props}>
-              <thead className={isSticky ? 'sticky-table-header' : ''}>
-                <tr className="h-1">{headersArray || (isValidElement(headers) && headers)}</tr>
-              </thead>
-              <tbody>{body}</tbody>
-            </table>
-          </div>
-        )}
-      </>
+      {body && (
+        // eslint-disable-next-line tailwindcss/no-arbitrary-value
+        <div
+          className={[
+            'table-wrapper max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full',
+            isSticky ? 'max-h-[75lvh] md:max-h-[85lvh] xl:max-h-[95lvh]' : '',
+          ].join(' ')}
+        >
+          <table className="w-full" {...props}>
+            <thead className={isSticky ? 'sticky-table-header' : ''}>
+              <tr className="h-1">{headersArray || (isValidElement(headers) && headers)}</tr>
+            </thead>
+            <tbody>{body}</tbody>
+          </table>
+        </div>
+      )}
     </fieldset>
   );
 };

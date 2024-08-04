@@ -4,7 +4,8 @@ import type { FC, FieldsetHTMLAttributes } from 'react';
 import Accordion from '@/components/accordion/Accordion';
 import Checkbox from '@/components/inputs/Checkbox/Checkbox';
 import { setChecked } from '@/components/inputs/utils';
-import useLargeScreen from '@/utils/useLargeScreen';
+import use2xlScreen from '@/utils/useLargeScreen';
+import { createLabelClass } from '@/utils/utils';
 
 interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'defaultChecked'> {
   label: string;
@@ -15,7 +16,7 @@ interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
 }
 
 const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setFilter }) => {
-  const isLargeScreen = useLargeScreen();
+  const isLargeScreen = use2xlScreen();
 
   const threshold = data.length > 6;
   const gridSize = threshold
@@ -41,6 +42,8 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
     </div>
   );
 
+  const labelClass = name ? createLabelClass(name, name) : ''
+  
   return isLargeScreen ? (
     <fieldset className={['input-hover w-max grow px-2 py-4', wrapperClasses].join(' ')}>
       <legend className="px-4 text-center">
@@ -50,7 +53,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
     </fieldset>
   ) : (
     <div className={['h-min w-full', wrapperClasses, accordionSize].join(' ')}>
-      <Accordion label={label}>{checkboxContainer}</Accordion>
+      <Accordion label={<div className={['text-base lg:text-xl xl:text-2xl', labelClass].join(' ')}>{label}</div>}>{checkboxContainer}</Accordion>
     </div>
   );
 };
