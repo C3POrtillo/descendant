@@ -11,6 +11,7 @@ export const normalPatterns = [
     '38%': ['Piercing Light Nano Tube', "Nazeistra's Devotion Blueprint"],
     open: 'Kingston\nGrand Square\nReactor',
     from: 'Kingston\nFallen Theater\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '002',
@@ -20,6 +21,7 @@ export const normalPatterns = [
     '38%': ['Smithereens Synthetic Fiber', 'Gley Code'],
     open: 'Interception\nGrave Walker',
     from: 'Kingston\nInfiltration\nMagister Lab',
+    type: 'Infiltration',
   },
   {
     pattern: '003',
@@ -29,6 +31,7 @@ export const normalPatterns = [
     '38%': ['Albion Cavalry Gun Nano Tube', "Nazeistra's Devotion Polymer Syncytium"],
     open: 'Interception\nGrave Walker',
     from: 'Kingston\nInfiltration\nSlumber Valley',
+    type: 'Infiltration',
   },
   {
     pattern: '004',
@@ -38,6 +41,7 @@ export const normalPatterns = [
     '38%': ['Lepic Stabilizer', 'Wave of Light Polymer Syncytium'],
     open: 'Interception\nGrave Walker',
     from: 'Kingston\nSpecial\nDefense',
+    type: 'Special',
   },
   {
     pattern: '005',
@@ -47,6 +51,7 @@ export const normalPatterns = [
     '38%': ['Python Synthetic Fiber', 'The Final Masterpiece Polymer Syncytium'],
     open: 'Interception\nGrave Walker',
     from: 'Kingston\nSpecial\nDefense',
+    type: 'Special',
   },
   {
     pattern: '006',
@@ -56,6 +61,7 @@ export const normalPatterns = [
     '38%': ['Restored Relic Polymer Syncytium', 'Valby Code'],
     open: 'Sterile Land\nRockfall\nReactor',
     from: 'Sterile Land\nRockfall\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '007',
@@ -65,6 +71,7 @@ export const normalPatterns = [
     '38%': ["Nazeistra's Devotion Polymer Syncytium", 'Albion Cavalry Gun Blueprint'],
     open: 'Sterile Land\nRepository\nReactor',
     from: 'Sterile Land\nRepository\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '008',
@@ -74,6 +81,7 @@ export const normalPatterns = [
     '38%': ['Viessa Spiral Catalyst', 'Piercing Light Polymer Syncytium'],
     open: 'Sterile Land\nRestricted Zone\nReactor',
     from: 'Sterile Land\nClassified Area\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '009',
@@ -83,6 +91,7 @@ export const normalPatterns = [
     '38%': ['Valby Spiral Catalyst', 'Python Synthetic Fiber'],
     open: 'Interception\nStunning Beauty',
     from: 'Sterile Land\nInfiltration\nThe Forgottense',
+    type: 'Infiltration',
   },
   {
     pattern: '010',
@@ -92,6 +101,7 @@ export const normalPatterns = [
     '38%': ["Nazeistra's Devotion Blueprint", 'Divine Punishment Synthetic Fiber'],
     open: 'Interception\nStunning Beauty',
     from: 'Sterile Land\nInfiltration\nUnknown Laboratory',
+    type: 'Infiltration',
   },
   {
     pattern: '011',
@@ -102,6 +112,7 @@ export const normalPatterns = [
     open: 'Interception\nStunning Beauty',
     from: 'Sterile Land\nSpecial\nKuiper Mining',
     vaulted: true,
+    type: 'Special',
   },
   {
     pattern: '011',
@@ -112,6 +123,7 @@ export const normalPatterns = [
     '38%': ['Enzo Spiral Catalyst', 'The Final Masterpiece Nano Tube'],
     open: 'Interception\nStunning Beauty',
     from: 'Sterile Land\nSpecial\nKuiper Mining',
+    type: 'Special',
   },
   {
     pattern: '012',
@@ -121,6 +133,7 @@ export const normalPatterns = [
     '38%': ["Greg's Reversed Fate Blueprint", 'Gley Enhanced Cells'],
     open: 'Interception\nStunning Beauty',
     from: 'Sterile Land\nSpecial\nKuiper Mining',
+    type: 'Special',
   },
   {
     pattern: '013',
@@ -130,6 +143,7 @@ export const normalPatterns = [
     '38%': ["King's Guard Lance Synthetic Fiber", 'The Final Masterpiece Synthetic Fiber'],
     open: 'Vespers\nRuins\nReactor',
     from: 'Vespers\nLumber Yard\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '014',
@@ -139,6 +153,7 @@ export const normalPatterns = [
     '38%': ['Viessa Stabilizer', 'Smithereens Nano Tube'],
     open: 'Vespers\nLost Supply Depot\nReactor',
     from: 'Vespers\nLost Supply Depot\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '015',
@@ -149,6 +164,7 @@ export const normalPatterns = [
     open: 'Vespers\nMoonlight Lake\nReactor',
     from: 'Vespers\nMoonlight Lake\nOutpost',
     vaulted: true,
+    type: 'Outpost',
   },
   {
     pattern: '015',
@@ -159,6 +175,7 @@ export const normalPatterns = [
     '38%': ['Luna Spiral Catalyst Spiral Catalyst', "Nazeistra's Devotion Nano Tube"],
     open: 'Vespers\nMoonlight Lake\nReactor',
     from: 'Vespers\nMoonlight Lake\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '016',
@@ -168,6 +185,7 @@ export const normalPatterns = [
     '38%': ['Albion Cavalry Gun Polymer Syncytium', 'Valby Enhanced Cells'],
     open: 'Interception\nExecutioner',
     from: 'Vespers\nInfiltration\nSepulcher',
+    type: 'Infiltration',
   },
   {
     pattern: '017',
@@ -178,6 +196,7 @@ export const normalPatterns = [
     open: 'Interception\nExecutioner',
     from: 'Vespers\nInfiltration\nThe Shelter',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '017',
@@ -188,6 +207,7 @@ export const normalPatterns = [
     '38%': ['Luna Enhanced Cells', 'Smithereens Blueprint'],
     open: 'Interception\nExecutioner',
     from: 'Vespers\nInfiltration\nThe Shelter',
+    type: 'Infiltration',
   },
   {
     pattern: '018',
@@ -197,6 +217,7 @@ export const normalPatterns = [
     '38%': ['The Final Masterpiece Blueprint', "Greg's Reversed Fate Nano Tube"],
     open: 'Interception\nExecutioner',
     from: 'Vespers\nSpecial\nVoid Experiement',
+    type: 'Special',
   },
   {
     pattern: '019',
@@ -206,6 +227,7 @@ export const normalPatterns = [
     '38%': ['Blue Beetle Nano Tube', 'Lepic Stabilizer'],
     open: 'Interception\nExecutioner',
     from: 'Vespers\nSpecial\nVoid Experiement',
+    type: 'Special',
   },
   {
     pattern: '020',
@@ -216,6 +238,7 @@ export const normalPatterns = [
     open: 'Echo Swamp\nMuskeg Swamp\nReactor',
     from: 'Echo Swamp\nMuskeg Swamp\nOutpost',
     vaulted: true,
+    type: 'Outpost',
   },
   {
     pattern: '020',
@@ -226,6 +249,7 @@ export const normalPatterns = [
     '38%': ['Valby Stabilizer', 'Albion Cavalry Gun Synthetic Fiber'],
     open: 'Echo Swamp\nMuskeg Swamp Reactor',
     from: 'Echo Swamp\nMuskeg Swamp\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '021',
@@ -235,6 +259,7 @@ export const normalPatterns = [
     '38%': ["Nazeistra's Devotion Synthetic Fiber", 'Enzo Spiral Catalyst'],
     open: 'Echo Swamp\nDerelict Covert\nReactor',
     from: 'Echo Swamp\nDerelict Covert\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '022',
@@ -244,6 +269,7 @@ export const normalPatterns = [
     '38%': ["Nazeistra's Devotion Nano Tube", 'Smithereens Nano Tube'],
     open: 'Interception\nDead Bride',
     from: 'Echo Swamp\nInfiltration\nSeed Vault',
+    type: 'Infiltration',
   },
   {
     pattern: '023',
@@ -254,6 +280,7 @@ export const normalPatterns = [
     open: 'Interception\nDead Bride',
     from: 'Echo Swamp\nInfiltration\nThe Chapel',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '023',
@@ -264,6 +291,7 @@ export const normalPatterns = [
     '38%': ['Restored Relic Nano Tube', "Greg's Reversed Fate"],
     open: 'Interception\nDead Bride',
     from: 'Echo Swamp\nInfiltration\nThe Chapel',
+    type: 'Infiltration',
   },
   {
     pattern: '024',
@@ -273,6 +301,7 @@ export const normalPatterns = [
     '38%': ['Smithereens Synthetic Fiber', "Nazeistra's Devotion Blueprint"],
     open: 'Interception\nDead Bride',
     from: 'Echo Swamp\nSpecial\nDefense',
+    type: 'Special',
   },
   {
     pattern: '025',
@@ -282,6 +311,7 @@ export const normalPatterns = [
     '38%': ['Enzo Code', "Nazeistra's Devotion Synthetic Fiber"],
     open: 'Interception\nDead Bride',
     from: 'Echo Swamp\nSpecial\nDefense',
+    type: 'Special',
   },
   {
     pattern: '026',
@@ -291,6 +321,7 @@ export const normalPatterns = [
     '38%': ['Blue Beetle Nano Tube', 'Valby Spiral Catalyst'],
     open: 'Agna Desert\nVermillion Waste\nReactor',
     from: 'Agna Desert\nVermillion Waste\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '027',
@@ -301,6 +332,7 @@ export const normalPatterns = [
     open: 'Agna Desert\nStorage Outpost\nReactor',
     from: 'Agna Desert\nStorage Outpost\nOutpost',
     vaulted: true,
+    type: 'Outpost',
   },
   {
     pattern: '027',
@@ -311,6 +343,7 @@ export const normalPatterns = [
     '38%': ['Ajax Enhanced Cells', 'Albion Cavalry Gun Polymer Syncytium'],
     open: 'Agna Desert\nStorage Outpost\nReactor',
     from: 'Agna Desert\nStorage Outpost\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '028',
@@ -320,6 +353,7 @@ export const normalPatterns = [
     '38%': ['Smithereens Blueprint', 'Enzo Enhanced Cells'],
     open: 'Agna Desert\nMiragestone\nReactor',
     from: 'Agna Desert\nMiragestone\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '029',
@@ -329,6 +363,7 @@ export const normalPatterns = [
     '38%': ['Valby Stabilizer', "Greg's Reversed Fate Polymer Syncytium"],
     open: 'Interception\nDevourer',
     from: 'Agna Desert\nInfiltration\nThe Asylum',
+    type: 'Infiltration',
   },
   {
     pattern: '030',
@@ -339,6 +374,7 @@ export const normalPatterns = [
     open: 'Interception\nDevourer',
     from: 'Agna Desert\nInfiltration\nCaligo Ossuary',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '030',
@@ -349,6 +385,7 @@ export const normalPatterns = [
     '38%': ['Albion Cavalry Gun Synthetic Fiber', 'The Final Masterpiece Blueprint'],
     open: 'Interception\nDevourer',
     from: 'Agna Desert\nInfiltration\nCaligo Ossuary',
+    type: 'Infiltration',
   },
   {
     pattern: '031',
@@ -358,6 +395,7 @@ export const normalPatterns = [
     '38%': ['The Final Masterpiece Blueprint', 'Albion Cavalry Gun Blueprint'],
     open: 'Interception\nDevourer',
     from: 'Agna Desert\nSpecial\nVoid Experiement',
+    type: 'Special',
   },
   {
     pattern: '032',
@@ -367,6 +405,7 @@ export const normalPatterns = [
     '38%': ['Valby Code', 'Restored Relic Nano Tube'],
     open: 'Interception\nDevourer',
     from: 'Agna Desert\nSpecial\nVoid Experiement',
+    type: 'Special',
   },
   {
     pattern: '033',
@@ -376,6 +415,7 @@ export const normalPatterns = [
     '38%': ['Valby Enhanced Cells', 'Piercing Light Polymer Syncytium'],
     open: 'White-Night Gulch\nMountaintops\nReactor',
     from: 'White-Night Gulch\nMountaintops\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '034',
@@ -385,6 +425,7 @@ export const normalPatterns = [
     '38%': ["Greg's Reversed Fate Synthetic Fiber", 'Viessa Enhanced Cells'],
     open: 'White-Night Gulch\nObservatory\nReactor',
     from: 'White-Night Gulch\nShipment\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '035',
@@ -394,6 +435,7 @@ export const normalPatterns = [
     '38%': ['Enzo Code', "King's Guard Lance Nano Tube"],
     open: 'White-Night Gulch\nHatchery\nReactor',
     from: 'White-Night Gulch\nHatchery\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '036',
@@ -403,6 +445,7 @@ export const normalPatterns = [
     '38%': ['Divine Punishment Nano Tube', 'Smithereens Polymer Syncytium'],
     open: 'Interception\nPyromaniac',
     from: "White-Night Gulch\nInfiltration\nMystery's End",
+    type: 'Infiltration',
   },
   {
     pattern: '037',
@@ -412,6 +455,7 @@ export const normalPatterns = [
     '38%': ['Restored Relic Synthetic Fiber', 'Enzo Spiral Catalyst Spiral Catalyst'],
     open: 'Interception\nPyromaniac',
     from: 'White-Night Gulch\nInfiltration\nBio-Lab',
+    type: 'Infiltration',
   },
   {
     pattern: '038',
@@ -422,6 +466,7 @@ export const normalPatterns = [
     open: 'Interception\nPyromaniac',
     from: 'White-Night Gulch\nSpecial\nKuiper Mining',
     vaulted: true,
+    type: 'Special',
   },
   {
     pattern: '038',
@@ -432,6 +477,7 @@ export const normalPatterns = [
     '38%': ['Divine Punishment Polymer Syncytium', 'Luna Enhanced Cells'],
     open: 'Interception\nPyromaniac',
     from: 'White-Night Gulch\nSpecial\nKuiper Mining',
+    type: 'Special',
   },
   {
     pattern: '039',
@@ -441,6 +487,7 @@ export const normalPatterns = [
     '38%': ['Enzo Stabilizer', 'Wave of Light Nano Tube'],
     open: 'Interception\nPyromaniac',
     from: 'White-Night Gulch\nSpecial\nKuiper Mining',
+    type: 'Special',
   },
   {
     pattern: '040',
@@ -450,6 +497,7 @@ export const normalPatterns = [
     '38%': ['Restored Relic Polymer Syncytium', 'Enzo Stabilizer'],
     open: 'Hagios\nDune Base\nReactor',
     from: 'Hagios\nDune Base\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '041',
@@ -459,6 +507,7 @@ export const normalPatterns = [
     '38%': ["Nazeistra's Devotion Polymer Syncytium", 'Restored Relic Synthetic Fiber'],
     open: 'Hagios\nCorrupted Zone\nReactor',
     from: 'Hagios\nCorrupted Zone\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '042',
@@ -468,6 +517,7 @@ export const normalPatterns = [
     '38%': ['Valby Stabilizer', 'The Final Masterpiece Synthetic Fiber'],
     open: 'Hagios\nFractured Monolith\nReactor',
     from: 'Hagios\nForward base\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '043',
@@ -477,6 +527,7 @@ export const normalPatterns = [
     '38%': ['Albion Cavalry Gun Nano Tube', 'Restored Relic Blueprint'],
     open: 'Interception\nSwamp Walker',
     from: 'Hagios\nInfiltration\nThe Haven',
+    type: 'Infiltration',
   },
   {
     pattern: '044',
@@ -487,6 +538,7 @@ export const normalPatterns = [
     open: 'Interception\nSwamp Walker',
     from: 'Hagios\nInfiltration\nOld Mystery',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '044',
@@ -497,6 +549,7 @@ export const normalPatterns = [
     '38%': ['The Final Masterpiece Polymer Syncytium', "Greg's Reversed Fate Blueprint"],
     open: 'Interception\nSwamp Walker',
     from: 'Hagios\nInfiltration\nOld Mystery',
+    type: 'Infiltration',
   },
   {
     pattern: '045',
@@ -506,6 +559,7 @@ export const normalPatterns = [
     '38%': ["King's Guard Lance Nano Tube", "Greg's Reversed Fate Polymer Syncytium"],
     open: 'Interception\nSwamp Walker',
     from: 'Hagios\nSpecial\nVoid Experiement',
+    type: 'Special',
   },
   {
     pattern: '046',
@@ -515,6 +569,7 @@ export const normalPatterns = [
     '38%': ['Restored Relic Nano Tube', 'Viessa Spiral Catalyst'],
     open: 'Interception\nSwamp Walker',
     from: 'Hagios\nSpecial\nVoid Experiement',
+    type: 'Special',
   },
   {
     pattern: '047',
@@ -524,6 +579,7 @@ export const normalPatterns = [
     '38%': ['Gley Stabilizer', 'Piercing Light Blueprint'],
     open: 'Fortress\nFrozen Valley\nReactor',
     from: 'Fortress\nFrozen Valley\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '048',
@@ -533,6 +589,7 @@ export const normalPatterns = [
     '38%': ['Wave of Light Polymer Syncytium', 'Valby Enhanced Cells'],
     open: 'Fortress\nFallen Ark\nReactor',
     from: 'Fortress\nConverter Facility\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '049',
@@ -543,6 +600,7 @@ export const normalPatterns = [
     open: 'Fortress\nDefense Line\nReactor',
     from: 'Fortress\nDefense Line\nOutpost',
     vaulted: true,
+    type: 'Outpost',
   },
   {
     pattern: '049',
@@ -553,6 +611,7 @@ export const normalPatterns = [
     '38%': ["Greg's Reversed Fate Blueprint", 'Luna Spiral Catalyst'],
     open: 'Fortress\nDefense Line\nReactor',
     from: 'Fortress\nDefense Line\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '050',
@@ -562,6 +621,7 @@ export const normalPatterns = [
     '38%': ["Nazeistra's Devotion Nano Tube", 'The Final Masterpiece Nano Tube'],
     open: 'Interception\nHanged Man',
     from: 'Fortress\nInfiltration\nQuarantine Zone',
+    type: 'Infiltration',
   },
   {
     pattern: '051',
@@ -571,6 +631,7 @@ export const normalPatterns = [
     '38%': ['Albion Cavalry Gun Polymer Syncytium', "Greg's Reversed Fate Nano Tube"],
     open: 'Interception\nHanged Man',
     from: 'Fortress\nInfiltration\nHeart Of The Fortress',
+    type: 'Infiltration',
   },
   {
     pattern: '052',
@@ -581,6 +642,7 @@ export const normalPatterns = [
     open: 'Interception\nHanged Man',
     from: 'Fortress\nSpecial\nDefense',
     vaulted: true,
+    type: 'Special',
   },
   {
     pattern: '052',
@@ -591,6 +653,7 @@ export const normalPatterns = [
     '38%': ['Wave of Light Nano Tube', 'The Final Masterpiece Synthetic Fiber'],
     open: 'Interception\nHanged Man',
     from: 'Fortress\nSpecial\nDefense',
+    type: 'Special',
   },
   {
     pattern: '053',
@@ -600,6 +663,7 @@ export const normalPatterns = [
     '38%': ['Enzo Code', 'Gley Enhanced Cells'],
     open: 'Interception\nHanged Man',
     from: 'Fortress\nSpecial\nDefense',
+    type: 'Special',
   },
 ] as const;
 
@@ -612,6 +676,7 @@ export const hardPatterns = [
     '32%': ['Python Polymer Syncytium', 'Secret Garden Blueprint'],
     open: 'Kingston\nGrand Square\nReactor',
     from: 'Kingston\nFallen Theater\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '055',
@@ -622,6 +687,8 @@ export const hardPatterns = [
     open: 'Kingston\nGrand Square\nReactor',
     from: 'Kingston\nFallen Theater\nOutpost',
     vaulted: true,
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '055',
@@ -632,6 +699,8 @@ export const hardPatterns = [
     '32%': ['Executor Blueprint', 'Ultimate Valby Stabilizer'],
     open: 'Kingston\nGrand Square\nReactor',
     from: 'Kingston\nFallen Theater\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '056',
@@ -641,6 +710,7 @@ export const hardPatterns = [
     '32%': ['Lepic Stabilizer', 'Smithereens Blueprint'],
     open: 'Interception\nExecutioner',
     from: 'Kingston\nInfiltration\nMagister Lab',
+    type: 'Infiltration',
   },
   {
     pattern: '057',
@@ -650,6 +720,7 @@ export const hardPatterns = [
     '32%': ["King's Guard Lance Blueprint", 'Clairvoyance Polymer Syncytium'],
     open: 'Interception\nExecutioner',
     from: 'Kingston\nInfiltration\nMagister Lab',
+    type: 'Infiltration',
   },
   {
     pattern: '058',
@@ -659,6 +730,7 @@ export const hardPatterns = [
     '32%': ['Kyle Stabilizer', 'Piercing Light Nano Tube'],
     open: 'Interception\nExecutioner',
     from: 'Kingston\nInfiltration\nSlumber Valley',
+    type: 'Infiltration',
   },
   {
     pattern: '059',
@@ -668,6 +740,7 @@ export const hardPatterns = [
     '32%': ['Python Nano Tube', 'Esiemo Enhanced Cells'],
     open: 'Interception\nExecutioner',
     from: 'Kingston\nInfiltration\nSlumber Valley',
+    type: 'Infiltration',
   },
   {
     pattern: '060',
@@ -677,6 +750,7 @@ export const hardPatterns = [
     '32%': ['Ajax Enhanced Cells', 'Clairvoyance Nano Tube'],
     open: 'Sterile Land\nRockfall\nReactor',
     from: 'Sterile Land\nRockfall\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '061',
@@ -686,6 +760,8 @@ export const hardPatterns = [
     '32%': ['Secret Garden Synthetic Fiber', "Nazeistra's Devotion Polymer Syncytium"],
     open: 'Sterile Land\nRockfall\nReactor',
     from: 'Sterile Land\nRockfall\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '062',
@@ -695,6 +771,7 @@ export const hardPatterns = [
     '32%': ['Afterglow Sword Polymer Syncytium', 'Jayber Stabilizer'],
     open: 'Sterile Land\nRepository\nReactor',
     from: 'Sterile Land\nRepository\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '063',
@@ -704,6 +781,8 @@ export const hardPatterns = [
     '32%': ['Wave of Light Synthetic Fiber', 'Python Blueprint'],
     open: 'Sterile Land\nRepository\nReactor',
     from: 'Sterile Land\nRepository\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '064',
@@ -713,6 +792,7 @@ export const hardPatterns = [
     '32%': ["King's Guard Lance Nano Tube", 'Lepic Enhanced Cells'],
     open: 'Sterile Land\nRestricted Zone\nReactor',
     from: 'Sterile Land\nClassified Area\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '065',
@@ -722,6 +802,8 @@ export const hardPatterns = [
     '32%': ['Perforator Polymer Syncytium', 'Enduring Legacy Nano Tube'],
     open: 'Sterile Land\nRestricted Zone\nReactor',
     from: 'Sterile Land\nClassified Area\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '066',
@@ -731,6 +813,7 @@ export const hardPatterns = [
     '32%': ['Gley Enhanced Cells', 'Albion Cavalry Gun Synthetic Fiber'],
     open: 'Interception\nDead Bride',
     from: 'Sterile Land\nInfiltration\nThe Forgottense',
+    type: 'Infiltration',
   },
   {
     pattern: '067',
@@ -740,6 +823,7 @@ export const hardPatterns = [
     '32%': ['Enduring Legacy Synthetic Fiber', 'Executor Polymer Syncytium'],
     open: 'Interception\nDead Bride',
     from: 'Sterile Land\nInfiltration\nThe Forgottense',
+    type: 'Infiltration',
   },
   {
     pattern: '068',
@@ -750,6 +834,7 @@ export const hardPatterns = [
     open: 'Interception\nDead Bride',
     from: 'Sterile Land\nInfiltration\nUnknown Laboratory',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '068',
@@ -760,6 +845,7 @@ export const hardPatterns = [
     '32%': ['Wave of Light Polymer Syncytium', 'Luna Stabilizer'],
     open: 'Interception\nDead Bride/Gluttony',
     from: 'Sterile Land\nInfiltration\nUnknown Laboratory',
+    type: 'Infiltration',
   },
   {
     pattern: '069',
@@ -769,6 +855,7 @@ export const hardPatterns = [
     '32%': ['Perforator Synthetic Fiber', 'Blue Beetle Blueprint'],
     open: 'Interception\nDead Bride',
     from: 'Sterile Land\nInfiltration\nUnknown Laboratory',
+    type: 'Infiltration',
   },
   {
     pattern: '070',
@@ -778,6 +865,7 @@ export const hardPatterns = [
     '32%': ['Blue Beetle Polymer Syncytium', 'Executor Synthetic Fiber'],
     open: 'Vespers\nRuins\nReactor',
     from: 'Vespers\nLumber Yard\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '071',
@@ -788,6 +876,8 @@ export const hardPatterns = [
     open: 'Vespers\nRuins\nReactor',
     from: 'Vespers\nLumber Yard\nOutpost',
     vaulted: true,
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '071',
@@ -798,6 +888,8 @@ export const hardPatterns = [
     '32%': ['Afterglow Sword Synthetic Fiber', 'Python Blueprint'],
     open: 'Vespers\nRuins\nReactor',
     from: 'Vespers\nLumber Yard\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '072',
@@ -807,6 +899,7 @@ export const hardPatterns = [
     '32%': ['Wave of Light Nano Tube', "Greg's Reversed Fate Synthetic Fiber"],
     open: 'Vespers\nLost Supply Depot\nReactor',
     from: 'Vespers\nSupply Depot\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '073',
@@ -817,6 +910,8 @@ export const hardPatterns = [
     open: 'Vespers\nLost Supply Depot\nReactor',
     from: 'Vespers\nSupply Depot\nOutpost',
     vaulted: true,
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '073',
@@ -827,6 +922,8 @@ export const hardPatterns = [
     '32%': ['Divine Punishment Nano Tube', 'Perforator Nano Tube'],
     open: 'Vespers\nLost Supply Depot\nReactor',
     from: 'Vespers\nSupply Depot\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '074',
@@ -836,6 +933,7 @@ export const hardPatterns = [
     '32%': ['Ultimate Lepic Enhanced Cells', 'Piercing Light Blueprint'],
     open: 'Vespers\nMoonlight Lake\nReactor',
     from: 'Vespers\nMoonlight Lake\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '075',
@@ -845,6 +943,8 @@ export const hardPatterns = [
     '32%': ["Nazeistra's Devotion Nano Tube", "King's Guard Lance Synthetic Fiber"],
     open: 'Vespers\nMoonlight Lake\nReactor',
     from: 'Vespers\nMoonlight Lake\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '076',
@@ -854,6 +954,7 @@ export const hardPatterns = [
     '32%': ['Wave of Light Blueprint', 'Kyle Stabilizer'],
     open: 'Interception\nDevourer',
     from: 'Sepulcher\nInfiltration\nSepulcher',
+    type: 'Infiltration',
   },
   {
     pattern: '077',
@@ -863,6 +964,7 @@ export const hardPatterns = [
     '32%': ['Executor Polymer Syncytium', 'Blue Beetle Synthetic Fiber'],
     open: 'Interception\nDevourer',
     from: 'Sepulcher\nInfiltration\nSepulcher',
+    type: 'Infiltration',
   },
   {
     pattern: '078',
@@ -872,6 +974,7 @@ export const hardPatterns = [
     '32%': ['Gley Spiral Catalyst', 'Enduring Legacy Synthetic Fiber'],
     open: 'Interception\nDevourer',
     from: 'Shelter\nInfiltration\nShelter',
+    type: 'Infiltration',
   },
   {
     pattern: '079',
@@ -881,6 +984,7 @@ export const hardPatterns = [
     '32%': ['Lepic Spiral Catalyst', 'Albion Cavalry Gun Polymer Syncytium'],
     open: 'Interception\nDevourer',
     from: 'Shelter\nInfiltration\nShelter',
+    type: 'Infiltration',
   },
   {
     pattern: '080',
@@ -890,6 +994,7 @@ export const hardPatterns = [
     '32%': ['Lepic Enhanced Cells', 'Executor Nano Tube'],
     open: 'Echo Swamp\nMuskeg Swamp\nReactor',
     from: 'Echo Swamp\nMuskeg Swamp\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '081',
@@ -900,6 +1005,8 @@ export const hardPatterns = [
     open: 'Echo Swamp\nMuskeg Swamp\nReactor',
     from: 'Echo Swamp\nMuskeg Swamp\nOutpost',
     vaulted: true,
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '081',
@@ -910,6 +1017,8 @@ export const hardPatterns = [
     '32%': ['Enzo Stabilizer', "King's Guard Lance Polymer Syncytium"],
     open: 'Echo Swamp\nMuskeg Swamp\nReactor',
     from: 'Echo Swamp\nMuskeg Swamp\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '082',
@@ -919,6 +1028,7 @@ export const hardPatterns = [
     '32%': ['Secret Garden Polymer Syncytium', 'Executor Blueprint'],
     open: 'Echo Swamp\nDerelict Covert\nReactor',
     from: 'Echo Swamp\nDerelict Covert\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '083',
@@ -928,6 +1038,8 @@ export const hardPatterns = [
     '32%': ['Gley Stabilizer', 'Albion Cavalry Gun Blueprint'],
     open: 'Echo Swamp\nDerelict Covert\nReactor',
     from: 'Echo Swamp\nDerelict Covert\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '084',
@@ -937,6 +1049,7 @@ export const hardPatterns = [
     '32%': ['Viessa Spiral Catalyst', 'Divine Punishment Polymer Syncytium'],
     open: 'Interception\nPyromaniac',
     from: 'Echo Swamp\nInfiltration\nSeed Vault',
+    type: 'Infiltration',
   },
   {
     pattern: '085',
@@ -946,6 +1059,7 @@ export const hardPatterns = [
     '32%': ['Secret Garden Blueprint', 'Smithereens Synthetic Fiber'],
     open: 'Interception\nPyromaniac',
     from: 'Echo Swamp\nInfiltration\nSeed Vault',
+    type: 'Infiltration',
   },
   {
     pattern: '086',
@@ -955,6 +1069,7 @@ export const hardPatterns = [
     '32%': ['Blue Beetle Blueprint', 'Restored Relic Blueprint'],
     open: 'Interception\nPyromaniac',
     from: 'Echo Swamp\nInfiltration\nThe Chapel',
+    type: 'Infiltration',
   },
   {
     pattern: '087',
@@ -965,6 +1080,7 @@ export const hardPatterns = [
     open: 'Interception\nPyromaniac',
     from: 'Echo Swamp\nInfiltration\nThe Chapel',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '087',
@@ -975,6 +1091,7 @@ export const hardPatterns = [
     '32%': ['Wave of Light Blueprint', 'Enduring Legacy Nano Tube'],
     open: 'Interception\nPyromaniac',
     from: 'Echo Swamp\nInfiltration\nThe Chapel',
+    type: 'Infiltration',
   },
   {
     pattern: '088',
@@ -984,6 +1101,7 @@ export const hardPatterns = [
     '32%': ['Ajax Stabilizer', 'Python Polymer Syncytium'],
     open: 'Agna Desert\nVermillion Waste\nReactor',
     from: 'Agna Desert\nVermillion Waste\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '089',
@@ -993,6 +1111,8 @@ export const hardPatterns = [
     '32%': ['Afterglow Sword Synthetic Fiber', 'Divine Punishment Blueprint'],
     open: 'Agna Desert\nVermillion Waste\nReactor',
     from: 'Agna Desert\nVermillion Waste\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '090',
@@ -1003,6 +1123,7 @@ export const hardPatterns = [
     open: 'Agna Desert\nStorage Outpost\nReactor',
     from: 'Agna Desert\nStorage Outpost\nOutpost',
     vaulted: true,
+    type: 'Outpost',
   },
   {
     pattern: '090',
@@ -1013,6 +1134,7 @@ export const hardPatterns = [
     '32%': ['Executor Nano Tube', "King's Guard Lance Polymer Syncytium"],
     open: 'Agna Desert\nStorage Outpost\nReactor',
     from: 'Agna Desert\nStorage Outpost\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '091',
@@ -1022,6 +1144,8 @@ export const hardPatterns = [
     '32%': ['Perforator Nano Tube', 'Piercing Light Synthetic Fiber'],
     open: 'Agna Desert\nStorage Outpost\nReactor',
     from: 'Agna Desert\nStorage Outpost\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '092',
@@ -1031,6 +1155,7 @@ export const hardPatterns = [
     '32%': ['Blue Beetle Polymer Syncytium', 'Clairvoyance Nano Tube'],
     open: 'Agna Desert\nMiragestone\nReactor',
     from: 'Agna Desert\nMiragestone\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '093',
@@ -1040,6 +1165,8 @@ export const hardPatterns = [
     '32%': ['Smithereens Nano Tube', 'Wave of Light Synthetic Fiber'],
     open: 'Agna Desert\nMiragestone\nReactor',
     from: 'Agna Desert\nMiragestone\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '094',
@@ -1050,6 +1177,7 @@ export const hardPatterns = [
     open: 'Interception\nSwamp Walker',
     from: 'Agna Desert\nInfiltration\nThe Asylum',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '094',
@@ -1060,6 +1188,7 @@ export const hardPatterns = [
     '32%': ['Luna Code', 'Blue Beetle Synthetic Fiber'],
     open: 'Interception\nSwamp Walker, Gluttony',
     from: 'Agna Desert\nInfiltration\nThe Asylum',
+    type: 'Infiltration',
   },
   {
     pattern: '095',
@@ -1069,6 +1198,7 @@ export const hardPatterns = [
     '32%': ['Clairvoyance Polymer Syncytium', 'Divine Punishment Nano Tube'],
     open: 'Interception\nSwamp Walker',
     from: 'Agna Desert\nInfiltration\nThe Asylum',
+    type: 'Infiltration',
   },
   {
     pattern: '096',
@@ -1078,6 +1208,7 @@ export const hardPatterns = [
     '32%': ['Python Synthetic Fiber', 'The Final Masterpiece Nano Tube'],
     open: 'Interception\nSwamp Walker',
     from: 'Agna Desert\nInfiltration\nCaligo Ossuary',
+    type: 'Infiltration',
   },
   {
     pattern: '097',
@@ -1087,6 +1218,7 @@ export const hardPatterns = [
     '32%': ["King's Guard Lance Blueprint", 'Viessa Enhanced Cells'],
     open: 'Interception\nSwamp Walker',
     from: 'Agna Desert\nInfiltration\nCaligo Ossuary',
+    type: 'Infiltration',
   },
   {
     pattern: '098',
@@ -1097,6 +1229,7 @@ export const hardPatterns = [
     open: 'White-Night Gulch\nMountaintops\nReactor',
     from: 'White-Night Gulch\nMountaintops\nOutpost',
     vaulted: true,
+    type: 'Outpost',
   },
   {
     pattern: '098',
@@ -1107,6 +1240,7 @@ export const hardPatterns = [
     '32%': ['Wave of Light Nano Tube', "King's Guard Lance Nano Tube"],
     open: 'White-Night Gulch\nMountaintops\nReactor',
     from: 'White-Night Gulch\nMountaintops\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '099',
@@ -1116,6 +1250,8 @@ export const hardPatterns = [
     '32%': ['Secret Garden Synthetic Fiber', 'Gley Spiral Catalyst'],
     open: 'White-Night Gulch\nMountaintops\nReactor',
     from: 'White-Night Gulch\nMountaintops\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '100',
@@ -1125,6 +1261,7 @@ export const hardPatterns = [
     '32%': ['Afterglow Sword Polymer Syncytium', 'Executor Synthetic Fiber'],
     open: 'White-Night Gulch\nObservatory\nReactor',
     from: 'White-Night Gulch\nShipment\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '101',
@@ -1134,6 +1271,8 @@ export const hardPatterns = [
     '32%': ['Jayber Stabilizer', 'Perforator Polymer Syncytium'],
     open: 'White-Night Gulch\nObservatory\nReactor',
     from: 'White-Night Gulch\nShipment\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '102',
@@ -1143,6 +1282,7 @@ export const hardPatterns = [
     '32%': ['Python Nano Tube', 'Piercing Light Blueprint'],
     open: 'White-Night Gulch\nHatchery\nReactor',
     from: 'White-Night Gulch\nHatchery\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '103',
@@ -1152,6 +1292,8 @@ export const hardPatterns = [
     '32%': ['Blue Beetle Nano Tube', 'Divine Punishment Synthetic Fiber'],
     open: 'White-Night Gulch\nHatchery\nReactor',
     from: 'White-Night Gulch\nHatchery\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '104',
@@ -1161,6 +1303,7 @@ export const hardPatterns = [
     '32%': ['Executor Polymer Syncytium', 'Esiemo Enhanced Cells'],
     open: 'Interception\nObstructer',
     from: "White-Night Gulch\nInfiltration\nMystery's End",
+    type: 'Infiltration',
   },
   {
     pattern: '105',
@@ -1170,6 +1313,7 @@ export const hardPatterns = [
     '32%': ["Greg's Reversed Fate Polymer Syncytium", 'Python Synthetic Fiber'],
     open: 'Interception\nObstructer',
     from: "White-Night Gulch\nInfiltration\nMystery's End",
+    type: 'Infiltration',
   },
   {
     pattern: '106',
@@ -1179,6 +1323,7 @@ export const hardPatterns = [
     '32%': ['Piercing Light Nano Tube', 'Clairvoyance Synthetic Fiber'],
     open: 'Interception\nObstructer',
     from: 'White-Night Gulch\nInfiltration\nBio-Lab',
+    type: 'Infiltration',
   },
   {
     pattern: '107',
@@ -1188,6 +1333,7 @@ export const hardPatterns = [
     '32%': ['Ajax Stabilizer', 'Albion Cavalry Gun Nano Tube'],
     open: 'Interception\nObstructer',
     from: 'White-Night Gulch\nInfiltration\nBio-Lab',
+    type: 'Infiltration',
   },
   {
     pattern: '108',
@@ -1197,6 +1343,7 @@ export const hardPatterns = [
     '32%': ['Lepic Enhanced Cells', "Nazeistra's Devotion Blueprint"],
     open: 'Hagios\nDune Base\nReactor',
     from: 'Hagios\nDune Base\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '109',
@@ -1206,6 +1353,8 @@ export const hardPatterns = [
     '32%': ['Piercing Light Polymer Syncytium', "King's Guard Lance Synthetic Fiber"],
     open: 'Hagios\nDune Base\nReactor',
     from: 'Hagios\nDune Base\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '110',
@@ -1216,6 +1365,7 @@ export const hardPatterns = [
     open: 'Hagios\nCorrupted Zone\nReactor',
     from: 'Hagios\nCorrupted Zone\nOutpost',
     vaulted: true,
+    type: 'Outpost',
   },
   {
     pattern: '110',
@@ -1226,6 +1376,7 @@ export const hardPatterns = [
     '32%': ['Clairvoyance Nano Tube', 'Restored Relic Synthetic Fiber'],
     open: 'Hagios\nCorrupted Zone\nReactor',
     from: 'Hagios\nCorrupted Zone\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '111',
@@ -1235,6 +1386,8 @@ export const hardPatterns = [
     '32%': ['Jayber Stabilizer', 'Enduring Legacy Nano Tube'],
     open: 'Hagios\nCorrupted Zone\nReactor',
     from: 'Hagios\nCorrupted Zone\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '112',
@@ -1244,6 +1397,7 @@ export const hardPatterns = [
     '32%': ['The Final Masterpiece Blueprint', 'Secret Garden Polymer Syncytium'],
     open: 'Hagios\nFractured Monolith\nReactor',
     from: 'Hagios\nForward base\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '113',
@@ -1254,6 +1408,8 @@ export const hardPatterns = [
     open: 'Hagios\nFractured Monolith\nReactor',
     from: 'Hagios\nForward base\nOutpost',
     vaulted: true,
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '113',
@@ -1264,6 +1420,8 @@ export const hardPatterns = [
     '32%': ['Perforator Nano Tube', 'Ultimate Valby Stabilizer'],
     open: 'Hagios\nFractured Monolith\nReactor',
     from: 'Hagios\nForward base\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '114',
@@ -1273,6 +1431,7 @@ export const hardPatterns = [
     '32%': ['Secret Garden Blueprint', "Greg's Reversed Fate Nano Tube"],
     open: 'Interception\nFrost Walker',
     from: 'Hagios\nInfiltration\nThe Haven',
+    type: 'Infiltration',
   },
   {
     pattern: '115',
@@ -1283,6 +1442,7 @@ export const hardPatterns = [
     open: 'Interception\nFrost Walker',
     from: 'Hagios\nInfiltration\nThe Haven',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '115',
@@ -1293,6 +1453,7 @@ export const hardPatterns = [
     '32%': ['Ultimate Valby Enhanced Cells', 'Wave of Light Blueprint'],
     open: 'Interception\nFrost Walker, Gluttony',
     from: 'Hagios\nInfiltration\nThe Haven',
+    type: 'Infiltration',
   },
   {
     pattern: '116',
@@ -1302,6 +1463,7 @@ export const hardPatterns = [
     '32%': ['Divine Punishment Blueprint', 'Clairvoyance Polymer Syncytium'],
     open: 'Interception\nFrost Walker',
     from: 'Hagios\nInfiltration\nOld Mystery',
+    type: 'Infiltration',
   },
   {
     pattern: '117',
@@ -1311,6 +1473,7 @@ export const hardPatterns = [
     '32%': ['The Final Masterpiece Polymer Syncytium', "King's Guard Lance Blueprint"],
     open: 'Interception\nFrost Walker',
     from: 'Hagios\nInfiltration\nOld Mystery',
+    type: 'Infiltration',
   },
   {
     pattern: '118',
@@ -1320,6 +1483,7 @@ export const hardPatterns = [
     '32%': ['Piercing Light Polymer Syncytium', "Nazeistra's Devotion Synthetic Fiber"],
     open: 'Fortress\nFrozen Valley\nReactor',
     from: 'Fortress\nFrozen Valley\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '119',
@@ -1329,6 +1493,8 @@ export const hardPatterns = [
     '32%': ['Blue Beetle Nano Tube', 'Ajax Enhanced Cells'],
     open: 'Fortress\nFrozen Valley\nReactor',
     from: 'Fortress\nFrozen Valley\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '120',
@@ -1338,6 +1504,7 @@ export const hardPatterns = [
     '32%': ['Gley Enhanced Cells', 'Secret Garden Synthetic Fiber'],
     open: 'Fortress\nFallen Ark\nReactor',
     from: 'Fortress\nConverter Facility\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '121',
@@ -1347,6 +1514,8 @@ export const hardPatterns = [
     '32%': ['Clairvoyance Synthetic Fiber', 'Executor Blueprint'],
     open: 'Fortress\nFallen Ark\nReactor',
     from: 'Fortress\nConverter Facility\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '122',
@@ -1356,6 +1525,7 @@ export const hardPatterns = [
     '32%': ['Afterglow Sword Polymer Syncytium', 'Lepic Stabilizer'],
     open: 'Fortress\nDefense Line\nReactor',
     from: 'Fortress\nDefense Line\nOutpost',
+    type: 'Outpost',
   },
   {
     pattern: '123',
@@ -1365,6 +1535,8 @@ export const hardPatterns = [
     '32%': ['Python Blueprint', 'Divine Punishment Synthetic Fiber'],
     open: 'Fortress\nDefense Line\nReactor',
     from: 'Fortress\nDefense Line\nOutpost',
+    type: 'Outpost',
+    stealth: true,
   },
   {
     pattern: '124',
@@ -1374,6 +1546,7 @@ export const hardPatterns = [
     '32%': ['Restored Relic Polymer Syncytium', 'Perforator Synthetic Fiber'],
     open: 'Interception\nMolten Fortress',
     from: 'Fortress\nInfiltration\nQuarantine Zone',
+    type: 'Infiltration',
   },
   {
     pattern: '125',
@@ -1384,6 +1557,7 @@ export const hardPatterns = [
     open: 'Interception\nMolten Fortress',
     from: 'Fortress\nInfiltration\nQuarantine Zone',
     vaulted: true,
+    type: 'Infiltration',
   },
   {
     pattern: '125',
@@ -1394,6 +1568,7 @@ export const hardPatterns = [
     '32%': ['Piercing Light Synthetic Fiber', 'Wave of Light Polymer Syncytium'],
     open: 'Interception\nMolten Fortress, Gluttony',
     from: 'Fortress\nInfiltration\nQuarantine Zone',
+    type: 'Infiltration',
   },
   {
     pattern: '126',
@@ -1403,6 +1578,7 @@ export const hardPatterns = [
     '32%': ['Divine Punishment Polymer Syncytium', 'Enduring Legacy Synthetic Fiber'],
     open: 'Interception\nMolten Fortress',
     from: 'Fortress\nInfiltration\nHeart Of The Fortress',
+    type: 'Infiltration',
   },
   {
     pattern: '127',
@@ -1412,14 +1588,15 @@ export const hardPatterns = [
     '32%': ['Kyle Stabilizer', 'Blue Beetle Blueprint'],
     open: 'Interception\nMolten Fortress',
     from: 'Fortress\nInfiltration\nHeart Of The Fortress',
+    type: 'Infiltration',
   },
 ] as const;
 
 export const normalRates = ['3%', '6%', '15%', '38%'] as const;
 export const hardRates = ['6%', '10%', '20%', '32%'] as const;
 
-type NormalRates = typeof normalRates[number]
-type HardRates = typeof hardRates[number]
+type NormalRates = (typeof normalRates)[number];
+type HardRates = (typeof hardRates)[number];
 
 const blueprintArray = [
   ...normalPatterns.flatMap(pattern => [...pattern['38%'], pattern['15%'], pattern['6%'], pattern['3%']]),
@@ -1435,6 +1612,8 @@ type BasePattern = {
   from: string;
   vaulted?: boolean;
   variant?: string;
+  type: 'Infiltration' | 'Outpost' | 'Special';
+  stealth?: boolean;
 };
 
 export type Pattern = BasePattern & {

@@ -20,6 +20,7 @@ import {
   weaponParts,
 } from '@/components/tfd/patterns/types';
 import {
+  createFilterFromSet,
   extractAndAddToSet,
   filterAndSortPatterns,
   getAttribute,
@@ -60,6 +61,24 @@ const Wishlist: FC<WishlistProps> = ({
     setfilteredHards(hardFilter);
   }, [filter]);
 
+  const commonProps = {
+    className: 'pattern-data',
+    isSticky: true,
+  };
+
+  const normalProps = {
+    label: 'Normal',
+    headers: PatternHeaders('normal'),
+    ...commonProps,
+  };
+
+  const hardProps = {
+    label: 'Hard',
+    headers: PatternHeaders('hard'),
+    sublabel: <p className="pb-2 text-center text-xl text-yellow-200">Patterns marked with * are stealth only</p>,
+    ...commonProps,
+  };
+
   return (
     <>
       <Header />
@@ -83,54 +102,22 @@ const Wishlist: FC<WishlistProps> = ({
           <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
         </div>
       </Container>
-      {isFilter && (
+      {(isFilter || isPattern) && (
         <>
           <Container>
             <Table
-              label="Normal"
-              headers={PatternHeaders('normal')}
-              body={filteredNormals.map(data => (
+              body={(isFilter ? filteredNormals : normalPatternData).map(data => (
                 <PatternRow key={data.pattern + data.variant} data={data} />
               ))}
-              className="pattern-data"
-              isSticky={true}
+              {...normalProps}
             />
           </Container>
           <Container>
             <Table
-              label="Hard"
-              headers={PatternHeaders('hard')}
-              body={filteredHards.map(data => (
+              body={(isFilter ? filteredHards : hardPatternData).map(data => (
                 <PatternRow key={data.pattern + data.variant} data={data} />
               ))}
-              className="pattern-data"
-              isSticky={true}
-            />
-          </Container>
-        </>
-      )}
-      {isPattern && (
-        <>
-          <Container>
-            <Table
-              label="Normal"
-              headers={PatternHeaders('normal')}
-              body={normalPatternData.map(data => (
-                <PatternRow key={data.pattern + data.variant} data={data} />
-              ))}
-              className="pattern-data"
-              isSticky={true}
-            />
-          </Container>
-          <Container>
-            <Table
-              label="Hard"
-              headers={PatternHeaders('hard')}
-              body={hardPatternData.map(data => (
-                <PatternRow key={data.pattern + data.variant} data={data} />
-              ))}
-              className="pattern-data"
-              isSticky={true}
+              {...hardProps}
             />
           </Container>
         </>
@@ -153,36 +140,14 @@ export const getStaticProps = async () => {
       return;
     }
 
-    if (extractAndAddToSet(blueprint, descendantParts, descendants)) {
-      extractAndAddToSet(blueprint, weaponParts, weapons);
-    }
+    extractAndAddToSet(blueprint, descendantParts, descendants) || extractAndAddToSet(blueprint, weaponParts, weapons);
   });
-
-  const descendantFilters = Array.from(descendants).map((descendant: string) => ({
-    label: descendant,
-    name: getAttribute(descendant),
-    data: descendantParts.map(part => ({
-      value: `${descendant} ${part}`,
-      label: part,
-    })),
-    defaultChecked: false,
-  })) as FilterOptionsData[];
-
-  const weaponFilters = Array.from(weapons).map((weapon: string) => ({
-    label: weapon,
-    name: getRounds(weapon),
-    data: weaponParts.map(part => ({
-      value: `${weapon} ${part}`,
-      label: part,
-    })),
-    defaultChecked: false,
-  })) as FilterOptionsData[];
 
   return {
     props: {
       filterMap,
-      descendantOptions: descendantFilters,
-      weaponOptions: weaponFilters,
+      descendantOptions: createFilterFromSet(descendants, descendantParts, getAttribute),
+      weaponOptions: createFilterFromSet(weapons, weaponParts, getRounds),
       enhanceOptions: enhanceFilters,
       normalPatternData: normalPatterns,
       hardPatternData: hardPatterns,

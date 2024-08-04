@@ -1,3 +1,4 @@
+import type { FilterOptionsData } from '@/components/inputs/types';
 import type { BlueprintFilterMap, Pattern } from '@/components/tfd/patterns/types';
 
 import { descendantParts, enhance, hardRates, normalRates, weaponParts } from '@/components/tfd/patterns/types';
@@ -126,3 +127,14 @@ export const filterAndSortPatterns = (patternData: Pattern[], filter: BlueprintF
   // Extract sorted patterns
   return filteredPatterns.map(item => item.pattern);
 };
+
+export const createFilterFromSet = (set: Set<string>, parts: readonly string[], transform: (item: string) => string) =>
+  Array.from(set).map((item: string) => ({
+    label: item,
+    name: transform(item),
+    data: parts.map(part => ({
+      value: `${item} ${part}`,
+      label: part,
+    })),
+    defaultChecked: false,
+  })) as FilterOptionsData[];

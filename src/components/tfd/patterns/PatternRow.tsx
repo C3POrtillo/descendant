@@ -9,7 +9,7 @@ interface RowProps {
 }
 
 const PatternRow: FC<RowProps> = ({ data }) => {
-  const { pattern, open, from, variant, vaulted } = data;
+  const { pattern, open, from, variant, vaulted, stealth } = data;
   const blueprints = getBluerints(data);
   const label = data['38%'] ? 'label-rare' : 'label-ultimate';
   const region = getLabelClass(from.split('\n')[0]);
@@ -25,7 +25,8 @@ const PatternRow: FC<RowProps> = ({ data }) => {
           3 <= index && index < 6 && typeof value === 'string' && getLabelClass(getBlueprintClass(value));
         const centerClass = index === 0 && 'justify-center text-center';
         const formattedValue =
-          index === 0 && [value, variant, vaulted ? '(Vaulted)' : undefined].filter(text => text).join('\n');
+          index === 0 &&
+          [`${value}${stealth ? '*' : ''}`, variant, vaulted && '(Vaulted)'].filter(text => text).join('\n');
         const commonDivs =
           typeof value !== 'string' &&
           value?.map(commonDrop => (
