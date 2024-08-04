@@ -96,3 +96,17 @@ export const createLabelClass = (name: string, value: string): string => {
       return getLabelClass(name);
   }
 };
+
+export const calculateAttempts = (probability: number) => {
+  const p = probability / 100;
+
+  const expectedAttempts = Math.ceil(1 / p).toFixed(0);
+  const nearlyGuaranteedLower = Math.log(0.01) / Math.log(1 - p); // 99%;
+  const nearlyGuaranteedUpper = Math.log(0.001) / Math.log(1 - p); // 99.9%;
+
+  return {
+    expectedAttempts,
+    nearlyGuaranteed: Math.ceil((nearlyGuaranteedLower + nearlyGuaranteedUpper) / 2).toFixed(0),
+    nearlyGuaranteedRange: Math.ceil((nearlyGuaranteedUpper - nearlyGuaranteedLower) / 2).toFixed(0),
+  };
+};

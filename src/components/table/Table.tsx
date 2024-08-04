@@ -77,7 +77,12 @@ const Table: FC<TableProps> = ({
       <>
         {body && (
           // eslint-disable-next-line tailwindcss/no-arbitrary-value
-          <div className={['table-wrapper max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full', isSticky ? 'max-h-[50lvh]' : ''].join(' ')}>
+          <div
+            className={[
+              'table-wrapper max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full',
+              isSticky ? 'max-h-[50lvh]' : '',
+            ].join(' ')}
+          >
             <table className="w-full" {...props}>
               <thead className={isSticky ? 'sticky-table-header' : ''}>
                 <tr className="h-1">{headersArray || (isValidElement(headers) && headers)}</tr>

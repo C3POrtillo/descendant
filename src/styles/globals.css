@@ -38,6 +38,9 @@
 }
 
 @layer utilities {
+  .button {
+    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white border-solid
+  }
   .input-hover {
     @apply hover:shadow-outline hover:shadow-yellow-200;
   }
@@ -148,7 +151,7 @@
       @apply text-slate-200;
     }
   }
-  .weapon-data, .external-component-data { 
+  .weapon-data, .external-component-data, .pattern-data { 
     .bg-standard {
       @apply bg-tier-gradient from-blue-400 via-black to-blue-400;
     }

@@ -23,7 +23,7 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
       const labelClass = createLabelClass(isSubregion ? (data['zone'] as string) : lowerCaseKey, value.toString());
       const numberClass = typeof value === 'number' ? isOptimal(data['subregion'] as string) : '';
       const centerNumber = typeof value === 'number' ? 'pr-7' : '';
-      const textClass = shardsArray.includes(key as ShardsType) && 'justify-center';
+      const textClass = shardsArray.includes(key as ShardsType) ? 'justify-center' : '';
 
       const icon: IconProps = {};
       const attributeIconData = attributesImages[data['attribute'] as AttributesType];

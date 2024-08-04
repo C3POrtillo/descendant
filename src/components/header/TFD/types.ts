@@ -24,11 +24,15 @@ export const paths = [
     ],
   },
   {
-    path: '/ehp-calc',
-    label: 'Effective HP Calculator',
-  },
-  {
     path: '/external-components',
     label: 'External Components',
+  },
+  {
+    path: '/wishlist',
+    label: 'Wishlist',
+  },
+  {
+    path: '/ehp-calc',
+    label: 'Effective HP Calculator',
   },
 ] as PathType[];
