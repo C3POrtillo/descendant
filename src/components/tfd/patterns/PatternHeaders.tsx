@@ -1,6 +1,6 @@
 import type { HeadersType } from '@/components/table/types';
 
-import { hardHeaders, normalHeaders } from '@/components/patterns/types';
+import { hardHeaders, normalHeaders } from '@/components/tfd/patterns/types';
 import { calculateAttempts } from '@/utils/utils';
 
 const formatData = (array: readonly (string | number)[]): HeadersType[] =>

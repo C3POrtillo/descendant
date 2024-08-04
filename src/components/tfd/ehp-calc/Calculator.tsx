@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 import type { FC } from 'react';
 
-import { getDamageReduction, getEffectiveHealth } from '@/components/ehp-calc/utils';
 import Text from '@/components/inputs/Text/Text';
+import { getDamageReduction, getEffectiveHealth } from '@/components/tfd/ehp-calc/utils';
 import { addSuffixToValue, delimitNumber, roundToHundreth } from '@/utils/utils';
 
 const Calculator: FC = () => {

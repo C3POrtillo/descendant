@@ -3,18 +3,18 @@ import Error from 'next/error';
 import { useEffect, useState } from 'react';
 
 import type { DirectionValues } from '@/components/inputs/types';
-import type { FormattedWeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/weapon/types';
+import type { FormattedWeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/tfd/weapon/types';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
-import Footer from '@/components/footer/TFD/Footer';
-import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
-import WeaponHeaders from '@/components/weapon/WeaponHeaders';
-import WeaponRow from '@/components/weapon/WeaponRow';
-import { roundsArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/weapon/types';
-import { defaultWeaponSort, reformatWeaponData } from '@/components/weapon/utils';
+import Footer from '@/components/tfd/footer/Footer';
+import Header from '@/components/tfd/header/Header';
+import WeaponHeaders from '@/components/tfd/weapon/WeaponHeaders';
+import WeaponRow from '@/components/tfd/weapon/WeaponRow';
+import { roundsArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/tfd/weapon/types';
+import { defaultWeaponSort, reformatWeaponData } from '@/components/tfd/weapon/utils';
 import { tiers } from '@/utils/types';
 import { camelCase, sortData } from '@/utils/utils';
 

@@ -1,7 +1,7 @@
 import type { DefaultCheckedType } from '@/components/inputs/types';
 
-import { getRarity } from '@/components/patterns/utils';
-import { createWeaponLabel } from '@/components/weapon/utils';
+import { getRarity } from '@/components/tfd/patterns/utils';
+import { createWeaponLabel } from '@/components/tfd/weapon/utils';
 
 export const setChecked = (defaultValue: DefaultCheckedType, value: string, index: number): boolean => {
   switch (typeof defaultValue) {

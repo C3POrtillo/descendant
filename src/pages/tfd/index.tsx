@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
-import Footer from '@/components/footer/TFD/Footer';
-import Header from '@/components/header/TFD/Header';
+import Footer from '@/components/tfd/footer/Footer';
+import Header from '@/components/tfd/header/Header';
 
 const Index: FC = () => (
   <>

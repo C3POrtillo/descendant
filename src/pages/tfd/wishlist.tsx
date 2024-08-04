@@ -1,15 +1,16 @@
 import { type FC, useEffect, useState } from 'react';
 
 import type { FilterOptionsData } from '@/components/inputs/types';
-import type { BlueprintFilterMap, HardPattern, NormalPattern } from '@/components/patterns/types';
+import type { BlueprintFilterMap, HardPattern, NormalPattern } from '@/components/tfd/patterns/types';
 
 import Container from '@/components/container/Container';
-import Footer from '@/components/footer/TFD/Footer';
-import Header from '@/components/header/TFD/Header';
 import Button from '@/components/inputs/Button/Button';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
-import PatternHeaders from '@/components/patterns/PatternHeaders';
-import PatternRow from '@/components/patterns/PatternRow';
+import Table from '@/components/table/Table';
+import Footer from '@/components/tfd/footer/Footer';
+import Header from '@/components/tfd/header/Header';
+import PatternHeaders from '@/components/tfd/patterns/PatternHeaders';
+import PatternRow from '@/components/tfd/patterns/PatternRow';
 import {
   blueprintSet,
   descendantParts,
@@ -17,9 +18,8 @@ import {
   hardPatterns,
   normalPatterns,
   weaponParts,
-} from '@/components/patterns/types';
-import { extractAndAddToSet, getAttribute, getRounds, isEnhance } from '@/components/patterns/utils';
-import Table from '@/components/table/Table';
+} from '@/components/tfd/patterns/types';
+import { extractAndAddToSet, getAttribute, getRounds, isEnhance } from '@/components/tfd/patterns/utils';
 
 interface WishlistProps {
   filterMap: BlueprintFilterMap;

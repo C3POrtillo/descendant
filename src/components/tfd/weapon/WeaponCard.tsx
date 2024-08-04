@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
-import type { RoundsType, WeaponType } from '@/components/weapon/types';
+import type { RoundsType, WeaponType } from '@/components/tfd/weapon/types';
 import type { TiersType } from '@/utils/types';
 import type { FC } from 'react';
 
 import Icon from '@/components/icon/Icon';
-import { roundsImages } from '@/components/weapon/types';
+import { roundsImages } from '@/components/tfd/weapon/types';
 import { getBackgroundClass, getLabelClass } from '@/utils/utils';
 
 interface WeaponCardProps {

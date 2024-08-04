@@ -1,6 +1,6 @@
-import type { VoidFragmentData } from '@/components/void-fragments/types';
+import type { VoidFragmentData } from '@/components/tfd/void-fragments/types';
 
-import { optimal, voidFragmentData } from '@/components/void-fragments/types';
+import { optimal, voidFragmentData } from '@/components/tfd/void-fragments/types';
 
 export const reformatZoneData = () =>
   Object.entries(voidFragmentData)

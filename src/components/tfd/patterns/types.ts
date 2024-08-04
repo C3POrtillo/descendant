@@ -1437,14 +1437,12 @@ export type NormalPattern = Pattern & {
   '15%': BlueprintTypes;
   '38%': [BlueprintTypes, BlueprintTypes];
 };
-export type NormalRates = keyof NormalPattern;
 export type HardPattern = Pattern & {
   '6%': BlueprintTypes;
   '10%': BlueprintTypes;
   '20%': BlueprintTypes;
   '32%': [BlueprintTypes, BlueprintTypes];
 };
-export type HardRates = keyof NormalPattern;
 
 const commonHeaders = ['Amorphous Material Pattern', 'Dropped From', 'Opened At'] as const;
 export const normalHeaders = [...commonHeaders, 3, 6, 15, 38] as const;

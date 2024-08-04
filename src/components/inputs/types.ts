@@ -1,7 +1,7 @@
 import type { IconProps } from '@/components/icon/Icon';
-import type { BlueprintTypes } from '@/components/patterns/types';
-import type { VoidFragmentFilterTypes } from '@/components/void-fragments/types';
-import type { WeaponFilterTypes } from '@/components/weapon/types';
+import type { BlueprintTypes } from '@/components/tfd/patterns/types';
+import type { VoidFragmentFilterTypes } from '@/components/tfd/void-fragments/types';
+import type { WeaponFilterTypes } from '@/components/tfd/weapon/types';
 
 export type DefaultCheckedType = number | string | 'all' | boolean;
 

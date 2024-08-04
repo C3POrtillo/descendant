@@ -1,11 +1,11 @@
 import type { IconProps } from '@/components/icon/Icon';
-import type { FilterTypes, ShardsType } from '@/components/void-fragments/types';
+import type { FilterTypes, ShardsType } from '@/components/tfd/void-fragments/types';
 import type { AttributesType } from '@/utils/attributes/types';
 import type { FC } from 'react';
 
 import Icon from '@/components/icon/Icon';
-import { shardsArray, voidFragmentTableHeaders } from '@/components/void-fragments/types';
-import { isOptimal } from '@/components/void-fragments/utils';
+import { shardsArray, voidFragmentTableHeaders } from '@/components/tfd/void-fragments/types';
+import { isOptimal } from '@/components/tfd/void-fragments/utils';
 import { attributesImages } from '@/utils/attributes/types';
 import { createLabelClass } from '@/utils/utils';
 

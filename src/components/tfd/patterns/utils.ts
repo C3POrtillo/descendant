@@ -1,6 +1,6 @@
-import type { HardPattern, NormalPattern } from '@/components/patterns/types';
+import type { HardPattern, NormalPattern } from '@/components/tfd/patterns/types';
 
-import { descendantParts, enhance, weaponParts } from '@/components/patterns/types';
+import { descendantParts, enhance, weaponParts } from '@/components/tfd/patterns/types';
 
 export const isNormalPattern = (variable: NormalPattern | HardPattern): variable is NormalPattern =>
   typeof variable === 'object' && variable !== null && '38%' in variable;

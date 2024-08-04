@@ -1,6 +1,6 @@
-import type { FormattedWeaponData, WeaponData } from '@/components/weapon/types';
+import type { FormattedWeaponData, WeaponData } from '@/components/tfd/weapon/types';
 
-import { statData, weaponRounds } from '@/components/weapon/types';
+import { statData, weaponRounds } from '@/components/tfd/weapon/types';
 import { stringCompare } from '@/utils/utils';
 
 type DPSProps = Record<string, number>;

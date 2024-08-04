@@ -1,10 +1,10 @@
-import type { MainStatMapKeys } from '@/components/externalComponents/types';
+import type { MainStatMapKeys } from '@/components/tfd/externalComponents/types';
 
 import {
   type ExternalComponentData,
   type FormattedExternalComponentData,
   mainStatMap,
-} from '@/components/externalComponents/types';
+} from '@/components/tfd/externalComponents/types';
 import { tiers } from '@/utils/types';
 
 const formatExternalComponentData = (data: ExternalComponentData[]): FormattedExternalComponentData[] =>

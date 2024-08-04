@@ -2,8 +2,8 @@ import type { FC } from 'react';
 
 import Accordion from '@/components/accordion/Accordion';
 import Dropdown from '@/components/dropdown/Dropdown';
-import TFDLink from '@/components/header/TFD/Link';
-import { paths } from '@/components/header/TFD/types';
+import TFDLink from '@/components/tfd/header/Link';
+import { paths } from '@/components/tfd/header/types';
 
 const Header: FC = () => {
   const navLinks = paths.slice(1).map(data => {

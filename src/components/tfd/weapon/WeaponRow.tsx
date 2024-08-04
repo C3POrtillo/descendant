@@ -1,7 +1,7 @@
-import type { FormattedWeaponData } from '@/components/weapon/types';
+import type { FormattedWeaponData } from '@/components/tfd/weapon/types';
 import type { FC } from 'react';
 
-import WeaponCard from '@/components/weapon/WeaponCard';
+import WeaponCard from '@/components/tfd/weapon/WeaponCard';
 import { addSuffixToValue, delimitNumber, roundToHundreth } from '@/utils/utils';
 
 const WeaponRow: FC<FormattedWeaponData> = ({

@@ -7,24 +7,24 @@ import type {
   VoidFragmentFilterMap,
   VoidFragmentFilterTypes,
   shardsArray,
-} from '@/components/void-fragments/types';
+} from '@/components/tfd/void-fragments/types';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
-import Footer from '@/components/footer/TFD/Footer';
-import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
-import VoidFragmentHeaders from '@/components/void-fragments/VoidFragmentHeaders';
-import VoidFragmentRow from '@/components/void-fragments/VoidFragmentRow';
+import Footer from '@/components/tfd/footer/Footer';
+import Header from '@/components/tfd/header/Header';
+import VoidFragmentHeaders from '@/components/tfd/void-fragments/VoidFragmentHeaders';
+import VoidFragmentRow from '@/components/tfd/void-fragments/VoidFragmentRow';
 import {
   fragmentOptions,
   subregionsArray,
   voidFragmentFilterKeys,
   zoneOptions,
   zonesArray,
-} from '@/components/void-fragments/types';
-import { reformatZoneData } from '@/components/void-fragments/utils';
+} from '@/components/tfd/void-fragments/types';
+import { reformatZoneData } from '@/components/tfd/void-fragments/utils';
 import { attributesArray } from '@/utils/attributes/types';
 import use2xlScreen from '@/utils/useLargeScreen';
 import { sortData, titleCase } from '@/utils/utils';

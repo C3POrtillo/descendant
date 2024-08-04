@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import type { PathType } from '@/components/header/TFD/types';
+import type { PathType } from '@/components/tfd/header/types';
 import type { FC, PropsWithChildren } from 'react';
 
 interface TFDLinkProps extends PathType, PropsWithChildren {

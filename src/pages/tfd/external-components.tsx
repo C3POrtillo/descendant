@@ -8,19 +8,23 @@ import type {
   ExternalComponentsFilterMap,
   FormattedBasicData,
   FormattedExternalComponentData,
-} from '@/components/externalComponents/types';
+} from '@/components/tfd/externalComponents/types';
 import type { TiersType } from '@/utils/types';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
-import ExternalComponentBasicHeader from '@/components/externalComponents/ExternalComponentBasicHeader';
-import ExternalComponentCard from '@/components/externalComponents/ExternalComponentCard';
-import { externalComponentStats, externalComponentsArray, filterOptions } from '@/components/externalComponents/types';
-import { getSortedExternalComponentData } from '@/components/externalComponents/utils';
-import Footer from '@/components/footer/TFD/Footer';
-import Header from '@/components/header/TFD/Header';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
+import ExternalComponentBasicHeader from '@/components/tfd/externalComponents/ExternalComponentBasicHeader';
+import ExternalComponentCard from '@/components/tfd/externalComponents/ExternalComponentCard';
+import {
+  externalComponentStats,
+  externalComponentsArray,
+  filterOptions,
+} from '@/components/tfd/externalComponents/types';
+import { getSortedExternalComponentData } from '@/components/tfd/externalComponents/utils';
+import Footer from '@/components/tfd/footer/Footer';
+import Header from '@/components/tfd/header/Header';
 import { tiers } from '@/utils/types';
 import { sortData } from '@/utils/utils';
 

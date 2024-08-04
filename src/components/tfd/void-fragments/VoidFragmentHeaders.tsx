@@ -1,8 +1,8 @@
 import type { HeadersType } from '@/components/table/types';
-import type { ShardsType } from '@/components/void-fragments/types';
+import type { ShardsType } from '@/components/tfd/void-fragments/types';
 
 import Icon from '@/components/icon/Icon';
-import { shardsArray, shardsImages, voidFragmentTableHeaders } from '@/components/void-fragments/types';
+import { shardsArray, shardsImages, voidFragmentTableHeaders } from '@/components/tfd/void-fragments/types';
 
 const VoidFragmentHeaders = (): HeadersType[] =>
   voidFragmentTableHeaders.map(key => {

@@ -1,7 +1,7 @@
-import type { HardPattern, NormalPattern } from '@/components/patterns/types';
+import type { HardPattern, NormalPattern } from '@/components/tfd/patterns/types';
 import type { FC } from 'react';
 
-import { getBlueprintClass, isNormalPattern } from '@/components/patterns/utils';
+import { getBlueprintClass, isNormalPattern } from '@/components/tfd/patterns/utils';
 import { getLabelClass } from '@/utils/utils';
 
 interface RowProps {

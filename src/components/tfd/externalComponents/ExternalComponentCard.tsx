@@ -1,6 +1,9 @@
 import Image from 'next/image';
 
-import type { ExternalComponentStatType, FormattedExternalComponentData } from '@/components/externalComponents/types';
+import type {
+  ExternalComponentStatType,
+  FormattedExternalComponentData,
+} from '@/components/tfd/externalComponents/types';
 import type { TiersType } from '@/utils/types';
 import type { FC } from 'react';
 

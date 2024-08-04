@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-import type { BasicDataType } from '@/components/externalComponents/types';
+import type { BasicDataType } from '@/components/tfd/externalComponents/types';
 import type { FC } from 'react';
 
-import { mainStats } from '@/components/externalComponents/types';
+import { mainStats } from '@/components/tfd/externalComponents/types';
 
 interface ExternalComponentBasicHeaderProps extends BasicDataType {
   component: string;
