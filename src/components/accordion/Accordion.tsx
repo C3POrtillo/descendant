@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 
 interface AccordionProps extends PropsWithChildren {
-  className: string;
+  className?: string;
   panelClassName?: string;
   label: string | ReactNode;
   icon?: string;
