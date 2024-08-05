@@ -1,7 +1,7 @@
 import { type FC, useEffect, useState } from 'react';
 
 import type { FilterOptionsData } from '@/components/inputs/types';
-import type { BlueprintFilterMap, Pattern } from '@/components/tfd/patterns/types';
+import type { BlueprintFilterMap, MissionFilterMap, Pattern } from '@/components/tfd/patterns/types';
 
 import Container from '@/components/container/Container';
 import Button from '@/components/inputs/Button/Button';
@@ -16,6 +16,8 @@ import {
   descendantParts,
   enhanceFilters,
   hardPatterns,
+  missionOptions,
+  missionTypes,
   normalPatterns,
   weaponParts,
 } from '@/components/tfd/patterns/types';
@@ -27,9 +29,11 @@ import {
   getRounds,
   isEnhance,
 } from '@/components/tfd/patterns/utils';
+import { createFilterMap } from '@/utils/utils';
 
 interface WishlistProps {
-  filterMap: BlueprintFilterMap;
+  missionFilterMap: BlueprintFilterMap;
+  itemFilterMap: BlueprintFilterMap;
   descendantOptions: FilterOptionsData[];
   weaponOptions: FilterOptionsData[];
   enhanceOptions: FilterOptionsData[];
@@ -38,7 +42,8 @@ interface WishlistProps {
 }
 
 const Wishlist: FC<WishlistProps> = ({
-  filterMap,
+  missionFilterMap,
+  itemFilterMap,
   descendantOptions,
   weaponOptions,
   enhanceOptions,
@@ -46,7 +51,8 @@ const Wishlist: FC<WishlistProps> = ({
   hardPatternData,
 }) => {
   const [isComponent, setIsComponent] = useState('set-wishlist');
-  const [filter, setFilter] = useState(filterMap);
+  const [missionFilter, setMissionFilter] = useState(missionFilterMap);
+  const [itemFilter, setItemFilter] = useState(itemFilterMap);
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
   const [filteredHards, setfilteredHards] = useState(hardPatternData);
 
@@ -55,29 +61,30 @@ const Wishlist: FC<WishlistProps> = ({
   const isPattern = isComponent === 'patterns';
 
   useEffect(() => {
-    const normalFilter = filterAndSortPatterns(normalPatternData, filter);
-    const hardFilter = filterAndSortPatterns(hardPatternData, filter);
+    console.log(missionFilter);
+    const normalFilter = filterAndSortPatterns(normalPatternData, itemFilter);
+    const hardFilter = filterAndSortPatterns(hardPatternData, itemFilter);
     setfilteredNormals(normalFilter);
     setfilteredHards(hardFilter);
-  }, [filter]);
+  }, [itemFilter, missionFilter]);
 
   const commonProps = {
     className: 'pattern-data',
     isSticky: true,
-  };
+  } as const;
 
   const normalProps = {
     label: 'Normal',
     headers: PatternHeaders('normal'),
     ...commonProps,
-  };
+  } as const;
 
   const hardProps = {
     label: 'Hard',
     headers: PatternHeaders('hard'),
     sublabel: <p className="pb-2 text-center text-xl text-yellow-200">Patterns marked with * are stealth only</p>,
     ...commonProps,
-  };
+  } as const;
 
   return (
     <>
@@ -97,13 +104,23 @@ const Wishlist: FC<WishlistProps> = ({
       </Container>
       <Container className={!isWishlist ? 'hidden' : undefined}>
         <div className="pattern-data flex flex-row flex-wrap gap-2 md:gap-3 xl:gap-5">
-          <FilterOptions filterOptions={descendantOptions} filter={filter} setFilter={setFilter} />
-          <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
-          <FilterOptions filterOptions={enhanceOptions} filter={filter} setFilter={setFilter} />
+          <FilterOptions filterOptions={descendantOptions} filter={itemFilter} setFilter={setItemFilter} />
+          <FilterOptions filterOptions={weaponOptions} filter={itemFilter} setFilter={setItemFilter} />
+          <FilterOptions filterOptions={enhanceOptions} filter={itemFilter} setFilter={setItemFilter} />
         </div>
       </Container>
       {(isFilter || isPattern) && (
         <>
+          <Container className="mb-0">
+            <div>
+              <FilterOptions
+                filterOptions={missionOptions}
+                filter={missionFilter}
+                setFilter={setMissionFilter}
+                checkboxContainerClasses="grid-cols-1 md:grid-cols-2 lg:flex lg:flex-row"
+              />
+            </div>
+          </Container>
           <Container>
             <Table
               body={(isFilter ? filteredNormals : normalPatternData).map(data => (
@@ -131,10 +148,12 @@ const Wishlist: FC<WishlistProps> = ({
 export const getStaticProps = async () => {
   const descendants = new Set<string>();
   const weapons = new Set<string>();
-  const filterMap = {} as BlueprintFilterMap;
+  const itemFilterMap = {} as BlueprintFilterMap;
+
+  const missionFilterMap = createFilterMap(missionTypes) as MissionFilterMap;
 
   blueprintSet.forEach(blueprint => {
-    filterMap[blueprint] = false;
+    itemFilterMap[blueprint] = false;
 
     if (isEnhance(blueprint)) {
       return;
@@ -145,7 +164,8 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      filterMap,
+      itemFilterMap,
+      missionFilterMap,
       descendantOptions: createFilterFromSet(descendants, descendantParts, getAttribute),
       weaponOptions: createFilterFromSet(weapons, weaponParts, getRounds),
       enhanceOptions: enhanceFilters,

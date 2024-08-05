@@ -6,15 +6,24 @@ import MultiCheckbox from '@/components/inputs/Checkbox/MultiCheckbox';
 import { kebabCase } from '@/utils/utils';
 
 interface FilterOptionsProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'defaultChecked'> {
+  checkboxContainerClasses?: string;
   filterOptions: FilterOptionsData[];
   filter?: FilterMap;
   setFilter?: React.Dispatch<React.SetStateAction<FilterMap>>;
   type?: 'carousel' | 'containers';
 }
 
-const FilterOptions: FC<FilterOptionsProps> = ({ filterOptions, filter, setFilter, type = 'containers', ...props }) => {
+const FilterOptions: FC<FilterOptionsProps> = ({
+  checkboxContainerClasses,
+  filterOptions,
+  filter,
+  setFilter,
+  type = 'containers',
+  ...props
+}) => {
   const filtersArray = filterOptions.map(({ label, name, data, defaultChecked }) => (
     <MultiCheckbox
+      checkboxContainerClasses={checkboxContainerClasses}
       id={kebabCase(label)}
       key={label}
       label={label}

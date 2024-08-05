@@ -24,3 +24,12 @@ export const getLabelValue = (name: string, value: string): string => {
       return value;
   }
 };
+
+export const getCheckboxContainerClasses = (className?: string, dataLength?: number) => {
+  const threshold = dataLength && dataLength > 6;
+  const defaultClass = threshold
+    ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0'
+    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-1';
+
+  return className || defaultClass;
+};

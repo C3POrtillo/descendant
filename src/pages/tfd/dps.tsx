@@ -16,7 +16,7 @@ import WeaponRow from '@/components/tfd/weapon/WeaponRow';
 import { roundsArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/tfd/weapon/types';
 import { defaultWeaponSort, reformatWeaponData } from '@/components/tfd/weapon/utils';
 import { tiers } from '@/utils/types';
-import { camelCase, sortData } from '@/utils/utils';
+import { camelCase, createFilterMap, sortData } from '@/utils/utils';
 
 interface WeaponDPSProps {
   error: boolean;
@@ -66,8 +66,10 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons }) => {
   return (
     <>
       <Header />
-      <Container className="weapon-data flex w-full flex-col justify-center gap-4 2xl:w-2/3 2xl:flex-row">
-        <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
+      <Container className="weapon-data">
+        <div className=" flex flex-col justify-center gap-4 2xl:flex-row">
+          <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
+        </div>
       </Container>
       <Container>
         <Table
@@ -101,11 +103,7 @@ export const getStaticProps = async () => {
   const weapons = (await axios.get(process.env.WEAPON_JSON)).data;
 
   const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
-  const filterMap = defaultFilter.reduce((acc, key) => {
-    acc[key] = true;
-
-    return acc;
-  }, {} as WeaponFilterMap);
+  const filterMap = createFilterMap(defaultFilter) as WeaponFilterMap;
 
   return {
     props: {

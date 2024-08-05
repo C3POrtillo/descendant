@@ -27,7 +27,7 @@ import {
 import { reformatZoneData } from '@/components/tfd/void-fragments/utils';
 import { attributesArray } from '@/utils/attributes/types';
 import use2xlScreen from '@/utils/useLargeScreen';
-import { sortData, titleCase } from '@/utils/utils';
+import { createFilterMap, sortData, titleCase } from '@/utils/utils';
 
 interface VoidShardProps {
   filterMap: VoidFragmentFilterMap;
@@ -119,11 +119,7 @@ export const getStaticProps = async () => {
   const voidFragments = reformatZoneData();
 
   const defaultFilter = [...attributesArray, ...zonesArray, ...subregionsArray] as VoidFragmentFilterTypes[];
-  const filterMap = defaultFilter.reduce((acc, key) => {
-    acc[key] = true;
-
-    return acc;
-  }, {} as VoidFragmentFilterMap);
+  const filterMap = createFilterMap(defaultFilter) as VoidFragmentFilterMap;
 
   return {
     props: {

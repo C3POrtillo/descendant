@@ -1639,3 +1639,17 @@ export const enhanceFilters: FilterOptionsData[] = [
     defaultChecked: false,
   },
 ];
+
+export const missionTypes = ['Infiltration', 'Outpost', 'Special', 'Stealth'] as const;
+export type MissionTypes = (typeof missionTypes)[number];
+export type MissionFilterMap = Partial<Record<MissionTypes, boolean | undefined>>;
+export const missionOptions: FilterOptionsData[] = [
+  {
+    label: 'Mission Filters',
+    name: 'mission-filters',
+    data: missionTypes.map(value => ({
+      value,
+    })),
+    defaultChecked: true,
+  },
+];

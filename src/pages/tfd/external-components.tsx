@@ -26,32 +26,24 @@ import { getSortedExternalComponentData } from '@/components/tfd/externalCompone
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
 import { tiers } from '@/utils/types';
-import { sortData } from '@/utils/utils';
+import { createFilterMap, sortData } from '@/utils/utils';
 
 interface ExternalComponentProps {
+  filterMap: ExternalComponentsFilterMap;
   error: boolean;
   formattedBasicComponents: FormattedBasicData;
   setComponents: FormattedExternalComponentData[];
 }
 
-const ExternalComponents: FC<ExternalComponentProps> = ({ error, formattedBasicComponents, setComponents }) => {
+const ExternalComponents: FC<ExternalComponentProps> = ({
+  filterMap,
+  error,
+  formattedBasicComponents,
+  setComponents,
+}) => {
   const [filteredSet, setFilteredSet] = useState(setComponents);
-  const [filter, setFilter] = useState({} as ExternalComponentsFilterMap);
+  const [filter, setFilter] = useState(filterMap);
   const [isError] = useState(error || !setComponents || !formattedBasicComponents);
-
-  useEffect(() => {
-    if (isError) {
-      return;
-    }
-
-    const filterMap = [...tiers, ...externalComponentsArray].reduce((acc, key) => {
-      acc[key] = true;
-
-      return acc;
-    }, {} as ExternalComponentsFilterMap);
-
-    setFilter(filterMap);
-  }, []);
 
   useEffect(() => {
     const currentFilter = setComponents.reduce((acc, component) => {
@@ -156,8 +148,11 @@ export const getStaticProps = async () => {
     }
   });
 
+  const filterMap = createFilterMap([...tiers, ...externalComponentsArray]) as ExternalComponentsFilterMap;
+
   return {
     props: {
+      filterMap,
       setComponents: setComponents.sort((a, b) =>
         sortData(a.set_option_detail?.[0].set_option as string, b.set_option_detail?.[0].set_option as string),
       ),

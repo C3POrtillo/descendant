@@ -111,3 +111,10 @@ export const calculateAttempts = (probability: number) => {
     nearlyGuaranteedRange: Math.ceil((nearlyGuaranteedUpper - nearlyGuaranteedLower) / 2).toFixed(0),
   };
 };
+
+export const createFilterMap = (array: readonly string[]) =>
+  array.reduce((acc, key) => {
+    acc[key] = true;
+
+    return acc;
+  }, {} as { [key: string]: boolean });

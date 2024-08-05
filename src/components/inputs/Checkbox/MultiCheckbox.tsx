@@ -1,13 +1,14 @@
 import type { DefaultCheckedType, FilterMap, LabelData } from '@/components/inputs/types';
 import type { FC, FieldsetHTMLAttributes } from 'react';
 
-import Accordion from '@/components/accordion/Accordion';
+import AccordionCheckbox from '@/components/inputs/Checkbox/AccordionCheckbox';
 import Checkbox from '@/components/inputs/Checkbox/Checkbox';
-import { setChecked } from '@/components/inputs/utils';
+import { checkboxBorderClasses } from '@/components/inputs/types';
+import { getCheckboxContainerClasses, setChecked } from '@/components/inputs/utils';
 import use2xlScreen from '@/utils/useLargeScreen';
-import { createLabelClass } from '@/utils/utils';
 
 interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, 'defaultChecked'> {
+  checkboxContainerClasses?: string;
   label: string;
   data: LabelData[];
   defaultChecked?: DefaultCheckedType;
@@ -15,18 +16,21 @@ interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
   setFilter?: React.Dispatch<React.SetStateAction<FilterMap>>;
 }
 
-const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultChecked = false, filter, setFilter }) => {
+const MultiCheckbox: FC<MultiCheckboxProps> = ({
+  checkboxContainerClasses,
+  label,
+  data,
+  name,
+  defaultChecked = false,
+  filter,
+  setFilter,
+}) => {
   const isLargeScreen = use2xlScreen();
 
-  const threshold = data.length > 6;
-  const gridSize = threshold
-    ? 'grid-cols-2 lg:grid-flow-col lg:grid-rows-4 lg:grid-cols-0'
-    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-1';
-  const accordionSize = 'lg:flex-auto lg:basis-[calc(33.333%-1rem)]';
-  const wrapperClasses = 'rounded-lg border-2 border-solid border-white bg-slate-900 text-3xl shadow-md shadow-black';
+  const gridSize = getCheckboxContainerClasses(checkboxContainerClasses, data.length);
 
   const checkboxContainer = (
-    <div className={['grid w-full place-content-center text-lg', gridSize].filter(string => string).join(' ')}>
+    <div className={['grid w-full text-lg', gridSize].filter(string => string).join(' ')}>
       {data.map(({ label: checkboxLabel, value, icon }, index) => (
         <Checkbox
           key={value}
@@ -42,30 +46,17 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({ label, data, name, defaultCheck
     </div>
   );
 
-  const labelClass = name && createLabelClass(name, name);
-
   return isLargeScreen ? (
-    <fieldset className={['input-hover w-max grow px-2 py-4', wrapperClasses].filter(string => string).join(' ')}>
+    <fieldset
+      className={['input-hover w-max grow px-2 py-4', checkboxBorderClasses].filter(string => string).join(' ')}
+    >
       <legend className="px-4 text-center">
         <h2>{label}</h2>
       </legend>
       {checkboxContainer}
     </fieldset>
   ) : (
-    <div className={['h-min w-full', wrapperClasses, accordionSize].filter(string => string).join(' ')}>
-      <Accordion
-        className="input-hover"
-        panelClassName="pb-4"
-        label={
-          <div className={['text-lg md:text-xl xl:text-2xl', labelClass].filter(string => string).join(' ')}>
-            {label}
-          </div>
-        }
-        labelIsClickable
-      >
-        {checkboxContainer}
-      </Accordion>
-    </div>
+    <AccordionCheckbox label={label} checkboxContainer={checkboxContainer} name={name} />
   );
 };
 
