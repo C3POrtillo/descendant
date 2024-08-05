@@ -2,6 +2,7 @@ import { type FC, useEffect, useState } from 'react';
 
 import type { FilterOptionsData } from '@/components/inputs/types';
 import type { BlueprintFilterMap, MissionFilterMap, Pattern } from '@/components/tfd/patterns/types';
+import type { NextSeoProps } from 'next-seo';
 
 import Container from '@/components/container/Container';
 import Button from '@/components/inputs/Button/Button';
@@ -39,6 +40,7 @@ interface WishlistProps {
   enhanceOptions: FilterOptionsData[];
   normalPatternData: Pattern[];
   hardPatternData: Pattern[];
+  seo: NextSeoProps;
 }
 
 const Wishlist: FC<WishlistProps> = ({
@@ -49,6 +51,7 @@ const Wishlist: FC<WishlistProps> = ({
   enhanceOptions,
   normalPatternData,
   hardPatternData,
+  seo,
 }) => {
   const [isComponent, setComponent] = useState('set-wishlist');
   const [missionFilter, setMissionFilter] = useState(missionFilterMap);
@@ -89,7 +92,7 @@ const Wishlist: FC<WishlistProps> = ({
 
   return (
     <>
-      <Header />
+      <Header seo={seo} />
       <Container className="mb-0">
         <div className="flex w-min flex-row flex-wrap gap-2 self-center md:flex-nowrap">
           <Button onClick={() => setComponent('set-wishlist')} disabled={isWishlist}>
@@ -165,6 +168,11 @@ export const getStaticProps = async () => {
     }
   });
 
+  const title = 'The First Descendant (TFD) Pattern/Wishlist Tool';
+  const description = `Tool for filtering or wishlisting blueprints in The First Descedant (TFD). 
+    Filters patterns based on selected blueprints and mission type. 
+    Contains all patterns and pattern data.`;
+
   return {
     props: {
       itemFilterMap,
@@ -174,6 +182,16 @@ export const getStaticProps = async () => {
       enhanceOptions: enhanceFilters,
       normalPatternData: normalPatterns,
       hardPatternData: hardPatterns,
+      seo: {
+        title,
+        description,
+        openGraph: {
+          url: 'https://ortillo.cam/tfd/wishlist',
+          title,
+          description,
+          images: [{ url: 'https://ortillo.cam/logo-512x512.png' }],
+        },
+      },
     },
   };
 };

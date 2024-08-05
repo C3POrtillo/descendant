@@ -10,6 +10,7 @@ import type {
   FormattedExternalComponentData,
 } from '@/components/tfd/externalComponents/types';
 import type { TiersType } from '@/utils/types';
+import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
@@ -33,6 +34,7 @@ interface ExternalComponentProps {
   error: boolean;
   formattedBasicComponents: FormattedBasicData;
   setComponents: FormattedExternalComponentData[];
+  seo: NextSeoProps;
 }
 
 const ExternalComponents: FC<ExternalComponentProps> = ({
@@ -40,6 +42,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({
   error,
   formattedBasicComponents,
   setComponents,
+  seo,
 }) => {
   const [filteredSet, setFilteredSet] = useState(setComponents);
   const [filter, setFilter] = useState(filterMap);
@@ -67,7 +70,7 @@ const ExternalComponents: FC<ExternalComponentProps> = ({
 
   return (
     <>
-      <Header />
+      <Header seo={seo} />
       <Container>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
           {Object.entries(externalComponentStats.substats).map(([component, substats]) => (
@@ -149,6 +152,9 @@ export const getStaticProps = async () => {
   });
 
   const filterMap = createFilterMap([...tiers, ...externalComponentsArray]) as ExternalComponentsFilterMap;
+  const title = 'The First Descendant (TFD) External Component Data';
+  const description = `Tool for External Component data in The First Descendant (TFD). 
+    Contains main stat, sub stat, set data for Auxiliary Power, Sensor, Memory, and Processor`;
 
   return {
     props: {
@@ -157,6 +163,16 @@ export const getStaticProps = async () => {
         sortData(a.set_option_detail?.[0].set_option as string, b.set_option_detail?.[0].set_option as string),
       ),
       formattedBasicComponents: basicComponents,
+      seo: {
+        title,
+        description,
+        openGraph: {
+          url: 'https://ortillo.cam/tfd/',
+          title,
+          description,
+          images: [{ url: 'https://ortillo.cam/logo-512x512.png' }],
+        },
+      },
     },
     revalidate: 86400,
   };

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type { FormattedWeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/tfd/weapon/types';
+import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
@@ -22,9 +23,10 @@ interface WeaponDPSProps {
   error: boolean;
   filterMap: WeaponFilterMap;
   weapons: FormattedWeaponData[];
+  seo: NextSeoProps;
 }
 
-const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons }) => {
+const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons, seo }) => {
   const [filteredWeapons, setFilteredWeapons] = useState(weapons);
   const [filter, setFilter] = useState(filterMap);
   const [sortDirection, setSortDirection] = useState(0 as DirectionValues);
@@ -65,7 +67,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons }) => {
 
   return (
     <>
-      <Header />
+      <Header seo={seo} />
       <Container className="weapon-data">
         <div className=" flex flex-col justify-center gap-4 2xl:flex-row">
           <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
@@ -105,10 +107,27 @@ export const getStaticProps = async () => {
   const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
   const filterMap = createFilterMap(defaultFilter) as WeaponFilterMap;
 
+  const title = 'The First Descendant (TFD) Weapon DPS Data Tool';
+  const description = `Tool for filtering and sorting weapons in The First Descendant (TFD).
+    Filters weapons by rarity, rounds, weapon type. 
+    Sorts by Firearm attack (ATK), Magazine Size (Rounds per Magazine), Fire Rate, 
+    Critical Hit Chance, Critical Hit Damage, Weak Point Damage, Reload Time, Status Chance, 
+    Damage per second (DPS), Critical DPS, Critical with Weak Point DPS`;
+
   return {
     props: {
       filterMap,
       weapons: reformatWeaponData(weapons.sort(defaultWeaponSort)),
+      seo: {
+        title,
+        description,
+        openGraph: {
+          url: 'https://ortillo.cam/tfd/',
+          title,
+          description,
+          images: [{ url: 'https://ortillo.cam/logo-512x512.png' }],
+        },
+      },
     },
     revalidate: 86400,
   };

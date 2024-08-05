@@ -1,15 +1,42 @@
+import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
 
-const Index: FC = () => (
+interface IndexProps {
+  seo: NextSeoProps;
+}
+
+const Index: FC<IndexProps> = ({ seo }) => (
   <>
-    <Header />
+    <Header seo={seo} />
     <Container>Work in Progress</Container>
     <Footer />
   </>
 );
+
+export const getStaticProps = async () => {
+  const title = 'The First Descendant (TFD) Helper Site';
+  const description = `Homepage for ortillo.cam/tfd, a helper website for The First Descendant (TFD). 
+    Contains links to Pattern Wishlist, Void Shard/Void Fragment Data, Weapon DPS Data, 
+    Effective Health Points (EHP) Calculator, External Component Data.`;
+
+  return {
+    props: {
+      seo: {
+        title,
+        description,
+        openGraph: {
+          url: 'https://ortillo.cam/tfd/',
+          title,
+          description,
+          images: [{ url: 'https://ortillo.cam/logo-512x512.png' }],
+        },
+      },
+    },
+  };
+};
 
 export default Index;

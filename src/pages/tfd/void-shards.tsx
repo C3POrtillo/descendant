@@ -8,6 +8,7 @@ import type {
   VoidFragmentFilterTypes,
   shardsArray,
 } from '@/components/tfd/void-fragments/types';
+import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
@@ -32,9 +33,10 @@ import { createFilterMap, sortData, titleCase } from '@/utils/utils';
 interface VoidShardProps {
   filterMap: VoidFragmentFilterMap;
   voidFragments: VoidFragmentData[];
+  seo: NextSeoProps;
 }
 
-const VoidShards: FC<VoidShardProps> = ({ filterMap, voidFragments }) => {
+const VoidShards: FC<VoidShardProps> = ({ filterMap, voidFragments, seo }) => {
   const isLargeScreen = use2xlScreen();
   const [filteredRows, setFilteredRows] = useState(voidFragments);
   const [filter, setFilter] = useState(filterMap);
@@ -73,7 +75,7 @@ const VoidShards: FC<VoidShardProps> = ({ filterMap, voidFragments }) => {
 
   return (
     <>
-      <Header />
+      <Header seo={seo} />
       {isLargeScreen ? (
         <Container className="fragment-data subregion-data flex w-3/4 flex-row">
           <div className="flex h-min flex-row flex-wrap justify-center gap-4">
@@ -121,10 +123,24 @@ export const getStaticProps = async () => {
   const defaultFilter = [...attributesArray, ...zonesArray, ...subregionsArray] as VoidFragmentFilterTypes[];
   const filterMap = createFilterMap(defaultFilter) as VoidFragmentFilterMap;
 
+  const title = 'The First Descendant (TFD) Void Shard/Void Fragment Tool';
+  const description = `Tool for filtering or sorting Void Fragment missions in The First Descedant (TFD). 
+    Filters missions based on location, attributes, and shard type.`;
+
   return {
     props: {
       filterMap,
       voidFragments,
+      seo: {
+        title,
+        description,
+        openGraph: {
+          url: 'https://ortillo.cam/tfd/void-shards',
+          title,
+          description,
+          images: [{ url: 'https://ortillo.cam/logo-512x512.png' }],
+        },
+      },
     },
   };
 };
