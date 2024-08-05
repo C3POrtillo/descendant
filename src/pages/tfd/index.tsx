@@ -19,7 +19,7 @@ const Index: FC<IndexProps> = ({ seo }) => (
 
 export const getStaticProps = async () => {
   const title = 'The First Descendant (TFD) Helper Site';
-  const description = `Homepage for ortillo.cam/tfd, a helper website for The First Descendant (TFD). 
+  const description = `A helper website for The First Descendant (TFD). 
     Contains links to Pattern Wishlist, Void Shard/Void Fragment Data, Weapon DPS Data, 
     Effective Health Points (EHP) Calculator, External Component Data.`;
 
