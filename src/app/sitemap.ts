@@ -1,10 +1,10 @@
 import type { MetadataRoute } from 'next';
 
-import { paths } from '@/components/tfd/header/types';
+import { tfd } from '@/utils/paths';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = 'https://ortillo.cam';
-  const tfdPaths = paths.flatMap(data => {
+  const tfdPaths = tfd.flatMap(data => {
     if (data.options && data.label?.length) {
       const { options } = data;
 

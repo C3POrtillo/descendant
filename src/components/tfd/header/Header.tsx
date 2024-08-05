@@ -6,14 +6,14 @@ import type { FC } from 'react';
 import Accordion from '@/components/accordion/Accordion';
 import Dropdown from '@/components/dropdown/Dropdown';
 import TFDLink from '@/components/tfd/header/Link';
-import { paths } from '@/components/tfd/header/types';
+import { tfd } from '@/utils/paths';
 
 interface HeaderProps {
   seo?: NextSeoProps;
 }
 
 const Header: FC<HeaderProps> = ({ seo }) => {
-  const navLinks = paths.slice(1).map(data => {
+  const navLinks = tfd.slice(1).map(data => {
     if (data.options && data.label?.length) {
       const { label, options } = data;
 
@@ -32,8 +32,8 @@ const Header: FC<HeaderProps> = ({ seo }) => {
   });
 
   const homeLink = (
-    <TFDLink className="home-link text-nowrap lg:p-0" path={paths[0].path}>
-      <h1 className="text-2xl font-semibold lg:text-4xl">{paths[0].label}</h1>
+    <TFDLink className="home-link text-nowrap lg:p-0" path={tfd[0].path}>
+      <h1 className="text-2xl font-semibold lg:text-4xl">{tfd[0].label}</h1>
     </TFDLink>
   );
 

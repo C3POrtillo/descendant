@@ -14,5 +14,9 @@ module.exports = {
         pathname: '/static/tfd/**',
       },
     ]
-  }
+  },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  },
 }

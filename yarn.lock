@@ -497,13 +497,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-scroll-sync@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@types/react-scroll-sync/-/react-scroll-sync-0.9.0.tgz#f9c556cc1441b28344f6b820cac34099cab74f2b"
-  integrity sha512-DFJzqtF0lMUNxsKZ9aoFS+LGieGLXWQVWvCMTZWKm/qcGz+GCNTqwdHsnyWW3yy/aNSUxlXCAWdHaemGaES6lQ==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react@*", "@types/react@^18":
   version "18.3.3"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.3.tgz#9679020895318b0915d7a3ab004d92d33375c45f"
@@ -3505,7 +3498,7 @@ proc-log@^3.0.0:
   resolved "https://registry.yarnpkg.com/proc-log/-/proc-log-3.0.0.tgz#fb05ef83ccd64fd7b20bbe9c8c1070fc08338dd8"
   integrity sha512-++Vn7NS4Xf9NacaU9Xq3URUuqZETPsf8L4j5/ckhaRYsfPeRyzGw+iDjFhV/Jr3uNmTvvddEJFWh5R1gRgUH8A==
 
-prop-types@^15.5.7, prop-types@^15.6.1, prop-types@^15.8.1:
+prop-types@^15.6.1, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -3551,13 +3544,6 @@ react-responsive@^10.0.0:
     matchmediaquery "^0.4.2"
     prop-types "^15.6.1"
     shallow-equal "^3.1.0"
-
-react-scroll-sync@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/react-scroll-sync/-/react-scroll-sync-0.11.2.tgz#fe8a3a09eab5a44323bdf0f63283c1dd0cd99b45"
-  integrity sha512-n7m+bbRTSWuczhKQf6Evvl7PFGkTt4RfP4bhyUtUyv6znovpybhAScQDdrFr9Jh280nG39x9AWMY8j477PHL1A==
-  dependencies:
-    prop-types "^15.5.7"
 
 react@^18:
   version "18.3.1"

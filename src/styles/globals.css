@@ -64,13 +64,16 @@
     @apply sticky top-0 z-40;
   }
   .tfd-link, .home-link {
-    @apply hover:text-yellow-200  min-w-max self-center w-full py-1;
-  }
-  .text-link {
-    @apply text-2xl lg:text-xl xl:text-2xl font-semibold;
+    @apply min-w-max self-center w-full py-1;
   }
   .tfd-link {
-    @apply rounded-xl px-4 hover:bg-slate-400;
+    @apply rounded-xl px-4;
+  }
+  .home-link {
+    @apply hover:text-yellow-200;
+  }
+  .text-link {
+    @apply text-2xl lg:text-xl xl:text-2xl font-semibold hover:text-yellow-200 hover:bg-slate-400;
   }
   .disabled-link {
     @apply pointer-events-none text-yellow-200;

@@ -12,7 +12,15 @@ interface IndexProps {
 const Index: FC<IndexProps> = ({ seo }) => (
   <>
     <Header seo={seo} />
-    <Container>Work in Progress</Container>
+    <Container>
+      <div className="flex flex-col justify-center text-center text-lg">
+        <h2 className="text-2xl">to-do (by easiest)</h2>
+        <p>Descendant Data @ 40 w/ pattern data</p>
+        <p>Reactor Data @ 100 w/ substats (like external components)</p>
+        <p>Module Data</p>
+        <p>Weapon Builder @ 100 w/ accurate DPS</p>
+      </div>
+    </Container>
     <Footer />
   </>
 );

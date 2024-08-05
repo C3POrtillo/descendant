@@ -5,7 +5,13 @@ export type PathType = {
   isExternal?: boolean;
 };
 
-export const paths = [
+export const root = [
+  {
+    path: '/tfd',
+  },
+] as const;
+
+export const tfd = [
   {
     path: '',
     label: 'The First Descendant Data',
