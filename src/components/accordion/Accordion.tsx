@@ -11,19 +11,19 @@ interface AccordionProps extends PropsWithChildren {
 }
 
 const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon, children, labelIsClickable }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const [isClickable, _] = useState(labelIsClickable || typeof label === 'string');
   const panelRef = useRef<HTMLDivElement>(null);
   const accordionRef = useRef<HTMLDivElement>(null);
   const panelClasses = 'accordion-panel';
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setOpen(!isOpen);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
     if (accordionRef.current && !accordionRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
+      setOpen(false);
     }
   };
 

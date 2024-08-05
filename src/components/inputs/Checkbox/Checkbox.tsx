@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import type { IconProps } from '@/components/icon/Icon';
 import type { FilterMap, FilterTypes } from '@/components/inputs/types';
 import type { FC, InputHTMLAttributes } from 'react';
@@ -17,6 +19,7 @@ interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filter, setFilter, icon }) => {
+  const [isChecked, setChecked] = useState(filter?.[value as FilterTypes] ?? defaultChecked);
   const id = kebabCase(value);
   const labelValue = getLabelValue(name || '', value);
   const labelClass = name && createLabelClass(name, labelValue);
@@ -33,12 +36,13 @@ const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filte
         className="text-link size-5 self-center rounded border-gray-600 bg-gray-700 ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
         id={id}
         name={value}
-        defaultChecked={defaultChecked}
+        defaultChecked={isChecked}
         onChange={e => {
           if (filter && setFilter) {
             filter[value as FilterTypes] = e.target.checked;
             setFilter({ ...filter });
           }
+          setChecked(e.target.checked);
         }}
       />
       <div className="flex flex-row items-center justify-center gap-1 xl:gap-2">

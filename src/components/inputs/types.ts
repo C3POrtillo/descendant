@@ -1,5 +1,5 @@
 import type { IconProps } from '@/components/icon/Icon';
-import type { BlueprintTypes } from '@/components/tfd/patterns/types';
+import type { BlueprintTypes, MissionTypes } from '@/components/tfd/patterns/types';
 import type { VoidFragmentFilterTypes } from '@/components/tfd/void-fragments/types';
 import type { WeaponFilterTypes } from '@/components/tfd/weapon/types';
 
@@ -18,7 +18,7 @@ export type FilterOptionsData = {
   defaultChecked?: DefaultCheckedType;
 };
 
-export type FilterTypes = WeaponFilterTypes | VoidFragmentFilterTypes | BlueprintTypes;
+export type FilterTypes = WeaponFilterTypes | VoidFragmentFilterTypes | BlueprintTypes | MissionTypes;
 export type FilterMap = Partial<Record<FilterTypes, boolean>>;
 
 export type DirectionValues = 0 | 1 | 2;

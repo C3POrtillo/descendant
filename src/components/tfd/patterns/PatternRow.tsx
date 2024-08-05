@@ -1,7 +1,7 @@
 import type { Pattern } from '@/components/tfd/patterns/types';
 import type { FC } from 'react';
 
-import { getBlueprintClass, getBluerints } from '@/components/tfd/patterns/utils';
+import { getBlueprintClass, getBlueprints } from '@/components/tfd/patterns/utils';
 import { getLabelClass } from '@/utils/utils';
 
 interface RowProps {
@@ -10,7 +10,7 @@ interface RowProps {
 
 const PatternRow: FC<RowProps> = ({ data }) => {
   const { pattern, open, from, variant, vaulted, stealth } = data;
-  const blueprints = getBluerints(data);
+  const blueprints = getBlueprints(data);
   const label = data['38%'] ? 'label-rare' : 'label-ultimate';
   const region = getLabelClass(from.split('\n')[0]);
   const dataArray = [pattern, from, open, ...blueprints];
@@ -18,7 +18,6 @@ const PatternRow: FC<RowProps> = ({ data }) => {
   return (
     <tr>
       {dataArray.map((value, index) => {
-        const widthClass = (3 <= index && index < 6 && 'w-1/6') || (index === 6 && 'w-1/4') || 'w-1/12';
         const patternClass = index === 0 && label;
         const regionClass = 0 < index && index < 3 && region;
         const blueprintClass =
@@ -43,7 +42,7 @@ const PatternRow: FC<RowProps> = ({ data }) => {
         return (
           <td
             key={[pattern, index].join('-')}
-            className={['p-4 text-lg 2xl:text-xl', patternClass, regionClass, blueprintClass, widthClass]
+            className={['p-4 text-lg 2xl:text-xl', patternClass, regionClass, blueprintClass]
               .filter(string => string)
               .join(' ')}
           >

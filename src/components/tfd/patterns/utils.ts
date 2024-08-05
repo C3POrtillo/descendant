@@ -1,5 +1,5 @@
 import type { FilterOptionsData } from '@/components/inputs/types';
-import type { BlueprintFilterMap, Pattern } from '@/components/tfd/patterns/types';
+import type { BlueprintFilterMap, MissionFilterMap, Pattern } from '@/components/tfd/patterns/types';
 
 import { descendantParts, enhance, hardRates, normalRates, weaponParts } from '@/components/tfd/patterns/types';
 
@@ -102,19 +102,27 @@ type FilterCount = {
 };
 
 const getRates = (pattern: Pattern) => (pattern['38%'] ? normalRates : hardRates);
-export const getBluerints = (pattern: Pattern) => {
+export const getBlueprints = (pattern: Pattern) => {
   const keys = getRates(pattern);
 
   return keys.map(key => pattern[key]);
 };
 
-export const filterAndSortPatterns = (patternData: Pattern[], filter: BlueprintFilterMap) => {
+export const filterAndSortPatterns = (
+  patternData: Pattern[],
+  itemFilter: BlueprintFilterMap,
+  missionFilter: MissionFilterMap,
+) => {
   const filteredPatterns = patternData.reduce((acc, pattern) => {
-    const trueCount = getBluerints(pattern)
-      .flatMap(blueprint => blueprint)
-      .filter(blueprint => filter[blueprint]).length;
+    const { type, stealth } = pattern;
+    const isValidMission = missionFilter[type] || (stealth && missionFilter['Stealth']);
+    const trueCount =
+      isValidMission &&
+      getBlueprints(pattern)
+        .flatMap(blueprint => blueprint)
+        .filter(blueprint => itemFilter[blueprint]).length;
 
-    if (trueCount > 0) {
+    if (trueCount && trueCount > 0) {
       acc.push({ pattern, trueCount });
     }
 

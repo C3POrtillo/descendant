@@ -11,12 +11,14 @@ interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   labelSize?: string;
   sublabel?: ReactNode;
   headers?: HeadersType[] | ReactNode;
+  headerWidths?: string[] | readonly string[];
   body?: ReactNode;
   isSticky?: boolean;
   sortDirection?: DirectionValues;
   sortColumn?: string;
   setSortDirection?: React.Dispatch<React.SetStateAction<DirectionValues>>;
   setSortColumn?: React.Dispatch<React.SetStateAction<string>>;
+  isMaxWidth?: boolean;
 }
 
 const Table: FC<TableProps> = ({
@@ -24,6 +26,7 @@ const Table: FC<TableProps> = ({
   labelSize = 'text-2xl md:text-3xl xl:text-4xl 2x:text-5xl',
   sublabel,
   headers,
+  headerWidths,
   body,
   className,
   isSticky,
@@ -31,6 +34,7 @@ const Table: FC<TableProps> = ({
   sortColumn,
   setSortDirection,
   setSortColumn,
+  isMaxWidth,
   ...props
 }) => {
   const isSortHeader = setSortDirection && setSortColumn;
@@ -38,11 +42,12 @@ const Table: FC<TableProps> = ({
   const headersArray =
     headers &&
     !isValidElement(headers) &&
-    (headers as unknown[] as HeadersType[]).map(el => {
+    (headers as unknown[] as HeadersType[]).map((el, index) => {
       const { key, header } = typeof el === 'string' ? { key: el, header: el } : el;
+      const width = headerWidths?.[index];
 
       return (
-        <th key={key} className="h-inherit text-lg lg:text-xl">
+        <th key={key} className={['h-inherit text-lg lg:text-xl', width].filter(string => string).join(' ')}>
           {isSortHeader ? (
             <Button
               id={key}
@@ -63,6 +68,7 @@ const Table: FC<TableProps> = ({
     <fieldset
       className={[
         'overflow-clip rounded-xl border-2 border-solid border-white bg-slate-900 text-3xl shadow-xl shadow-black',
+        isMaxWidth && '2xl:w-full',
         className,
       ]
         .filter(string => string)

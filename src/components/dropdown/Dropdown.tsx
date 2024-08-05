@@ -8,21 +8,21 @@ interface DropdownProps extends PropsWithChildren {
 }
 
 const Dropdown: FC<DropdownProps> = ({ label, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setOpen(!isOpen);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
+      setOpen(false);
     }
   };
 
   const handleChildClick = () => {
-    setIsOpen(false);
+    setOpen(false);
   };
 
   useEffect(() => {

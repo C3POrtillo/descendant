@@ -32,7 +32,7 @@ import {
 import { createFilterMap } from '@/utils/utils';
 
 interface WishlistProps {
-  missionFilterMap: BlueprintFilterMap;
+  missionFilterMap: MissionFilterMap;
   itemFilterMap: BlueprintFilterMap;
   descendantOptions: FilterOptionsData[];
   weaponOptions: FilterOptionsData[];
@@ -50,7 +50,7 @@ const Wishlist: FC<WishlistProps> = ({
   normalPatternData,
   hardPatternData,
 }) => {
-  const [isComponent, setIsComponent] = useState('set-wishlist');
+  const [isComponent, setComponent] = useState('set-wishlist');
   const [missionFilter, setMissionFilter] = useState(missionFilterMap);
   const [itemFilter, setItemFilter] = useState(itemFilterMap);
   const [filteredNormals, setfilteredNormals] = useState(normalPatternData);
@@ -61,9 +61,8 @@ const Wishlist: FC<WishlistProps> = ({
   const isPattern = isComponent === 'patterns';
 
   useEffect(() => {
-    console.log(missionFilter);
-    const normalFilter = filterAndSortPatterns(normalPatternData, itemFilter);
-    const hardFilter = filterAndSortPatterns(hardPatternData, itemFilter);
+    const normalFilter = filterAndSortPatterns(normalPatternData, itemFilter, missionFilter);
+    const hardFilter = filterAndSortPatterns(hardPatternData, itemFilter, missionFilter);
     setfilteredNormals(normalFilter);
     setfilteredHards(hardFilter);
   }, [itemFilter, missionFilter]);
@@ -71,6 +70,8 @@ const Wishlist: FC<WishlistProps> = ({
   const commonProps = {
     className: 'pattern-data',
     isSticky: true,
+    headerWidths: ['w-1/12', 'w-1/12', 'w-1/12', 'w-1/6', 'w-1/6', 'w-1/6', 'w-1/4'],
+    isMaxWidth: true,
   } as const;
 
   const normalProps = {
@@ -91,13 +92,13 @@ const Wishlist: FC<WishlistProps> = ({
       <Header />
       <Container className="mb-0">
         <div className="flex w-min flex-row flex-wrap gap-2 self-center md:flex-nowrap">
-          <Button onClick={() => setIsComponent('set-wishlist')} disabled={isWishlist}>
+          <Button onClick={() => setComponent('set-wishlist')} disabled={isWishlist}>
             Set Wishlist
           </Button>
-          <Button onClick={() => setIsComponent('view-wishlist')} disabled={isFilter}>
+          <Button onClick={() => setComponent('view-wishlist')} disabled={isFilter}>
             View Wishlist
           </Button>
-          <Button onClick={() => setIsComponent('patterns')} disabled={isPattern}>
+          <Button onClick={() => setComponent('patterns')} disabled={isPattern}>
             All Patterns
           </Button>
         </div>
@@ -159,7 +160,9 @@ export const getStaticProps = async () => {
       return;
     }
 
-    extractAndAddToSet(blueprint, descendantParts, descendants) || extractAndAddToSet(blueprint, weaponParts, weapons);
+    if (extractAndAddToSet(blueprint, descendantParts, descendants)) {
+      extractAndAddToSet(blueprint, weaponParts, weapons);
+    }
   });
 
   return {
