@@ -5,11 +5,12 @@ import React, { useState } from 'react';
 import type { FC, ReactNode } from 'react';
 
 interface CarouselProps {
-  width: string;
+  className?: string;
+  width?: string;
   slides: ReactNode[];
 }
 
-const Carousel: FC<CarouselProps> = ({ width = 'max-w-[90vw]', slides }) => {
+const Carousel: FC<CarouselProps> = ({ className, width = 'max-w-[90vw]', slides }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const prevSlide = () => {
@@ -54,6 +55,7 @@ const Carousel: FC<CarouselProps> = ({ width = 'max-w-[90vw]', slides }) => {
     <div
       className={[
         'relative mx-auto flex  flex-col gap-2 rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black',
+        className,
         width,
       ]
         .filter(string => string)
@@ -66,7 +68,7 @@ const Carousel: FC<CarouselProps> = ({ width = 'max-w-[90vw]', slides }) => {
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             className={[
-              'carousel-slide inline-flex w-full shrink-0 px-12',
+              'carousel-slide inline-flex w-full shrink-0 justify-center px-12',
               index === currentIndex ? 'translate-x-0' : 'translate-x-full',
             ]
               .filter(string => string)
