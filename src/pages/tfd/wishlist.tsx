@@ -86,7 +86,7 @@ const Wishlist: FC<WishlistProps> = ({
   const hardProps = {
     label: 'Hard',
     headers: PatternHeaders('hard'),
-    sublabel: <p className="pb-2 text-center text-xl text-yellow-200">Patterns marked with * are stealth only</p>,
+    sublabel: <p className="pb-2 text-center text-lg text-yellow-200 md:text-xl">Patterns marked with * are stealth only</p>,
     ...commonProps,
   } as const;
 
@@ -94,7 +94,7 @@ const Wishlist: FC<WishlistProps> = ({
     <>
       <Header seo={seo} />
       <Container className="mb-0">
-        <div className="flex w-min flex-row flex-wrap gap-2 self-center md:flex-nowrap">
+        <div className="flex w-full flex-col justify-center gap-2 self-center md:w-min md:flex-row">
           <Button onClick={() => setComponent('set-wishlist')} disabled={isWishlist}>
             Set Wishlist
           </Button>
