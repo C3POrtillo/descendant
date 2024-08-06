@@ -33,7 +33,7 @@ const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon,
       if (panelRef.current && accordionRef.current) {
         panelRef.current.style.maxHeight = `${panelRef.current.scrollHeight + 64}px`;
         panelRef.current.style.overflow = 'visible';
-        panelRef.current.className = [panelClasses, panelClassName || 'py-4'].filter(string => string).join(' ');
+        panelRef.current.className = [panelClasses, panelClassName || 'py-4'].join(' ');
       }
     } else {
       document.removeEventListener('click', handleClickOutside);
@@ -60,12 +60,10 @@ const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon,
           className={[
             'text-link inline-flex flex-row items-center justify-between gap-4 rounded-md p-4',
             isClickable && 'w-full',
-          ]
-            .filter(string => string)
-            .join(' ')}
+          ].join(' ')}
         >
           {isClickable && label}
-          <i className={['fa tfd-link-icon self-center', faIcon].filter(string => string).join(' ')} />
+          <i className={['fa tfd-link-icon self-center', faIcon].join(' ')} />
         </button>
       </div>
       <div ref={panelRef} className={panelClasses}>

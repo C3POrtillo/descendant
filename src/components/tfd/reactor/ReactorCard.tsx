@@ -30,9 +30,7 @@ const ReactorCard: FC<ReactorCardProps> = ({ reactor_name, image_url }) => {
         className={[
           'flex flex-row items-center gap-4 whitespace-pre-wrap border-white px-4 text-left text-lg lg:text-xl',
           getLabelClass(type),
-        ]
-          .filter(string => string)
-          .join(' ')}
+        ].join(' ')}
       >
         <Icon src={icon} />
         <div>{reactor_name.split(' ').join('\n')}</div>

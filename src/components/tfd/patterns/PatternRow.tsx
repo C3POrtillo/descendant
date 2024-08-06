@@ -31,9 +31,7 @@ const PatternRow: FC<RowProps> = ({ data }) => {
           value?.map(commonDrop => (
             <div
               key={commonDrop}
-              className={['flex w-1/2 items-center', getLabelClass(getBlueprintClass(commonDrop))]
-                .filter(string => string)
-                .join(' ')}
+              className={['flex w-1/2 items-center', getLabelClass(getBlueprintClass(commonDrop))].join(' ')}
             >
               {commonDrop}
             </div>

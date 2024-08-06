@@ -16,7 +16,7 @@ const Socials: FC = () => (
         target="_blank"
         aria-label={`open cam's ${site} account`}
       >
-        <i className={['fab text-3xl md:before:text-5xl', `fa-${site}`].filter(string => string).join(' ')} />
+        <i className={['fab text-3xl md:before:text-5xl', `fa-${site}`].join(' ')} />
       </Link>
     ))}
   </div>

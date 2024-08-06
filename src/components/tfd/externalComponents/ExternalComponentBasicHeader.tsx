@@ -32,10 +32,7 @@ const ExternalComponentBasicHeader: FC<ExternalComponentBasicHeaderProps> = ({
     {[Standard, Rare, Ultimate].map(
       (array, index) =>
         array && (
-          <div
-            className={['flex flex-row gap-0.5 bg-white', labels[index]].filter(string => string).join(' ')}
-            key={labels[index]}
-          >
+          <div className={['flex flex-row gap-0.5 bg-white', labels[index]].join(' ')} key={labels[index]}>
             {array.map(({ stat_value }) => (
               <div key={stat_value} className="w-1/3 bg-slate-800 px-2  py-0.5  text-xl">
                 {stat_value}

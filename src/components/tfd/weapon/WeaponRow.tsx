@@ -41,7 +41,7 @@ const WeaponRow: FC<FormattedWeaponData> = ({
         </td>
       ))}
       {[baseDps, criticalDps, criticalWWeakPointDps].map(value => (
-        <td className={[tdClasses].filter(string => string).join(' ')} key={value}>
+        <td className={tdClasses} key={value}>
           {delimitNumber(value)}
         </td>
       ))}

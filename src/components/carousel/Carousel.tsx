@@ -70,9 +70,7 @@ const Carousel: FC<CarouselProps> = ({ className, width = 'max-w-[90vw]', slides
             className={[
               'carousel-slide inline-flex w-full shrink-0 justify-center px-12',
               index === currentIndex ? 'translate-x-0' : 'translate-x-full',
-            ]
-              .filter(string => string)
-              .join(' ')}
+            ].join(' ')}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {slide}

@@ -30,7 +30,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({
   const gridSize = getCheckboxContainerClasses(checkboxContainerClasses, data.length);
 
   const checkboxContainer = (
-    <div className={['grid w-full text-lg', gridSize].filter(string => string).join(' ')}>
+    <div className={['grid w-full text-lg', gridSize].join(' ')}>
       {data.map(({ label: checkboxLabel, value, icon }, index) => (
         <Checkbox
           key={value}
@@ -47,9 +47,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({
   );
 
   return isLargeScreen ? (
-    <fieldset
-      className={['input-hover w-max grow px-2 py-4', checkboxBorderClasses].filter(string => string).join(' ')}
-    >
+    <fieldset className={['input-hover w-max grow px-2 py-4', checkboxBorderClasses].join(' ')}>
       <legend className="px-4 text-center">
         <h2>{label}</h2>
       </legend>

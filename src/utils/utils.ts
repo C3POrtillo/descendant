@@ -81,7 +81,7 @@ export const addSuffixToValue = (value: string | number, string: string) => `${v
 
 export const getBackgroundClass = (tier: TiersType): string => `bg-${kebabCase(tier)}`;
 
-export const getLabelClass = (tier: string): string => `label-${kebabCase(tier)}`;
+export const getLabelClass = (name: string): string => `label-${kebabCase(name)}`;
 
 export const createLabelClass = (name: string, value: string): string => {
   switch (name) {

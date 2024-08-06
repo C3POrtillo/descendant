@@ -76,7 +76,7 @@ const Table: FC<TableProps> = ({
     >
       {label && (
         <>
-          <legend className={['mx-auto px-2 py-4 text-center sm:px-4', labelSize].filter(string => string).join(' ')}>
+          <legend className={['mx-auto px-2 py-4 text-center sm:px-4', labelSize].join(' ')}>
             <h2>{label}</h2>
           </legend>
           {sublabel && sublabel}
