@@ -14,10 +14,10 @@ export const root = [
 export const tfd = [
   {
     path: '',
-    label: 'The First Descendant Data',
+    label: 'The First Descendant Assistant',
   },
   {
-    label: 'Charts',
+    label: 'Data',
     options: [
       {
         path: '/dps',
