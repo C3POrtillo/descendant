@@ -58,8 +58,8 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
             <h2 className="text-3xl md:text-4xl">Reactor Stats</h2>
           </legend>
           <div className="p-4">
-            <div className="hidden grid-cols-5 gap-4 lg:grid">{reactorCards}</div>
-            <Carousel slides={reactorCards} className="lg:hidden" width="max-w-[85vw] sm:max-w-[50vw]" />
+            <div className="hidden grid-cols-5 gap-4 xl:grid">{reactorCards}</div>
+            <Carousel slides={reactorCards} className="xl:hidden" width="max-w-[85vw] sm:max-w-[50vw]" />
           </div>
           <div className="grid grid-cols-2 border-y-2 border-white text-center text-xl">
             {Object.entries(reactorAttackStats).map(([label, stat]) => (
@@ -84,7 +84,7 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
         </fieldset>
       </Container>
       <Container>
-        <fieldset className="reactor-data flex w-full flex-col justify-center gap-4 rounded-xl border-2 border-white bg-slate-900 p-4 text-center">
+        <fieldset className="reactor-data flex w-full flex-col justify-center gap-4 rounded-xl border-2 border-white bg-slate-900 p-4 text-center sm:w-auto">
           <legend className="px-2 sm:px-4">
             <h2 className="text-3xl md:text-4xl">Reactor Types</h2>
           </legend>
@@ -96,7 +96,7 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
               No Descendant benefits from reactors marked in <span className="text-red-400">red</span>
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-2 text-lg md:grid-cols-2 md:text-xl lg:grid-cols-4">{reactorCombos}</div>
+          <div className="grid grid-cols-1 gap-2 text-lg sm:text-xl md:grid-cols-2 lg:grid-cols-4">{reactorCombos}</div>
         </fieldset>
       </Container>
       <Footer />
