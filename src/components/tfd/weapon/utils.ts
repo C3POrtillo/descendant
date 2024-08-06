@@ -1,4 +1,4 @@
-import type { FormattedWeaponData, WeaponData } from '@/components/tfd/weapon/types';
+import type { FormattedWeaponData, WeaponAPIData } from '@/components/tfd/weapon/types';
 
 import { statData, weaponRounds } from '@/components/tfd/weapon/types';
 import { stringCompare } from '@/utils/utils';
@@ -27,7 +27,7 @@ export const createWeaponLabel = (value: string) => {
   return rounds;
 };
 
-export const reformatWeaponData = (weaponData: WeaponData[]): FormattedWeaponData[] =>
+export const reformatWeaponData = (weaponData: WeaponAPIData[]): FormattedWeaponData[] =>
   weaponData.map(
     ({ image_url, weapon_id, weapon_name, weapon_rounds_type, weapon_tier, weapon_type, firearm_atk, base_stat }) => {
       const firearmAtk = firearm_atk[99].firearm[0].firearm_atk_value;
@@ -74,7 +74,7 @@ export const reformatWeaponData = (weaponData: WeaponData[]): FormattedWeaponDat
     },
   );
 
-export const defaultWeaponSort = (a: WeaponData, b: WeaponData) => {
+export const defaultWeaponSort = (a: WeaponAPIData, b: WeaponAPIData) => {
   const compare = ['weapon_rounds_type', 'weapon_type', 'weapon_name'] as const;
 
   for (const key of compare) {

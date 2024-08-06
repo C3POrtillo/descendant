@@ -94,7 +94,7 @@ export const weaponOptions: FilterOptionsData[] = [
   },
 ] as const;
 
-export type WeaponData = {
+export type WeaponAPIData = {
   base_stat: BaseStat[];
   firearm_atk: FirearmAtk[];
   image_url: string;

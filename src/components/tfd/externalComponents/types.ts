@@ -53,7 +53,7 @@ type SetOptionData = {
   set_option_effect: string;
 };
 
-type BaseData = {
+type ExternalComponentAPIData = {
   external_component_id: string;
   external_component_name: string;
   image_url: string;
@@ -77,11 +77,11 @@ export const mainStats = Object.values(mainStatMap) as MainStatTypes[];
 
 export type MainStatMapKeys = keyof typeof mainStatMap;
 
-export type ExternalComponentData = BaseData & {
+export type ExternalComponentData = ExternalComponentAPIData & {
   base_stat: ExternalComponentBaseStat[];
 };
 
-export type FormattedExternalComponentData = BaseData & {
+export type FormattedExternalComponentData = ExternalComponentAPIData & {
   stat: BaseStat;
 };
 

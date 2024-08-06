@@ -128,7 +128,7 @@ export const getStaticProps = async () => {
   const sortedData = getSortedExternalComponentData(components);
 
   const basicComponents = {} as FormattedBasicData;
-  const setComponents: FormattedExternalComponentData[] = [];
+  const setComponents = [] as FormattedExternalComponentData[];
 
   sortedData.forEach(component => {
     if (component.set_option_detail?.[0]) {
