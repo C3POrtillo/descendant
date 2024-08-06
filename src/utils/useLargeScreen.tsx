@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 const use2xlScreen = () => {
-  const [largeScreen, setlargeScreen] = useState(true);
-  const isLargeScreen = useMediaQuery({ query: '(min-width: 1536px)' });
+  const [xxlScreen, setxxlScreen] = useState(true);
+  const isXxlScreen = useMediaQuery({ query: '(min-width: 1536px)' });
 
   useEffect(() => {
-    setlargeScreen(isLargeScreen);
+    setxxlScreen(isXxlScreen);
   }, []);
 
   useEffect(() => {
-    setlargeScreen(isLargeScreen);
-  }, [isLargeScreen]);
+    setxxlScreen(isXxlScreen);
+  }, [isXxlScreen]);
 
-  return largeScreen;
+  return xxlScreen;
 };
 
 export default use2xlScreen;
