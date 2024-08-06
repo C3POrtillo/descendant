@@ -32,9 +32,11 @@ export const reformatWeaponData = (weaponData: WeaponData[]): FormattedWeaponDat
     ({ image_url, weapon_id, weapon_name, weapon_rounds_type, weapon_tier, weapon_type, firearm_atk, base_stat }) => {
       const firearmAtk = firearm_atk[99].firearm[0].firearm_atk_value;
       const filteredStats = base_stat
-        .filter(({ stat_id }) => Object.keys(statData).includes(stat_id))
+        .filter(({ stat_id }) => stat_id && Object.keys(statData).includes(stat_id))
         .reduce((acc: Record<string, number>, { stat_id, stat_value }) => {
-          acc[stat_id] = stat_value;
+          if (stat_id) {
+            acc[stat_id] = stat_value;
+          }
 
           return acc;
         }, {});

@@ -22,7 +22,8 @@ export const socials = [
 ] as const;
 
 export type BaseStat = {
-  stat_id: string;
+  stat_id?: string;
+  stat_type?: string;
   stat_value: number;
 };
 

@@ -1,10 +1,9 @@
 import Image from 'next/image';
 
 import type {
-  ExternalComponentStatType,
   FormattedExternalComponentData,
 } from '@/components/tfd/externalComponents/types';
-import type { TiersType } from '@/utils/types';
+import type { BaseStat, TiersType } from '@/utils/types';
 import type { FC } from 'react';
 
 import { getBackgroundClass, getLabelClass } from '@/utils/utils';
@@ -13,7 +12,7 @@ interface ExternalComponentCardProps extends Partial<FormattedExternalComponentD
   external_component_name: string;
   image_url: string;
   external_component_tier: TiersType;
-  stat: ExternalComponentStatType;
+  stat: BaseStat;
 }
 
 const ExternalComponentCard: FC<ExternalComponentCardProps> = ({

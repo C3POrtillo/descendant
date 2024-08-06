@@ -81,20 +81,15 @@ export type ExternalComponentData = BaseData & {
   base_stat: ExternalComponentBaseStat[];
 };
 
-export type ExternalComponentStatType = {
-  stat_id: MainStatTypes;
-  stat_value: number;
-};
-
 export type FormattedExternalComponentData = BaseData & {
-  stat: ExternalComponentStatType;
+  stat: BaseStat;
 };
 
 export type BasicDataType = {
   image_url: string;
-  Standard?: ExternalComponentStatType[];
-  Rare?: ExternalComponentStatType[];
-  Ultimate?: ExternalComponentStatType[];
+  Standard?: BaseStat[];
+  Rare?: BaseStat[];
+  Ultimate?: BaseStat[];
 };
 
 export type FormattedBasicData = Record<ExternalComponentTypes, BasicDataType>;
