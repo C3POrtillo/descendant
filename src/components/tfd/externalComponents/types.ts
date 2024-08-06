@@ -120,39 +120,3 @@ export const filterOptions: FilterOptionsData[] = [
 
 type ExternalComponentsFilterTypes = ExternalComponentTypes | TiersType;
 export type ExternalComponentsFilterMap = Partial<Record<ExternalComponentsFilterTypes, boolean | undefined>>;
-
-export const reactorStats = {
-  ultimate: {
-    skillPower: 11060.96,
-    subAttackPower: 20557,
-    skillBoost: '160%',
-  },
-  rare: {
-    skillPower: 11060.96,
-    subAttackPower: 20557,
-    skillBoost: '140%',
-  },
-  subStats: [
-    'Skill Effect Range',
-    'Skill Duration Down',
-    'Skill Cooldown',
-    'Skill Cost',
-    'Skill Critical Hit Rate',
-    'Skill Critical Hit Damage',
-    'Chill Skill Power Boost Ratio',
-    'Electric Skill Power Boost Ratio',
-    'Fire Skill Power Boost Ratio',
-    'Non-Attribute Skill Power Boost Ratio',
-    'Toxic Skill Power Boost Ratio',
-    'Dimension Skill Power Boost Ratio',
-    'Fusion Skill Power Boost Ratio',
-    'Singular Skill Power Boost Ratio',
-    'Tech Skill Power Boost Ratio',
-    'Sub Attack Power Modifier',
-    'Hp Heal Modifier',
-    'Additional Skill ATK When Attacking Colossus',
-    'Additional Skill ATK When Attacking Legion of Immortaility',
-    'Additional Skill ATK When Attacking Legion of Darkness',
-    'Additional Skill ATK When Attacking Order of Truth',
-  ],
-} as const;
