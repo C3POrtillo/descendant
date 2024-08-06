@@ -4,10 +4,10 @@
 
 @layer base {
   html {
-    @apply text-white font-semibold font-sans snap-y text-outline;
+    @apply text-white font-semibold font-sans snap-y text-shadow-black-outline;
   }
   button {
-    @apply text-outline;
+    @apply text-shadow-black-outline;
   }
   body {
    @apply h-[100vh] bg-slate-600; 
@@ -18,11 +18,12 @@
 }
 
 @layer components {
+
   section {
     @apply flex w-full max-w-[90%] scroll-mt-[84px] lg:scroll-mt-[128px] xl:scroll-mt-[-132px] content-center justify-center gap-4 place-self-center mx-auto my-8;
   }
   legend {
-    @apply text-outline;
+    @apply text-shadow-black-outline;
   }
   thead th {
     @apply min-w-32 whitespace-pre-line bg-slate-900;
@@ -218,12 +219,5 @@
   .rounded-square:before {
     @apply bg-slate-900 absolute size-9 rounded-md top-[-2px] left-[-2px];
     content: '';
-  }
-  .text-outline {
-    text-shadow: 
-      1px 1px 0 black,
-      -1px 1px 0 black,
-      -1px -1px 0 black,
-      1px -1px 0 black; 
   }
 }

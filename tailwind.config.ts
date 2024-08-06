@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss/plugin';
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -23,8 +25,30 @@ module.exports = {
       },
       height: {
         inherit: 'inherit',
-      }
+      },
+      textShadow: {
+        'black-outline': `1px 1px 0 black,
+          -1px 1px 0 black,
+          -1px -1px 0 black,
+          1px -1px 0 black`
+      },
+      'outline': `1px 1px 0 (--tw-shadow-color),
+        -1px 1px 0 (--tw-shadow-color),
+        -1px -1px 0 (--tw-shadow-color),
+        1px -1px 0 (--tw-shadow-color)`
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'), 
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          'text-shadow': (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    }),
+  ],
 };
