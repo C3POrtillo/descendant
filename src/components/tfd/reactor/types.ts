@@ -1,12 +1,10 @@
+import type { TiersType } from '@/utils/types';
+
 export const reactorStats = {
   ultimate: {
-    skillPower: 11060.96,
-    subAttackPower: 20557,
     skillBoost: '160%',
   },
   rare: {
-    skillPower: 11060.96,
-    subAttackPower: 20557,
     skillBoost: '140%',
   },
   subStats: [
@@ -34,7 +32,25 @@ export const reactorStats = {
   ],
 } as const;
 
-export const reactorArcheTypes = [
+type ReactorSkillPowerType = {
+  level: number;
+  skill_atk_power: number;
+  sub_skill_atk_power: number;
+};
+
+export type ReactorAPIData = {
+  reactor_name: string;
+  image_url: string;
+  reactor_tier: TiersType;
+  reactor_skill_power: ReactorSkillPowerType[];
+};
+
+export type FormattedReactorData = ReactorSkillPowerType & {
+  reactor_name: string;
+  image_url: string;
+};
+
+export const reactorArches = [
   {
     name: 'Singularity',
     type: 'Singular',
@@ -57,7 +73,7 @@ export const reactorArcheTypes = [
   },
 ] as const;
 
-export const reactorAttributeTypes = [
+export const reactorAttributes = [
   {
     name: 'Materialized',
     type: 'Non-attribute',
@@ -84,6 +100,17 @@ export const reactorAttributeTypes = [
     icon: '/assets/images/attribute/.png',
   },
 ] as const;
+
+export type ReactorArchesType = (typeof reactorArches)[number]['name'];
+export type ReactorAttributesType = (typeof reactorAttributes)[number]['name'];
+
+export const nameToAttribute = {
+  Frozen: 'chill',
+  Burning: 'fire',
+  Tingling: 'electric',
+  Materialized: 'non-attribute',
+  Toxic: 'toxic',
+};
 
 export const unusedCombinations = [
   'Frozen Singularity',
