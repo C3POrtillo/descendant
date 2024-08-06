@@ -30,12 +30,15 @@ module.exports = {
         'black-outline': `1px 1px 0 black,
           -1px 1px 0 black,
           -1px -1px 0 black,
-          1px -1px 0 black`
-      },
-      'outline': `1px 1px 0 (--tw-shadow-color),
+          1px -1px 0 black`,
+        outline: `1px 1px 0 (--tw-shadow-color),
         -1px 1px 0 (--tw-shadow-color),
         -1px -1px 0 (--tw-shadow-color),
         1px -1px 0 (--tw-shadow-color)`
+      },
+      borderWidth: {
+        '1': '1px',
+      }
     },
   },
   plugins: [
