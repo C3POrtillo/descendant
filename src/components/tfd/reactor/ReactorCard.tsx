@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 import type { FC } from 'react';
 
+import Icon from '@/components/icon/Icon';
 import { type ReactorAttributesType, reactorAttributes } from '@/components/tfd/reactor/types';
 import { getLabelClass } from '@/utils/utils';
-import Icon from '@/components/icon/Icon';
 
 interface ReactorCardProps {
   reactor_name: string;
@@ -15,7 +15,7 @@ const ReactorCard: FC<ReactorCardProps> = ({ reactor_name, image_url }) => {
   const { type, icon } = reactorAttributes[reactor_name.split(' ')[0] as ReactorAttributesType];
 
   return (
-    <div className="flex w-full flex-col gap-2 overflow-hidden rounded-lg border-2 border-white bg-slate-900 pb-2 text-center shadow-md shadow-black">
+    <div className="flex w-full flex-col gap-2 overflow-hidden rounded-lg border-2 border-white bg-slate-900 pb-2 shadow-md shadow-black">
       <div className="reactor-image bg-mixed relative">
         <Image
           src={image_url}

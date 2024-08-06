@@ -46,28 +46,24 @@ export type FormattedReactorData = ReactorSkillPowerType & {
   image_url: string;
 };
 
-export const reactorArches = [
-  {
-    name: 'Singularity',
+export const reactorArches = {
+  Singularity: {
     type: 'Singular',
     icon: '/assets/images/archeType/singular.png',
   },
-  {
-    name: 'Phase',
+  Phase: {
     type: 'Dimension',
     icon: '/assets/images/archeType/dimension.png',
   },
-  {
-    name: 'Mixture',
+  Mixture: {
     type: 'Fusion',
     icon: '/assets/images/archeType/fusion.png',
   },
-  {
-    name: 'Mechanics',
+  Mechanics: {
     type: 'Tech',
     icon: '/assets/images/archeType/tech.png',
   },
-] as const;
+} as const;
 
 export const reactorAttributes = {
   Materialized: {
@@ -92,13 +88,13 @@ export const reactorAttributes = {
   },
 } as const;
 
-export type ReactorArchesType = (typeof reactorArches)[number]['name'];
+export type ReactorArchesType = keyof typeof reactorArches;
 export type ReactorAttributesType = keyof typeof reactorAttributes;
 
 export const unusedCombinations = [
-  'Frozen Singularity',
-  'Frozen Phase',
-  'Tingling Mechanics',
-  'Toxic Singularity',
-  'Toxic Mixture',
+  'Frozen\nSingularity',
+  'Frozen\nPhase',
+  'Tingling\nMechanics',
+  'Toxic\nSingularity',
+  'Toxic\nMixture',
 ];
