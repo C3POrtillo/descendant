@@ -1,9 +1,6 @@
 import axios from 'axios';
 
-import type {
-  FormattedReactorData,
-  ReactorAPIData,
-} from '@/components/tfd/reactor/types';
+import type { FormattedReactorData, ReactorAPIData } from '@/components/tfd/reactor/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -32,8 +29,8 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
   const reactorCombos = Object.entries(reactorAttributes).flatMap(([name, { type, icon }]) =>
     Object.entries(reactorArches).map(([archeName, { icon: archeIcon }]) => {
       const labelClass = getLabelClass(type);
-      const label = [name, archeName].join('\n')
-      const borderClass = unusedCombinations.includes(label) ? 'border-red-400' : 'border-white'
+      const label = [name, archeName].join('\n');
+      const borderClass = unusedCombinations.includes(label) ? 'border-red-400' : 'border-white';
 
       return (
         <div
@@ -92,8 +89,12 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
             <h2 className="text-3xl md:text-4xl">Reactor Types</h2>
           </legend>
           <div className="flex flex-col text-xl">
-            <p>As of <span className="text-yellow-200">{date}</span></p>
-            <p>No Descendant benefits from reactors marked in <span className="text-red-400">red</span></p>
+            <p>
+              As of <span className="text-yellow-200">{date}</span>
+            </p>
+            <p>
+              No Descendant benefits from reactors marked in <span className="text-red-400">red</span>
+            </p>
           </div>
           <div className="grid grid-cols-1 gap-2 text-lg md:grid-cols-2 md:text-xl lg:grid-cols-4">{reactorCombos}</div>
         </fieldset>
