@@ -69,44 +69,31 @@ export const reactorArches = [
   },
 ] as const;
 
-export const reactorAttributes = [
-  {
-    name: 'Materialized',
+export const reactorAttributes = {
+  'Materialized': {
     type: 'Non-attribute',
     icon: '/assets/images/attribute/non-attribute.png',
   },
-  {
-    name: 'Frozen',
+  'Frozen': {
     type: 'Chill',
     icon: '/assets/images/attribute/chill.png',
   },
-  {
-    name: 'Burning',
+  'Burning': {
     type: 'Fire',
     icon: '/assets/images/attribute/fire.png',
   },
-  {
-    name: 'Tingling',
+  'Tingling': {
     type: 'Electric',
     icon: '/assets/images/attribute/electric.png',
   },
-  {
-    name: 'Toxic',
+  'Toxic': {
     type: 'Toxic',
     icon: '/assets/images/attribute/.png',
   },
-] as const;
+} as const;
 
 export type ReactorArchesType = (typeof reactorArches)[number]['name'];
-export type ReactorAttributesType = (typeof reactorAttributes)[number]['name'];
-
-export const nameToAttribute = {
-  Frozen: 'chill',
-  Burning: 'fire',
-  Tingling: 'electric',
-  Materialized: 'non-attribute',
-  Toxic: 'toxic',
-};
+export type ReactorAttributesType = (keyof typeof reactorAttributes);
 
 export const unusedCombinations = [
   'Frozen Singularity',

@@ -1,9 +1,8 @@
 import Image from 'next/image';
 
-import type { ReactorAttributesType } from '@/components/tfd/reactor/types';
+import { reactorAttributes, type ReactorAttributesType } from '@/components/tfd/reactor/types';
 import type { FC } from 'react';
 
-import { nameToAttribute } from '@/components/tfd/reactor/types';
 import { getLabelClass } from '@/utils/utils';
 
 interface ReactorCardProps {
@@ -26,7 +25,7 @@ const ReactorCard: FC<ReactorCardProps> = ({ reactor_name, image_url }) => (
     <div
       className={[
         'flex flex-col whitespace-pre-wrap border-white px-4 text-lg lg:text-xl',
-        getLabelClass(nameToAttribute[reactor_name.split(' ')[0] as ReactorAttributesType]),
+        getLabelClass(reactorAttributes[reactor_name.split(' ')[0] as ReactorAttributesType].type),
       ]
         .filter(string => string)
         .join(' ')}
