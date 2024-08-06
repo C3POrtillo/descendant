@@ -54,14 +54,16 @@ const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon,
   return (
     <div
       ref={accordionRef}
-      className={['flex w-full flex-col overflow-hidden', className].filter(string => string).join(' ')}
+      className={['flex w-full flex-col', className].filter(string => string).join(' ')}
     >
-      <div className="flex w-full flex-row items-center justify-between p-4 md:px-6">
-        {!isClickable && label}
+      <div className="flex w-full flex-row items-center justify-between md:px-6">
+        {!isClickable && <div className="p-4">
+          {label}
+        </div>}
         <button
           onClick={toggleDropdown}
           className={[
-            'text-link inline-flex flex-row items-center justify-between gap-4 rounded-md',
+            'text-link inline-flex flex-row items-center justify-between gap-4 rounded-md p-4',
             isClickable && 'w-full',
           ]
             .filter(string => string)
