@@ -1,12 +1,8 @@
 import type { TiersType } from '@/utils/types';
 
 export const reactorStats = {
-  ultimate: {
-    skillBoost: '160%',
-  },
-  rare: {
-    skillBoost: '140%',
-  },
+  ultimate: '160%',
+  rare: '140%',
   subStats: [
     'Skill Effect Range',
     'Skill Duration Down',
@@ -14,10 +10,10 @@ export const reactorStats = {
     'Skill Cost',
     'Skill Critical Hit Rate',
     'Skill Critical Hit Damage',
+    'Non-Attribute Skill Power Boost Ratio',
+    'Fire Skill Power Boost Ratio',
     'Chill Skill Power Boost Ratio',
     'Electric Skill Power Boost Ratio',
-    'Fire Skill Power Boost Ratio',
-    'Non-Attribute Skill Power Boost Ratio',
     'Toxic Skill Power Boost Ratio',
     'Dimension Skill Power Boost Ratio',
     'Fusion Skill Power Boost Ratio',

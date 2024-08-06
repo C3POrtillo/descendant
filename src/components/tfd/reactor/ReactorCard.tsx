@@ -25,13 +25,13 @@ const ReactorCard: FC<ReactorCardProps> = ({ reactor_name, image_url }) => (
     </div>
     <div
       className={[
-        'mx-2 flex flex-col border-white text-lg lg:text-xl',
+        'flex flex-col whitespace-pre-wrap border-white px-4 text-lg lg:text-xl',
         getLabelClass(nameToAttribute[reactor_name.split(' ')[0] as ReactorAttributesType]),
       ]
         .filter(string => string)
         .join(' ')}
     >
-      {reactor_name}
+      {reactor_name.split(' ').join('\n')}
     </div>
   </div>
 );

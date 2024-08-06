@@ -31,6 +31,10 @@ export const tfd = [
         path: '/external-components',
         label: 'External Components',
       },
+      {
+        path: '/reactors',
+        label: 'Reactors',
+      },
     ],
   },
   {
