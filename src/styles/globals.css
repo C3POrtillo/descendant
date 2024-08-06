@@ -158,7 +158,7 @@
       @apply text-slate-200;
     }
   }
-  .weapon-data, .external-component-data, .pattern-data { 
+  .weapon-data, .external-component-data, .pattern-data, .reactor-data { 
     .bg-standard {
       @apply bg-tier-gradient from-blue-400 via-black to-blue-400;
     }
@@ -167,6 +167,9 @@
     }
     .bg-ultimate {
       @apply bg-tier-gradient from-yellow-200 via-black to-yellow-200;
+    }
+    .bg-mixed {
+      @apply bg-tier-gradient from-yellow-200 via-black to-purple-500;
     }
     .label-standard {
       @apply text-blue-400;
@@ -194,7 +197,7 @@
     height: 128px;
     min-width: auto;
   }
-  .external-component-image {
+  .external-component-image, .reactor-image {
     height: 128px;
     min-width: 128px;
   }
