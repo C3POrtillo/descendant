@@ -95,7 +95,7 @@ const Wishlist: FC<WishlistProps> = ({
   return (
     <>
       <Header seo={seo} />
-      <Container className="mb-0">
+      <Container>
         <div className="flex w-full flex-col justify-center gap-2 self-center md:w-min md:flex-row">
           <Button onClick={() => setComponent('set-wishlist')} disabled={isWishlist}>
             Set Wishlist
@@ -117,7 +117,7 @@ const Wishlist: FC<WishlistProps> = ({
       </Container>
       {(isFilter || isPattern) && (
         <>
-          <Container className="mb-0">
+          <Container>
             <div>
               <FilterOptions
                 filterOptions={missionOptions}
@@ -145,7 +145,7 @@ const Wishlist: FC<WishlistProps> = ({
           </Container>
         </>
       )}
-      <Container className="m-0 flex grow flex-col" />
+      <Container className="flex grow flex-col" />
       <Footer />
     </>
   );

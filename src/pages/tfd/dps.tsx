@@ -73,14 +73,13 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons, seo }) => {
           <FilterOptions filterOptions={weaponOptions} filter={filter} setFilter={setFilter} />
         </div>
       </Container>
-      <Container>
+      <Container className="weapon-data">
         <Table
           label="Weapon DPS Chart"
           headers={WeaponHeaders()}
           body={filteredWeapons.map(row => (
             <WeaponRow key={row.weapon_id} {...row} />
           ))}
-          className="weapon-data"
           sortDirection={sortDirection}
           sortColumn={sortColumn}
           setSortDirection={setSortDirection}

@@ -18,9 +18,8 @@
 }
 
 @layer components {
-
   section {
-    @apply flex w-full max-w-[90%] scroll-mt-[84px] lg:scroll-mt-[128px] xl:scroll-mt-[-132px] content-center justify-center gap-4 place-self-center mx-auto my-8;
+    @apply flex w-full max-w-[90%] scroll-mt-[84px] lg:scroll-mt-[128px] xl:scroll-mt-[-132px] content-center justify-center gap-4 place-self-center mx-auto;
   }
   legend {
     @apply text-shadow-black-outline;
