@@ -25,7 +25,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
 }) => (
   <div className="external-component-data flex max-h-min w-full flex-col gap-2 overflow-hidden rounded-lg  border-2 border-white bg-slate-900 pb-2 text-center shadow-md shadow-black">
     <div
-      className={['external-component-image relative ', getBackgroundClass(external_component_tier)]
+      className={['external-component-image relative', getBackgroundClass(external_component_tier)]
         .filter(string => string)
         .join(' ')}
     >
