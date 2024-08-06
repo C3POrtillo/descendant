@@ -88,7 +88,6 @@ export const reactorAttributes = {
   },
 } as const;
 
-export type ReactorArchesType = keyof typeof reactorArches;
 export type ReactorAttributesType = keyof typeof reactorAttributes;
 
 export const unusedCombinations = [
