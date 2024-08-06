@@ -86,7 +86,9 @@ const Wishlist: FC<WishlistProps> = ({
   const hardProps = {
     label: 'Hard',
     headers: PatternHeaders('hard'),
-    sublabel: <p className="pb-2 text-center text-lg text-yellow-200 md:text-xl">Patterns marked with * are stealth only</p>,
+    sublabel: (
+      <p className="pb-2 text-center text-lg text-yellow-200 md:text-xl">Patterns marked with * are stealth only</p>
+    ),
     ...commonProps,
   } as const;
 
