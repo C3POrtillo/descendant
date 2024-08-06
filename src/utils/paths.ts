@@ -27,11 +27,11 @@ export const tfd = [
         path: '/void-shards',
         label: 'Void Fragments',
       },
+      {
+        path: '/external-components',
+        label: 'External Components',
+      },
     ],
-  },
-  {
-    path: '/external-components',
-    label: 'External Components',
   },
   {
     path: '/wishlist',
