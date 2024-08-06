@@ -29,7 +29,7 @@ import Header from '@/components/tfd/header/Header';
 import { tiers } from '@/utils/types';
 import { createFilterMap, sortData } from '@/utils/utils';
 
-interface ExternalComponentProps {
+interface ExternalComponentsProps {
   filterMap: ExternalComponentsFilterMap;
   error: boolean;
   formattedBasicComponents: FormattedBasicData;
@@ -37,7 +37,7 @@ interface ExternalComponentProps {
   seo: NextSeoProps;
 }
 
-const ExternalComponents: FC<ExternalComponentProps> = ({
+const ExternalComponents: FC<ExternalComponentsProps> = ({
   filterMap,
   error,
   formattedBasicComponents,

@@ -30,13 +30,13 @@ import { attributesArray } from '@/utils/attributes/types';
 import use2xlScreen from '@/utils/useLargeScreen';
 import { createFilterMap, sortData, titleCase } from '@/utils/utils';
 
-interface VoidShardProps {
+interface VoidShardsProps {
   filterMap: VoidFragmentFilterMap;
   voidFragments: VoidFragmentData[];
   seo: NextSeoProps;
 }
 
-const VoidShards: FC<VoidShardProps> = ({ filterMap, voidFragments, seo }) => {
+const VoidShards: FC<VoidShardsProps> = ({ filterMap, voidFragments, seo }) => {
   const isLargeScreen = use2xlScreen();
   const [filteredRows, setFilteredRows] = useState(voidFragments);
   const [filter, setFilter] = useState(filterMap);
