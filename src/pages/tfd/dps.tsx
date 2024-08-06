@@ -15,7 +15,7 @@ import Header from '@/components/tfd/header/Header';
 import WeaponHeaders from '@/components/tfd/weapon/WeaponHeaders';
 import WeaponRow from '@/components/tfd/weapon/WeaponRow';
 import { roundsArray, weaponArray, weaponFilterKeys, weaponOptions } from '@/components/tfd/weapon/types';
-import { defaultWeaponSort, reformatWeaponData } from '@/components/tfd/weapon/utils';
+import { reformatWeaponData } from '@/components/tfd/weapon/utils';
 import { tiers } from '@/utils/types';
 import { camelCase, createFilterMap, sortData } from '@/utils/utils';
 
@@ -116,7 +116,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       filterMap,
-      weapons: reformatWeaponData(weapons.sort(defaultWeaponSort)),
+      weapons: reformatWeaponData(weapons),
       seo: {
         title,
         description,

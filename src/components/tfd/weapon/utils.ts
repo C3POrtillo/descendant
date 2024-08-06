@@ -27,8 +27,22 @@ export const createWeaponLabel = (value: string) => {
   return rounds;
 };
 
+const defaultWeaponSort = (a: WeaponAPIData, b: WeaponAPIData) => {
+  const compare = ['weapon_rounds_type', 'weapon_type', 'weapon_name'] as const;
+
+  for (const key of compare) {
+    const result = stringCompare(a[key], b[key]);
+
+    if (result !== 0) {
+      return result;
+    }
+  }
+
+  return 0;
+};
+
 export const reformatWeaponData = (weaponData: WeaponAPIData[]): FormattedWeaponData[] =>
-  weaponData.map(
+  weaponData.sort(defaultWeaponSort).map(
     ({ image_url, weapon_id, weapon_name, weapon_rounds_type, weapon_tier, weapon_type, firearm_atk, base_stat }) => {
       const firearmAtk = firearm_atk[99].firearm[0].firearm_atk_value;
       const filteredStats = base_stat
@@ -73,17 +87,3 @@ export const reformatWeaponData = (weaponData: WeaponAPIData[]): FormattedWeapon
       };
     },
   );
-
-export const defaultWeaponSort = (a: WeaponAPIData, b: WeaponAPIData) => {
-  const compare = ['weapon_rounds_type', 'weapon_type', 'weapon_name'] as const;
-
-  for (const key of compare) {
-    const result = stringCompare(a[key], b[key]);
-
-    if (result !== 0) {
-      return result;
-    }
-  }
-
-  return 0;
-};
