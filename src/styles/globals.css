@@ -4,7 +4,10 @@
 
 @layer base {
   html {
-    @apply text-white font-semibold font-sans  snap-y ;
+    @apply text-white font-semibold font-sans snap-y text-outline;
+  }
+  button {
+    @apply text-outline;
   }
   body {
    @apply h-[100vh] bg-slate-600; 
