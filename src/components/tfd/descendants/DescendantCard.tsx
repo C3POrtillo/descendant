@@ -1,12 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import type { FormattedDescendantData } from '@/components/tfd/descendants/types';
 import type { FC } from 'react';
 
 import Icon from '@/components/icon/Icon';
 import { attributesImages } from '@/utils/attributes/types';
-import { getLabelClass, kebabCase } from '@/utils/utils';
+import { getLabelClass } from '@/utils/utils';
 
 const DescendantCard: FC<FormattedDescendantData> = ({
   descendant_name,
@@ -27,15 +26,12 @@ const DescendantCard: FC<FormattedDescendantData> = ({
   const imageBackground = is_ultimate ? 'bg-ultimate' : 'bg-standard';
 
   return (
-    <Link
-      href={`/descendants/${kebabCase(name)}`}
-      className="input-hover flex w-full flex-col overflow-hidden rounded-lg border-2 border-white bg-slate-800 shadow-lg shadow-black"
-    >
+    <div className="flex w-full flex-col overflow-hidden rounded-lg border-2 border-white bg-slate-800 shadow-lg shadow-black">
       <div className="flex flex-row">
         <div className={['descendant-image relative border-r-2 border-white', imageBackground].join(' ')}>
           <Image src={descendant_image_url} fill={true} alt={name} />
         </div>
-        <div className={['flex flex-col justify-center p-4 text-xl lg:text-2xl gap-2', labelClass].join(' ')}>
+        <div className={['flex flex-col justify-center gap-2 p-4 text-xl lg:text-2xl', labelClass].join(' ')}>
           <span className={['font-bold', ultimateClass].join(' ')}>{name}</span>
           <div className="flex flex-row items-center gap-2">
             {' '}
@@ -44,7 +40,7 @@ const DescendantCard: FC<FormattedDescendantData> = ({
         </div>
       </div>
       <div className="flex flex-col">{stats}</div>
-    </Link>
+    </div>
   );
 };
 

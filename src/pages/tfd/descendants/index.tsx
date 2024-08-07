@@ -1,6 +1,7 @@
-import axios from 'axios';
+import Link from 'next/link';
 
 import type { DescendantAPIData, FormattedDescendantData } from '@/components/tfd/descendants/types';
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -9,6 +10,7 @@ import DescendantCard from '@/components/tfd/descendants/DescendantCard';
 import { formatDescendantData } from '@/components/tfd/descendants/utils';
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
+import { kebabCase } from '@/utils/utils';
 
 interface IndexProps {
   seo: NextSeoProps;
@@ -17,8 +19,14 @@ interface IndexProps {
 
 const Index: FC<IndexProps> = ({ seo, descendants }) => {
   const descendantCards = descendants.map(descendant => (
-    <DescendantCard key={descendant.descendant_id} {...descendant} />
-  ))
+    <Link
+      key={descendant.descendant_id}
+      href={`/descendants/${kebabCase(descendant.descendant_name)}`}
+      className="input-hover"
+    >
+      <DescendantCard {...descendant} />
+    </Link>
+  ));
 
   return (
     <>
@@ -33,7 +41,7 @@ const Index: FC<IndexProps> = ({ seo, descendants }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   if (!process.env.DESCENDANT_JSON) {
     return {
       props: {
@@ -42,7 +50,7 @@ export const getStaticProps = async () => {
     };
   }
 
-  const descendants = (await axios.get(process.env.DESCENDANT_JSON)).data as DescendantAPIData[];
+  const descendants = (await (await fetch(process.env.DESCENDANT_JSON)).json()) as DescendantAPIData[];
 
   const title = 'The First Descendant (TFD) Descendants Data';
   const description = `Tool for Descendant data in The First Descendant (TFD). 
@@ -63,6 +71,6 @@ export const getStaticProps = async () => {
       },
     },
   };
-};
+}) satisfies GetStaticProps;
 
 export default Index;
