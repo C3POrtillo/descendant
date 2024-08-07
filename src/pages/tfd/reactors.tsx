@@ -9,6 +9,7 @@ import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
 import ReactorCard from '@/components/tfd/reactor/ReactorCard';
 import { reactorArches, reactorAttributes, reactorStats, unusedCombinations } from '@/components/tfd/reactor/types';
+import { formatStat } from '@/components/tfd/reactor/utils';
 import { getLabelClass, sortData } from '@/utils/utils';
 
 interface ReactorsProps {
@@ -51,12 +52,15 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
     <>
       <Header seo={seo} />
       <Container>
-        <fieldset className="reactor-data flex flex-col justify-center rounded-xl border-2 border-white bg-slate-900">
+        <fieldset className="reactor-data flex flex-col justify-center rounded-xl border-2 border-white bg-slate-900 xl:w-1/2">
           <legend className="px-2 text-center sm:px-4">
             <h2 className="text-3xl md:text-4xl">Reactor Stats</h2>
           </legend>
-          <div className="p-4">
-            <div className="hidden grid-cols-5 gap-4 xl:grid">{reactorCards}</div>
+          <div className="self-center p-4 xl:min-w-full">
+            {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
+            <div className="hidden justify-center gap-4 xl:flex xl:min-w-[780px] xl:flex-row xl:flex-wrap 2xl:flex-nowrap">
+              {reactorCards}
+            </div>
             <Carousel slides={reactorCards} className="xl:hidden" width="max-w-[85vw] sm:max-w-[50vw]" />
           </div>
           <div className="grid grid-cols-2 border-y-2 border-white text-center text-xl">
@@ -72,10 +76,13 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
             <div className="label-rare border-r-1 border-white py-2">Rare: {reactorStats.rare}</div>
             <div className="label-ultimate border-l-1 border-white py-2">Ultimate: {reactorStats.ultimate}</div>
           </div>
-          <div className="flex flex-row flex-wrap justify-center gap-4 p-4 text-xl">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4 p-4 text-xl">
             {reactorStats.subStats.map(stat => (
-              <div key={stat} className="rounded-xl border-2 border-white bg-slate-800 px-5 py-2 text-center">
-                {stat}
+              <div
+                key={stat}
+                className="flex h-min max-w-full items-center justify-center rounded-xl border-2 border-white bg-slate-800 px-5 py-2 text-center sm:whitespace-pre-wrap"
+              >
+                {formatStat(stat)}
               </div>
             ))}
           </div>
