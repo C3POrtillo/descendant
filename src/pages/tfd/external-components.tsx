@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Error from 'next/error';
 import { useEffect, useState } from 'react';
 
@@ -124,7 +123,7 @@ export const getStaticProps = async () => {
     };
   }
 
-  const components = (await axios.get(process.env.EXTERNAL_COMPONENT_JSON)).data;
+  const components = await (await fetch(process.env.EXTERNAL_COMPONENT_JSON)).json();
   const sortedData = getSortedExternalComponentData(components);
 
   const basicComponents = {} as FormattedBasicData;

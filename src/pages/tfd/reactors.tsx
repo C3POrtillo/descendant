@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import type { FormattedReactorData, ReactorAPIData } from '@/components/tfd/reactor/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
@@ -113,7 +111,7 @@ export const getStaticProps = async () => {
     };
   }
 
-  const reactors = (await axios.get(process.env.REACTOR_JSON)).data as ReactorAPIData[];
+  const reactors = (await (await fetch(process.env.REACTOR_JSON)).json()) as ReactorAPIData[];
   const baseReactorRegex =
     /^(Frozen|Burning|Tingling|Materialized|Toxic) (Mechanics|Mixture|Phase|Singularity) Reactor$/;
 

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Error from 'next/error';
 import { useEffect, useState } from 'react';
 
@@ -101,7 +100,7 @@ export const getStaticProps = async () => {
     };
   }
 
-  const weapons = (await axios.get(process.env.WEAPON_JSON)).data;
+  const weapons = await (await fetch(process.env.WEAPON_JSON)).json();
 
   const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
   const filterMap = createFilterMap(defaultFilter) as WeaponFilterMap;
