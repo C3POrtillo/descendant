@@ -38,9 +38,7 @@ const SkillCard: FC<SkillData> = ({
         <div className="flex flex-row gap-1 text-nowrap px-2 md:flex-col md:py-2">
           {attribute} {arche}
         </div>
-        <p className="flex min-h-full grow flex-col p-2 text-lg md:border-l-1 md:border-white">
-          {skill_description}
-        </p>
+        <p className="flex min-h-full grow flex-col p-2 text-lg md:border-l-1 md:border-white">{skill_description}</p>
       </div>
     </div>
   );
