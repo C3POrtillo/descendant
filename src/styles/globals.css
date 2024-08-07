@@ -60,10 +60,16 @@
     grid-template-columns: 4fr 1fr;
   }
   .skill-description {
-    @apply mt-2 grid grid-cols-1 md:border-t-1 md:border-white;
+    @apply mt-2 grid grid-cols-1 md:border-t-1 h-full md:border-white;
     @media (min-width: 768px) {
       grid-template-columns: 1fr minmax(0, 10fr);
     }
+  }
+  .skill-card-deck {
+    @apply flex flex-col gap-2 p-2 2xl:grid 2xl:grid-cols-2;
+  }
+  .skill-card-deck > :last-child {
+    grid-column: span 2;
   }
 }
 

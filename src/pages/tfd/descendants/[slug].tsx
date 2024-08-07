@@ -37,13 +37,13 @@ const Descendant: FC<DescendantProps> = ({ seo, descendant, normalPatternData, h
     <>
       <Header seo={seo} />
       <Container>
-        <div className="descendant-data flex w-full flex-col items-center overflow-hidden rounded-xl border-2 border-white bg-slate-900 shadow-md shadow-black xl:flex-row 2xl:w-1/2">
+        <div className="descendant-data flex w-full flex-col items-center overflow-hidden rounded-xl border-2 border-white bg-slate-900 shadow-md shadow-black xl:flex-row">
           <div className="p-4">
             <DescendantCard {...descendant} />
           </div>
           <div className="flex flex-col border-white xl:border-l-2">
             <span className="border-b-2 border-white bg-slate-800 p-4 text-2xl font-bold lg:text-3xl">Abilities</span>
-            <div className="flex flex-col gap-2 p-2">
+            <div className="skill-card-deck">
               {descendant.descendant_skill.map(skill => (
                 <SkillCard key={skill.skill_name} {...skill} />
               ))}
