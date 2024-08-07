@@ -41,9 +41,9 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
             labelClass,
           ].join(' ')}
         >
-          <Icon src={icon} alt={type}/>
+          <Icon src={icon} alt={type} />
           {label}
-          <Icon src={archeIcon} alt={archeType}/>
+          <Icon src={archeIcon} alt={archeType} />
         </div>
       );
     }),
