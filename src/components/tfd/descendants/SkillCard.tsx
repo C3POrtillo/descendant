@@ -27,7 +27,7 @@ const SkillCard: FC<SkillData> = ({
 
   return (
     <div className="flex flex-col rounded-md bg-slate-700 hover:bg-slate-600">
-      <div className="flex flex-row items-center justify-between p-2">
+      <div className="flex flex-row items-center justify-between border-b-1 border-white p-2 ">
         <div className="flex flex-row items-center gap-2 text-lg lg:text-xl">
           <Icon src={skill_image_url} alt={skill_name} />
           <span className="text-xl lg:text-2xl">{skill_name}</span>
@@ -35,10 +35,12 @@ const SkillCard: FC<SkillData> = ({
         <span className="text-lg">{skill_type}</span>
       </div>
       <div className="skill-description">
-        <div className="flex flex-row gap-1 text-nowrap px-2 md:flex-col md:py-2">
+        <div className="flex flex-row gap-1 text-nowrap p-2 md:flex-col">
           {attribute} {arche}
         </div>
-        <p className="flex min-h-full grow flex-col p-2 text-lg md:border-l-1 md:border-white">{skill_description}</p>
+        <p className="flex min-h-full grow flex-col border-t-1 p-2 text-lg md:border-l-1 md:border-t-0 md:border-white">
+          {skill_description}
+        </p>
       </div>
     </div>
   );

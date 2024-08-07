@@ -42,7 +42,7 @@
     @apply transition-transform duration-200 ease-in-out;
   }
   .carousel-button {
-    @apply flex absolute size-10 lg:size-12 pb-2 top-0 bottom-0 self-center justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white  z-10;
+    @apply flex absolute size-10 lg:size-12 pb-2 top-0 bottom-0 self-center justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-black  z-10;
     i:before {
       @apply text-base lg:text-xl;
     }
@@ -60,7 +60,7 @@
     grid-template-columns: 4fr 1fr;
   }
   .skill-description {
-    @apply mt-2 grid grid-cols-1 md:border-t-1 h-full md:border-white;
+    @apply grid grid-cols-1 h-full;
     @media (min-width: 768px) {
       grid-template-columns: 1fr minmax(0, 10fr);
     }
@@ -75,7 +75,7 @@
 
 @layer utilities {
   .input-hover {
-    @apply hover:shadow-outline hover:shadow-yellow-200;
+    @apply hover:shadow-outline hover:shadow-yellow-200 hover:border-yellow-200;
   }
   .sticky-header {
     @apply sticky w-full top-0 z-50;
@@ -105,7 +105,7 @@
     @apply before:text-2xl md:before:text-3xl;
   }
   .button {
-    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white  py-3 px-5 disabled:bg-gray-900 disabled:text-yellow-200;
+    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-black py-3 px-5 shadow-md shadow-black disabled:bg-gray-900 disabled:text-yellow-200 disabled:border-black disabled:shadow-black;
   }
   .social {
     .fa-discord {
@@ -183,7 +183,7 @@
     .bg-ultimate {
       @apply bg-tier-gradient from-yellow-200 via-black to-yellow-200;
     }
-    .bg-mixed {
+    .bg-rare-ultimate {
       @apply bg-tier-gradient from-yellow-200 via-black to-purple-500;
     }
     .label-standard {

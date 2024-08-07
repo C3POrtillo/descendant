@@ -18,29 +18,31 @@ const ExternalComponentBasicHeader: FC<ExternalComponentBasicHeaderProps> = ({
   Rare,
   Ultimate,
 }) => (
-  <th className="external-component-data flex w-full flex-col border-b-2 border-white text-center">
-    <div className="external-component-image relative">
+  <th className="external-component-data flex w-full flex-col border-b-2 border-black text-center">
+    <div className="external-component-image bg-rare-ultimate relative w-32 self-center rounded-md border-2 border-black shadow-md shadow-black">
       <Image src={image_url} fill={true} alt={component} sizes="128px" loading="lazy" className="object-contain" />
     </div>
-    <div className="mt-2 flex flex-row gap-0.5 border-y-2 border-white bg-white">
+    <div className="mt-4 flex flex-row border-y-2 border-black">
       {mainStats.map(stat => (
-        <div key={stat} className="w-1/3 bg-slate-800 p-2 text-xl">
+        <div key={stat} className="w-full bg-slate-800 p-2 text-xl">
           {stat}
         </div>
       ))}
     </div>
-    {[Standard, Rare, Ultimate].map(
-      (array, index) =>
-        array && (
-          <div className={['flex flex-row gap-0.5 bg-white', labels[index]].join(' ')} key={labels[index]}>
-            {array.map(({ stat_value }) => (
-              <div key={stat_value} className="w-1/3 bg-slate-800 px-2 py-0.5 text-xl">
-                {stat_value}
-              </div>
-            ))}
-          </div>
-        ),
-    )}
+    <div className="bg-slate-800 py-2">
+      {[Standard, Rare, Ultimate].map(
+        (array, index) =>
+          array && (
+            <div className={['flex flex-row', labels[index]].join(' ')} key={labels[index]}>
+              {array.map(({ stat_value }) => (
+                <div key={stat_value} className="w-full px-2 text-xl">
+                  {stat_value}
+                </div>
+              ))}
+            </div>
+          ),
+      )}
+    </div>
   </th>
 );
 

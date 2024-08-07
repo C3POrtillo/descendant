@@ -24,7 +24,11 @@ const Index: FC = () => (
       <Socials />
       <div className="flex flex-row">
         {root.map(({ path }) => (
-          <Link key={path} href={path} className="tfd-link text-link input-hover border-2 border-white bg-slate-900">
+          <Link
+            key={path}
+            href={path}
+            className="tfd-link text-link input-hover border-2 border-white bg-slate-900 shadow-md shadow-black"
+          >
             {path}
           </Link>
         ))}

@@ -18,7 +18,6 @@ const AccordionCheckbox: FC<AccordionCheckboxProps> = ({ name, label, checkboxCo
     <div className={['h-min w-full', checkboxBorderClasses, accordionSize].join(' ')}>
       <Accordion
         className="input-hover"
-        panelClassName="pb-4"
         label={
           <div className={['text-lg md:text-xl xl:text-2xl', labelClass].filter(string => string).join(' ')}>
             {label}

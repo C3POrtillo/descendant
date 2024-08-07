@@ -67,7 +67,7 @@ const Table: FC<TableProps> = ({
   return (
     <fieldset
       className={[
-        'overflow-clip rounded-xl border-2 border-white bg-slate-900 text-3xl shadow-xl shadow-black',
+        'overflow-clip rounded-xl border-2 border-black bg-slate-900 text-3xl shadow-lg shadow-black',
         isMaxWidth && '2xl:w-full',
         className,
       ]

@@ -54,7 +54,7 @@ const Carousel: FC<CarouselProps> = ({ className, width = 'max-w-[90vw]', slides
   return (
     <div
       className={[
-        'relative mx-auto flex flex-col gap-2 rounded-lg border-2 border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black',
+        'relative mx-auto flex flex-col gap-2 rounded-lg border-2 border-black bg-slate-800 p-4 text-3xl shadow-md shadow-black',
         className,
         width,
       ]

@@ -15,9 +15,9 @@ const DescendantCard: FC<FormattedDescendantData> = ({
   attribute,
 }) => {
   const stats = descendant_stat.stat_detail.map(({ stat_type, stat_value }) => (
-    <div key={stat_type} className="descendant-card-stats border-t-2 border-white odd:bg-slate-700 even:bg-slate-800">
-      <span className="border-r-1 border-white py-2 pl-4 pr-2 font-bold">{stat_type}</span>
-      <span className="border-l-1 border-white py-2 pl-2 pr-4">{stat_value}</span>
+    <div key={stat_type} className="descendant-card-stats border-t-2 border-black odd:bg-slate-700 even:bg-slate-800">
+      <span className="border-r-1 border-black py-2 pl-4 pr-2 font-bold">{stat_type}</span>
+      <span className="border-l-1 border-black py-2 pl-2 pr-4">{stat_value}</span>
     </div>
   ));
   const labelClass = getLabelClass(attribute);
@@ -25,9 +25,9 @@ const DescendantCard: FC<FormattedDescendantData> = ({
   const imageBackground = is_ultimate ? 'bg-ultimate' : 'bg-standard';
 
   return (
-    <div className="flex w-full flex-col overflow-hidden rounded-lg border-2 border-white bg-slate-800 shadow-lg shadow-black">
+    <div className="flex w-full flex-col overflow-hidden rounded-lg border-2 border-black bg-slate-900 shadow-lg shadow-black">
       <div className="flex flex-row">
-        <div className={['descendant-image relative border-r-2 border-white', imageBackground].join(' ')}>
+        <div className={['descendant-image relative border-r-2 border-black', imageBackground].join(' ')}>
           <Image src={descendant_image_url} fill={true} alt={descendant_name} />
         </div>
         <div

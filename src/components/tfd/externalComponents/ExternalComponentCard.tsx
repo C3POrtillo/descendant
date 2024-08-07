@@ -20,43 +20,47 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
   stat,
   set_option_detail,
 }) => (
-  <div className="external-component-data flex max-h-min w-full flex-col gap-2 overflow-hidden rounded-lg border-2 border-white bg-slate-900 pb-2 text-center shadow-md shadow-black">
-    <div className={['external-component-image relative', getBackgroundClass(external_component_tier)].join(' ')}>
-      <Image
-        src={image_url}
-        fill={true}
-        alt={external_component_name}
-        sizes="350px"
-        loading="lazy"
-        className="overflow-hidden rounded-t-lg border-4 border-black object-contain"
-      />
-    </div>
+  <div className="external-component-data flex max-h-min w-full flex-col overflow-hidden rounded-lg border-2 border-black bg-slate-900 shadow-lg shadow-black">
     <div
-      className={['mx-2 flex flex-col border-white text-lg lg:text-xl', getLabelClass(external_component_tier)].join(
-        ' ',
-      )}
+      className={[
+        'flex flex-col justify-between border-b-2 border-black p-2 text-xl 2xl:text-2xl',
+        getLabelClass(external_component_tier),
+      ].join(' ')}
     >
-      <div className="flex w-full flex-row justify-center gap-1 text-left">
-        <p className="flex h-full w-3/4 flex-col justify-center self-center border-r-2 border-white pl-2 pr-3">
-          {external_component_name}
-        </p>
-        <p className="w-1/4 pl-3 pr-2 text-right">
-          {stat.stat_id}
-          <br />
-          {stat.stat_value}
-        </p>
-      </div>
-      {!!set_option_detail?.length && (
-        <div className="mt-2 border-t-2 border-white pt-2 text-left text-white">
-          {set_option_detail.map(({ set_count, set_option_effect }) => (
-            <div key={set_count}>
-              <div className="pl-2">Set Count: {set_count}</div>
-              <div className="pl-4 font-semibold">{set_option_effect}</div>
-            </div>
-          ))}
+      <div className="flex flex-row">
+        <div
+          className={[
+            'external-component-image relative overflow-hidden rounded-md border-2 border-black shadow-md shadow-black',
+            getBackgroundClass(external_component_tier),
+          ].join(' ')}
+        >
+          <Image
+            src={image_url}
+            fill={true}
+            alt={external_component_name}
+            sizes="350px"
+            loading="lazy"
+            className="overflow-hidden object-contain"
+          />
         </div>
-      )}
+        <div className="flex size-full flex-col justify-between p-2">
+          {external_component_name}
+          <span>
+            {stat.stat_id} {stat.stat_value}
+          </span>
+        </div>
+      </div>
     </div>
+    {!!set_option_detail?.length && (
+      <div className="bg-slate-800 py-2 text-left text-lg text-white lg:text-xl">
+        {set_option_detail.map(({ set_count, set_option_effect }) => (
+          <div key={set_count}>
+            <div className="pl-2">Set Count: {set_count}</div>
+            <div className="pl-4 font-semibold">{set_option_effect}</div>
+          </div>
+        ))}
+      </div>
+    )}
   </div>
 );
 
