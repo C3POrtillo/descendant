@@ -67,7 +67,7 @@ export const reactorArches = {
 
 export const reactorAttributes = {
   Materialized: {
-    type: 'Non-attribute',
+    type: 'Non-Attribute',
     icon: '/assets/images/attribute/non-attribute.png',
   },
   Frozen: {

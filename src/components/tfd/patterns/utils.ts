@@ -14,7 +14,7 @@ export const getAttribute = (descendant: string) => {
     case 'Viessa':
       return 'Chill';
     default:
-      return 'Non-attribute';
+      return 'Non-Attribute';
   }
 };
 

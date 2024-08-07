@@ -9,7 +9,7 @@ export const voidFragmentData = {
     subregions: [
       {
         subregion: 'Grand Square',
-        attribute: 'Non-attribute',
+        attribute: 'Non-Attribute',
         monomer: 3,
         polymer: 3,
         organic: 3,
@@ -59,7 +59,7 @@ export const voidFragmentData = {
     subregions: [
       {
         subregion: 'Timberfall',
-        attribute: 'Non-attribute',
+        attribute: 'Non-Attribute',
         monomer: 3,
         polymer: 3,
         organic: 3,
@@ -67,7 +67,7 @@ export const voidFragmentData = {
       },
       {
         subregion: 'Moonlight',
-        attribute: 'Non-attribute',
+        attribute: 'Non-Attribute',
         monomer: 3,
         polymer: 3,
         organic: 3,
@@ -125,7 +125,7 @@ export const voidFragmentData = {
     subregions: [
       {
         subregion: 'Miragestone',
-        attribute: 'Non-attribute',
+        attribute: 'Non-Attribute',
         monomer: 3,
         polymer: 3,
         organic: 3,
@@ -162,7 +162,7 @@ export const voidFragmentData = {
     subregions: [
       {
         subregion: 'Moongrave Basin',
-        attribute: 'Non-attribute',
+        attribute: 'Non-Attribute',
         monomer: 3,
         polymer: 3,
         organic: 3,
@@ -207,7 +207,7 @@ export const voidFragmentData = {
     subregions: [
       {
         subregion: 'Fractured Monolith',
-        attribute: 'Non-attribute',
+        attribute: 'Non-Attribute',
         monomer: 3,
         polymer: 3,
         organic: 3,
