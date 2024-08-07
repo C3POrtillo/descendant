@@ -17,3 +17,9 @@ export const attributesImages = attributesArray.reduce((acc, attribute) => {
 
 const archesArray = ['Dimension', 'Fusion', 'Singular', 'Tech'] as const;
 export type ArchesType = (typeof archesArray)[number];
+
+export const archesImages = archesArray.reduce((acc, arche) => {
+  acc[arche] = `/assets/images/arche/${arche.toLowerCase()}.png`;
+
+  return acc;
+}, {} as Record<ArchesType, string>);

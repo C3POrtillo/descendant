@@ -49,19 +49,19 @@ export type FormattedReactorData = ReactorSkillPowerType & {
 export const reactorArches = {
   Singularity: {
     type: 'Singular',
-    icon: '/assets/images/archeType/singular.png',
+    icon: '/assets/images/arche/singular.png',
   },
   Phase: {
     type: 'Dimension',
-    icon: '/assets/images/archeType/dimension.png',
+    icon: '/assets/images/arche/dimension.png',
   },
   Mixture: {
     type: 'Fusion',
-    icon: '/assets/images/archeType/fusion.png',
+    icon: '/assets/images/arche/fusion.png',
   },
   Mechanics: {
     type: 'Tech',
-    icon: '/assets/images/archeType/tech.png',
+    icon: '/assets/images/arche/tech.png',
   },
 } as const;
 
