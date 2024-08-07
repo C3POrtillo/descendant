@@ -32,7 +32,7 @@ const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type
       <div className={getLabelClass(weapon_tier)}>{weapon_name}</div>
       <div className={getLabelClass(weapon_rounds_type)}>
         <div className="flex flex-row items-center justify-center gap-2">
-          {<Icon src={roundsImages[weapon_rounds_type]} />}
+          {<Icon src={roundsImages[weapon_rounds_type]} alt={weapon_rounds_type} />}
           {weapon_type}
         </div>
       </div>

@@ -32,7 +32,7 @@ const ReactorCard: FC<ReactorCardProps> = ({ reactor_name, image_url }) => {
           getLabelClass(type),
         ].join(' ')}
       >
-        <Icon src={icon} />
+        <Icon src={icon} alt={type}/>
         <div>{reactor_name.split(' ').join('\n')}</div>
       </div>
     </div>

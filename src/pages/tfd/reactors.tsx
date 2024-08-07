@@ -27,7 +27,7 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
   const reactorCards = reactors.map(reactor => <ReactorCard key={reactor.reactor_name} {...reactor} />);
 
   const reactorCombos = Object.entries(reactorAttributes).flatMap(([name, { type, icon }]) =>
-    Object.entries(reactorArches).map(([archeName, { icon: archeIcon }]) => {
+    Object.entries(reactorArches).map(([archeName, { type: archeType, icon: archeIcon }]) => {
       const labelClass = getLabelClass(type);
       const label = [name, archeName].join('\n');
       const borderClass = unusedCombinations.includes(label) ? 'border-red-400' : 'border-white';
@@ -41,9 +41,9 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
             labelClass,
           ].join(' ')}
         >
-          <Icon src={icon} />
+          <Icon src={icon} alt={type}/>
           {label}
-          <Icon src={archeIcon} />
+          <Icon src={archeIcon} alt={archeType}/>
         </div>
       );
     }),

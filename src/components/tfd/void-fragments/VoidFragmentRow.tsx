@@ -30,10 +30,12 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
       switch (lowerCaseKey) {
         case 'subregion':
           icon['src'] = attributeIconData.fragment;
+          icon['alt'] = attributeIconData.fragment;
           icon['backgroundClass'] = 'diamond';
           break;
         case 'attribute':
           icon['src'] = attributeIconData.attribute;
+          icon['alt'] = attributeIconData.attribute;
           icon['backgroundClass'] = 'hexagon';
           break;
       }
