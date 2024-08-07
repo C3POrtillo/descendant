@@ -184,7 +184,7 @@
       @apply text-yellow-200;
     }
   }
-  .weapon-data {
+  .weapon-data, .pattern-data {
     .label-general-rounds {
       @apply text-neutral-100;
     }
