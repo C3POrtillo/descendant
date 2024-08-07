@@ -1,8 +1,8 @@
 import type { DescendantAPIData, DescendantStat, FormattedDescendantData } from '@/components/tfd/descendants/types';
+import type { Pattern } from '@/components/tfd/patterns/types';
 
+import { getBlueprints } from '@/components/tfd/patterns/utils';
 import { sortData } from '@/utils/utils';
-import { Pattern } from '../patterns/types';
-import { getBlueprints } from '../patterns/utils';
 
 const isRegularGley = (id: string, stats: DescendantStat) => {
   const match = id === '101000009';
@@ -25,20 +25,22 @@ export const formatDescendantData = (descendants: DescendantAPIData[]) =>
 
       return {
         ...data,
-        descendant_name: is_ultimate ? [...name].join(' ') : descendant_name,
+        descendant_name,
         is_ultimate,
         attribute,
         descendant_stat: maxStats,
         descendant_skill,
+        sort_name: is_ultimate ? [...name].join(' ') : descendant_name,
       };
     })
-    .sort((a, b) => sortData(a.descendant_name, b.descendant_name)) as FormattedDescendantData[];
+    .sort((a, b) => sortData(a.sort_name, b.sort_name)) as FormattedDescendantData[];
 
-export const filterPatternData = (descendantName: string, patternData: readonly Pattern[]) => patternData.reduce((acc, pattern) => {
-  const blueprints = getBlueprints(pattern).flatMap(blueprint => blueprint)
-  if (blueprints.some(blueprint => blueprint.startsWith(descendantName))) {
-    acc.push(pattern)
-  }
+export const filterPatternData = (descendantName: string, patternData: readonly Pattern[]) =>
+  patternData.reduce((acc, pattern) => {
+    const blueprints = getBlueprints(pattern).flatMap(blueprint => blueprint);
+    if (blueprints.some(blueprint => blueprint.startsWith(descendantName))) {
+      acc.push(pattern);
+    }
 
-  return acc
-}, [] as Pattern[]);
+    return acc;
+  }, [] as Pattern[]);
