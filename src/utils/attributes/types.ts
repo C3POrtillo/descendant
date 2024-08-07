@@ -1,4 +1,4 @@
-export const attributesArray = ['Non-attribute', 'Chill', 'Fire', 'Electric', 'Toxic'] as const;
+export const attributesArray = ['Non-Attribute', 'Chill', 'Fire', 'Electric', 'Toxic'] as const;
 export type AttributesType = (typeof attributesArray)[number];
 
 type AttributesImages = {
@@ -14,3 +14,6 @@ export const attributesImages = attributesArray.reduce((acc, attribute) => {
 
   return acc;
 }, {} as Record<AttributesType, AttributesImages>);
+
+const archesArray = ['Dimension', 'Fusion', 'Singular', 'Tech'] as const;
+export type ArchesType = (typeof archesArray)[number];

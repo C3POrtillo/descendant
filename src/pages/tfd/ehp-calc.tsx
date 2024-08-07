@@ -14,7 +14,7 @@ const EhpCalc: FC<EhpCalcProps> = ({ seo }) => (
   <>
     <Header seo={seo} />
     <Container>
-      <fieldset className="flex flex-row gap-4 rounded-xl border-2 border-solid border-white bg-slate-900 p-4 text-3xl shadow-xl shadow-black">
+      <fieldset className="flex flex-row gap-4 rounded-xl border-2 border-white bg-slate-900 p-4 text-3xl shadow-xl shadow-black">
         <legend className="mx-auto p-4 text-center text-3xl md:text-4xl">
           <h2>Effective HP Comparison</h2>
         </legend>

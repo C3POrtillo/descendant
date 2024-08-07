@@ -51,7 +51,7 @@ const Calculator: FC = () => {
   ] as const;
 
   return (
-    <fieldset className="flex flex-col gap-1 rounded-lg border-2 border-solid border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black md:gap-2">
+    <fieldset className="flex flex-col gap-1 rounded-lg border-2 border-white bg-slate-800 p-4 text-3xl shadow-md shadow-black md:gap-2">
       {inputMap.map(({ label, value, setState }) => (
         <Text key={label} label={label} value={value} setState={setState} type="number" min={0} />
       ))}

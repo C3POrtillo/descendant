@@ -20,7 +20,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
   stat,
   set_option_detail,
 }) => (
-  <div className="external-component-data flex max-h-min w-full flex-col gap-2 overflow-hidden rounded-lg  border-2 border-white bg-slate-900 pb-2 text-center shadow-md shadow-black">
+  <div className="external-component-data flex max-h-min w-full flex-col gap-2 overflow-hidden rounded-lg border-2 border-white bg-slate-900 pb-2 text-center shadow-md shadow-black">
     <div className={['external-component-image relative', getBackgroundClass(external_component_tier)].join(' ')}>
       <Image
         src={image_url}
@@ -37,7 +37,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
       )}
     >
       <div className="flex w-full flex-row justify-center gap-1 text-left">
-        <p className="flex h-full w-3/4 flex-col justify-center self-center border-r-2 border-solid border-white pl-2 pr-3">
+        <p className="flex h-full w-3/4 flex-col justify-center self-center border-r-2 border-white pl-2 pr-3">
           {external_component_name}
         </p>
         <p className="w-1/4 pl-3 pr-2 text-right">

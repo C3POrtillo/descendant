@@ -24,4 +24,4 @@ export type FilterMap = Partial<Record<FilterTypes, boolean>>;
 export type DirectionValues = 0 | 1 | 2;
 
 export const checkboxBorderClasses =
-  'rounded-lg border-2 border-solid border-white bg-slate-900 text-3xl shadow-md shadow-black' as const;
+  'rounded-lg border-2 border-white bg-slate-900 text-3xl shadow-md shadow-black' as const;
