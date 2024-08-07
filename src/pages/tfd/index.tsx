@@ -15,7 +15,7 @@ const Index: FC<IndexProps> = ({ seo }) => (
     <Container>
       <div className="flex flex-col justify-center text-center text-lg">
         <h2 className="text-2xl">to-do (by easiest)</h2>
-        <p>Descendant Data @ 40 w/ pattern data</p>
+        <p>Fix Blair/Freyna/Sharen/Bunny Pattern Drops</p>
         <p>Module Data</p>
         <p>Weapon Builder @ 100 w/ accurate DPS</p>
       </div>
