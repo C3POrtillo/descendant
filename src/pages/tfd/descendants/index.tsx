@@ -21,7 +21,7 @@ const Index: FC<IndexProps> = ({ seo, descendants }) => {
   const descendantCards = descendants.map(descendant => (
     <Link
       key={descendant.descendant_id}
-      href={`/descendants/${kebabCase(descendant.descendant_name)}`}
+      href={`/tfd/descendants/${kebabCase(descendant.descendant_name)}`}
       className="input-hover"
     >
       <DescendantCard {...descendant} />
