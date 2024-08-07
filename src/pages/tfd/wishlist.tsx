@@ -10,8 +10,8 @@ import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import Table from '@/components/table/Table';
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
-import PatternHeaders from '@/components/tfd/patterns/PatternHeaders';
 import PatternRow from '@/components/tfd/patterns/PatternRow';
+import TableProps from '@/components/tfd/patterns/TableProps';
 import {
   blueprintSet,
   descendantParts,
@@ -70,28 +70,6 @@ const Wishlist: FC<WishlistProps> = ({
     setfilteredHards(hardFilter);
   }, [itemFilter, missionFilter]);
 
-  const commonProps = {
-    className: 'pattern-data',
-    isSticky: true,
-    headerWidths: ['w-1/12', 'w-1/12', 'w-1/12', 'w-1/6', 'w-1/6', 'w-1/6', 'w-1/4'],
-    isMaxWidth: true,
-  } as const;
-
-  const normalProps = {
-    label: 'Normal',
-    headers: PatternHeaders('normal'),
-    ...commonProps,
-  } as const;
-
-  const hardProps = {
-    label: 'Hard',
-    headers: PatternHeaders('hard'),
-    sublabel: (
-      <p className="pb-2 text-center text-lg text-yellow-200 md:text-xl">Patterns marked with * are stealth only</p>
-    ),
-    ...commonProps,
-  } as const;
-
   return (
     <>
       <Header seo={seo} />
@@ -132,7 +110,7 @@ const Wishlist: FC<WishlistProps> = ({
               body={(isFilter ? filteredNormals : normalPatternData).map(data => (
                 <PatternRow key={data.pattern + data.variant} data={data} />
               ))}
-              {...normalProps}
+              {...TableProps['normal']}
             />
           </Container>
           <Container>
@@ -140,7 +118,7 @@ const Wishlist: FC<WishlistProps> = ({
               body={(isFilter ? filteredHards : hardPatternData).map(data => (
                 <PatternRow key={data.pattern + data.variant} data={data} />
               ))}
-              {...hardProps}
+              {...TableProps['hard']}
             />
           </Container>
         </>
