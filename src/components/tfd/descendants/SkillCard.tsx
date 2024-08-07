@@ -16,12 +16,12 @@ const SkillCard: FC<SkillData> = ({
   const labelClass = getLabelClass(element_type);
   const attribute = (
     <div className={['flex flex-row items-center gap-2', labelClass].join(' ')}>
-      <Icon src={attributesImages[element_type].attribute} alt={element_type} /> {element_type}
+      <Icon src={attributesImages[element_type].attribute} alt={element_type} backgroundClass="hexagon"/> {element_type}
     </div>
   );
   const arche = arche_type && (
     <div className="flex flex-row items-center gap-2">
-      <Icon src={archesImages[arche_type]} alt={arche_type} /> {arche_type}
+      <Icon src={archesImages[arche_type]} alt={arche_type} backgroundClass="rhombus"/> {arche_type}
     </div>
   );
 
@@ -35,7 +35,7 @@ const SkillCard: FC<SkillData> = ({
         <span className="text-lg">{skill_type}</span>
       </div>
       <div className="skill-description">
-        <div className="flex flex-row gap-1 text-nowrap p-2 md:flex-col">
+        <div className="flex flex-row gap-3 text-nowrap p-3 md:flex-col">
           {attribute} {arche}
         </div>
         <p className="flex min-h-full grow flex-col border-t-1 p-2 text-lg md:border-l-1 md:border-t-0 md:border-white">

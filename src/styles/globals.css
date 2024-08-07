@@ -226,17 +226,30 @@
     @apply bg-slate-900 absolute w-[32px] h-[17.32px] my-[9.66px] top-[-2.5px];
   }
   .hexagon:before, .hexagon:after {
-    @apply absolute  border-transparent border-x-[16px] w-0 left-0;
+    @apply absolute border-transparent border-x-[16px] w-0 left-0;
     content: '';
   }
   .hexagon:before {
     @apply border-b-slate-900 border-b-[9.66px] bottom-full;
   }
   .hexagon:after {
-    @apply border-t-slate-900 border-t-[9.66px] w-0 top-full;
+    @apply border-t-slate-900 border-t-[9.66px] top-full;
   }
   .rounded-square:before {
     @apply bg-slate-900 absolute size-9 rounded-md top-[-2px] left-[-2px];
     content: '';
+  }
+  .rhombus {
+    @apply bg-slate-900 absolute w-[32px] h-[5px] my-[16px] top-[-2.5px] ;
+  }
+  .rhombus:before, .rhombus:after {
+    @apply absolute border-transparent border-x-[16px] w-0 left-0;
+    content: '';
+  }
+  .rhombus:before {
+    @apply border-b-slate-900 border-b-[18px] bottom-full;
+  }
+  .rhombus:after {
+    @apply border-t-slate-900 border-t-[18px] top-full;
   }
 }

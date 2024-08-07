@@ -5,7 +5,7 @@ import type { FC } from 'react';
 export interface IconProps {
   src?: string;
   alt?: string;
-  backgroundClass?: 'diamond' | 'hexagon' | 'rounded-square';
+  backgroundClass?: 'diamond' | 'hexagon' | 'rounded-square' | 'rhombus';
   size?: '8' | '10';
 }
 
