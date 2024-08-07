@@ -30,8 +30,10 @@ const DescendantCard: FC<FormattedDescendantData> = ({
         <div className={['descendant-image relative border-r-2 border-white', imageBackground].join(' ')}>
           <Image src={descendant_image_url} fill={true} alt={descendant_name} />
         </div>
-        <div className={['flex flex-col justify-center gap-2 p-4 text-xl lg:text-2xl', labelClass].join(' ')}>
-          <h2 className={['text-nowrap font-bold', ultimateClass].join(' ')}>{descendant_name}</h2>
+        <div
+          className={['flex flex-col justify-center gap-2 text-nowrap p-4 text-xl lg:text-2xl', labelClass].join(' ')}
+        >
+          <h2 className={['font-bold', ultimateClass].join(' ')}>{descendant_name}</h2>
           <div className="flex flex-row items-center gap-2">
             <Icon src={attributesImages[attribute].attribute} alt={attribute} /> {attribute}
           </div>

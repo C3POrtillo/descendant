@@ -19,26 +19,28 @@ const SkillCard: FC<SkillData> = ({
       <Icon src={attributesImages[element_type].attribute} alt={element_type} /> {element_type}
     </div>
   );
-  const arche = (
+  const arche = arche_type && (
     <div className="flex flex-row items-center gap-2">
       <Icon src={archesImages[arche_type]} alt={arche_type} /> {arche_type}
     </div>
   );
 
   return (
-    <div className="flex flex-col rounded-md p-2 hover:bg-slate-600">
-      <div className="flex flex-row items-center justify-between">
+    <div className="flex flex-col rounded-md bg-slate-700 hover:bg-slate-600">
+      <div className="flex flex-row items-center justify-between p-2">
         <div className="flex flex-row items-center gap-2 text-lg lg:text-xl">
           <Icon src={skill_image_url} alt={skill_name} />
           <span className="text-xl lg:text-2xl">{skill_name}</span>
         </div>
-        <span>{skill_type}</span>
+        <span className="text-lg">{skill_type}</span>
       </div>
-      <div className="mt-2 flex flex-col gap-2 md:flex-row md:items-center md:border-t-1 md:border-white">
-        <div className="flex flex-row gap-1 md:flex-col">
+      <div className="skill-description">
+        <div className="flex flex-row gap-1 text-nowrap md:flex-col md:p-2">
           {attribute} {arche}
         </div>
-        <p className="text-lg md:border-l-1 md:border-white md:pl-2 md:pt-2">{skill_description}</p>
+        <p className="flex min-h-full grow flex-col text-lg md:border-l-1 md:border-white md:p-2">
+          {skill_description}
+        </p>
       </div>
     </div>
   );
