@@ -146,3 +146,13 @@ export const createFilterFromSet = (set: Set<string>, parts: readonly string[], 
     })),
     defaultChecked: false,
   })) as FilterOptionsData[];
+
+export const filterPatternData = (name: string, patternData: readonly Pattern[]) =>
+  patternData.reduce((acc, pattern) => {
+    const blueprints = getBlueprints(pattern).flatMap(blueprint => blueprint);
+    if (blueprints.some(blueprint => blueprint.startsWith(name))) {
+      acc.push(pattern);
+    }
+
+    return acc;
+  }, [] as Pattern[]);

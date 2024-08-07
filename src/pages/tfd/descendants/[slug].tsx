@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import type { DescendantAPIData, FormattedDescendantData } from '@/components/tfd/descendants/types';
+import type { Pattern } from '@/components/tfd/patterns/types';
 import type { GetStaticPaths, GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
@@ -10,12 +11,13 @@ import Button from '@/components/inputs/Button/Button';
 import Table from '@/components/table/Table';
 import DescendantCard from '@/components/tfd/descendants/DescendantCard';
 import SkillCard from '@/components/tfd/descendants/SkillCard';
-import { filterPatternData, formatDescendantData } from '@/components/tfd/descendants/utils';
+import { formatDescendantData } from '@/components/tfd/descendants/utils';
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
 import PatternRow from '@/components/tfd/patterns/PatternRow';
 import TableProps from '@/components/tfd/patterns/TableProps';
-import { type Pattern, hardPatterns, normalPatterns } from '@/components/tfd/patterns/types';
+import { hardPatterns, normalPatterns } from '@/components/tfd/patterns/types';
+import { filterPatternData } from '@/components/tfd/patterns/utils';
 import { kebabCase } from '@/utils/utils';
 
 interface DescendantProps {
