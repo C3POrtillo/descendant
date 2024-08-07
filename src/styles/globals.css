@@ -38,17 +38,11 @@
   tbody tr {
     @apply odd:bg-slate-700 even:bg-slate-800;
   }
-}
-
-@layer utilities {
-  .input-hover {
-    @apply hover:shadow-outline hover:shadow-yellow-200;
-  }
   .carousel-slide {
     @apply transition-transform duration-200 ease-in-out;
   }
   .carousel-button {
-    @apply flex absolute size-10 lg:size-12 pb-2 top-0 bottom-0 self-center justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white border-solid z-10;
+    @apply flex absolute size-10 lg:size-12 pb-2 top-0 bottom-0 self-center justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white  z-10;
     i:before {
       @apply text-base lg:text-xl;
     }
@@ -56,6 +50,20 @@
   .accordion-panel {
     @apply max-h-0 flex w-full flex-col gap-4 px-6 bg-slate-900 rounded-b-lg;
     transition: max-height 0.1s ease-in-out, padding 0.1s ease-in-out;
+  }
+  .table-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #0f172a;
+  }
+  .descendant-card-stats {
+    @apply grid grid-cols-2 text-lg;
+    grid-template-columns: 4fr 1fr;
+  }
+}
+
+@layer utilities {
+  .input-hover {
+    @apply hover:shadow-outline hover:shadow-yellow-200;
   }
   .sticky-header {
     @apply sticky w-full top-0 z-50;
@@ -85,7 +93,7 @@
     @apply before:text-2xl md:before:text-3xl;
   }
   .button {
-    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white border-solid py-3 px-5 disabled:bg-gray-900 disabled:text-yellow-200;
+    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-white  py-3 px-5 disabled:bg-gray-900 disabled:text-yellow-200;
   }
   .social {
     .fa-discord {
@@ -107,11 +115,7 @@
       @apply text-fuchsia-600 hover:text-fuchsia-400 focus:text-fuchsia-400 active:text-fuchsia-400;
     }
   }
-  .table-wrapper {
-    scrollbar-width: thin;
-    scrollbar-color: #94a3b8 #0f172a;
-  }
-  .fragment-data, .pattern-data, .reactor-data {
+  .fragment-data, .pattern-data, .reactor-data, .descendant-data {
     .label-non-attribute {
       @apply text-neutral-100;
     }
@@ -157,7 +161,7 @@
       @apply text-slate-200;
     }
   }
-  .weapon-data, .external-component-data, .pattern-data, .reactor-data { 
+  .weapon-data, .external-component-data, .pattern-data, .reactor-data, .descendant-data { 
     .bg-standard {
       @apply bg-tier-gradient from-blue-400 via-black to-blue-400;
     }
@@ -179,6 +183,8 @@
     .label-ultimate {
       @apply text-yellow-200;
     }
+  }
+  .weapon-data {
     .label-general-rounds {
       @apply text-neutral-100;
     }
@@ -196,7 +202,7 @@
     height: 128px;
     min-width: auto;
   }
-  .external-component-image, .reactor-image {
+  .external-component-image, .reactor-image, .descendant-image {
     height: 128px;
     min-width: 128px;
   }
@@ -207,9 +213,8 @@
   .hexagon {
     @apply bg-slate-900 absolute w-[32px] h-[17.32px] my-[9.66px] top-[-2.5px];
   }
-  .hexagon:before,
-  .hexagon:after {
-    @apply absolute border-solid border-transparent border-x-[16px] w-0 left-0;
+  .hexagon:before, .hexagon:after {
+    @apply absolute  border-transparent border-x-[16px] w-0 left-0;
     content: '';
   }
   .hexagon:before {
