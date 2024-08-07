@@ -16,16 +16,16 @@ interface IndexProps {
 }
 
 const Index: FC<IndexProps> = ({ seo, descendants }) => {
-  console.log(descendants);
+  const descendantCards = descendants.map(descendant => (
+    <DescendantCard key={descendant.descendant_id} {...descendant} />
+  ))
 
   return (
     <>
       <Header seo={seo} />
       <Container>
-        <div className="descendant-data grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {descendants.map(descendant => (
-            <DescendantCard key={descendant.descendant_id} {...descendant} />
-          ))}
+        <div className="descendant-data grid grid-cols-1 gap-4 rounded-xl border-2 border-white bg-slate-900 p-4 shadow-md shadow-black md:grid-cols-2 xl:grid-cols-3">
+          {descendantCards}
         </div>
       </Container>
       <Footer />

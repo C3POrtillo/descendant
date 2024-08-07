@@ -28,6 +28,10 @@ export const tfd = [
         label: 'Void Fragments',
       },
       {
+        path: '/descendants',
+        label: 'Descendants',
+      },
+      {
         path: '/external-components',
         label: 'External Components',
       },
