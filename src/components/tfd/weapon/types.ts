@@ -79,7 +79,7 @@ export const weaponOptions: FilterOptionsData[] = [
       value: rounds,
       icon: {
         src: roundsImages[rounds],
-        backgroundClass: 'diamond'
+        backgroundClass: 'diamond',
       },
     })),
   },
@@ -90,7 +90,7 @@ export const weaponOptions: FilterOptionsData[] = [
       value: weapon,
       icon: {
         src: roundsImages[weaponToRounds(weapon)],
-        backgroundClass: 'diamond'
+        backgroundClass: 'diamond',
       },
     })),
   },
