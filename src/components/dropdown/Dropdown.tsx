@@ -40,9 +40,9 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
   return (
     <div
       ref={dropdownRef}
-      className="relative flex w-full items-center justify-center rounded-xl px-4 text-left align-middle hover:bg-slate-400"
+      className="bg-hover relative flex w-full items-center justify-center rounded-xl px-4 text-left align-middle"
     >
-      <button onClick={toggleDropdown} className="text-link flex w-full justify-center gap-4 rounded-md">
+      <button onClick={toggleDropdown} className="text-link text-hover flex w-full justify-center gap-4 rounded-md">
         {label}
         <i className={['fa link-icon self-center', isOpen ? 'fa-chevron-up' : 'fa-chevron-down'].join(' ')} />
       </button>

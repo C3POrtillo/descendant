@@ -20,7 +20,7 @@ const Button: FC<SortButtonProps> = ({ id, sortDirection = 0, setSortDirection, 
 
   return (
     <button
-      className="flex h-full items-center justify-between gap-1 p-2 hover:bg-slate-400"
+      className="bg-hover flex h-full items-center justify-between gap-1 p-2"
       onClick={() => {
         if (sortDirection === 2) {
           setSortDirection(0);

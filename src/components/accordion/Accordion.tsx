@@ -58,7 +58,7 @@ const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon,
         <button
           onClick={toggleDropdown}
           className={[
-            'text-link inline-flex flex-row items-center justify-between gap-4 p-4',
+            'bg-hover text-link text-hover inline-flex flex-row items-center justify-between gap-4 p-4',
             isClickable && 'w-full',
           ].join(' ')}
         >

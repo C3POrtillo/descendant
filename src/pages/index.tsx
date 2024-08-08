@@ -27,7 +27,7 @@ const Index: FC = () => (
           <Link
             key={path}
             href={path}
-            className="tfd-link text-link input-hover border-2 border-white bg-slate-900 shadow-md shadow-black"
+            className="tfd-link text-link text-hover input-hover bg-hover border-2 border-white bg-slate-900 shadow-md shadow-black"
           >
             {path}
           </Link>

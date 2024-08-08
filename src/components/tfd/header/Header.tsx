@@ -14,11 +14,12 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ seo }) => {
   const navLinks = tfd.slice(1).map(data => {
+    const className = 'bg-hover tfd-link text-link text-hover'
     if (data.options && data.label?.length) {
       const { label, options } = data;
 
       const links = options.map(nestedData => (
-        <TFDLink className="tfd-link text-link" key={nestedData.path} {...nestedData} />
+        <TFDLink className={className} key={nestedData.path} {...nestedData} />
       ));
 
       return (
@@ -28,7 +29,7 @@ const Header: FC<HeaderProps> = ({ seo }) => {
       );
     }
 
-    return <TFDLink className="tfd-link text-link" key={data.path} {...data} />;
+    return <TFDLink className={className} key={data.path} {...data} />;
   });
 
   const homeLink = (

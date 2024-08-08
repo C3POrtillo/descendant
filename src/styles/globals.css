@@ -45,7 +45,7 @@
     @apply transition-transform duration-200 ease-in-out;
   }
   .carousel-button {
-    @apply flex absolute size-10 lg:size-12 pb-2 top-0 bottom-0 self-center justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-black  z-10;
+    @apply flex absolute size-10 lg:size-12 pb-2 top-0 bottom-0 self-center justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-black z-10 hover:bg-slate-400;
     i:before {
       @apply text-base lg:text-xl;
     }
@@ -80,6 +80,9 @@
   .input-hover {
     @apply hover:shadow-outline hover:shadow-yellow-200 hover:border-yellow-200;
   }
+  .bg-hover {
+    @apply hover:bg-slate-400;
+  }
   .sticky-header {
     @apply sticky w-full top-0 z-50;
   }
@@ -95,11 +98,11 @@
   .tfd-link {
     @apply rounded-xl px-4;
   }
-  .home-link {
+  .home-link, .text-hover {
     @apply hover:text-yellow-200;
   }
   .text-link {
-    @apply text-2xl lg:text-xl xl:text-2xl font-semibold hover:text-yellow-200 hover:bg-slate-400;
+    @apply text-2xl lg:text-xl xl:text-2xl font-semibold;
   }
   .disabled-link {
     @apply pointer-events-none text-yellow-200;
@@ -108,7 +111,7 @@
     @apply before:text-2xl md:before:text-3xl;
   }
   .button {
-    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-black py-3 px-5 shadow-md shadow-black disabled:bg-gray-900 disabled:text-yellow-200 disabled:border-black disabled:shadow-black;
+    @apply justify-center items-center bg-gray-800 text-white rounded-xl border-2 border-black py-3 px-5 shadow-md shadow-black disabled:bg-gray-900 disabled:text-yellow-200 disabled:border-black disabled:shadow-black hover:bg-slate-400;
   }
   .social {
     .fa-discord {
