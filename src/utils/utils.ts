@@ -1,5 +1,5 @@
 import type { DirectionValues } from '@/components/inputs/types';
-import type { TiersType } from '@/utils/types';
+import type { ModuleTiersType } from '@/components/tfd/module/types';
 
 const wordSeparators = /[-_\\.+\s]+/g;
 const notAlphaNumericOrSpace = /[^ a-zA-Z0-9]+/g;
@@ -79,7 +79,7 @@ export const roundToHundreth = (number: number) => number.toFixed(2);
 
 export const addSuffixToValue = (value: string | number, string: string) => `${value}${string}`;
 
-export const getBackgroundClass = (tier: TiersType): string => `bg-${kebabCase(tier)}`;
+export const getBackgroundClass = (tier: ModuleTiersType): string => `bg-${kebabCase(tier)}`;
 
 export const getLabelClass = (name: string): string => `label-${kebabCase(name)}`;
 

@@ -84,7 +84,7 @@ const Table: FC<TableProps> = ({
       )}
       <div
         className={[
-          'table-wrapper max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full',
+          'scroll-bar max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full',
           isSticky && 'max-h-[75lvh] md:max-h-[80lvh]',
         ]
           .filter(string => string)

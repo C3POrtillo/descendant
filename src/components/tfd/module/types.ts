@@ -3,11 +3,19 @@ import type { TiersType } from '@/utils/types';
 import { tiers } from '@/utils/types';
 
 export const socketImages = {
-  Almandine: '/assets/images/socket/almandine.png',
-  Cerulean: '/assets/images/socket/cerulean.png',
-  Malachite: '/assets/images/socket/malachite.png',
-  Rutile: '/assets/images/socket/rutile.png',
-  Xantic: '/assets/images/socket/xantic.png',
+  Almandine: '/assets/images/module/almandine.png',
+  Cerulean: '/assets/images/module/cerulean.png',
+  Malachite: '/assets/images/module/malachite.png',
+  Rutile: '/assets/images/module/rutile.png',
+  Xantic: '/assets/images/module/xantic.png',
+};
+
+export const classImages = {
+  Descendant: '/assets/images/descendant.png',
+  'General Rounds': '/assets/images/rounds/general-rounds.png',
+  'High-Power Rounds': '/assets/images/rounds/high-power-rounds.png',
+  'Impact Rounds': '/assets/images/rounds/impact-rounds.png',
+  'Special Rounds': '/assets/images/rounds/special-rounds.png',
 };
 
 export type ModuleSocketTypes = keyof typeof socketImages;
@@ -45,18 +53,11 @@ export const moduleTypes = [
   'Special Mod',
   'Strike',
   'Support Tech',
-  'Weak Point Strike'
+  'Weak Point Strike',
 ] as const;
-export const moduleClass = [
-  'Descendant',
-  'General Rounds',
-  'High-Power Rounds',
-  'Impact Rounds',
-  'Special Rounds'
-] as const;
-type ModuleTiersType = TiersType | 'Transcendent';
+export type ModuleTiersType = TiersType | 'Transcendent';
 type ModuleTypes = (typeof moduleTypes)[number];
-type ModuleClassTypes = (typeof moduleClass)[number];
+type ModuleClassTypes = keyof typeof classImages;
 
 type ModuleStat = {
   level: number;
