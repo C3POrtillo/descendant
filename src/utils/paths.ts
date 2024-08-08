@@ -45,7 +45,7 @@ export const tfd = [
         label: 'Combinations',
       },
       {
-        path: '/modules',
+        path: '/modules/costs',
         label: 'Upgrade Costs',
       },
     ],

@@ -1,7 +1,5 @@
 import type { TiersType } from '@/utils/types';
 
-import { tiers } from '@/utils/types';
-
 export const socketImages = {
   Almandine: '/assets/images/module/almandine.png',
   Cerulean: '/assets/images/module/cerulean.png',
@@ -20,7 +18,16 @@ export const classImages = {
 
 export type ModuleSocketTypes = keyof typeof socketImages;
 
-export const moduleTiersArray = [...tiers, 'Transcendent'] as const;
+export const kuiperCosts = {
+  Standard: [300, 600, 1100, 2000, 3400, 5700, 9500, 15500, 25000, 40000],
+  Rare: [600, 1200, 2200, 4000, 6800, 11400, 19000, 31000, 50000, 80000],
+  Ultimate: [900, 1800, 3300, 6000, 10200, 17100, 28500, 46500, 75000, 120000],
+  Transcendent: [1500, 3000, 5500, 10000, 17000, 28500, 47500, 77500, 125000, 200000],
+} as const;
+
+export const costTypes = ['Kuiper', 'Gold'];
+export const costSublabels = ['Cost', 'Total'];
+
 export const moduleTypes = [
   null,
   'ATK',
