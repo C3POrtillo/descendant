@@ -5,6 +5,11 @@ export type PathType = {
   isExternal?: boolean;
 };
 
+export const breadcrumbLabels = {
+  dps: 'Weapon DPS',
+  'ehp-calc': 'Effective HP Calculator',
+} as Record<string, string>;
+
 export const root = [
   {
     path: '/tfd',
@@ -21,7 +26,7 @@ export const tfd = [
     options: [
       {
         path: '/dps',
-        label: 'Weapon DPS',
+        label: breadcrumbLabels['dps'],
       },
       {
         path: '/external-components',
@@ -63,12 +68,13 @@ export const tfd = [
       },
       {
         path: '/void-shards',
-        label: 'Void Fragments',
+        label: 'Void Shards',
       },
     ],
   },
   {
     path: '/ehp-calc',
-    label: 'Effective HP Calculator',
+    label: breadcrumbLabels['ehp-calc'],
   },
 ] as PathType[];
+

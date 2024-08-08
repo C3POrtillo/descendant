@@ -5,14 +5,15 @@ import type { PathType } from '@/utils/paths';
 import type { FC, PropsWithChildren } from 'react';
 
 interface TFDLinkProps extends PathType, PropsWithChildren {
-  className: string;
+  className?: string;
+  disabled?: boolean;
 }
 
-const TFDLink: FC<TFDLinkProps> = ({ path, label, isExternal, className, children }) => {
+const TFDLink: FC<TFDLinkProps> = ({ path, label, isExternal, className, disabled, children }) => {
   const router = useRouter();
   const currentPath = router.pathname;
   const target = isExternal && path ? path : `/tfd${path}`;
-  const disabledClass = currentPath === target && 'disabled-link';
+  const disabledClass = (disabled ?? currentPath === target) && 'disabled-link';
 
   return (
     <Link key={path} href={target} className={[className, disabledClass].filter(string => string).join(' ')}>

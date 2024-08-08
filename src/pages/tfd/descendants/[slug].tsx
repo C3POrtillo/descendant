@@ -23,6 +23,7 @@ import { filterPatternData } from '@/components/tfd/patterns/utils';
 import { kebabCase } from '@/utils/utils';
 
 interface DescendantProps {
+  slug: string;
   seo: NextSeoProps;
   descendant: FormattedDescendantData;
   normalPatternData: Pattern[];
@@ -31,6 +32,7 @@ interface DescendantProps {
 }
 
 const Descendant: FC<DescendantProps> = ({
+  slug,
   seo,
   descendant,
   normalPatternData,
@@ -46,7 +48,7 @@ const Descendant: FC<DescendantProps> = ({
 
   return (
     <>
-      <Header seo={seo} />
+      <Header seo={seo} slug={slug} />
       <Container>
         <div className="descendant-data flex w-full flex-col items-center overflow-hidden rounded-xl border-2 border-black bg-slate-800 shadow-lg shadow-black xl:flex-row">
           <div className="p-4">
@@ -148,6 +150,7 @@ export const getStaticProps = (async ({ params }) => {
 
   return {
     props: {
+      slug,
       descendant,
       normalPatternData: filterPatternData(name, normalPatterns as unknown as Pattern[]),
       hardPatternData: filterPatternData(name, hardPatterns as unknown as Pattern[]),

@@ -5,14 +5,16 @@ import type { FC } from 'react';
 
 import Accordion from '@/components/accordion/Accordion';
 import Dropdown from '@/components/dropdown/Dropdown';
+import Breadcrumbs from '@/components/tfd/header/Breadcrumbs';
 import TFDLink from '@/components/tfd/header/Link';
 import { tfd } from '@/utils/paths';
 
 interface HeaderProps {
+  slug?: string;
   seo?: NextSeoProps;
 }
 
-const Header: FC<HeaderProps> = ({ seo }) => {
+const Header: FC<HeaderProps> = ({ slug, seo }) => {
   const navLinks = tfd.slice(1).map(data => {
     const className = 'bg-hover tfd-link text-link text-hover';
     if (data.options && data.label?.length) {
@@ -49,6 +51,7 @@ const Header: FC<HeaderProps> = ({ seo }) => {
           </Accordion>
         </div>
       </header>
+      <Breadcrumbs slug={slug} />
     </>
   );
 };
