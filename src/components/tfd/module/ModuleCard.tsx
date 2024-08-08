@@ -43,7 +43,7 @@ const ModuleCard: FC<ModuleAPIData> = ({
             <Image src={image_url} fill={true} alt={module_name} />
           </div>
           <div className="flex w-full pl-1">
-            <h2 className={['text-wrap text-lg font-bold', labelClass].join(' ')}>{module_name}</h2>
+            <h3 className={['text-wrap text-lg font-bold', labelClass].join(' ')}>{module_name}</h3>
           </div>
           <div className="absolute right-1 top-1">
             <Icon src={classImages[module_class]} alt={module_class} backgroundClass="diamond" />

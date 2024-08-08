@@ -33,7 +33,7 @@ const DescendantCard: FC<FormattedDescendantData> = ({
         <div
           className={['flex flex-col justify-center gap-2 text-nowrap p-4 text-xl lg:text-2xl', labelClass].join(' ')}
         >
-          <h2 className={['font-bold', ultimateClass].join(' ')}>{descendant_name}</h2>
+          <h3 className={['font-bold', ultimateClass].join(' ')}>{descendant_name}</h3>
           <div className="flex flex-row items-center gap-2">
             <Icon src={attributesImages[attribute].attribute} alt={attribute} backgroundClass="hexagon" /> {attribute}
           </div>
