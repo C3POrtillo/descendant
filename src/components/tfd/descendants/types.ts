@@ -1,3 +1,5 @@
+import type { descendantParts } from '@/components/tfd/patterns/types';
+import type { SubregionTypes, ZonesTypes } from '@/components/tfd/void-fragments/types';
 import type { ArchesType, AttributesType } from '@/utils/attributes/types';
 import type { BaseStat } from '@/utils/types';
 
@@ -32,3 +34,125 @@ export type FormattedDescendantData = {
   descendant_skill: SkillData[];
   attribute: AttributesType;
 };
+
+export type NormalDropType = {
+  [key in (typeof descendantParts)[number]]: {
+    zone: ZonesTypes;
+    subregion?: SubregionTypes;
+    type: 'Infiltration' | 'Battlefield' | 'Outpost';
+    mission: string | string[];
+    dropRate: number;
+  };
+};
+
+export const normalMissionDrops = {
+  Bunny: {
+    'Enhanced Cells': {
+      zone: 'Kingston',
+      subregion: 'Fallen Theater',
+      mission: 'Vulgus Field Generator',
+      type: 'Battlefield',
+      dropRate: 20,
+    },
+    Stabilizer: {
+      zone: 'Kingston',
+      mission: 'Magister Lab',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    'Spiral Catalyst': {
+      zone: 'Kingston',
+      subregion: 'Grand Square',
+      mission: 'Vulgus Data Transmitter',
+      type: 'Battlefield',
+      dropRate: 20,
+    },
+    Code: {
+      zone: 'Kingston',
+      mission: ['Slumber Valley', 'Gravewalker'],
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+  },
+  Freyna: {
+    'Enhanced Cells': {
+      zone: 'Vespers',
+      mission: 'The Shelter',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    Stabilizer: {
+      zone: 'Vespers',
+      subregion: 'Lumber Yard',
+      mission: 'Ruins Path',
+      type: 'Battlefield',
+      dropRate: 20,
+    },
+    'Spiral Catalyst': {
+      zone: 'Vespers',
+      subregion: 'Lumber Yard',
+      mission: 'Ruins Underground Entrance',
+      type: 'Battlefield',
+      dropRate: 20,
+    },
+    Code: {
+      zone: 'Sterile Land',
+      subregion: 'Rockfall',
+      mission: ['', 'Rockfall'],
+      type: 'Outpost',
+      dropRate: 20,
+    },
+  },
+  Sharen: {
+    'Enhanced Cells': {
+      zone: 'Echo Swamp',
+      mission: 'Seed Vault',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    Stabilizer: {
+      zone: 'Echo Swamp',
+      mission: 'The Chapel',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    'Spiral Catalyst': {
+      zone: 'Agna Desert',
+      mission: 'The Asylum',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    Code: {
+      zone: 'Agna Desert',
+      mission: 'Caligo Ossuary',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+  },
+  Blair: {
+    'Enhanced Cells': {
+      zone: 'White-Night Gulch',
+      mission: "Mystery's End",
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    Stabilizer: {
+      zone: 'White-Night Gulch',
+      mission: 'Bio-Lab',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    'Spiral Catalyst': {
+      zone: 'Hagios',
+      mission: 'The Haven',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+    Code: {
+      zone: 'Hagios',
+      mission: 'Old Mystery',
+      type: 'Infiltration',
+      dropRate: 20,
+    },
+  },
+} as const;

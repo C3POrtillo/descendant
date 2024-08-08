@@ -264,10 +264,10 @@ export const voidFragmentData = {
 
 export const optimal = ['Vermillion Waste', 'The Mining SIte', 'The Mountaintops', 'Frozen Valley', 'Fallen Ark'];
 
-type ZonesTypes = keyof typeof voidFragmentData;
+export type ZonesTypes = keyof typeof voidFragmentData;
 export const zonesArray = Object.keys(voidFragmentData) as ZonesTypes[];
 
-type SubregionTypes = (typeof voidFragmentData)[ZonesTypes]['subregions'][number]['subregion'];
+export type SubregionTypes = (typeof voidFragmentData)[ZonesTypes]['subregions'][number]['subregion'];
 
 export const shardsArray = ['Monomer', 'Polymer', 'Organic', 'Inorganic'] as const;
 export type ShardsType = (typeof shardsArray)[number];

@@ -36,7 +36,10 @@
     }
   }
   tbody tr {
-    @apply odd:bg-slate-700 even:bg-slate-800;
+    @apply odd:bg-slate-800 even:bg-slate-700;
+  }
+  tbody tr.alternating td {
+    @apply odd:bg-slate-800 even:bg-slate-700;
   }
   .carousel-slide {
     @apply transition-transform duration-200 ease-in-out;
@@ -84,7 +87,7 @@
     @apply sticky top-[72px] lg:top-[116px] xl:top-[120px] z-10;
   }
   .sticky-table-header {
-    @apply sticky top-0 z-40;
+    @apply sticky top-0;
   }
   .tfd-link, .home-link {
     @apply min-w-max self-center w-full py-1;
