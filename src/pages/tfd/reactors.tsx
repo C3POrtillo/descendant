@@ -57,7 +57,7 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
   ));
 
   const optimization = (
-    <div className="flex flex-col items-center justify-center bg-slate-800 py-2 text-center text-xl">
+    <div className="flex flex-col items-center justify-center bg-slate-800 py-2 text-center text-xl" key="optimization">
       <div className="">{'Optimization Skill Power Multiplier'}</div>
       <div className="flex flex-col">
         <div className="label-rare">Rare: {reactorStats.rare}</div>

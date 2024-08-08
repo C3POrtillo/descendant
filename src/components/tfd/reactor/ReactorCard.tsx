@@ -15,7 +15,7 @@ const ReactorCard: FC<ReactorCardProps> = ({ reactor_name, image_url }) => {
   const { type, icon } = reactorAttributes[reactor_name.split(' ')[0] as ReactorAttributesType];
 
   return (
-    <div className="flex w-full flex-col overflow-hidden rounded-lg border-2 border-black bg-slate-800 shadow-md shadow-black md:max-w-56">
+    <div className="flex w-full flex-col overflow-hidden rounded-lg border-2 border-black bg-slate-800 shadow-md shadow-black md:max-w-56 xl:min-w-56">
       <div className="reactor-image bg-rare-ultimate relative">
         <Image
           src={image_url}
@@ -32,7 +32,9 @@ const ReactorCard: FC<ReactorCardProps> = ({ reactor_name, image_url }) => {
           getLabelClass(type),
         ].join(' ')}
       >
-        <Icon src={icon} alt={type} backgroundClass="hexagon" />
+        <div>
+          <Icon src={icon} alt={type} backgroundClass="hexagon" />
+        </div>
         <div>{reactor_name.split(' ').join('\n')}</div>
       </div>
     </div>

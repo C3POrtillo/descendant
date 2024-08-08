@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import type { FC } from 'react';
 
 import { type ModuleTiersType, costSublabels, costTypes } from '@/components/tfd/module/types';
@@ -21,13 +22,13 @@ const ModuleCosts: FC<ModuleCostsProps> = ({ label, kuiperPerLevel }) => {
     const values = [index + 1, currentKuiper, totalKuiper, currentGold, totalGold];
 
     return (
-      <div key={currentKuiper} className={['odd:bg-slate-800 even:bg-slate-700', gridClasses].join(' ')}>
+      <div key={index} className={['odd:bg-slate-800 even:bg-slate-700', gridClasses].join(' ')}>
         {values.map((value, valueIndex) => {
           const spanClass = valueIndex !== 0 ? 'col-span-2' : levelClasses;
           const borderClass = valueIndex % 2 === 1 ? 'border-l-1 border-black px-2' : undefined;
 
           return (
-            <span key={value} className={[spanClass, borderClass].filter(string => string).join(' ')}>
+            <span key={valueIndex} className={[spanClass, borderClass].filter(string => string).join(' ')}>
               {value.toLocaleString('en', { useGrouping: true })}
             </span>
           );
