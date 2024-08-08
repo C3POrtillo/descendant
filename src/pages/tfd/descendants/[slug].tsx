@@ -142,7 +142,7 @@ export const getStaticProps = (async ({ params }) => {
   const title = `The First Descendant (TFD) ${name} Data and Farm Locations`;
   const description = `${name} is a ${descendant.attribute} descendant in The First Descendant (TFD). 
     Contains ${name}'s max stats at Lvl. 40 and skill/ability descriptions.
-    Displays where to farm ${name} patterns/blueprints.`;
+    Displays where to farm ${name} patterns/blueprints/parts.`;
 
   const normalMissionData = normalMissionDrops[name as keyof typeof normalMissionDrops] ?? null;
 

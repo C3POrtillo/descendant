@@ -123,7 +123,7 @@ export const getStaticProps = async () => {
   const defaultFilter = [...attributesArray, ...zonesArray, ...subregionsArray] as VoidFragmentFilterTypes[];
   const filterMap = createFilterMap(defaultFilter) as VoidFragmentFilterMap;
 
-  const title = 'The First Descendant (TFD) Void Shard/Void Fragment Tool';
+  const title = 'The First Descendant (TFD) Void Shards/Fragments';
   const description = `Tool for filtering or sorting Void Fragment missions in The First Descedant (TFD). 
     Filters missions based on location, attributes, and shard type.`;
 

@@ -25,10 +25,10 @@ const Index: FC<IndexProps> = ({ seo }) => (
 );
 
 export const getStaticProps = async () => {
-  const title = 'The First Descendant (TFD) Helper Site';
-  const description = `A helper website for The First Descendant (TFD). 
-    Contains tools for Pattern Wishlist, Void Shard/Void Fragment Data, Weapon DPS Data, 
-    Effective Health Points (EHP) Calculator, External Component Data.`;
+  const title = 'The First Descendant (TFD) Assistant';
+  const description = `Tools/Helper site for The First Descendant (TFD). 
+    Features: Pattern Wishlist, Void Shard/Void Fragment Data, Weapon DPS Data, 
+    Effective Health Points (EHP) Calculator, External Component Data. Descendant Data.`;
 
   return {
     props: {

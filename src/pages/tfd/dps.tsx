@@ -105,7 +105,7 @@ export const getStaticProps = async () => {
   const defaultFilter = [...tiers, ...roundsArray, ...weaponArray] as WeaponFilterTypes[];
   const filterMap = createFilterMap(defaultFilter) as WeaponFilterMap;
 
-  const title = 'The First Descendant (TFD) Weapon DPS Data Tool';
+  const title = 'The First Descendant (TFD) Weapon DPS';
   const description = `Tool for filtering and sorting weapons in The First Descendant (TFD).
     Filters weapons by rarity, rounds, weapon type. 
     Sorts by Firearm attack (ATK), Magazine Size (Rounds per Magazine), Fire Rate, 

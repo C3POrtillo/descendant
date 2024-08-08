@@ -176,7 +176,7 @@ export const getStaticProps = async () => {
   const day = String(date.getDate()).padStart(2, '0');
   const year = date.getFullYear();
 
-  const title = 'The First Descendant (TFD) Reactor Data';
+  const title = 'The First Descendant (TFD) Reactors';
   const description = `Tool for Reactor data in The First Descendant (TFD).
   Contains stats for a Reactor at level 100. 
   Lists possible sub stats (without values) and all combinations of Reactors.`;

@@ -50,8 +50,8 @@ export const getStaticProps = (async () => {
 
   const descendants = (await (await fetch(process.env.DESCENDANT_JSON)).json()) as DescendantAPIData[];
 
-  const title = 'The First Descendant (TFD) Descendants Data';
-  const description = `Tool for Descendant data in The First Descendant (TFD). 
+  const title = 'The First Descendant (TFD) All Descendants';
+  const description = `Tool for all Descendant data in The First Descendant (TFD). 
     Displays all descendants and their max stats at Lvl. 40`;
 
   return {

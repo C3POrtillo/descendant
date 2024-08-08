@@ -151,9 +151,9 @@ export const getStaticProps = async () => {
   });
 
   const filterMap = createFilterMap([...tiers, ...externalComponentsArray]) as ExternalComponentsFilterMap;
-  const title = 'The First Descendant (TFD) External Component Data';
+  const title = 'The First Descendant (TFD) External Components';
   const description = `Tool for External Component data in The First Descendant (TFD). 
-    Contains main stat, sub stat, set data for Auxiliary Power, Sensor, Memory, and Processor`;
+    Contains main stats, substats, set data for Auxiliary Power, Sensor, Memory, and Processor`;
 
   return {
     props: {
