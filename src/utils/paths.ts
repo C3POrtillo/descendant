@@ -42,6 +42,23 @@ export const tfd = [
     ],
   },
   {
+    label: 'Module Data',
+    options: [
+      {
+        path: '/modules',
+        label: 'Modules',
+      },
+      {
+        path: '/modules/combinations',
+        label: 'Combinations',
+      },
+      {
+        path: '/modules/costs',
+        label: 'Upgrade Costs',
+      },
+    ]
+  },
+  {
     path: '/wishlist',
     label: 'Wishlist',
   },
