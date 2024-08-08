@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-
 import type { ModuleAPIData } from '@/components/tfd/module/types';
 import type { FC } from 'react';
 
@@ -34,7 +33,7 @@ const ModuleCard: FC<ModuleAPIData> = ({
       </div>
       <div className="flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border-2 border-black bg-slate-800 shadow-lg shadow-black">
         <div className="relative flex w-full gap-1 pb-2 pl-2 pr-6 pt-4">
-          <ModuleLevel currentLevel={level} maxLevel={module_stat.length} setLevel={setLevel}/>
+          <ModuleLevel currentLevel={level} maxLevel={module_stat.length} setLevel={setLevel} />
           <div
             className={[
               'module-image relative size-24 rounded-md border-2 border-black shadow-md shadow-black',
@@ -44,7 +43,7 @@ const ModuleCard: FC<ModuleAPIData> = ({
             <Image src={image_url} fill={true} alt={module_name} />
           </div>
           <div className="flex w-full pl-1">
-            <h2 className={['text-wrap font-bold text-lg', labelClass].join(' ')}>{module_name}</h2>
+            <h2 className={['text-wrap text-lg font-bold', labelClass].join(' ')}>{module_name}</h2>
           </div>
           <div className="absolute right-1 top-1">
             <Icon src={classImages[module_class]} alt={module_class} backgroundClass="diamond" />

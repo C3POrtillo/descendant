@@ -24,9 +24,7 @@ const Index: FC<IndexProps> = ({ seo, modules }) => {
     <>
       <Header seo={seo} />
       <Container>
-        <div className="module-data flex flex-row flex-wrap justify-center gap-x-4 gap-y-8">
-          {moduleCards}
-        </div>
+        <div className="module-data flex flex-row flex-wrap justify-center gap-x-4 gap-y-8">{moduleCards}</div>
       </Container>
       <Footer />
     </>
