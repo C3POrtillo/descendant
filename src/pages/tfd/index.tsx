@@ -1,3 +1,4 @@
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -24,7 +25,7 @@ const Index: FC<IndexProps> = ({ seo }) => (
   </>
 );
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   const title = 'The First Descendant (TFD) Assistant';
   const description = `Tools/Helper site for The First Descendant (TFD). 
     Features: Pattern Wishlist, Void Shard/Void Fragment Data, Weapon DPS Data, 
@@ -44,6 +45,6 @@ export const getStaticProps = async () => {
       },
     },
   };
-};
+}) satisfies GetStaticProps;
 
 export default Index;

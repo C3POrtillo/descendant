@@ -1,3 +1,4 @@
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -26,7 +27,7 @@ const EhpCalc: FC<EhpCalcProps> = ({ seo }) => (
   </>
 );
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   const title = 'The First Descendant (TFD) Effective Health Points (EHP) Calculator';
   const description = 'Tool for calculating effective health points (ehp) in The First Descendant (TFD)';
 
@@ -44,6 +45,6 @@ export const getStaticProps = async () => {
       },
     },
   };
-};
+}) satisfies GetStaticProps;
 
 export default EhpCalc;

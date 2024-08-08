@@ -48,7 +48,7 @@ export const tfd = [
         path: '/modules/costs',
         label: 'Upgrade Costs',
       },
-    ]
+    ],
   },
   {
     label: 'Farming',
@@ -65,7 +65,7 @@ export const tfd = [
         path: '/void-shards',
         label: 'Void Fragments',
       },
-    ]
+    ],
   },
   {
     path: '/ehp-calc',

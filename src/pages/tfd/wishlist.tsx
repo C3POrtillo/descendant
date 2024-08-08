@@ -2,6 +2,7 @@ import { type FC, useEffect, useState } from 'react';
 
 import type { FilterOptionsData } from '@/components/inputs/types';
 import type { BlueprintFilterMap, MissionFilterMap, Pattern } from '@/components/tfd/patterns/types';
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 
 import Container from '@/components/container/Container';
@@ -129,7 +130,7 @@ const Wishlist: FC<WishlistProps> = ({
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   const descendants = new Set<string>();
   const weapons = new Set<string>();
   const itemFilterMap = {} as BlueprintFilterMap;
@@ -174,6 +175,6 @@ export const getStaticProps = async () => {
       },
     },
   };
-};
+}) satisfies GetStaticProps;
 
 export default Wishlist;

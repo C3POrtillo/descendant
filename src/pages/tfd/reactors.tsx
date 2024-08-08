@@ -1,4 +1,5 @@
 import type { FormattedReactorData, ReactorAPIData } from '@/components/tfd/reactor/types';
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -122,7 +123,7 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   if (!process.env.REACTOR_JSON) {
     return {
       props: {
@@ -198,6 +199,6 @@ export const getStaticProps = async () => {
     },
     revalidate: 86400,
   };
-};
+}) satisfies GetStaticProps;
 
 export default Reactors;

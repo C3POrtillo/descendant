@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import type { DirectionValues } from '@/components/inputs/types';
 import type { FormattedWeaponData, WeaponFilterMap, WeaponFilterTypes } from '@/components/tfd/weapon/types';
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -91,7 +92,7 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons, seo }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   if (!process.env.WEAPON_JSON) {
     return {
       props: {
@@ -129,6 +130,6 @@ export const getStaticProps = async () => {
     },
     revalidate: 86400,
   };
-};
+}) satisfies GetStaticProps;
 
 export default WeaponDps;

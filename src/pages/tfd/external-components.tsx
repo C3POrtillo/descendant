@@ -9,6 +9,7 @@ import type {
   FormattedExternalComponentData,
 } from '@/components/tfd/externalComponents/types';
 import type { TiersType } from '@/utils/types';
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -114,7 +115,7 @@ const ExternalComponents: FC<ExternalComponentsProps> = ({
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   if (!process.env.EXTERNAL_COMPONENT_JSON) {
     return {
       props: {
@@ -175,6 +176,6 @@ export const getStaticProps = async () => {
     },
     revalidate: 86400,
   };
-};
+}) satisfies GetStaticProps;
 
 export default ExternalComponents;

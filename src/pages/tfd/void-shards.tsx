@@ -8,6 +8,7 @@ import type {
   VoidFragmentFilterTypes,
   shardsArray,
 } from '@/components/tfd/void-fragments/types';
+import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
 
@@ -117,7 +118,7 @@ const VoidShards: FC<VoidShardsProps> = ({ filterMap, voidFragments, seo }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = (async () => {
   const voidFragments = reformatZoneData();
 
   const defaultFilter = [...attributesArray, ...zonesArray, ...subregionsArray] as VoidFragmentFilterTypes[];
@@ -143,6 +144,6 @@ export const getStaticProps = async () => {
       },
     },
   };
-};
+}) satisfies GetStaticProps;
 
 export default VoidShards;
