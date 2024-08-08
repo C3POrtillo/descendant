@@ -144,7 +144,7 @@ export const getStaticProps = (async ({ params }) => {
     Contains ${name}'s max stats at Lvl. 40 and skill/ability descriptions.
     Displays where to farm ${name} patterns/blueprints.`;
 
-  const normalMissionData = normalMissionDrops[name as keyof typeof normalMissionDrops];
+  const normalMissionData = normalMissionDrops[name as keyof typeof normalMissionDrops] ?? null;
 
   return {
     props: {
