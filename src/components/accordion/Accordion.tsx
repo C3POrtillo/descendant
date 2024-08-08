@@ -12,7 +12,7 @@ interface AccordionProps extends PropsWithChildren {
 
 const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon, children, labelIsClickable }) => {
   const [isOpen, setOpen] = useState(false);
-  const [isClickable, _] = useState(labelIsClickable || typeof label === 'string');
+  const [isClickable] = useState(labelIsClickable || typeof label === 'string');
   const panelRef = useRef<HTMLDivElement>(null);
   const accordionRef = useRef<HTMLDivElement>(null);
   const panelClasses = 'accordion-panel';
