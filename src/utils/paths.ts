@@ -24,14 +24,6 @@ export const tfd = [
         label: 'Weapon DPS',
       },
       {
-        path: '/void-shards',
-        label: 'Void Fragments',
-      },
-      {
-        path: '/descendants',
-        label: 'Descendants',
-      },
-      {
         path: '/external-components',
         label: 'External Components',
       },
@@ -59,8 +51,21 @@ export const tfd = [
     ]
   },
   {
-    path: '/wishlist',
-    label: 'Wishlist',
+    label: 'Farming',
+    options: [
+      {
+        path: '/wishlist',
+        label: 'Wishlist',
+      },
+      {
+        path: '/descendants',
+        label: 'Descendants',
+      },
+      {
+        path: '/void-shards',
+        label: 'Void Fragments',
+      },
+    ]
   },
   {
     path: '/ehp-calc',
