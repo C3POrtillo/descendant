@@ -16,6 +16,7 @@ const Index: FC<IndexProps> = ({ seo }) => (
     <Container>
       <div className="flex flex-col justify-center text-center text-lg">
         <h2 className="text-2xl">to-do (by easiest)</h2>
+        <p>Add module combinations table + costs</p>
         <p>Add filtering to descendants and modules</p>
         <p>Weapon Builder @ 100 w/ accurate DPS</p>
       </div>

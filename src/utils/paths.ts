@@ -17,7 +17,7 @@ export const tfd = [
     label: 'The First Descendant Assistant',
   },
   {
-    label: 'Data',
+    label: 'Equipment Data',
     options: [
       {
         path: '/dps',
@@ -41,11 +41,11 @@ export const tfd = [
         label: 'Modules',
       },
       {
-        path: '/modules/combinations',
+        path: '/modules',
         label: 'Combinations',
       },
       {
-        path: '/modules/costs',
+        path: '/modules',
         label: 'Upgrade Costs',
       },
     ],
