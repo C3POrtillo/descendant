@@ -129,11 +129,9 @@ export const filterAndSortPatterns = (
     return acc;
   }, [] as FilterCount[]);
 
-  // Sort by trueCount in descending order
   filteredPatterns.sort((a, b) => b.trueCount - a.trueCount);
 
-  // Extract sorted patterns
-  return filteredPatterns.map(item => item.pattern);
+  return filteredPatterns.map(({ pattern }) => pattern);
 };
 
 export const createFilterFromSet = (set: Set<string>, parts: readonly string[], transform: (item: string) => string) =>

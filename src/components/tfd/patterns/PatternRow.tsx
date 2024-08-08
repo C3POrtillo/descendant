@@ -23,15 +23,16 @@ const PatternRow: FC<RowProps> = ({ data }) => {
         const blueprintClass =
           3 <= index && index < 6 && typeof value === 'string' && getLabelClass(getBlueprintClass(value));
         const centerClass = index === 0 && 'justify-center text-center';
+        const noWrap = index < 3 && 'text-nowrap'
         const formattedValue =
           index === 0 &&
           [`${value}${stealth ? '*' : ''}`, variant, vaulted && '(Vaulted)'].filter(text => text).join('\n');
         const commonDivs =
           typeof value !== 'string' &&
-          value?.map(commonDrop => (
+          value?.map((commonDrop, dropIndex) => (
             <div
               key={commonDrop}
-              className={['flex w-1/2 items-center', getLabelClass(getBlueprintClass(commonDrop))].join(' ')}
+              className={['flex items-center', getLabelClass(getBlueprintClass(commonDrop)), dropIndex === 0 && 'border-b-1 border-white pb-1 mb-1'].join(' ')}
             >
               {commonDrop}
             </div>
@@ -40,13 +41,13 @@ const PatternRow: FC<RowProps> = ({ data }) => {
         return (
           <td
             key={[pattern, index].join('-')}
-            className={['p-4 text-lg 2xl:text-xl', patternClass, regionClass, blueprintClass]
+            className={['p-2 text-lg 2xl:text-xl', patternClass, regionClass, blueprintClass]
               .filter(string => string)
               .join(' ')}
           >
             {
               <div
-                className={['flex flex-row gap-4 whitespace-pre-wrap', centerClass].filter(string => string).join(' ')}
+                className={['flex flex-col whitespace-pre-wrap', centerClass, noWrap].filter(string => string).join(' ')}
               >
                 {commonDivs || formattedValue || value}
               </div>

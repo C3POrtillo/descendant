@@ -42,14 +42,14 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
       ref={dropdownRef}
       className="bg-hover relative flex w-full items-center justify-center rounded-xl px-4 text-left align-middle"
     >
-      <button onClick={toggleDropdown} className="text-link text-hover flex w-full justify-center gap-4 rounded-md">
+      <button onClick={toggleDropdown} className="text-link flex w-full justify-center gap-4 rounded-md">
         <span className="text-nowrap">{label}</span>
         <i className={['fa link-icon self-center', isOpen ? 'fa-chevron-up' : 'fa-chevron-down'].join(' ')} />
       </button>
       {isOpen && children && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
         <div
-          className="absolute left-0 top-0 z-10 mt-9 w-full gap-4 rounded-xl border-2 border-black bg-slate-900 p-4 shadow-lg shadow-black lg:mt-12 lg:w-auto"
+          className="absolute left-0 top-0 z-10 mt-9 w-full gap-4 rounded-xl border-2 border-black bg-slate-800 p-4 shadow-lg shadow-black lg:mt-12 lg:w-auto"
           onClick={handleChildClick}
         >
           <div className="flex min-h-max w-full min-w-full flex-col ">{children}</div>

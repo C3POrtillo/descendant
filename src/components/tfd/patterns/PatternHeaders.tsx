@@ -14,7 +14,7 @@ const formatData = (array: readonly (string | number)[]): HeadersType[] =>
     return {
       key: data,
       header: (
-        <div key={data} className={['flex flex-row items-center gap-4 px-4 py-1 md:py-4'].join(' ')}>
+        <div key={data} className={['flex flex-row items-center gap-4 px-2 py-1 md:py-4'].join(' ')}>
           <div className="text-lg lg:text-2xl">{data}</div>
           {isNumber && (
             <div className="flex w-1/2 flex-col text-nowrap text-sm lg:text-base">
