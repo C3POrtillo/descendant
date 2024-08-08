@@ -91,7 +91,9 @@ const Table: FC<TableProps> = ({
           .join(' ')}
       >
         <table className="w-full" {...props}>
-          <thead className={isSticky ? 'sticky-table-header' : undefined}>
+          <thead
+            className={['shadow-md shadow-black', isSticky && 'sticky-table-header'].filter(string => string).join(' ')}
+          >
             <tr className="h-1">{headersArray || (isValidElement(headers) && headers)}</tr>
           </thead>
           <tbody>{body}</tbody>
