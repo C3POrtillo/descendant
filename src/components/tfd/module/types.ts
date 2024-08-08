@@ -14,18 +14,46 @@ export type ModuleSocketTypes = keyof typeof socketImages;
 
 export const moduleTiersArray = [...tiers, 'Transcendent'] as const;
 export const moduleTypes = [
-  'Special Mod',
-  'Attribute ATK',
+  null,
+  'ATK',
+  'Accuracy',
+  'Arche Tech',
   'Attack',
+  'Attribute ATK',
   'Battle',
-  'HP',
-  'Shield',
-  'Defense',
-  'MP',
+  'Bullet Improvement',
   'Control',
+  'Cooldown',
+  'Defense',
+  'Final Hand',
+  'Fire Rate',
+  'Firearm Critical Hit Damage',
+  'Firearm Critical Hit Rate',
+  'Fortitude',
+  'Guard',
+  'HP',
+  'Luck',
+  'MP',
+  'Medical',
+  'Range',
+  'Recoil',
+  'Reload Time Modifier',
   'Resource',
+  'Rounds Conversion',
+  'Rounds per Magazine',
+  'Shield',
+  'Special Mod',
+  'Strike',
+  'Support Tech',
+  'Weak Point Strike'
 ] as const;
-export const moduleClass = ['Descendant', ''] as const;
+export const moduleClass = [
+  'Descendant',
+  'General Rounds',
+  'High-Power Rounds',
+  'Impact Rounds',
+  'Special Rounds'
+] as const;
 type ModuleTiersType = TiersType | 'Transcendent';
 type ModuleTypes = (typeof moduleTypes)[number];
 type ModuleClassTypes = (typeof moduleClass)[number];

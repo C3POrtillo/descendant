@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = ({ seo }) => {
   return (
     <>
       <NextSeo {...seo} />
-      <header className="sticky-header flex flex-col place-items-center justify-center bg-slate-800 text-center shadow-md shadow-black lg:py-3">
+      <header className="sticky-header flex flex-col place-items-center justify-center bg-slate-900 text-center shadow-md shadow-black lg:py-3">
         <div className="hidden h-14 content-center lg:flex">{homeLink}</div>
         <div className="hidden min-h-8 flex-row gap-4 lg:flex">{navLinks}</div>
 

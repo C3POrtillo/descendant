@@ -15,7 +15,7 @@ const Accordion: FC<AccordionProps> = ({ className, panelClassName, label, icon,
   const [isClickable] = useState(labelIsClickable || typeof label === 'string');
   const panelRef = useRef<HTMLDivElement>(null);
   const accordionRef = useRef<HTMLDivElement>(null);
-  const panelClasses = 'accordion-panel';
+  const panelClasses = 'accordion-panel bg-slate-800';
 
   const toggleDropdown = () => {
     setOpen(!isOpen);

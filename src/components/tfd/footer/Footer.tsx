@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import Socials from '@/components/socials/Socials';
 
 const Footer: FC = () => (
-  <footer className="flex flex-col place-items-center content-center justify-center gap-2 bg-slate-800 px-1 py-8 text-center lg:p-8">
+  <footer className="flex flex-col place-items-center content-center justify-center gap-2 bg-slate-900 px-1 py-8 text-center lg:p-8">
     <div className="flex flex-row gap-4">
       <div className="border-r-1 border-white px-4">
         <p className="text-base md:text-xl">Developed by: cam</p>

@@ -49,7 +49,7 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
       {isOpen && children && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
         <div
-          className="absolute left-0 top-0 mt-9 w-full gap-4 rounded-xl border-2 border-black bg-slate-900 p-4 shadow-lg shadow-black lg:mt-12 lg:w-auto"
+          className="absolute left-0 top-0 z-10 mt-9 w-full gap-4 rounded-xl border-2 border-black bg-slate-900 p-4 shadow-lg shadow-black lg:mt-12 lg:w-auto"
           onClick={handleChildClick}
         >
           <div className="flex min-h-max w-full min-w-full flex-col ">{children}</div>
