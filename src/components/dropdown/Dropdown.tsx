@@ -43,7 +43,7 @@ const Dropdown: FC<DropdownProps> = ({ label, children }) => {
       className="bg-hover relative flex w-full items-center justify-center rounded-xl px-4 text-left align-middle"
     >
       <button onClick={toggleDropdown} className="text-link text-hover flex w-full justify-center gap-4 rounded-md">
-        {label}
+        <span className="text-nowrap">{label}</span>
         <i className={['fa link-icon self-center', isOpen ? 'fa-chevron-up' : 'fa-chevron-down'].join(' ')} />
       </button>
       {isOpen && children && (
