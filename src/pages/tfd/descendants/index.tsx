@@ -32,9 +32,7 @@ const Index: FC<IndexProps> = ({ seo, descendants }) => {
     <>
       <Header seo={seo} />
       <Container>
-        <div className="descendant-data flex flex-row flex-wrap justify-center gap-4">
-          {descendantCards}
-        </div>
+        <div className="descendant-data flex flex-row flex-wrap justify-center gap-4">{descendantCards}</div>
       </Container>
       <Footer />
     </>
