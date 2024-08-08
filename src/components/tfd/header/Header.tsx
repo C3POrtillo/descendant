@@ -14,13 +14,11 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ seo }) => {
   const navLinks = tfd.slice(1).map(data => {
-    const className = 'bg-hover tfd-link text-link text-hover'
+    const className = 'bg-hover tfd-link text-link text-hover';
     if (data.options && data.label?.length) {
       const { label, options } = data;
 
-      const links = options.map(nestedData => (
-        <TFDLink className={className} key={nestedData.path} {...nestedData} />
-      ));
+      const links = options.map(nestedData => <TFDLink className={className} key={nestedData.path} {...nestedData} />);
 
       return (
         <Dropdown key={label} label={label}>
