@@ -10,7 +10,7 @@ interface NormalMissionTableProps {
   data: NormalDropType;
 }
 
-export const NormalMissionTable: FC<NormalMissionTableProps> = ({ data }) => {
+const NormalMissionTable: FC<NormalMissionTableProps> = ({ data }) => {
   const { headers, body } = descendantParts.reduce(
     (acc, part) => {
       const { zone, subregion, mission, type, dropRate } = data[part];
