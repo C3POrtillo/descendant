@@ -32,7 +32,7 @@ const ModuleCard: FC<ModuleAPIData> = ({
         </div>
       </div>
       <div className="flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border-2 border-black bg-slate-800 shadow-lg shadow-black">
-        <div className="relative flex w-full gap-1 pb-2 pl-2 pr-6 pt-4">
+        <div className="relative flex w-full gap-1 pb-2 pl-2 pr-10 pt-4">
           <ModuleLevel currentLevel={level} maxLevel={module_stat.length} setLevel={setLevel} />
           <div
             className={[
