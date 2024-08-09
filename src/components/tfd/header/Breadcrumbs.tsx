@@ -34,7 +34,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ slug }) => {
                 className="text-hover bg-hover rounded-md px-2 py-1"
                 label={label}
                 path={`/${paths.join('/')}`}
-                disabled={index === paths.length - 1} 
+                disabled={index === paths.length - 1}
               />
             </>
           );
