@@ -101,7 +101,7 @@ const VoidShards: FC<VoidShardsProps> = ({ filterMap, voidFragments, seo }) => {
           />
         </Container>
       )}
-      <Container>
+      <Container className="fragment-data subregion-data">
         <Table
           label="Void Fragment Locations"
           sublabel={<p className="pb-2 text-center text-xl text-yellow-200">Fast locations marked in gold</p>}
@@ -109,7 +109,6 @@ const VoidShards: FC<VoidShardsProps> = ({ filterMap, voidFragments, seo }) => {
           body={filteredRows.map(data => (
             <VoidFragmentRow key={data.subregion} data={data} />
           ))}
-          className="fragment-data subregion-data"
           sortDirection={sortDirection}
           sortColumn={sortColumn}
           setSortDirection={setSortDirection}

@@ -78,8 +78,8 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
   return (
     <>
       <Header seo={seo} />
-      <Container>
-        <fieldset className="reactor-data flex flex-col justify-center overflow-hidden rounded-xl border-2 border-black bg-slate-900 shadow-lg shadow-black xl:w-1/2">
+      <Container className="reactor-data">
+        <fieldset className="flex flex-col justify-center overflow-hidden rounded-xl border-2 border-black bg-slate-900 shadow-lg shadow-black xl:w-1/2">
           <legend className="px-2 text-center sm:px-4">
             <h2 className="text-3xl md:text-4xl">Reactor Stats</h2>
           </legend>
@@ -102,8 +102,8 @@ const Reactors: FC<ReactorsProps> = ({ reactors, seo, date }) => {
           </div>
         </fieldset>
       </Container>
-      <Container>
-        <fieldset className="reactor-data flex w-full flex-col justify-center gap-4 rounded-xl border-2 border-black bg-slate-900 p-4 text-center shadow-lg shadow-black sm:w-auto">
+      <Container className="reactor-data ">
+        <fieldset className="flex w-full flex-col justify-center gap-4 rounded-xl border-2 border-black bg-slate-900 p-4 text-center shadow-lg shadow-black sm:w-auto">
           <legend className="px-2 sm:px-4">
             <h2 className="text-3xl md:text-4xl">Reactor Types</h2>
           </legend>

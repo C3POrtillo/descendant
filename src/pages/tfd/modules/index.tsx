@@ -58,8 +58,8 @@ const Index: FC<IndexProps> = ({ seo, modules, filterMap }) => {
   return (
     <>
       <Header seo={seo} />
-      <Container>
-        <div className="module-data flex flex-col justify-center gap-4 2xl:flex-row">
+      <Container className="module-data">
+        <div className="flex flex-col justify-center gap-4 2xl:flex-row">
           <div className="2xl:sticky-below-header flex h-min flex-row justify-center gap-4 2xl:w-1/6 2xl:flex-col">
             {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
             <div className="2xl:scroll-bar-left scroll-bar-thin 2xl: mt-4 flex flex-row flex-wrap items-start justify-center gap-4 2xl:max-h-[84vh] 2xl:overflow-auto 2xl:px-2 2xl:pb-2">

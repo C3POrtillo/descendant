@@ -62,8 +62,8 @@ const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
   return (
     <>
       <Header seo={seo} />
-      <Container>
-        <div className="descendant-data flex flex-col justify-center gap-4 2xl:flex-row">
+      <Container className="descendant-data">
+        <div className="flex flex-col justify-center gap-4 2xl:flex-row">
           <div className="2xl:sticky-below-header flex h-min flex-row justify-center gap-4 2xl:w-1/6 2xl:flex-col">
             <div className="flex flex-row flex-wrap justify-center gap-4 2xl:mt-4">
               <div className="w-full rounded-md border-2 border-black bg-slate-900 p-2 shadow-md shadow-black">

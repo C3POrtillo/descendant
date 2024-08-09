@@ -94,10 +94,10 @@ const ExternalComponents: FC<ExternalComponentsProps> = ({
           ))}
         </div>
       </Container>
-      <Container>
+      <Container className="external-component-data">
         <div className="flex flex-col gap-1 2xl:flex-row 2xl:gap-4">
           <div className="2xl:sticky-below-header flex h-min flex-row justify-center gap-4 pt-5 2xl:w-1/6 2xl:flex-col">
-            <div className="external-component-data flex flex-row flex-wrap justify-center gap-4">
+            <div className="flex flex-row flex-wrap justify-center gap-4">
               <FilterOptions filterOptions={filterOptions} filter={filter} setFilter={setFilter} />
             </div>
           </div>

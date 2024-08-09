@@ -49,8 +49,8 @@ const Descendant: FC<DescendantProps> = ({
   return (
     <>
       <Header seo={seo} slug={slug} />
-      <Container>
-        <div className="descendant-data flex w-full flex-col items-center overflow-hidden rounded-xl border-2 border-black bg-slate-800 shadow-lg shadow-black xl:flex-row">
+      <Container className="descendant-data">
+        <div className="flex w-full flex-col items-center overflow-hidden rounded-xl border-2 border-black bg-slate-800 shadow-lg shadow-black xl:flex-row">
           <div className="p-4">
             <DescendantCard {...descendant} />
           </div>

@@ -23,8 +23,8 @@ const Index: FC<IndexProps> = ({ seo }) => {
   return (
     <>
       <Header seo={seo} />
-      <Container>
-        <div className="module-data grid grid-cols-1 justify-center gap-3 lg:grid-cols-2 2xl:grid-cols-4">
+      <Container className="module-data">
+        <div className="grid grid-cols-1 justify-center gap-3 lg:grid-cols-2 2xl:grid-cols-4">
           {moduleCosts}
         </div>
       </Container>
