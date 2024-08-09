@@ -46,7 +46,11 @@ const Checkbox: FC<CheckboxProps> = ({ label, value, name, defaultChecked, filte
         }}
       />
       <div className="flex flex-row items-center justify-center gap-1 xl:gap-2">
-        {icon?.src && <Icon {...icon} />}
+        {icon?.src && (
+          <div>
+            <Icon {...icon} />
+          </div>
+        )}
         {label || value}
       </div>
     </label>
