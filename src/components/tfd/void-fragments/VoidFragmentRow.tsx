@@ -48,7 +48,9 @@ const VoidFragmentRow: FC<RowProps> = ({ data }) => (
           <div
             className={['flex flex-row items-center gap-2', textClass, centerNumber].filter(string => string).join(' ')}
           >
-            {icon.src && <Icon {...icon} />}
+            <div>
+              {icon.src && <Icon {...icon} />}
+            </div>
             {value}
           </div>
         </td>
