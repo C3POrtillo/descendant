@@ -28,7 +28,7 @@ const DescendantCard: FC<FormattedDescendantData> = ({
     <div className="flex w-full flex-col overflow-hidden rounded-lg border-2 border-black bg-slate-900 shadow-lg shadow-black">
       <div className="flex flex-row">
         <div className={['descendant-image relative border-r-2 border-black', imageBackground].join(' ')}>
-          <Image src={descendant_image_url} fill={true} alt={descendant_name} sizes="128" />
+          <Image src={descendant_image_url} fill={true} alt={descendant_name} sizes="128px" />
         </div>
         <div
           className={['flex flex-col justify-center gap-2 text-nowrap p-4 text-xl lg:text-2xl', labelClass].join(' ')}
