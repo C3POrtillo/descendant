@@ -17,7 +17,7 @@ export const classImages = {
   'Special Rounds': '/assets/images/rounds/special-rounds.png',
 };
 
-export type ModuleSocketTypes = keyof typeof socketImages;
+type ModuleSocketTypes = keyof typeof socketImages;
 
 export const kuiperCosts = {
   Standard: [300, 600, 1100, 2000, 3400, 5700, 9500, 15500, 25000, 40000],
