@@ -18,7 +18,7 @@ const WeaponRow: FC<FormattedWeaponData> = ({
   criticalWWeakPointDps,
   ...data
 }) => {
-  const tdClasses = 'text-center text-lg pr-7 md:text-lg lg:text-2xl 2xl:text-4xl';
+  const tdClasses = 'text-center text-lg pr-7 md:text-lg lg:text-2xl';
   const formattedStats = [
     delimitNumber(firearmAtk),
     magazineSize,

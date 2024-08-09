@@ -17,8 +17,9 @@ interface WeaponCardProps {
 }
 
 const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type, weapon_rounds_type, image_url }) => (
-  <div className="flex flex-col gap-2 overflow-hidden rounded-lg border-2 border-black bg-slate-800 pb-2 text-center text-lg shadow-md shadow-black 2xl:text-2xl">
+  <div className="flex flex-col gap-2 overflow-hidden rounded-lg border-2 border-black bg-slate-800 pb-2 text-center text-lg shadow-md shadow-black">
     <div className={['weapon-image relative', getBackgroundLinear(weapon_tier)].join(' ')}>
+      <Icon className="absolute right-1 top-1" src={roundsImages[weapon_rounds_type]} alt={weapon_rounds_type} backgroundClass="diamond" />
       <Image
         src={image_url}
         fill={true}
@@ -32,7 +33,6 @@ const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type
       <div className={getLabelClass(weapon_tier)}>{weapon_name}</div>
       <div className={getLabelClass(weapon_rounds_type)}>
         <div className="flex flex-row items-center justify-center gap-2">
-          <Icon src={roundsImages[weapon_rounds_type]} alt={weapon_rounds_type} backgroundClass="diamond" />
           {weapon_type}
         </div>
       </div>
