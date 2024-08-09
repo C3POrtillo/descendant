@@ -83,7 +83,7 @@ const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
             </div>
           </div>
           {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
-          <div className="flex flex-row flex-wrap justify-center gap-4 2xl:min-w-[61vw] 2xl:max-w-[61vw]">
+          <div className="mt-4 flex flex-row flex-wrap justify-center gap-4 2xl:min-w-[61vw] 2xl:max-w-[61vw]">
             {descendantCards}
           </div>
         </div>
