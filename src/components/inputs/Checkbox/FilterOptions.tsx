@@ -10,7 +10,7 @@ interface FilterOptionsProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
   filterOptions: FilterOptionsData[];
   filter?: FilterMap;
   setFilter?: React.Dispatch<React.SetStateAction<FilterMap>>;
-  type?: 'carousel' | 'containers';
+  type?: 'carousel' | 'containers' | 'accordion';
 }
 
 const FilterOptions: FC<FilterOptionsProps> = ({
@@ -32,6 +32,7 @@ const FilterOptions: FC<FilterOptionsProps> = ({
       defaultChecked={defaultChecked ?? 'all'}
       filter={filter}
       setFilter={setFilter}
+      type={type}
       {...props}
     />
   ));

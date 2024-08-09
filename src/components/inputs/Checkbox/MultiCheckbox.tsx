@@ -14,6 +14,7 @@ interface MultiCheckboxProps extends Omit<FieldsetHTMLAttributes<HTMLFieldSetEle
   defaultChecked?: DefaultCheckedType;
   filter?: FilterMap;
   setFilter?: React.Dispatch<React.SetStateAction<FilterMap>>;
+  type?: 'carousel' | 'containers' | 'accordion';
 }
 
 const MultiCheckbox: FC<MultiCheckboxProps> = ({
@@ -24,6 +25,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({
   defaultChecked = false,
   filter,
   setFilter,
+  type,
 }) => {
   const isLargeScreen = use2xlScreen();
 
@@ -46,15 +48,15 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({
     </div>
   );
 
-  return isLargeScreen ? (
+  return !isLargeScreen || type === 'accordion' ? (
+    <AccordionCheckbox label={label} checkboxContainer={checkboxContainer} name={name} />
+  ) : (
     <fieldset className={['input-hover w-max grow px-2 py-4', checkboxBorderClasses].join(' ')}>
       <legend className="px-4 text-center">
         <h2>{label}</h2>
       </legend>
       {checkboxContainer}
     </fieldset>
-  ) : (
-    <AccordionCheckbox label={label} checkboxContainer={checkboxContainer} name={name} />
   );
 };
 
