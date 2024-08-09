@@ -11,7 +11,7 @@ const inconsolata = Inconsolata({
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
-    <main className={`${inconsolata.variable} flex grow flex-col justify-between gap-8 font-sans`}>
+    <main className={`${inconsolata.variable} flex grow flex-col justify-between gap-4 font-sans`}>
       <Component {...pageProps} />
     </main>
     <Script async src="https://kit.fontawesome.com/ce4be88325.js" />
