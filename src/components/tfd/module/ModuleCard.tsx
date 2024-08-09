@@ -24,7 +24,7 @@ const ModuleCard: FC<ModuleAPIData> = ({
   const { module_capacity, value } = module_stat[level];
 
   return (
-    <div className="min-w-80 max-w-80">
+    <div className="min-full max-w-80">
       <div className="relative flex justify-center">
         <div className="absolute -top-4 z-10 flex flex-row items-center gap-2 rounded-md border-2 border-black bg-slate-900 px-2 py-1">
           <Icon src={socketImages[module_socket_type]} alt={module_socket_type} size="6" />
@@ -49,7 +49,7 @@ const ModuleCard: FC<ModuleAPIData> = ({
             <Icon src={classImages[module_class]} alt={module_class} backgroundClass="diamond" />
           </div>
         </div>
-        <div className="scroll-bar max-h-52 min-h-52 overflow-auto text-wrap px-4 pb-2">
+        <div className="scroll-bar-thin max-h-52 min-h-52 overflow-auto text-wrap px-4 pb-2">
           <p>{value}</p>
         </div>
         <div className="min-h-8 w-full bg-slate-900 py-1 text-center">{module_type}</div>

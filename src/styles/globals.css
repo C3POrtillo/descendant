@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply text-white font-semibold font-sans snap-y text-shadow-black-outline;
+    @apply scroll-bar-auto text-white font-semibold font-sans snap-y text-shadow-black-outline;
   }
   button {
     @apply text-shadow-black-outline;
@@ -54,10 +54,6 @@
     @apply max-h-0 flex w-full flex-col gap-4 px-6 bg-slate-800 rounded-b-lg;
     transition: max-height 0.1s ease-in-out, padding 0.1s ease-in-out;
   }
-  .scroll-bar {
-    scrollbar-width: thin;
-    scrollbar-color: #94a3b8 #0f172a;
-  }
   .descendant-card-stats {
     @apply grid text-lg;
     grid-template-columns: 4fr 1fr;
@@ -77,6 +73,12 @@
 }
 
 @layer utilities {
+  .scroll-bar-thin {
+    scrollbar-width: thin;
+  }
+  .scroll-bar-auto {
+    scrollbar-color: #94a3b8 #0f172a;
+  }
   .input-hover {
     @apply hover:shadow-outline hover:shadow-yellow-200 hover:border-yellow-200;
   }
