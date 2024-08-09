@@ -1,3 +1,4 @@
+import type { FilterOptionsData } from '@/components/inputs/types';
 import type { TiersType } from '@/utils/types';
 
 export const socketImages = {
@@ -29,7 +30,7 @@ export const costTypes = ['Kuiper', 'Gold'];
 export const costSublabels = ['Cost', 'Total'];
 
 export const moduleTypes = [
-  null,
+  'None',
   'ATK',
   'Accuracy',
   'Arche Tech',
@@ -64,6 +65,8 @@ export const moduleTypes = [
 ] as const;
 export type ModuleTiersType = TiersType | 'Transcendent';
 export const moduleTiers = Object.keys(kuiperCosts) as ModuleTiersType[];
+export const moduleSockets = Object.keys(socketImages) as ModuleSocketTypes[];
+export const moduleClasses = Object.keys(classImages) as ModuleClassTypes[];
 type ModuleTypes = (typeof moduleTypes)[number];
 type ModuleClassTypes = keyof typeof classImages;
 
@@ -275,3 +278,43 @@ export const probabilities = {
     Transcendent: 100,
   },
 } as Record<string, Probability>;
+
+export type ModuleFilterMap = Partial<
+  Record<ModuleSocketTypes | ModuleClassTypes | ModuleTiersType | ModuleTypes, boolean | undefined>
+>;
+
+export const moduleOptions: FilterOptionsData[] = [
+  {
+    label: 'Tier',
+    name: 'tier',
+    data: moduleTiers.map(value => ({ value })),
+  },
+  {
+    label: 'Class',
+    name: 'class',
+    data: Object.entries(classImages).map(([value, src]) => ({
+      value,
+      icon: {
+        src,
+        backgroundClass: 'diamond',
+      },
+    })),
+  },
+  {
+    label: 'Socket',
+    name: 'socket',
+    data: Object.entries(socketImages).map(([value, src]) => ({
+      value,
+      icon: {
+        src,
+        backgroundClass: 'rounded-square',
+      },
+    })),
+  },
+];
+
+export const typeOptions: FilterOptionsData = {
+  label: 'Type',
+  name: 'module-type',
+  data: moduleTypes.map(value => ({ value })),
+};

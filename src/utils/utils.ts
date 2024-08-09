@@ -94,6 +94,7 @@ export const createLabelClass = (name: string, value: string): string => {
     case 'weapon-type':
     case 'enhance':
     case 'tier':
+    case 'class':
       return getLabelClass(value);
     default:
       return getLabelClass(name);

@@ -73,6 +73,13 @@
 }
 
 @layer utilities {
+  .scroll-bar-left {
+    direction: rtl;
+    scrollbar-gutter: stable;
+  }
+  .scroll-bar-left > * {
+    direction: ltr;
+  }
   .scroll-bar-thin {
     scrollbar-width: thin;
   }
@@ -224,7 +231,7 @@
       @apply text-red-500;
     }
   }
-  .weapon-data, .pattern-data {
+  .weapon-data, .pattern-data, .module-data  {
     .label-general-rounds {
       @apply text-neutral-100;
     }
