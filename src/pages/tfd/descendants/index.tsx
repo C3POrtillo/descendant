@@ -12,6 +12,7 @@ import type { NextSeoProps } from 'next-seo';
 import Container from '@/components/container/Container';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import DescendantCard from '@/components/tfd/descendants/DescendantCard';
+import { tierOptions } from '@/components/tfd/descendants/types'
 import { formatDescendantData } from '@/components/tfd/descendants/utils';
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
@@ -30,9 +31,10 @@ const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
 
   useEffect(() => {
     const currentFilter = descendants.reduce((acc, descendant) => {
-      const isValidDescendant = filter[descendant.attribute];
+      const isValidAttribute = filter[descendant.attribute];
+      const isValidTier = descendant.is_ultimate ? filter['Ultimate'] : filter['Standard']
 
-      if (isValidDescendant) {
+      if (isValidAttribute && isValidTier) {
         acc.push(descendant);
       }
 
@@ -58,7 +60,9 @@ const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
       <Container>
         <div className="descendant-data flex flex-col justify-center gap-4 2xl:flex-row">
           <div className="2xl:sticky-below-header flex h-min flex-row justify-center gap-4 2xl:w-1/6 2xl:flex-col">
-            <FilterOptions filterOptions={[attributeOptions]} filter={filter} setFilter={setFilter} />
+            <div className="flex flex-row flex-wrap justify-center gap-4">
+              <FilterOptions filterOptions={[attributeOptions, tierOptions]} filter={filter} setFilter={setFilter} />
+            </div>          
           </div>
           {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
           <div className="flex flex-row flex-wrap justify-center gap-4 2xl:min-w-[70vw] 2xl:max-w-[70vw]">
@@ -80,7 +84,7 @@ export const getStaticProps = (async () => {
     };
   }
 
-  const filterMap = createFilterMap(attributesArray) as DescendantFilterMap;
+  const filterMap = createFilterMap([...attributesArray, 'Standard', 'Ultimate']) as DescendantFilterMap;
 
   const descendants = (await (await fetch(process.env.DESCENDANT_JSON)).json()) as DescendantAPIData[];
 

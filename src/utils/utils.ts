@@ -92,6 +92,7 @@ export const createLabelClass = (name: string, value: string): string => {
     case 'external_component_tier':
     case 'weapon-type':
     case 'enhance':
+    case 'tier':
       return getLabelClass(value);
     default:
       return getLabelClass(name);

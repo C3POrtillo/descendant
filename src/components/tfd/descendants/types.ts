@@ -1,7 +1,9 @@
+import type { FilterOptionsData } from '@/components/inputs/types';
 import type { descendantParts } from '@/components/tfd/patterns/types';
 import type { SubregionTypes, ZonesTypes } from '@/components/tfd/void-fragments/types';
 import type { ArchesType, AttributesType } from '@/utils/attributes/types';
 import type { BaseStat } from '@/utils/types';
+
 
 export type DescendantStat = {
   level: number;
@@ -157,4 +159,16 @@ export const normalMissionDrops = {
   },
 } as const;
 
-export type DescendantFilterMap = Partial<Record<AttributesType, boolean | undefined>>;
+const tiers = ['Standard', 'Ultimate'] as const;
+
+type TiersType = (typeof tiers)[number]
+
+export type DescendantFilterMap = Partial<Record<AttributesType | TiersType, boolean | undefined>>;
+
+export const tierOptions: FilterOptionsData = {
+  label: 'Tier',
+  name: 'tier',
+  data: tiers.map(tier => ({
+    value: tier,
+  })),
+};
