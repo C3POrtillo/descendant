@@ -29,10 +29,10 @@ export const archesImages = archesArray.reduce((acc, arche) => {
 export const attributeOptions: FilterOptionsData = {
   label: 'Attribute',
   name: 'attribute',
-  data: Object.entries(attributesImages).map(([value, icon]) => ({
+  data: Object.entries(attributesImages).map(([value, { attribute: src }]) => ({
     value,
     icon: {
-      src: icon.attribute,
+      src,
       backgroundClass: 'hexagon',
     },
   })),
