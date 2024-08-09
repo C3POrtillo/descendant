@@ -21,7 +21,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ slug }) => {
 
   return (
     <Container className="m-0 justify-start">
-      <div className="flex flex-row items-center gap-2 lg:mx-16 2xl:mx-24">
+      <div className="flex flex-row items-center gap-2">
         {paths.map((path, index) => {
           const label = breadcrumbLabels[path] || titleCase(path);
 
