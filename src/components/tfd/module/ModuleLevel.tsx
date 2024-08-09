@@ -17,6 +17,7 @@ const ModuleLevel: FC<ModuleLevelProps> = ({ currentLevel, maxLevel, setLevel })
     const backgroundClass = isGreen ? 'bg-green-500' : 'bg-slate-700';
     levelPills.push(
       <button
+        key={i}
         className={i < maxLevel - 1 ? 'pt-0.5' : undefined}
         onClick={() => setLevel(i)}
         onMouseEnter={() => setHoveredIndex(i)}

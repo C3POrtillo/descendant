@@ -21,22 +21,20 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ slug }) => {
 
   return (
     <Container className="m-0 justify-start">
-      <div className="flex flex-row items-center gap-2">
+      <div className="flex flex-row gap-2">
         {paths.map((path, index) => {
           const label = breadcrumbLabels[path] || titleCase(path);
 
           return (
-            <>
-              {/* eslint-disable-next-line react/no-array-index-key */}
-              <p key={index}>/</p>
+            <div key={path} className="flex flex-row items-center gap-2">
+              <p>/</p>
               <TFDLink
-                key={path}
                 className="text-hover bg-hover rounded-md px-2 py-1"
                 label={label}
                 path={`/${paths.join('/')}`}
                 disabled={index === paths.length - 1}
               />
-            </>
+            </div>
           );
         })}
       </div>
