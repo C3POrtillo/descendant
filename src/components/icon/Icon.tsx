@@ -14,9 +14,11 @@ const Icon: FC<IconProps> = ({ src, alt, backgroundClass, size = '8' }) => {
 
   return (
     src && (
-      <div className={['relative flex min-h-6 min-w-6 flex-wrap', getSize()].join(' ')}>
-        {backgroundClass && <div className={backgroundClass} />}
-        <Image fill={true} sizes="100%" src={src} alt={alt || ''} quality={100} loading="lazy" />
+      <div>
+        <div className={['relative flex min-h-6 min-w-6 flex-wrap', getSize()].join(' ')}>
+          {backgroundClass && <div className={backgroundClass} />}
+          <Image fill={true} sizes="100%" src={src} alt={alt || ''} quality={100} loading="lazy" />
+        </div>
       </div>
     )
   );
