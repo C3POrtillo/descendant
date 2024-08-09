@@ -5,7 +5,11 @@ import { weaponTableHeaders } from '@/components/tfd/weapon/types';
 const WeaponHeaders = (): HeadersType[] =>
   weaponTableHeaders.map(key => ({
     key,
-    header: <div key={key} className="text-base">{key}</div>,
+    header: (
+      <div key={key} className="text-base">
+        {key}
+      </div>
+    ),
   }));
 
 export default WeaponHeaders;

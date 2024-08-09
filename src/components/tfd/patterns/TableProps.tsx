@@ -2,7 +2,7 @@ import PatternHeaders from '@/components/tfd/patterns/PatternHeaders';
 
 const commonProps = {
   className: 'pattern-data',
-  isSticky: true,
+  isStickyHeader: true,
   headerWidths: ['w-1/12', 'w-1/12', 'w-1/12', 'w-1/6', 'w-1/6', 'w-1/6', 'w-1/4'],
   isMaxWidth: true,
 } as const;

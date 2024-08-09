@@ -24,7 +24,8 @@ const ModuleCombinationTable: FC = () => {
       body={Object.entries(probabilities).map(([input, probability]) => (
         <ModuleCombinationRow key={input} input={input} probability={probability} />
       ))}
-      isSticky={true}
+      isStickyHeader={true}
+      isColumnSticky={true}
     />
   );
 };

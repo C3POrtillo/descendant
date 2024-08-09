@@ -84,7 +84,8 @@ const WeaponDps: FC<WeaponDPSProps> = ({ error, filterMap, weapons, seo }) => {
           sortColumn={sortColumn}
           setSortDirection={setSortDirection}
           setSortColumn={setSortColumn}
-          isSticky={true}
+          isStickyHeader={true}
+          isColumnSticky={true}
         />
       </Container>
       <Footer />

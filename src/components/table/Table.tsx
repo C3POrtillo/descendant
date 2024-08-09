@@ -13,7 +13,9 @@ interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
   headers?: HeadersType[] | ReactNode;
   headerWidths?: string[] | readonly string[];
   body?: ReactNode;
-  isSticky?: boolean;
+  isStickyHeader?: boolean;
+  isColumnSticky?: boolean;
+  stickyColumnIndex?: number;
   sortDirection?: DirectionValues;
   sortColumn?: string;
   setSortDirection?: React.Dispatch<React.SetStateAction<DirectionValues>>;
@@ -29,7 +31,9 @@ const Table: FC<TableProps> = ({
   headerWidths,
   body,
   className,
-  isSticky,
+  isStickyHeader,
+  isColumnSticky,
+  stickyColumnIndex = 0,
   sortDirection,
   sortColumn,
   setSortDirection,
@@ -45,9 +49,13 @@ const Table: FC<TableProps> = ({
     (headers as unknown[] as HeadersType[]).map((el, index) => {
       const { key, header } = typeof el === 'string' ? { key: el, header: el } : el;
       const width = headerWidths?.[index];
+      const stickyClass = isColumnSticky && index === stickyColumnIndex && 'sticky left-0 z-10';
 
       return (
-        <th key={key} className={['h-inherit text-lg lg:text-xl', width].filter(string => string).join(' ')}>
+        <th
+          key={key}
+          className={['h-inherit text-lg lg:text-xl', width, stickyClass].filter(string => string).join(' ')}
+        >
           {isSortHeader ? (
             <Button
               id={key}
@@ -85,16 +93,18 @@ const Table: FC<TableProps> = ({
       <div
         className={[
           'scroll-bar-thin max-w-sm overflow-auto sm:max-w-screen-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl 2xl:max-w-full',
-          isSticky && 'max-h-[75lvh] md:max-h-[80lvh]',
+          isStickyHeader && 'max-h-[75lvh] md:max-h-[80lvh]',
         ]
           .filter(string => string)
           .join(' ')}
       >
         <table className="w-full" {...props}>
           <thead
-            className={['shadow-md shadow-black', isSticky && 'sticky-table-header'].filter(string => string).join(' ')}
+            className={['shadow-md shadow-black', isStickyHeader && 'sticky-table-header']
+              .filter(string => string)
+              .join(' ')}
           >
-            <tr className="h-1">{headersArray || (isValidElement(headers) && headers)}</tr>
+            <tr className="relative h-1">{headersArray || (isValidElement(headers) && headers)}</tr>
           </thead>
           <tbody>{body}</tbody>
         </table>

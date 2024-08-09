@@ -113,7 +113,9 @@ const VoidShards: FC<VoidShardsProps> = ({ filterMap, voidFragments, seo }) => {
           sortColumn={sortColumn}
           setSortDirection={setSortDirection}
           setSortColumn={setSortColumn}
-          isSticky={true}
+          isStickyHeader={true}
+          isColumnSticky={true}
+          stickyColumnIndex={1}
         />
       </Container>
       <Footer />

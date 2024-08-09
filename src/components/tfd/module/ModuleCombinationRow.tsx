@@ -19,7 +19,7 @@ const ModuleCombinationRow: FC<ModuleCombinationRowProps> = ({ input, probabilit
 
   return (
     <tr>
-      <td className="border-r-1 border-black">
+      <td className="sticky left-0 bg-inherit">
         <div className="flex flex-row flex-wrap justify-center py-2 md:w-72">{inputData}</div>
       </td>
       {moduleTiers.map(tier => {

@@ -40,12 +40,17 @@ const ModuleCard: FC<ModuleAPIData> = ({
               imageBackground,
             ].join(' ')}
           >
-            <Image src={image_url} fill={true} alt={module_name} sizes="96px"/>
+            <Image src={image_url} fill={true} alt={module_name} sizes="96px" />
           </div>
           <div className="flex w-full pl-1">
             <h3 className={['text-wrap text-lg font-bold', labelClass].join(' ')}>{module_name}</h3>
           </div>
-          <Icon className="absolute right-1 top-1" src={classImages[module_class]} alt={module_class} backgroundClass="diamond" />
+          <Icon
+            className="absolute right-1 top-1"
+            src={classImages[module_class]}
+            alt={module_class}
+            backgroundClass="diamond"
+          />
         </div>
         <div className="scroll-bar-thin max-h-52 min-h-52 overflow-auto text-wrap px-4 pb-2">
           <p>{value}</p>

@@ -31,8 +31,9 @@ const WeaponRow: FC<FormattedWeaponData> = ({
   ];
 
   return (
-    <tr>
-      <td className="p-2">
+    // eslint-disable-next-line tailwindcss/no-arbitrary-value
+    <tr className="relative h-[200px]">
+      <td className="sticky left-0 p-2">
         <WeaponCard {...data} />
       </td>
       {formattedStats.map((value, index) => (
