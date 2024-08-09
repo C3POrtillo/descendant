@@ -23,11 +23,11 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
   <div className="external-component-data flex max-h-min w-full flex-col overflow-hidden rounded-lg border-2 border-black bg-slate-900 shadow-lg shadow-black">
     <div
       className={[
-        'flex flex-col justify-between border-b-2 border-black p-2 text-xl 2xl:text-2xl',
+        'flex flex-col justify-between border-b-2 border-black p-2 text-xl',
         getLabelClass(external_component_tier),
       ].join(' ')}
     >
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-2">
         <div
           className={[
             'external-component-image relative overflow-hidden rounded-md border-2 border-black shadow-md shadow-black',
@@ -43,7 +43,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
             className="overflow-hidden object-contain"
           />
         </div>
-        <div className="flex size-full flex-col justify-between p-2">
+        <div className="flex size-full flex-col justify-between">
           {external_component_name}
           <span>
             {stat.stat_id} {stat.stat_value}
@@ -52,7 +52,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
       </div>
     </div>
     {!!set_option_detail?.length && (
-      <div className="bg-slate-800 py-2 text-left text-lg text-white lg:text-xl">
+      <div className="h-full bg-slate-800 py-2 text-left text-lg text-white lg:text-xl">
         {set_option_detail.map(({ set_count, set_option_effect }) => (
           <div key={set_count}>
             <div className="pl-2">Set Count: {set_count}</div>
