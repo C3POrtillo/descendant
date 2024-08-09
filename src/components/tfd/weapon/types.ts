@@ -68,17 +68,15 @@ export const weaponOptions: FilterOptionsData[] = [
   {
     label: 'Tier',
     name: 'weapon-tier',
-    data: tiers.map(tier => ({
-      value: tier,
-    })),
+    data: tiers.map(value => ({ value })),
   },
   {
     label: 'Rounds',
     name: 'rounds-type',
-    data: roundsArray.map(rounds => ({
+    data: Object.entries(roundsImages).map(([rounds, icon]) => ({
       value: rounds,
       icon: {
-        src: roundsImages[rounds],
+        src: icon,
         backgroundClass: 'diamond',
       },
     })),
@@ -86,10 +84,10 @@ export const weaponOptions: FilterOptionsData[] = [
   {
     label: 'Type',
     name: 'weapon-type',
-    data: weaponArray.sort(stringCompare).map(weapon => ({
-      value: weapon,
+    data: weaponArray.sort(stringCompare).map(value => ({
+      value,
       icon: {
-        src: roundsImages[weaponToRounds(weapon)],
+        src: roundsImages[weaponToRounds(value)],
         backgroundClass: 'diamond',
       },
     })),

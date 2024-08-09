@@ -167,7 +167,5 @@ export type DescendantFilterMap = Partial<Record<AttributesType | TiersType, boo
 export const tierOptions: FilterOptionsData = {
   label: 'Tier',
   name: 'tier',
-  data: tiers.map(tier => ({
-    value: tier,
-  })),
+  data: tiers.map(value => ({ value })),
 };

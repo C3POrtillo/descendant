@@ -100,16 +100,12 @@ export const filterOptions: FilterOptionsData[] = [
   {
     label: 'Tier',
     name: 'external_component_tier',
-    data: tiers.slice(1).map(tier => ({
-      value: tier,
-    })),
+    data: tiers.slice(1).map(value => ({ value })),
   },
   {
     label: 'Component',
     name: 'external_component_equipment_type',
-    data: externalComponentsArray.map(component => ({
-      value: component,
-    })),
+    data: externalComponentsArray.map(value => ({ value })),
   },
 ];
 

@@ -295,10 +295,10 @@ export const shardsImages = shardsArray.reduce((acc, shard) => {
 export const fragmentOptions: FilterOptionsData = {
   label: 'Shard',
   name: 'shard',
-  data: shardsArray.map(shard => ({
-    value: shard,
+  data: Object.entries(shardsImages).map(([value, icon]) => ({
+    value,
     icon: {
-      src: shardsImages[shard],
+      src: icon,
     },
   })),
   defaultChecked: false,
@@ -308,7 +308,7 @@ export const zoneOptions: FilterOptionsData[] = [
   {
     label: 'Zone',
     name: 'zone',
-    data: zonesArray.map(zone => ({ value: zone })),
+    data: zonesArray.map(value => ({ value })),
   },
   ...zonesArray.map(key => ({
     label: key,
