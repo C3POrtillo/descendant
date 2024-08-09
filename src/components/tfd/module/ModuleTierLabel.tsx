@@ -1,14 +1,14 @@
 import type { ModuleTiersType } from '@/components/tfd/module/types';
 import type { FC } from 'react';
 
-import { getBackgroundClass } from '@/utils/utils';
+import { getBackgroundRadial } from '@/utils/utils';
 
 interface ModuleTierLabelProps {
   label: ModuleTiersType;
 }
 
 const ModuleTierLabel: FC<ModuleTierLabelProps> = ({ label }) => {
-  const backgroundClass = getBackgroundClass(label);
+  const backgroundClass = getBackgroundRadial(label);
 
   return (
     <span

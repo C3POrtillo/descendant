@@ -181,21 +181,35 @@
       @apply text-slate-200;
     }
   }
+  .module-data {
+    .bg-standard-radial {
+      @apply bg-gradient-radial from-black via-black to-blue-400;
+    }
+    .bg-rare-radial {
+      @apply bg-gradient-radial from-black via-black to-purple-500;
+    }
+    .bg-ultimate-radial {
+      @apply bg-gradient-radial from-black via-black to-yellow-200;
+    }
+    .bg-transcendent-radial {
+      @apply bg-gradient-radial from-black via-black to-red-500;
+    }
+  }
   .weapon-data, .external-component-data, .pattern-data, .reactor-data, .descendant-data, .module-data { 
     .bg-standard {
-      @apply bg-tier-gradient from-blue-400 via-black to-blue-400;
+      @apply bg-gradient-to-tl from-blue-400 via-black to-blue-400;
     }
     .bg-rare {
-      @apply bg-tier-gradient from-purple-500 via-black to-purple-500;
+      @apply bg-gradient-to-tl from-purple-500 via-black to-purple-500;
     }
     .bg-ultimate {
-      @apply bg-tier-gradient from-yellow-200 via-black to-yellow-200;
+      @apply bg-gradient-to-tl from-yellow-200 via-black to-yellow-200;
     }
     .bg-transcendent {
-      @apply bg-tier-gradient from-red-500 via-black to-red-500;
+      @apply bg-gradient-to-tl from-red-500 via-black to-red-500;
     }
     .bg-rare-ultimate {
-      @apply bg-tier-gradient from-yellow-200 via-black to-purple-500;
+      @apply bg-gradient-to-tl from-yellow-200 via-black to-purple-500;
     }
     .label-standard {
       @apply text-blue-400;

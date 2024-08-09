@@ -6,7 +6,7 @@ import type { FC } from 'react';
 
 import Icon from '@/components/icon/Icon';
 import { roundsImages } from '@/components/tfd/weapon/types';
-import { getBackgroundClass, getLabelClass } from '@/utils/utils';
+import { getBackgroundLinear, getLabelClass } from '@/utils/utils';
 
 interface WeaponCardProps {
   weapon_name: string;
@@ -18,7 +18,7 @@ interface WeaponCardProps {
 
 const WeaponCard: FC<WeaponCardProps> = ({ weapon_name, weapon_tier, weapon_type, weapon_rounds_type, image_url }) => (
   <div className="flex flex-col gap-2 overflow-hidden rounded-lg border-2 border-black bg-slate-800 pb-2 text-center text-lg shadow-md shadow-black 2xl:text-2xl">
-    <div className={['weapon-image relative', getBackgroundClass(weapon_tier)].join(' ')}>
+    <div className={['weapon-image relative', getBackgroundLinear(weapon_tier)].join(' ')}>
       <Image
         src={image_url}
         fill={true}

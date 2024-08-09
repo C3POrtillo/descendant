@@ -79,7 +79,8 @@ export const roundToHundreth = (number: number) => number.toFixed(2);
 
 export const addSuffixToValue = (value: string | number, string: string) => `${value}${string}`;
 
-export const getBackgroundClass = (tier: ModuleTiersType): string => `bg-${kebabCase(tier)}`;
+export const getBackgroundLinear = (tier: ModuleTiersType): string => `bg-${kebabCase(tier)}`;
+export const getBackgroundRadial = (tier: ModuleTiersType): string => `${getBackgroundLinear(tier)}-radial`;
 
 export const getLabelClass = (name: string): string => `label-${kebabCase(name)}`;
 

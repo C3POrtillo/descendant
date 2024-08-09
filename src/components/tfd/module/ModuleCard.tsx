@@ -7,7 +7,7 @@ import type { FC } from 'react';
 import Icon from '@/components/icon/Icon';
 import ModuleLevel from '@/components/tfd/module/ModuleLevel';
 import { classImages, socketImages } from '@/components/tfd/module/types';
-import { getBackgroundClass, getLabelClass } from '@/utils/utils';
+import { getBackgroundLinear, getLabelClass } from '@/utils/utils';
 
 const ModuleCard: FC<ModuleAPIData> = ({
   module_name,
@@ -20,7 +20,7 @@ const ModuleCard: FC<ModuleAPIData> = ({
 }) => {
   const [level, setLevel] = useState(0);
   const labelClass = getLabelClass(module_tier);
-  const imageBackground = getBackgroundClass(module_tier);
+  const imageBackground = getBackgroundLinear(module_tier);
   const { module_capacity, value } = module_stat[level];
 
   return (

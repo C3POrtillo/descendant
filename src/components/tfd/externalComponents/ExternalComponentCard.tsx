@@ -4,7 +4,7 @@ import type { FormattedExternalComponentData } from '@/components/tfd/externalCo
 import type { BaseStat, TiersType } from '@/utils/types';
 import type { FC } from 'react';
 
-import { getBackgroundClass, getLabelClass } from '@/utils/utils';
+import { getBackgroundLinear, getLabelClass } from '@/utils/utils';
 
 interface ExternalComponentCardProps extends Partial<FormattedExternalComponentData> {
   external_component_name: string;
@@ -31,7 +31,7 @@ const ExternalComponentCard: FC<ExternalComponentCardProps> = ({
         <div
           className={[
             'external-component-image relative overflow-hidden rounded-md border-2 border-black shadow-md shadow-black',
-            getBackgroundClass(external_component_tier),
+            getBackgroundLinear(external_component_tier),
           ].join(' ')}
         >
           <Image
