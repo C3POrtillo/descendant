@@ -53,7 +53,7 @@ export const getStaticProps = (async () => {
         title,
         description,
         openGraph: {
-          url: 'https://ortillo.cam/tfd/descendants',
+          url: 'https://ortillo.cam/tfd/modules',
           title,
           description,
           images: [{ url: 'https://ortillo.cam/logo-512x512.png' }],

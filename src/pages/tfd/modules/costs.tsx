@@ -1,4 +1,4 @@
-import type { ModuleAPIData, ModuleTiersType } from '@/components/tfd/module/types';
+import type { ModuleTiersType } from '@/components/tfd/module/types';
 import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
 import type { FC } from 'react';
@@ -34,28 +34,17 @@ const Index: FC<IndexProps> = ({ seo }) => {
 };
 
 export const getStaticProps = (async () => {
-  if (!process.env.MODULE_JSON) {
-    return {
-      props: {
-        error: true,
-      },
-    };
-  }
-
-  const modules = (await (await fetch(process.env.MODULE_JSON)).json()) as ModuleAPIData[];
-
   const title = 'The First Descendant (TFD) Module Costs';
   const description = `Tool for module costs in The First Descendant (TFD). 
     Displays all module tiers, their kuiper/gold cost per level and total kuiper/gold cost per level`;
 
   return {
     props: {
-      modules,
       seo: {
         title,
         description,
         openGraph: {
-          url: 'https://ortillo.cam/tfd/descendants',
+          url: 'https://ortillo.cam/tfd/modules/cost',
           title,
           description,
           images: [{ url: 'https://ortillo.cam/logo-512x512.png' }],
