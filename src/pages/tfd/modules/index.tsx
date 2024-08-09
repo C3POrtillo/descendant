@@ -36,7 +36,7 @@ const Index: FC<IndexProps> = ({ seo, modules, filterMap }) => {
       const regex = new RegExp(searchFilter, 'i');
       const { module_name, module_tier, module_socket_type, module_class, module_type, module_stat } = module;
       const isValidModule =
-        filter[module_tier] || filter[module_socket_type] || filter[module_class] || filter[module_type || 'None'];
+        filter[module_tier] && filter[module_socket_type] && filter[module_class] && filter[module_type || 'None'];
       const isValidSearch = !searchFilter || regex.test(module_name) || regex.test(module_stat[0].value);
 
       if (isValidModule && isValidSearch) {
