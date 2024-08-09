@@ -1,3 +1,5 @@
+import type { FilterOptionsData } from '@/components/inputs/types';
+
 export const attributesArray = ['Non-Attribute', 'Chill', 'Fire', 'Electric', 'Toxic'] as const;
 export type AttributesType = (typeof attributesArray)[number];
 
@@ -23,3 +25,15 @@ export const archesImages = archesArray.reduce((acc, arche) => {
 
   return acc;
 }, {} as Record<ArchesType, string>);
+
+export const attributeOptions: FilterOptionsData = {
+  label: 'Attribute',
+  name: 'attribute',
+  data: attributesArray.map(attribute => ({
+    value: attribute,
+    icon: {
+      src: attributesImages[attribute].attribute,
+      backgroundClass: 'hexagon',
+    },
+  })),
+};

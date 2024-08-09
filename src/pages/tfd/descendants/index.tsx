@@ -1,24 +1,48 @@
 import Link from 'next/link';
+import { type FC, useEffect, useState } from 'react';
 
-import type { DescendantAPIData, FormattedDescendantData } from '@/components/tfd/descendants/types';
+import type {
+  DescendantAPIData,
+  DescendantFilterMap,
+  FormattedDescendantData,
+} from '@/components/tfd/descendants/types';
 import type { GetStaticProps } from 'next/types';
 import type { NextSeoProps } from 'next-seo';
-import type { FC } from 'react';
 
 import Container from '@/components/container/Container';
+import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
 import DescendantCard from '@/components/tfd/descendants/DescendantCard';
 import { formatDescendantData } from '@/components/tfd/descendants/utils';
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
-import { kebabCase } from '@/utils/utils';
+import { attributeOptions, attributesArray } from '@/utils/attributes/types';
+import { createFilterMap, kebabCase } from '@/utils/utils';
 
 interface IndexProps {
   seo: NextSeoProps;
   descendants: FormattedDescendantData[];
+  filterMap: DescendantFilterMap;
 }
 
-const Index: FC<IndexProps> = ({ seo, descendants }) => {
-  const descendantCards = descendants.map(descendant => (
+const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
+  const [filteredDescendants, setFilteredDescendants] = useState(descendants);
+  const [filter, setFilter] = useState(filterMap);
+
+  useEffect(() => {
+    const currentFilter = descendants.reduce((acc, descendant) => {
+      const isValidDescendant = filter[descendant.attribute];
+
+      if (isValidDescendant) {
+        acc.push(descendant);
+      }
+
+      return acc;
+    }, [] as FormattedDescendantData[]);
+
+    setFilteredDescendants(currentFilter);
+  }, [filter]);
+
+  const descendantCards = filteredDescendants.map(descendant => (
     <Link
       key={descendant.descendant_id}
       href={`/tfd/descendants/${kebabCase(descendant.descendant_name)}`}
@@ -32,7 +56,15 @@ const Index: FC<IndexProps> = ({ seo, descendants }) => {
     <>
       <Header seo={seo} />
       <Container>
-        <div className="descendant-data flex flex-row flex-wrap justify-center gap-4">{descendantCards}</div>
+        <div className="descendant-data flex flex-col justify-center gap-4 2xl:flex-row">
+          <div className="2xl:sticky-below-header flex h-min flex-row justify-center gap-4 2xl:w-1/6 2xl:flex-col">
+            <FilterOptions filterOptions={[attributeOptions]} filter={filter} setFilter={setFilter} />
+          </div>
+          {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
+          <div className="flex flex-row flex-wrap justify-center gap-4 2xl:min-w-[70vw] 2xl:max-w-[70vw]">
+            {descendantCards}
+          </div>
+        </div>
       </Container>
       <Footer />
     </>
@@ -48,6 +80,8 @@ export const getStaticProps = (async () => {
     };
   }
 
+  const filterMap = createFilterMap(attributesArray) as DescendantFilterMap;
+
   const descendants = (await (await fetch(process.env.DESCENDANT_JSON)).json()) as DescendantAPIData[];
 
   const title = 'The First Descendant (TFD) All Descendants';
@@ -57,6 +91,7 @@ export const getStaticProps = (async () => {
   return {
     props: {
       descendants: formatDescendantData(descendants),
+      filterMap,
       seo: {
         title,
         description,

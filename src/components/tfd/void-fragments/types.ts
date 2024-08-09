@@ -1,7 +1,7 @@
 import type { FilterOptionsData, LabelData } from '@/components/inputs/types';
 import type { AttributesType } from '@/utils/attributes/types';
 
-import { attributesArray, attributesImages } from '@/utils/attributes/types';
+import { attributesImages } from '@/utils/attributes/types';
 
 export const voidFragmentData = {
   Kingston: {
@@ -292,30 +292,17 @@ export const shardsImages = shardsArray.reduce((acc, shard) => {
   return acc;
 }, {} as Record<ShardsType, string>);
 
-export const fragmentOptions: FilterOptionsData[] = [
-  {
-    label: 'Shard',
-    name: 'shard',
-    data: shardsArray.map(shard => ({
-      value: shard,
-      icon: {
-        src: shardsImages[shard],
-      },
-    })),
-    defaultChecked: false,
-  },
-  {
-    label: 'Attribute',
-    name: 'attribute',
-    data: attributesArray.map(attribute => ({
-      value: attribute,
-      icon: {
-        src: attributesImages[attribute].attribute,
-        backgroundClass: 'hexagon',
-      },
-    })),
-  },
-] as const;
+export const fragmentOptions: FilterOptionsData = {
+  label: 'Shard',
+  name: 'shard',
+  data: shardsArray.map(shard => ({
+    value: shard,
+    icon: {
+      src: shardsImages[shard],
+    },
+  })),
+  defaultChecked: false,
+} as const;
 
 export const zoneOptions: FilterOptionsData[] = [
   {

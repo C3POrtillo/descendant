@@ -27,7 +27,7 @@ import {
   zonesArray,
 } from '@/components/tfd/void-fragments/types';
 import { reformatZoneData } from '@/components/tfd/void-fragments/utils';
-import { attributesArray } from '@/utils/attributes/types';
+import { attributeOptions, attributesArray } from '@/utils/attributes/types';
 import use2xlScreen from '@/utils/useLargeScreen';
 import { createFilterMap, sortData, titleCase } from '@/utils/utils';
 
@@ -80,7 +80,7 @@ const VoidShards: FC<VoidShardsProps> = ({ filterMap, voidFragments, seo }) => {
       {isLargeScreen ? (
         <Container className="fragment-data subregion-data flex w-3/4 flex-row">
           <div className="flex h-min flex-row flex-wrap justify-center gap-4">
-            <FilterOptions filterOptions={fragmentOptions} filter={filter} setFilter={setFilter} />
+            <FilterOptions filterOptions={[fragmentOptions, attributeOptions]} filter={filter} setFilter={setFilter} />
           </div>
           <div className="flex flex-row flex-wrap justify-center gap-4">
             <FilterOptions filterOptions={zoneOptions} filter={filter} setFilter={setFilter} />
@@ -88,7 +88,11 @@ const VoidShards: FC<VoidShardsProps> = ({ filterMap, voidFragments, seo }) => {
         </Container>
       ) : (
         <Container className="fragment-data subregion-data flex flex-row flex-wrap">
-          <FilterOptions filterOptions={[...fragmentOptions, zoneOptions[0]]} filter={filter} setFilter={setFilter} />
+          <FilterOptions
+            filterOptions={[fragmentOptions, attributeOptions, zoneOptions[0]]}
+            filter={filter}
+            setFilter={setFilter}
+          />
           <FilterOptions
             filterOptions={[...zoneOptions.slice(1)]}
             filter={filter}

@@ -156,3 +156,5 @@ export const normalMissionDrops = {
     },
   },
 } as const;
+
+export type DescendantFilterMap = Partial<Record<AttributesType, boolean | undefined>>;
