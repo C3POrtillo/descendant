@@ -11,8 +11,9 @@ import type { NextSeoProps } from 'next-seo';
 
 import Container from '@/components/container/Container';
 import FilterOptions from '@/components/inputs/Checkbox/FilterOptions';
+import Text from '@/components/inputs/Text/Text';
 import DescendantCard from '@/components/tfd/descendants/DescendantCard';
-import { tierOptions } from '@/components/tfd/descendants/types'
+import { tierOptions } from '@/components/tfd/descendants/types';
 import { formatDescendantData } from '@/components/tfd/descendants/utils';
 import Footer from '@/components/tfd/footer/Footer';
 import Header from '@/components/tfd/header/Header';
@@ -27,12 +28,13 @@ interface IndexProps {
 
 const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
   const [filteredDescendants, setFilteredDescendants] = useState(descendants);
+  const [searchFilter, setSearchFilter] = useState('');
   const [filter, setFilter] = useState(filterMap);
 
   useEffect(() => {
     const currentFilter = descendants.reduce((acc, descendant) => {
       const isValidAttribute = filter[descendant.attribute];
-      const isValidTier = descendant.is_ultimate ? filter['Ultimate'] : filter['Standard']
+      const isValidTier = descendant.is_ultimate ? filter['Ultimate'] : filter['Standard'];
 
       if (isValidAttribute && isValidTier) {
         acc.push(descendant);
@@ -44,6 +46,19 @@ const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
     setFilteredDescendants(currentFilter);
   }, [filter]);
 
+  useEffect(() => {
+    const currentFilter = descendants.reduce((acc, descendant) => {
+      const regex = new RegExp(searchFilter);
+
+      if (!searchFilter || regex.test(descendant.descendant_name) || regex.test(descendant.attribute)) {
+        acc.push(descendant);
+      }
+
+      return acc;
+    }, [] as FormattedDescendantData[]);
+
+    setFilteredDescendants(currentFilter);
+  }, [searchFilter]);
   const descendantCards = filteredDescendants.map(descendant => (
     <Link
       key={descendant.descendant_id}
@@ -60,12 +75,15 @@ const Index: FC<IndexProps> = ({ seo, descendants, filterMap }) => {
       <Container>
         <div className="descendant-data flex flex-col justify-center gap-4 2xl:flex-row">
           <div className="2xl:sticky-below-header flex h-min flex-row justify-center gap-4 2xl:w-1/6 2xl:flex-col">
-            <div className="flex flex-row flex-wrap justify-center gap-4">
+            <div className="mt-4 flex flex-row flex-wrap justify-center gap-4">
+              <div className="rounded-md border-2 border-black bg-slate-900 p-2 shadow-md shadow-black">
+                <Text label="Name/Attribute" setState={setSearchFilter} placeholder="Search..." />
+              </div>
               <FilterOptions filterOptions={[attributeOptions, tierOptions]} filter={filter} setFilter={setFilter} />
-            </div>          
+            </div>
           </div>
           {/* eslint-disable-next-line tailwindcss/no-arbitrary-value */}
-          <div className="flex flex-row flex-wrap justify-center gap-4 2xl:min-w-[70vw] 2xl:max-w-[70vw]">
+          <div className="flex flex-row flex-wrap justify-center gap-4 2xl:min-w-[61vw] 2xl:max-w-[61vw]">
             {descendantCards}
           </div>
         </div>

@@ -4,7 +4,6 @@ import type { SubregionTypes, ZonesTypes } from '@/components/tfd/void-fragments
 import type { ArchesType, AttributesType } from '@/utils/attributes/types';
 import type { BaseStat } from '@/utils/types';
 
-
 export type DescendantStat = {
   level: number;
   stat_detail: BaseStat[];
@@ -161,7 +160,7 @@ export const normalMissionDrops = {
 
 const tiers = ['Standard', 'Ultimate'] as const;
 
-type TiersType = (typeof tiers)[number]
+type TiersType = (typeof tiers)[number];
 
 export type DescendantFilterMap = Partial<Record<AttributesType | TiersType, boolean | undefined>>;
 
