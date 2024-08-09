@@ -124,7 +124,6 @@ const Wishlist: FC<WishlistProps> = ({
           </Container>
         </>
       )}
-      <Container className="flex grow flex-col" />
       <Footer />
     </>
   );
