@@ -27,7 +27,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({
   setFilter,
   type,
 }) => {
-  const isLargeScreen = use2xlScreen();
+  const is2xlScreen = use2xlScreen();
 
   const gridSize = getCheckboxContainerClasses(checkboxContainerClasses, data.length);
 
@@ -48,7 +48,7 @@ const MultiCheckbox: FC<MultiCheckboxProps> = ({
     </div>
   );
 
-  return !isLargeScreen || type === 'accordion' ? (
+  return !is2xlScreen || type === 'accordion' ? (
     <AccordionCheckbox label={label} checkboxContainer={checkboxContainer} name={name} />
   ) : (
     <fieldset className={['input-hover w-max grow px-2 py-4', checkboxBorderClasses].join(' ')}>
